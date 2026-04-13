@@ -77,7 +77,7 @@ function verifyUpgrade(): string {
 
 function saveUpgradeState(oldVersion: string, newVersion: string) {
   try {
-    const dir = join(process.env.HOME || '', '.gbrain');
+    const dir = join(process.env.HOME || '', '.rbrain');
     mkdirSync(dir, { recursive: true });
     const statePath = join(dir, 'upgrade-state.json');
     const state: Record<string, unknown> = existsSync(statePath)
@@ -101,7 +101,7 @@ function saveUpgradeState(oldVersion: string, newVersion: string) {
  */
 export function runPostUpgrade() {
   try {
-    const statePath = join(process.env.HOME || '', '.gbrain', 'upgrade-state.json');
+    const statePath = join(process.env.HOME || '', '.rbrain', 'upgrade-state.json');
     if (!existsSync(statePath)) return;
     const state = JSON.parse(readFileSync(statePath, 'utf-8'));
     const lastUpgrade = state.last_upgrade;
@@ -187,7 +187,7 @@ export function detectInstallMethod(): 'bun' | 'binary' | 'clawhub' | 'unknown' 
   }
 
   // Check if running as compiled binary
-  if (execPath.endsWith('/gbrain') || execPath.endsWith('\\gbrain.exe')) {
+  if (execPath.endsWith('.rbrain') || execPath.endsWith('\\gbrain.exe')) {
     return 'binary';
   }
 

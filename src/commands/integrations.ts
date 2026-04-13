@@ -2,7 +2,7 @@
  * gbrain integrations — standalone CLI command for recipe discovery and health.
  *
  * NOT an operation (no database connection needed).
- * Reads embedded recipe files and heartbeat JSONL from ~/.gbrain/integrations/.
+ * Reads embedded recipe files and heartbeat JSONL from ~/.rbrain/integrations/.
  *
  * ARCHITECTURE:
  *   recipes/*.md (embedded at build time)
@@ -15,7 +15,7 @@
  *     ├── test    → validate recipe file
  *     └── (bare)  → dashboard view
  *
- *   ~/.gbrain/integrations/<id>/heartbeat.jsonl
+ *   ~/.rbrain/integrations/<id>/heartbeat.jsonl
  *     └── append-only, pruned to 30 days on read
  */
 
@@ -168,7 +168,7 @@ function findRecipe(id: string): ParsedRecipe | null {
 // --- Heartbeat ---
 
 function heartbeatDir(id: string): string {
-  return join(homedir(), '.gbrain', 'integrations', id);
+  return join(homedir(), '.rbrain', 'integrations', id);
 }
 
 function heartbeatPath(id: string): string {
