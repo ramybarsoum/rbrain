@@ -12,8 +12,13 @@ export type AuthEnv = {
 };
 
 export async function authMiddleware(c: Context<AuthEnv>, next: Next) {
+  // Accept token via Authorization header OR ?key= query param.
+  // The query-param form exists so Claude iOS / other clients that only
+  // accept a URL (no custom headers) can still authenticate.
   const authHeader = c.req.header('Authorization');
-  const token = authHeader?.startsWith('Bearer ') ? authHeader.slice(7) : null;
+  const headerToken = authHeader?.startsWith('Bearer ') ? authHeader.slice(7) : null;
+  const queryToken = c.req.query('key') || null;
+  const token = headerToken || queryToken;
 
   // Unauthenticated health check (both "/" and ".../health")
   if (!token) {
