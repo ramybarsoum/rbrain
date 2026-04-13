@@ -156,7 +156,7 @@ export async function connect(config: EngineConfig): Promise<void> {
     throw new GBrainError(
       'Cannot connect to database',
       msg,
-      'Check your connection URL in ~/.gbrain/config.json',
+      'Check your connection URL in ~/.rbrain/config.json',
     );
   }
 }

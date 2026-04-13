@@ -103,7 +103,7 @@ async function initMigrateOnly(opts: { jsonOutput: boolean }) {
 }
 
 async function initPGLite(opts: { jsonOutput: boolean; apiKey: string | null; customPath: string | null }) {
-  const dbPath = opts.customPath || join(homedir(), '.gbrain', 'brain.pglite');
+  const dbPath = opts.customPath || join(homedir(), '.rbrain', 'brain.pglite');
   console.log(`Setting up local brain with PGLite (no server needed)...`);
 
   const engine = await createEngine({ engine: 'pglite' });
