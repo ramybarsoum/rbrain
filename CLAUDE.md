@@ -1,11 +1,26 @@
 # CLAUDE.md
 
-GBrain is a personal knowledge brain and GStack mod for agent platforms. Pluggable
-engines: PGLite (embedded Postgres via WASM, zero-config default) or Postgres + pgvector
-+ hybrid search in a managed Supabase instance. `gbrain init` defaults to PGLite;
-suggests Supabase for 1000+ files. GStack teaches agents how to code. GBrain teaches
-agents everything else: brain ops, signal detection, content ingestion, enrichment,
-cron scheduling, reports, identity, and access control.
+GBrain is a personal knowledge brain. Pluggable engines: PGLite (embedded Postgres
+via WASM, zero-config) or Postgres + pgvector + hybrid search in a managed
+Supabase instance. `gbrain init` defaults to PGLite; suggests Supabase for 1000+ files.
+
+## This machine's active brain
+
+The active brain on this machine is **Supabase project `rlgonegzlxakquoiyzqq`**
+(formerly RBrain-V0). Connection details live in `/Users/cole/RBrain/.env` (0600,
+gitignored) and `~/.gbrain/config.json` (0600). V0's original schema and data are
+preserved in the `v0_archive` schema of the same Postgres instance for future
+migration. Do NOT touch `v0_archive` without explicit instructions — it contains
+9.3k thoughts, 1.7k learnings, 1.5k follow-ups, 1.3k decisions, and more.
+
+Supabase dashboard: https://supabase.com/dashboard/project/rlgonegzlxakquoiyzqq
+Pooler host: `aws-1-us-east-1.pooler.supabase.com:5432` (session pooler; the
+transaction pooler on 6543 was timing out at cutover time).
+
+The stdio MCP server is wired into Claude Code, Cursor, and Codex via
+`/Users/cole/RBrain/scripts/rbrain-mcp-stdio.sh` (cds into the repo, sources `.env`,
+execs `bun src/cli.ts serve`). OpenClaw uses the existing `openclaw.plugin.json`
+manifest (ClawHub plugin flow, not a direct config edit).
 
 ## Architecture
 
