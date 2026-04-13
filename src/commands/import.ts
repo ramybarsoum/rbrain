@@ -61,7 +61,7 @@ export async function runImport(engine: BrainEngine, args: string[], opts: { com
   console.log(`Found ${allFiles.length} markdown files`);
 
   // Resume from checkpoint if available
-  const checkpointPath = gbrainPath('import-checkpoint.json');
+  const checkpointPath = join(homedir(), '.rbrain', 'import-checkpoint.json');
   let files = allFiles;
   let resumeIndex = 0;
 
@@ -137,7 +137,7 @@ export async function runImport(engine: BrainEngine, args: string[], opts: { com
       // Save checkpoint every 100 files — track completed file set, not just a counter
       if (processed % 100 === 0) {
         try {
-          const cpDir = gbrainPath();
+          const cpDir = join(homedir(), '.rbrain');
           if (!existsSync(cpDir)) { const { mkdirSync } = await import('fs'); mkdirSync(cpDir, { recursive: true }); }
           writeFileSync(checkpointPath, JSON.stringify({
             dir, totalFiles: allFiles.length,
@@ -301,7 +301,7 @@ export function collectMarkdownFiles(dir: string): string[] {
         // lstatSync, not statSync: we must NOT follow symlinks. A symlink
         // inside the brain directory can point to any file the importing
         // user can read, so a contributor to a shared brain could plant
-        // notes/innocent.md as a symlink to ~/.gbrain/config.json, /etc/passwd,
+        // notes/innocent.md as a symlink to ~/.rbrain/config.json, /etc/passwd,
         // or another sensitive file outside the brain root — and on the
         // next `gbrain import` it would be read, chunked, embedded, and
         // indexed, at which point a bearer-token holder could exfiltrate

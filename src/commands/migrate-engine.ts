@@ -46,7 +46,7 @@ function parseArgs(args: string[]): MigrateOpts {
 }
 
 function getManifestPath(): string {
-  return gbrainPath('migrate-manifest.json');
+  return join(homedir(), '.rbrain', 'migrate-manifest.json');
 }
 
 interface MigrateManifest {
@@ -97,7 +97,7 @@ export async function runMigrateEngine(sourceEngine: BrainEngine, args: string[]
       process.exit(1);
     }
   } else {
-    targetConfig.database_path = opts.targetPath || gbrainPath('brain.pglite');
+    targetConfig.database_path = opts.targetPath || join(homedir(), '.rbrain', 'brain.pglite');
   }
 
   // Connect to target

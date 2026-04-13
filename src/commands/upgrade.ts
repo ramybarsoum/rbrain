@@ -134,7 +134,7 @@ export function recordUpgradeError(record: {
 
 function saveUpgradeState(oldVersion: string, newVersion: string) {
   try {
-    const dir = join(process.env.HOME || '', '.gbrain');
+    const dir = join(process.env.HOME || '', '.rbrain');
     mkdirSync(dir, { recursive: true });
     const statePath = join(dir, 'upgrade-state.json');
     const state: Record<string, unknown> = existsSync(statePath)
@@ -180,21 +180,31 @@ export async function runPostUpgrade(args: string[] = []): Promise<void> {
   }
   // Cosmetic: print feature pitches for migrations newer than the prior binary.
   try {
-    const statePath = join(process.env.HOME || '', '.gbrain', 'upgrade-state.json');
-    if (existsSync(statePath)) {
-      const state = JSON.parse(readFileSync(statePath, 'utf-8'));
-      const from = state?.last_upgrade?.from;
-      if (from) {
-        const { migrations } = await import('./migrations/index.ts');
-        for (const m of migrations) {
-          if (isNewerThan(m.version, from)) {
-            console.log('');
-            console.log(`NEW: ${m.featurePitch.headline}`);
-            if (m.featurePitch.description) console.log(m.featurePitch.description);
-            if (m.featurePitch.recipe) {
-              console.log(`Run \`gbrain integrations show ${m.featurePitch.recipe}\` to set it up.`);
-            }
-            console.log('');
+    const statePath = join(process.env.HOME || '', '.rbrain', 'upgrade-state.json');
+    if (!existsSync(statePath)) return;
+    const state = JSON.parse(readFileSync(statePath, 'utf-8'));
+    const lastUpgrade = state.last_upgrade;
+    if (!lastUpgrade?.from || !lastUpgrade?.to) return;
+
+    // Find migration files in version range
+    const migrationsDir = findMigrationsDir();
+    if (!migrationsDir) return;
+
+    const files = readdirSync(migrationsDir)
+      .filter(f => f.match(/^v\d+\.\d+\.\d+\.md$/))
+      .sort();
+
+    for (const file of files) {
+      const version = file.replace(/^v/, '').replace(/\.md$/, '');
+      if (isNewerThan(version, lastUpgrade.from)) {
+        const content = readFileSync(join(migrationsDir, file), 'utf-8');
+        const pitch = extractFeaturePitch(content);
+        if (pitch) {
+          console.log('');
+          console.log(`NEW: ${pitch.headline}`);
+          if (pitch.description) console.log(pitch.description);
+          if (pitch.recipe) {
+            console.log(`Run \`gbrain integrations show ${pitch.recipe}\` to set it up.`);
           }
         }
       }
@@ -243,7 +253,7 @@ export function detectInstallMethod(): 'bun' | 'binary' | 'clawhub' | 'unknown' 
   }
 
   // Check if running as compiled binary
-  if (execPath.endsWith('/gbrain') || execPath.endsWith('\\gbrain.exe')) {
+  if (execPath.endsWith('.rbrain') || execPath.endsWith('\\gbrain.exe')) {
     return 'binary';
   }
 

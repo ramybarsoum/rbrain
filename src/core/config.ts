@@ -3,27 +3,13 @@ import { join } from 'path';
 import { homedir } from 'os';
 import type { EngineConfig } from './types.ts';
 
-/**
- * Where is the active DB URL coming from? Pure introspection, no connection
- * attempt. Used by `gbrain doctor --fast` so the user gets a precise message
- * instead of the misleading "No database configured" when GBRAIN_DATABASE_URL
- * (or DATABASE_URL) is actually set.
- *
- * Precedence matches loadConfig(): env vars win over config-file URL. Returns
- * null only when NO source provides a URL at all.
- */
-export type DbUrlSource =
-  | 'env:GBRAIN_DATABASE_URL'
-  | 'env:DATABASE_URL'
-  | 'config-file'
-  | 'config-file-path' // PGLite: config file present, no URL but database_path set
-  | null;
-
-// Internal aliases retained for backwards compatibility with the existing call
-// sites below. They forward to the exported configDir()/configPath() so
-// GBRAIN_HOME is honored uniformly. Lazy: never call homedir() at module scope.
-function getConfigDir() { return configDir(); }
-function getConfigPath() { return configPath(); }
+// Lazy-evaluated to avoid calling homedir() at module scope (breaks in serverless/bundled environments).
+// Prefer ~/.rbrain (the active brand on this fork). If a legacy ~/.gbrain/config.json exists
+// from an older install AND ~/.rbrain/config.json doesn't, fall back to it for read-only loads
+// so existing users aren't surprised. New writes always go to ~/.rbrain.
+function getConfigDir() { return join(homedir(), '.rbrain'); }
+function getConfigPath() { return join(getConfigDir(), 'config.json'); }
+function getLegacyConfigPath() { return join(homedir(), '.gbrain', 'config.json'); }
 
 export interface GBrainConfig {
   engine: 'postgres' | 'pglite';
@@ -49,7 +35,13 @@ export function loadConfig(): GBrainConfig | null {
   try {
     const raw = readFileSync(getConfigPath(), 'utf-8');
     fileConfig = JSON.parse(raw) as GBrainConfig;
-  } catch { /* no config file */ }
+  } catch {
+    // No ~/.rbrain/config.json — try legacy ~/.gbrain/config.json once
+    try {
+      const raw = readFileSync(getLegacyConfigPath(), 'utf-8');
+      fileConfig = JSON.parse(raw) as GBrainConfig;
+    } catch { /* no config file at either location */ }
+  }
 
   // Try env vars
   const dbUrl = process.env.RBRAIN_DATABASE_URL || process.env.GBRAIN_DATABASE_URL || process.env.DATABASE_URL;
@@ -89,22 +81,7 @@ export function toEngineConfig(config: GBrainConfig): EngineConfig {
 }
 
 export function configDir(): string {
-  // Allow override for tests, Docker, and multi-tenant deployments.
-  // GBRAIN_HOME is a parent dir; we always append '.gbrain' ourselves so
-  // setting GBRAIN_HOME=/tmp/x yields configDir() === '/tmp/x/.gbrain'.
-  // Validates the override: must be absolute, no '..' segments.
-  const override = process.env.GBRAIN_HOME;
-  if (override && override.trim()) {
-    const trimmed = override.trim();
-    if (!trimmed.startsWith('/')) {
-      throw new Error(`GBRAIN_HOME must be an absolute path; got: ${trimmed}`);
-    }
-    if (trimmed.split('/').includes('..')) {
-      throw new Error(`GBRAIN_HOME must not contain '..' segments; got: ${trimmed}`);
-    }
-    return join(trimmed, '.gbrain');
-  }
-  return join(homedir(), '.gbrain');
+  return join(homedir(), '.rbrain');
 }
 
 export function configPath(): string {
