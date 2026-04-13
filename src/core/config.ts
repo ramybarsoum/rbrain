@@ -50,7 +50,7 @@ export function loadConfig(): GBrainConfig | null {
   } catch { /* no config file */ }
 
   // Try env vars
-  const dbUrl = process.env.GBRAIN_DATABASE_URL || process.env.DATABASE_URL;
+  const dbUrl = process.env.RBRAIN_DATABASE_URL || process.env.GBRAIN_DATABASE_URL || process.env.DATABASE_URL;
 
   if (!fileConfig && !dbUrl) return null;
 

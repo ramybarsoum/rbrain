@@ -7,6 +7,24 @@ suggests Supabase for 1000+ files. GStack teaches agents how to code. GBrain tea
 agents everything else: brain ops, signal detection, content ingestion, enrichment,
 cron scheduling, reports, identity, and access control.
 
+## This machine's active brain
+
+The active brain on this machine is **Supabase project `rlgonegzlxakquoiyzqq`**
+(formerly RBrain-V0). Connection details live in `/Users/cole/RBrain/.env` (0600,
+gitignored) and `~/.gbrain/config.json` (0600). V0's original schema and data are
+preserved in the `v0_archive` schema of the same Postgres instance for future
+migration. Do NOT touch `v0_archive` without explicit instructions — it contains
+9.3k thoughts, 1.7k learnings, 1.5k follow-ups, 1.3k decisions, and more.
+
+Supabase dashboard: https://supabase.com/dashboard/project/rlgonegzlxakquoiyzqq
+Pooler host: `aws-1-us-east-1.pooler.supabase.com:5432` (session pooler; the
+transaction pooler on 6543 was timing out at cutover time).
+
+The stdio MCP server is wired into Claude Code, Cursor, and Codex via
+`/Users/cole/RBrain/scripts/rbrain-mcp-stdio.sh` (cds into the repo, sources `.env`,
+execs `bun src/cli.ts serve`). OpenClaw uses the existing `openclaw.plugin.json`
+manifest (ClawHub plugin flow, not a direct config edit).
+
 ## Architecture
 
 Contract-first: `src/core/operations.ts` defines ~41 shared operations (adds `find_orphans` in v0.12.3). CLI and MCP
