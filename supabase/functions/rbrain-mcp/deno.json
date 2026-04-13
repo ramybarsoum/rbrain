@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "@modelcontextprotocol/sdk/": "npm:/@modelcontextprotocol/sdk@1.20.0/",
+    "hono": "npm:hono@4.6.14",
+    "@hono/mcp": "npm:@hono/mcp@0.1.4",
+    "postgres": "npm:postgres@3.4.5",
+    "zod": "npm:zod@3.23.8"
+  },
+  "compilerOptions": {
+    "lib": ["deno.window", "dom"],
+    "strict": true
+  }
+}
