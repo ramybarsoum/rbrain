@@ -1,0 +1,25 @@
+{
+  "edit_history_tweet_ids": [
+    "2043834045478608901"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 7
+  },
+  "created_at": "2026-04-13T23:29:43.000Z",
+  "id": "2043834045478608901",
+  "author_id": "189222358",
+  "text": "While Claude is amazing, and growing at a rate we've never seen a company grow before, Claude Code and Cowork are not \"good\" products. \n\nTo be clear, Claude models are awe inducing technologies, but the products they power have a super steep learning curve, terrible onboarding,",
+  "_author": {
+    "id": "189222358",
+    "name": "JH Scherck",
+    "username": "JHTScherck"
+  },
+  "_collected_at": "2026-04-13T23:31:35.719Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

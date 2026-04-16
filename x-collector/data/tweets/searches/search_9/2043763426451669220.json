@@ -1,0 +1,62 @@
+{
+  "edit_history_tweet_ids": [
+    "2043763426451669220"
+  ],
+  "text": "I built a waitlist tool that turns every subscriber into a recruiter.\nFree. One script tag. Works on any site.\nBuilt in 5 weeks with Next.js + Supabase + Vercel.\nSee it live → https://t.co/fpmbkEIHjJ\n#buildinpublic #indiehackers #SaaS #nextjs",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 1,
+    "bookmark_count": 0,
+    "impression_count": 36
+  },
+  "entities": {
+    "hashtags": [
+      {
+        "start": 200,
+        "end": 214,
+        "tag": "buildinpublic"
+      },
+      {
+        "start": 215,
+        "end": 228,
+        "tag": "indiehackers"
+      },
+      {
+        "start": 229,
+        "end": 234,
+        "tag": "SaaS"
+      },
+      {
+        "start": 235,
+        "end": 242,
+        "tag": "nextjs"
+      }
+    ],
+    "urls": [
+      {
+        "start": 176,
+        "end": 199,
+        "url": "https://t.co/fpmbkEIHjJ",
+        "expanded_url": "http://waitlistwar.vercel.app/waitlistwar",
+        "display_url": "waitlistwar.vercel.app/waitlistwar",
+        "status": 200,
+        "title": "WaitlistWar — Gamified waitlists that grow themselves",
+        "description": "Embed a referral-powered waitlist on any site in 60 seconds.",
+        "unwound_url": "https://waitlistwar.vercel.app/waitlistwar"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T18:49:06.000Z",
+  "id": "2043763426451669220",
+  "author_id": "1176191852",
+  "_author": {
+    "id": "1176191852",
+    "name": "Richard",
+    "username": "rfdecker96"
+  },
+  "_collected_at": "2026-04-13T23:13:28.357Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

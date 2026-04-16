@@ -1,0 +1,66 @@
+{
+  "edit_history_tweet_ids": [
+    "2043832013086499073"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 67
+  },
+  "created_at": "2026-04-13T23:21:39.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 270,
+        "end": 293,
+        "url": "https://t.co/hv5SJ9oEws",
+        "expanded_url": "https://github.com/NousResearch/hermes-agent/issues/6475",
+        "display_url": "github.com/NousResearch/h…",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2043832013937856513/HmgRh0tQ?format=jpg&name=orig",
+            "width": 1200,
+            "height": 600
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2043832013937856513/HmgRh0tQ?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "Anthropic Claude subscription auth returns 'You're out of extra usage' in Hermes even after restart/re-login · Issue #6475 · NousResearch/hermes-agent",
+        "description": "Summary Using Hermes with Anthropic/Claude subscription auth initially worked after installation and setup, but after some time it stopped working consistently with: HTTP 400: You're out of ext...",
+        "unwound_url": "https://github.com/NousResearch/hermes-agent/issues/6475"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 0,
+        "end": 13,
+        "username": "NousResearch",
+        "id": "1318419526132862976"
+      }
+    ]
+  },
+  "id": "2043832013086499073",
+  "author_id": "2018102021597839361",
+  "text": "@NousResearch I’m new to the party and so impressed!  One question that’s coming up among some of us on your  GitHub is are Anthropic blocking Hermes requests using Claide code credentials ??  Don’t see any official statement on this.  There are multiple bugs on this.\n\nhttps://t.co/hv5SJ9oEws",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043791876835156362"
+    }
+  ],
+  "_author": {
+    "id": "2018102021597839361",
+    "name": "adaptioTech",
+    "username": "AdaptioTech"
+  },
+  "_collected_at": "2026-04-13T23:31:35.746Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

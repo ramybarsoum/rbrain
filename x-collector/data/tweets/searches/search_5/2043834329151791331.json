@@ -1,0 +1,31 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "edit_history_tweet_ids": [
+    "2043834329151791331"
+  ],
+  "id": "2043834329151791331",
+  "author_id": "1687556682585419777",
+  "created_at": "2026-04-13T23:30:51.000Z",
+  "text": "➠ GUI-first architecture (why this is a big deal)\n\nMost AI agents are:\n\n• CLI-heavy\n• Dev-focused\n• Friction-filled for normal users\n\nBAIclaw flips that.\n\nYou get:\n\n• Visual configuration layers\n• Structured task control panels\n• Clear execution flows",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043834323711693296"
+    }
+  ],
+  "_author": {
+    "id": "1687556682585419777",
+    "name": "MR OFFICIAL (💙,🧡) (❖,❖)",
+    "username": "MR_0FFICIALL"
+  },
+  "_collected_at": "2026-04-13T23:31:34.337Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

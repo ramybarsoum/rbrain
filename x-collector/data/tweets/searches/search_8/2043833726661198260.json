@@ -1,0 +1,37 @@
+{
+  "edit_history_tweet_ids": [
+    "2043833726661198260"
+  ],
+  "public_metrics": {
+    "retweet_count": 1,
+    "reply_count": 0,
+    "like_count": 2,
+    "quote_count": 0,
+    "bookmark_count": 2,
+    "impression_count": 10
+  },
+  "created_at": "2026-04-13T23:28:27.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 151,
+        "end": 174,
+        "url": "https://t.co/o4aH2Pjogh",
+        "expanded_url": "https://x.com/takamasa045/status/2043833726661198260/photo/1",
+        "display_url": "pic.x.com/o4aH2Pjogh",
+        "media_key": "3_2043833721221160960"
+      }
+    ]
+  },
+  "id": "2043833726661198260",
+  "author_id": "112723159",
+  "text": "Claude CodeからCodex呼び出して、実作業を別で走らせるのかなり良き。\n\n重い実装をそのまま同じ会話で抱え込まないぶん、親側のコンテキストが圧迫されにくい。\n結果として、途中で頭が鈍りにくくなって、長めの開発も回しやすくなる気がする。\n\nつまり\n「考える役」と「実装する役」を分ける感じ。 https://t.co/o4aH2Pjogh",
+  "_author": {
+    "id": "112723159",
+    "name": "伊藤貴將（イトパン）｜AIクリエイティブ×開発",
+    "username": "takamasa045"
+  },
+  "_collected_at": "2026-04-13T23:31:35.727Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

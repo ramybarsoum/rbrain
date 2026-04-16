@@ -1,0 +1,37 @@
+{
+  "author_id": "15080554",
+  "id": "2043827845131317397",
+  "entities": {
+    "urls": [
+      {
+        "start": 95,
+        "end": 118,
+        "url": "https://t.co/SVyWhp8xiq",
+        "expanded_url": "https://x.com/kgsi/status/2043827845131317397/photo/1",
+        "display_url": "pic.x.com/SVyWhp8xiq",
+        "media_key": "3_2043827838428819456"
+      }
+    ]
+  },
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 5,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 88
+  },
+  "text": "開発中のClaude Code / CodexなどAIエージェント向けSkills「Zen」、まもなく公開予定です。最適化されたインターフェースを作るためのパッケージとして仕上げています。 https://t.co/SVyWhp8xiq",
+  "created_at": "2026-04-13T23:05:05.000Z",
+  "edit_history_tweet_ids": [
+    "2043827845131317397"
+  ],
+  "_author": {
+    "id": "15080554",
+    "name": "こぎそ",
+    "username": "kgsi"
+  },
+  "_collected_at": "2026-04-13T23:13:27.847Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

@@ -1,0 +1,41 @@
+{
+  "edit_history_tweet_ids": [
+    "2043832758334877880"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 9
+  },
+  "created_at": "2026-04-13T23:24:36.000Z",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 13,
+        "username": "fpikumi2kids",
+        "id": "3185486065"
+      }
+    ]
+  },
+  "id": "2043832758334877880",
+  "author_id": "1573904790",
+  "text": "@fpikumi2kids claude code×blender\n良いですね🤭\n僕も3D作ってみたい😏",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043828011833930112"
+    }
+  ],
+  "_author": {
+    "id": "1573904790",
+    "name": "おのともくん(転職検討中)",
+    "username": "Spicy0630"
+  },
+  "_collected_at": "2026-04-13T23:31:35.741Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

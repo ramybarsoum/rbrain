@@ -1,0 +1,31 @@
+{
+  "created_at": "2026-04-13T07:20:27.000Z",
+  "author_id": "1611779937941479424",
+  "text": "答案只有 3 个字母：MCP (Model Context Protocol)。 \n\n这是目前 B 端 AI 落地的唯一“操作系统”。 \n\n它不再要求企业“交出数据”，而是让 AI 走向数据。 \n\n数据不出内网，成本暴降 70%-85%，准确率从概率变成确定。",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "edit_history_tweet_ids": [
+    "2043590120339821050"
+  ],
+  "id": "2043590120339821050",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043590118125224132"
+    }
+  ],
+  "_author": {
+    "id": "1611779937941479424",
+    "name": "安奇漫 | AI教育 & 工作流",
+    "username": "ando_w"
+  },
+  "_collected_at": "2026-04-13T23:13:27.336Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

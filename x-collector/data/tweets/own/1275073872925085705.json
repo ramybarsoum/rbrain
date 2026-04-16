@@ -1,0 +1,62 @@
+{
+  "entities": {
+    "mentions": [
+      {
+        "start": 3,
+        "end": 15,
+        "username": "barsoumramy",
+        "id": "254267633"
+      }
+    ],
+    "hashtags": [
+      {
+        "start": 17,
+        "end": 33,
+        "tag": "businesssuccess"
+      },
+      {
+        "start": 34,
+        "end": 46,
+        "tag": "inspiration"
+      },
+      {
+        "start": 47,
+        "end": 51,
+        "tag": "win"
+      }
+    ],
+    "urls": [
+      {
+        "start": 52,
+        "end": 75,
+        "url": "https://t.co/9FX8gbWDkN",
+        "expanded_url": "https://x.com/barsoumramy/status/1183559803244822530/photo/1",
+        "display_url": "pic.x.com/9FX8gbWDkN",
+        "media_key": "3_1183559799952281605"
+      }
+    ]
+  },
+  "public_metrics": {
+    "retweet_count": 1,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "created_at": "2020-06-22T14:31:15.000Z",
+  "id": "1275073872925085705",
+  "text": "RT @barsoumramy: #businesssuccess #inspiration #win https://t.co/9FX8gbWDkN",
+  "edit_history_tweet_ids": [
+    "1275073872925085705"
+  ],
+  "referenced_tweets": [
+    {
+      "type": "retweeted",
+      "id": "1183559803244822530"
+    }
+  ],
+  "author_id": "254267633",
+  "_collected_at": "2026-04-13T23:13:24.444Z",
+  "_stream": "own"
+}

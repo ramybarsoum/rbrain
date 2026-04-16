@@ -1,0 +1,41 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "edit_history_tweet_ids": [
+    "212466577453494272"
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 12,
+        "username": "barsoumramy",
+        "id": "254267633"
+      }
+    ]
+  },
+  "text": "@barsoumramy غدا يعلم الحقيقة قومي ... ليس شئ علي الشعوب بسر .... لكن من الانصاف  ليس بين من قبلوا المظاريف مسيحي",
+  "author_id": "260664856",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "212465498330370048"
+    }
+  ],
+  "id": "212466577453494272",
+  "in_reply_to_user_id": "254267633",
+  "created_at": "2012-06-12T08:49:14.000Z",
+  "_author": {
+    "id": "260664856",
+    "name": "د . محمد الجوادي",
+    "username": "GwadyM"
+  },
+  "_collected_at": "2026-04-13T23:13:25.013Z",
+  "_stream": "mentions"
+}

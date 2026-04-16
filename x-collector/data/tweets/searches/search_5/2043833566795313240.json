@@ -1,0 +1,25 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 3
+  },
+  "edit_history_tweet_ids": [
+    "2043833566795313240"
+  ],
+  "id": "2043833566795313240",
+  "author_id": "30841678",
+  "created_at": "2026-04-13T23:27:49.000Z",
+  "text": "Vertical, domain-specific AI agents (apps) will win, broad horizontal agent platforms (LLMs) likely won’t.",
+  "_author": {
+    "id": "30841678",
+    "name": "Dmitry Pustovalov 🇺🇦🌏",
+    "username": "dimapustovalov"
+  },
+  "_collected_at": "2026-04-13T23:31:34.343Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

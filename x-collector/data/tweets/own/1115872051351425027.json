@@ -1,0 +1,110 @@
+{
+  "created_at": "2019-04-10T07:00:03.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 99,
+        "end": 122,
+        "url": "https://t.co/0R4Z0X9hjy",
+        "expanded_url": "https://www.grapera.com",
+        "display_url": "grapera.com"
+      },
+      {
+        "start": 279,
+        "end": 302,
+        "url": "https://t.co/OBsQMsNWMm",
+        "expanded_url": "https://x.com/barsoumramy/status/1115872051351425027/photo/1",
+        "display_url": "pic.x.com/OBsQMsNWMm",
+        "media_key": "3_1115872049950490625"
+      }
+    ],
+    "hashtags": [
+      {
+        "start": 123,
+        "end": 130,
+        "tag": "belief"
+      },
+      {
+        "start": 131,
+        "end": 143,
+        "tag": "bethechange"
+      },
+      {
+        "start": 144,
+        "end": 157,
+        "tag": "postivevibes"
+      },
+      {
+        "start": 158,
+        "end": 169,
+        "tag": "prosperity"
+      },
+      {
+        "start": 170,
+        "end": 182,
+        "tag": "pushthrough"
+      },
+      {
+        "start": 183,
+        "end": 196,
+        "tag": "pushyourself"
+      },
+      {
+        "start": 197,
+        "end": 203,
+        "tag": "focus"
+      },
+      {
+        "start": 204,
+        "end": 211,
+        "tag": "growth"
+      },
+      {
+        "start": 212,
+        "end": 221,
+        "tag": "hardwork"
+      },
+      {
+        "start": 222,
+        "end": 236,
+        "tag": "inspirational"
+      },
+      {
+        "start": 237,
+        "end": 248,
+        "tag": "aspiration"
+      },
+      {
+        "start": 249,
+        "end": 261,
+        "tag": "fallforward"
+      },
+      {
+        "start": 262,
+        "end": 267,
+        "tag": "move"
+      },
+      {
+        "start": 268,
+        "end": 278,
+        "tag": "bizgrowth"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "1115872051351425027"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "author_id": "254267633",
+  "text": "\"In the end, a vision without the ability to execute it is probably a hallucination.\" - Steve Case\nhttps://t.co/0R4Z0X9hjy\n#belief #bethechange #postivevibes #prosperity #pushthrough #pushyourself #focus #growth #hardwork #inspirational #aspiration #fallforward #move #bizgrowth https://t.co/OBsQMsNWMm",
+  "id": "1115872051351425027",
+  "_collected_at": "2026-04-14T00:01:36.467Z",
+  "_stream": "own"
+}

@@ -1,0 +1,83 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "edit_history_tweet_ids": [
+    "285696592340738048"
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 9,
+        "username": "84Hamada",
+        "id": "488569242"
+      },
+      {
+        "start": 10,
+        "end": 21,
+        "username": "Enalrachid",
+        "id": "196127798"
+      },
+      {
+        "start": 22,
+        "end": 34,
+        "username": "fadyadel007",
+        "id": "266323755"
+      },
+      {
+        "start": 35,
+        "end": 46,
+        "username": "omeshayeck",
+        "id": "465918777"
+      },
+      {
+        "start": 47,
+        "end": 55,
+        "username": "Ado0o0o",
+        "id": "40636627"
+      },
+      {
+        "start": 56,
+        "end": 70,
+        "username": "oneworld4ever",
+        "id": "599051960"
+      },
+      {
+        "start": 71,
+        "end": 85,
+        "username": "husseinmoussa",
+        "id": "255409293"
+      },
+      {
+        "start": 86,
+        "end": 98,
+        "username": "barsoumramy",
+        "id": "254267633"
+      }
+    ]
+  },
+  "text": "@84Hamada @Enalrachid @fadyadel007 @omeshayeck @Ado0o0o @oneworld4ever @husseinmoussa @barsoumramy happy new year",
+  "author_id": "375020472",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "285639445800173568"
+    }
+  ],
+  "id": "285696592340738048",
+  "in_reply_to_user_id": "488569242",
+  "created_at": "2012-12-31T10:39:10.000Z",
+  "_author": {
+    "id": "375020472",
+    "name": "jo_msk",
+    "username": "jo_msk1"
+  },
+  "_collected_at": "2026-04-13T23:13:25.002Z",
+  "_stream": "mentions"
+}

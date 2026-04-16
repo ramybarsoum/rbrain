@@ -1,0 +1,47 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 3,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 75
+  },
+  "edit_history_tweet_ids": [
+    "2043832182318444653"
+  ],
+  "id": "2043832182318444653",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 4,
+        "username": "gdb",
+        "id": "162124540"
+      },
+      {
+        "start": 16,
+        "end": 24,
+        "username": "gitlawb",
+        "id": "2031578678459764736"
+      }
+    ]
+  },
+  "author_id": "1400712332146216961",
+  "created_at": "2026-04-13T23:22:19.000Z",
+  "text": "@gdb Working on @gitlawb for for AI agents frictionless building and collaboration",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043831031468568734"
+    }
+  ],
+  "_author": {
+    "id": "1400712332146216961",
+    "name": "Kevin",
+    "username": "kevincodex"
+  },
+  "_collected_at": "2026-04-13T23:31:34.348Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

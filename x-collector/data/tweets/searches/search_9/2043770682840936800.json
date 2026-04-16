@@ -1,0 +1,68 @@
+{
+  "edit_history_tweet_ids": [
+    "2043770682840936800"
+  ],
+  "text": "Day 92/100 🚀 #100DaysOfCodeAndDesigns with @SarcasticGeek4u\n\nMoved all the data fully to Supabase,  no longer relying on local mock data. https://t.co/jOPgnKAgqW",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 5,
+    "quote_count": 0,
+    "bookmark_count": 1,
+    "impression_count": 15
+  },
+  "entities": {
+    "mentions": [
+      {
+        "start": 43,
+        "end": 59,
+        "username": "SarcasticGeek4u",
+        "id": "1304172763708620801"
+      }
+    ],
+    "hashtags": [
+      {
+        "start": 13,
+        "end": 37,
+        "tag": "100DaysOfCodeAndDesigns"
+      }
+    ],
+    "urls": [
+      {
+        "start": 138,
+        "end": 161,
+        "url": "https://t.co/jOPgnKAgqW",
+        "expanded_url": "https://x.com/victorugs_DEV/status/2043770682840936800/photo/1",
+        "display_url": "pic.x.com/jOPgnKAgqW",
+        "media_key": "3_2043770634488905729"
+      },
+      {
+        "start": 138,
+        "end": 161,
+        "url": "https://t.co/jOPgnKAgqW",
+        "expanded_url": "https://x.com/victorugs_DEV/status/2043770682840936800/photo/1",
+        "display_url": "pic.x.com/jOPgnKAgqW",
+        "media_key": "3_2043770630718337024"
+      },
+      {
+        "start": 138,
+        "end": 161,
+        "url": "https://t.co/jOPgnKAgqW",
+        "expanded_url": "https://x.com/victorugs_DEV/status/2043770682840936800/photo/1",
+        "display_url": "pic.x.com/jOPgnKAgqW",
+        "media_key": "3_2043770650813480960"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T19:17:56.000Z",
+  "id": "2043770682840936800",
+  "author_id": "1834600698798858240",
+  "_author": {
+    "id": "1834600698798858240",
+    "name": "victorugs.dev👨🏾‍💻",
+    "username": "victorugs_DEV"
+  },
+  "_collected_at": "2026-04-13T23:13:28.356Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

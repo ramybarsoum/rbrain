@@ -1,0 +1,25 @@
+{
+  "edit_history_tweet_ids": [
+    "2043820725912604963"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 4
+  },
+  "created_at": "2026-04-13T22:36:48.000Z",
+  "id": "2043820725912604963",
+  "author_id": "2038407459195244544",
+  "text": "If you work in tech sales, this story is about your job.\n\nJason Lemkin at SaaStr replaced his SDRs with 20 AI agents. One called Artisan sent 15,000 outbound messages in 100 days at 5 to 7 percent response rates. Another called Qualified handles inbound, pre-books meetings, and",
+  "_author": {
+    "id": "2038407459195244544",
+    "name": "type0press",
+    "username": "type0press"
+  },
+  "_collected_at": "2026-04-13T23:13:26.370Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

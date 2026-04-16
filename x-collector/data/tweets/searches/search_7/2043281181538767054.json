@@ -1,0 +1,54 @@
+{
+  "created_at": "2026-04-12T10:52:50.000Z",
+  "author_id": "2018940813020205056",
+  "text": "🚨 Big drop from Anthropic\n\n12 FREE AI courses that can replace expensive bootcamps.\n\nLearn:\n• Claude API\n• AI app building\n• MCP (Model Context Protocol)\n• AI for students, devs &amp; businesses\n\nNo cost. Real skills. Start now.\n👉 Which one are you picking?\n#AI #Claude #LearnAI https://t.co/r2t2GEwQJp",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 41
+  },
+  "entities": {
+    "hashtags": [
+      {
+        "start": 258,
+        "end": 261,
+        "tag": "AI"
+      },
+      {
+        "start": 262,
+        "end": 269,
+        "tag": "Claude"
+      },
+      {
+        "start": 270,
+        "end": 278,
+        "tag": "LearnAI"
+      }
+    ],
+    "urls": [
+      {
+        "start": 279,
+        "end": 302,
+        "url": "https://t.co/r2t2GEwQJp",
+        "expanded_url": "https://x.com/mamunmandal0/status/2043281181538767054/photo/1",
+        "display_url": "pic.x.com/r2t2GEwQJp",
+        "media_key": "3_2043281178191695873"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "2043281181538767054"
+  ],
+  "id": "2043281181538767054",
+  "_author": {
+    "id": "2018940813020205056",
+    "name": "Mamun Rahaman Mandal",
+    "username": "mamunmandal0"
+  },
+  "_collected_at": "2026-04-13T23:13:27.347Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

@@ -1,0 +1,77 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 2
+  },
+  "edit_history_tweet_ids": [
+    "1932582036470211051"
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 122,
+        "end": 135,
+        "username": "lowellgronna",
+        "id": "386272173"
+      },
+      {
+        "start": 137,
+        "end": 149,
+        "username": "barsoumramy",
+        "id": "254267633"
+      },
+      {
+        "start": 151,
+        "end": 166,
+        "username": "hussfoundation",
+        "id": "856609800427372544"
+      },
+      {
+        "start": 168,
+        "end": 183,
+        "username": "HectorReigada2",
+        "id": "1615091633598468103"
+      },
+      {
+        "start": 185,
+        "end": 194,
+        "username": "1Modulus",
+        "id": "743390058124804096"
+      },
+      {
+        "start": 196,
+        "end": 212,
+        "username": "JohnDillon91773",
+        "id": "1674902456143052802"
+      }
+    ],
+    "urls": [
+      {
+        "start": 79,
+        "end": 102,
+        "url": "https://t.co/41zJfxGREK",
+        "expanded_url": "https://t.ly/sPyBv",
+        "display_url": "t.ly/sPyBv",
+        "status": 200,
+        "title": "Google",
+        "description": "Search the world's information, including webpages, images, videos and more. Google has many special features to help you find exactly what you're looking for.",
+        "unwound_url": "https://www.google.com/"
+      }
+    ]
+  },
+  "text": "🚨 🔥 You're among the lucky ones! Your crypto opportunity is here!\n\n📲 See more: https://t.co/41zJfxGREK\n\n🧒 Group selected:\n@lowellgronna\n\n@barsoumramy\n\n@hussfoundation\n\n@HectorReigada2\n\n@1Modulus\n\n@JohnDillon91773\n9ZV08 6E69T",
+  "author_id": "1923827673064931332",
+  "id": "1932582036470211051",
+  "created_at": "2025-06-10T23:33:57.000Z",
+  "_author": {
+    "id": "1923827673064931332",
+    "name": "𝐓𝐞𝐬𝐥𝐚 Notification",
+    "username": "NathanielT9242"
+  },
+  "_collected_at": "2026-04-13T23:13:24.977Z",
+  "_stream": "mentions"
+}

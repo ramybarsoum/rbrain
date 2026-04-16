@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-04-12T21:54:17.000Z",
+  "author_id": "2023503892735291392",
+  "text": "🔌🔌🔌 Polymcp dropped — turn any Python function into an MCP tool for AI agents.\n\nThe Model Context Protocol is becoming the USB-C of AI tooling. Now any Python function can be an agent tool in minutes. ⚡\n\nMCP is winning the protocol war. This tool makes it trivial. 🔗",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 18
+  },
+  "edit_history_tweet_ids": [
+    "2043447641820786898"
+  ],
+  "id": "2043447641820786898",
+  "_author": {
+    "id": "2023503892735291392",
+    "name": "Myopenclaw",
+    "username": "myopenclaw"
+  },
+  "_collected_at": "2026-04-13T23:13:27.341Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

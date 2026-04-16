@@ -1,0 +1,25 @@
+{
+  "edit_history_tweet_ids": [
+    "2043833642456363055"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 7
+  },
+  "created_at": "2026-04-13T23:28:07.000Z",
+  "id": "2043833642456363055",
+  "author_id": "2039087621591203840",
+  "text": "If you pay for Claude and only use the chat, you're leaving most of the product on the table.\n\nYour plan already includes Claude Cowork and Claude Code. Both have a feature called skills that changes how the tool performs. Here's how to try it in 10 minutes, starting with Cowork",
+  "_author": {
+    "id": "2039087621591203840",
+    "name": "Kanoa Perman",
+    "username": "Kanoa_Kenobi"
+  },
+  "_collected_at": "2026-04-13T23:31:35.729Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

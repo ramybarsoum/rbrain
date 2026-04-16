@@ -1,0 +1,37 @@
+{
+  "author_id": "3185486065",
+  "id": "2043828011833930112",
+  "entities": {
+    "urls": [
+      {
+        "start": 144,
+        "end": 167,
+        "url": "https://t.co/XqicvCf5C8",
+        "expanded_url": "https://x.com/fpikumi2kids/status/2043828011833930112/photo/1",
+        "display_url": "pic.x.com/XqicvCf5C8",
+        "media_key": "3_2043828008117776386"
+      }
+    ]
+  },
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 11
+  },
+  "text": "claude code×blender\nできました🎉✨\n\nじつは事業の1つに3Dがあって、普段は3DSMAXというソフトを使ってます🌟\n\n claude codeに繋がるのはblenderということで試しにつないでみた🐯\n\n私はソフトが扱えないのでこちらはスタッフと共に使っていきます👌 https://t.co/XqicvCf5C8",
+  "created_at": "2026-04-13T23:05:45.000Z",
+  "edit_history_tweet_ids": [
+    "2043828011833930112"
+  ],
+  "_author": {
+    "id": "3185486065",
+    "name": "いくみ@AIを使う旅するママ社長",
+    "username": "fpikumi2kids"
+  },
+  "_collected_at": "2026-04-13T23:13:27.845Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

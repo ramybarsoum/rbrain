@@ -1,0 +1,51 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 8
+  },
+  "entities": {
+    "urls": [
+      {
+        "start": 235,
+        "end": 258,
+        "url": "https://t.co/JryDFskAh6",
+        "expanded_url": "https://x.com/AllThingsTec/status/2043832488842109127/photo/1",
+        "display_url": "pic.x.com/JryDFskAh6",
+        "media_key": "16_2043832481049112576"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 68,
+        "end": 77,
+        "username": "openclaw",
+        "id": "1995710751097659392"
+      },
+      {
+        "start": 82,
+        "end": 95,
+        "username": "NousResearch",
+        "id": "1318419526132862976"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "2043832488842109127"
+  ],
+  "id": "2043832488842109127",
+  "author_id": "1878841593324515333",
+  "created_at": "2026-04-13T23:23:32.000Z",
+  "text": "I have seen a lot of hype around local autonomous ai agents such as @openclaw \nOr @NousResearch. Both cannot be effectively used on normal household tier equipment.\nNot because they are problematic but no local models run on 16gb ram. https://t.co/JryDFskAh6",
+  "_author": {
+    "id": "1878841593324515333",
+    "name": "Burhan Raza",
+    "username": "AllThingsTec"
+  },
+  "_collected_at": "2026-04-13T23:31:34.347Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

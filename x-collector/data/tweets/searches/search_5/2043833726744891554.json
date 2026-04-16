@@ -1,0 +1,47 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 7
+  },
+  "edit_history_tweet_ids": [
+    "2043833726744891554"
+  ],
+  "id": "2043833726744891554",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 11,
+        "username": "jessegenet",
+        "id": "99886636"
+      },
+      {
+        "start": 12,
+        "end": 25,
+        "username": "ThePrimeagen",
+        "id": "291797158"
+      }
+    ]
+  },
+  "author_id": "36904502",
+  "created_at": "2026-04-13T23:28:27.000Z",
+  "text": "@jessegenet @ThePrimeagen Super sorry, please do blame whomever edited the cold-open and highlighted what was probably not a super-representative part of your pod and made me really not want to listen to it. Using AI Agents for WORK so that you can spend more time with kids is amazing.  \"Agentic",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043832941579776409"
+    }
+  ],
+  "_author": {
+    "id": "36904502",
+    "name": "Tad Reeves",
+    "username": "TurboDad"
+  },
+  "_collected_at": "2026-04-13T23:31:34.342Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

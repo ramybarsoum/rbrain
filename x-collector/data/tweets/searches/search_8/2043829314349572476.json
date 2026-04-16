@@ -1,0 +1,47 @@
+{
+  "author_id": "16163117",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 11,
+        "username": "ethanj_824",
+        "id": "1670592409695145988"
+      },
+      {
+        "start": 12,
+        "end": 23,
+        "username": "danmartell",
+        "id": "10638782"
+      }
+    ]
+  },
+  "id": "2043829314349572476",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 8
+  },
+  "text": "@ethanj_824 @danmartell Because it doesn’t exist, if you tell an investor i can start an entire company with Claude code they’re going to laugh in your face.",
+  "created_at": "2026-04-13T23:10:55.000Z",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043762088909119948"
+    }
+  ],
+  "edit_history_tweet_ids": [
+    "2043829314349572476"
+  ],
+  "_author": {
+    "id": "16163117",
+    "name": "fiddyken",
+    "username": "fiddyken"
+  },
+  "_collected_at": "2026-04-13T23:13:27.828Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

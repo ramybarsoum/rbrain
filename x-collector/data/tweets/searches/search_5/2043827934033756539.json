@@ -1,0 +1,80 @@
+{
+  "edit_history_tweet_ids": [
+    "2043827934033756539"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 156
+  },
+  "created_at": "2026-04-13T23:05:26.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 0,
+        "end": 23,
+        "url": "https://t.co/Q8oR4uzIj2",
+        "expanded_url": "https://www.youtube.com/watch?v=8HPNLtsd17k",
+        "display_url": "youtube.com/watch?v=8HPNLt…",
+        "status": 200,
+        "title": "Gemma 4: Run OpenClaw FREE Forever!",
+        "description": "Want to make money and save time with AI? Get AI Coaching, Support & Courses 👉 https://www.skool.com/ai-profit-lab-7462/aboutGet the video notes + links to ...",
+        "unwound_url": "https://www.youtube.com/watch?v=8HPNLtsd17k"
+      },
+      {
+        "start": 109,
+        "end": 132,
+        "url": "https://t.co/OuuLmdvTmm",
+        "expanded_url": "https://skool.com/ai-profit-lab-7462/about",
+        "display_url": "skool.com/ai-profit-lab-…",
+        "status": 200,
+        "title": "AI Profit Boardroom",
+        "description": "AI Profit Boardroom – Master AI, automate sales, and scale profits with Julian Goldie. See you in there!",
+        "unwound_url": "https://www.skool.com/ai-profit-lab-7462/about"
+      },
+      {
+        "start": 178,
+        "end": 201,
+        "url": "https://t.co/2rK7SLQfZK",
+        "expanded_url": "https://skool.com/ai-seo-with-julian-goldie-1553/about",
+        "display_url": "skool.com/ai-seo-with-ju…",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2042805937069830144/LHt1Ypt4?format=jpg&name=orig",
+            "width": 1084,
+            "height": 576
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2042805937069830144/LHt1Ypt4?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "AI Money Lab",
+        "description": "Discover how to make more money with AI and save 1,000s of hours with AI Automation! NEW AI trainings released daily, for FREE!",
+        "unwound_url": "https://www.skool.com/ai-seo-with-julian-goldie-1553/about"
+      }
+    ]
+  },
+  "id": "2043827934033756539",
+  "author_id": "1405031034",
+  "text": "https://t.co/Q8oR4uzIj2\n\nWant to make money and save time with AI? Get AI Coaching, Support &amp; Courses \n👉 https://t.co/OuuLmdvTmm\n\nGet a FREE AI Course + 1000 NEW AI Agents\n👉 https://t.co/2rK7SLQfZK",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043827931756285954"
+    }
+  ],
+  "_author": {
+    "id": "1405031034",
+    "name": "Julian Goldie SEO",
+    "username": "JulianGoldieSEO"
+  },
+  "_collected_at": "2026-04-13T23:13:26.348Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

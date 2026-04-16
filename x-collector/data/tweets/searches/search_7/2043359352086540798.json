@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-04-12T16:03:27.000Z",
+  "author_id": "834557837120520193",
+  "text": "MCP — \"Model Context Protocol\" — is becoming one of the most important infrastructure decisions organizations can make right now.\n\nThink of it like USB-C, but for AI. Instead of building fragile custom connectors between every system, you build once. The agent handles the rest.",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 82
+  },
+  "edit_history_tweet_ids": [
+    "2043359352086540798"
+  ],
+  "id": "2043359352086540798",
+  "_author": {
+    "id": "834557837120520193",
+    "name": "ibl.ai",
+    "username": "iblai_"
+  },
+  "_collected_at": "2026-04-13T23:13:27.343Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

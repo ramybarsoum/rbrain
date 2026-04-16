@@ -1,0 +1,41 @@
+{
+  "edit_history_tweet_ids": [
+    "2043828924287791356"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "created_at": "2026-04-13T23:09:22.000Z",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 14,
+        "username": "krzyzanowskim",
+        "id": "25336778"
+      }
+    ]
+  },
+  "id": "2043828924287791356",
+  "author_id": "1998292001725571072",
+  "text": "@krzyzanowskim Missing type 5: engineers who stopped typing and started orchestrating. I run a 2-person company with 12 AI agents in production. The job didn't disappear, it compressed. Knowing what to build matters more than ever. Knowing how to type it matters less.",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2028573591546232842"
+    }
+  ],
+  "_author": {
+    "id": "1998292001725571072",
+    "name": "Chen Avnery",
+    "username": "MindTheGapMTG"
+  },
+  "_collected_at": "2026-04-13T23:13:26.341Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

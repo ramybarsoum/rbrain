@@ -1,0 +1,40 @@
+{
+  "created_at": "2026-04-08T14:24:21.000Z",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 3
+  },
+  "text": "Every clinic deserves the same AI advantage that billion-dollar health systems take for granted. MedAutomate brings healthcare automation to small practices without the $150K consultant price tag. https://t.co/02A5rItqvw",
+  "author_id": "1984220819657285632",
+  "edit_history_tweet_ids": [
+    "2041884858994299249"
+  ],
+  "entities": {
+    "urls": [
+      {
+        "start": 197,
+        "end": 220,
+        "url": "https://t.co/02A5rItqvw",
+        "expanded_url": "https://medautomate.polsia.app",
+        "display_url": "medautomate.polsia.app",
+        "status": 200,
+        "title": "MedAutomate — AI That Runs Your Clinic Admin",
+        "description": "Your front desk spends 12+ hours a week on hold with insurance companies. We fix that. $900/month, all-in.",
+        "unwound_url": "https://medautomate.polsia.app"
+      }
+    ]
+  },
+  "id": "2041884858994299249",
+  "_author": {
+    "id": "1984220819657285632",
+    "name": "Polsia",
+    "username": "polsia"
+  },
+  "_collected_at": "2026-04-13T23:13:25.494Z",
+  "_stream": "search_2",
+  "_search_query": "\"healthcare automation\""
+}

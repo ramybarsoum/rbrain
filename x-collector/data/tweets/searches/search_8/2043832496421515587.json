@@ -1,0 +1,69 @@
+{
+  "edit_history_tweet_ids": [
+    "2043832496421515587"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 2
+  },
+  "created_at": "2026-04-13T23:23:34.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 85,
+        "end": 108,
+        "url": "https://t.co/2mIU6U1Ly5",
+        "expanded_url": "https://taskhub.jp/magazine/news/14744/",
+        "display_url": "taskhub.jp/magazine/news/…",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2043832504600375296/g7cvIcj9?format=jpg&name=orig",
+            "width": 768,
+            "height": 432
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2043832504600375296/g7cvIcj9?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "週間生成AIニュース【2026年4月7日〜4月12日】",
+        "description": "今週も生成AI市場では様々なアップデート、リリースがありました。 AnthropicはClaudeシリーズ史上最強のモデルを発表しながらも一般公開せず、同時に企業がAIエージェントを実際の業務で動かす […]",
+        "unwound_url": "https://taskhub.jp/magazine/news/14744/"
+      }
+    ],
+    "hashtags": [
+      {
+        "start": 109,
+        "end": 119,
+        "tag": "Anthropic"
+      },
+      {
+        "start": 120,
+        "end": 129,
+        "tag": "AIエージェント"
+      },
+      {
+        "start": 130,
+        "end": 135,
+        "tag": "生成AI"
+      }
+    ]
+  },
+  "id": "2043832496421515587",
+  "author_id": "1505330450193317888",
+  "text": "🤝 Anthropicがエージェント向けマネージドサービス提供開始！楽天が5部門のAIエージェントを1週間以内に展開した事例を公開。従来数ヶ月かかる構築が数日で可能に。\nhttps://t.co/2mIU6U1Ly5\n#Anthropic #AIエージェント #生成AI",
+  "_author": {
+    "id": "1505330450193317888",
+    "name": "D",
+    "username": "d8kingdom"
+  },
+  "_collected_at": "2026-04-13T23:31:35.743Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

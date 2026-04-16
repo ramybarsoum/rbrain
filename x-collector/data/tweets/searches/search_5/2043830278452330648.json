@@ -1,0 +1,40 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 1
+  },
+  "entities": {
+    "urls": [
+      {
+        "start": 189,
+        "end": 212,
+        "url": "https://t.co/syDUo4pbQD",
+        "expanded_url": "http://unitedstatesafrica.com",
+        "display_url": "unitedstatesafrica.com",
+        "status": 200,
+        "title": "USAfrica Prime — The Future United",
+        "description": "The architecture of a new era. A unified, sovereign continental power structured for prosperity and global strength.",
+        "unwound_url": "https://unitedstatesafrica.com/"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "2043830278452330648"
+  ],
+  "id": "2043830278452330648",
+  "author_id": "64664689",
+  "created_at": "2026-04-13T23:14:45.000Z",
+  "text": "Six autonomous AI agents deployed across social media, the open web, and diaspora networks — driving Pan-Africans, Africans of all ages, and like-minded global citizens to the coalition at https://t.co/syDUo4pbQD. Each agent operates in its assigned digital theater, amplifying",
+  "_author": {
+    "id": "64664689",
+    "name": "Big Island Reporter - TheBigIslandReporter.com",
+    "username": "BlueTurbanStone"
+  },
+  "_collected_at": "2026-04-13T23:31:34.352Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

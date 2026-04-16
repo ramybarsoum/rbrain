@@ -1,0 +1,51 @@
+{
+  "edit_history_tweet_ids": [
+    "2043833845292970054"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 8
+  },
+  "created_at": "2026-04-13T23:28:55.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 240,
+        "end": 263,
+        "url": "https://t.co/LqJn8zndjk",
+        "expanded_url": "https://x.com/CtrlAltDwayne/status/2043833845292970054/photo/1",
+        "display_url": "pic.x.com/LqJn8zndjk",
+        "media_key": "16_2043833841459310593"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 0,
+        "end": 9,
+        "username": "ns123abc",
+        "id": "1087640384975577089"
+      }
+    ]
+  },
+  "id": "2043833845292970054",
+  "author_id": "1656279377213263873",
+  "text": "@ns123abc Might have something to do with the fact Anthropic seems to have watered down the juice too far and people noticed they lobotomized Claude and got angry they weren't getting what they paid for plus the opaque usage limit changes. https://t.co/LqJn8zndjk",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043796346985926995"
+    }
+  ],
+  "_author": {
+    "id": "1656279377213263873",
+    "name": "Dwayne",
+    "username": "CtrlAltDwayne"
+  },
+  "_collected_at": "2026-04-13T23:31:35.724Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

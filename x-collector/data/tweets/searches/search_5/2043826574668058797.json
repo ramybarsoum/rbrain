@@ -1,0 +1,58 @@
+{
+  "edit_history_tweet_ids": [
+    "2043826574668058797"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "created_at": "2026-04-13T23:00:02.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 211,
+        "end": 234,
+        "url": "https://t.co/tmMuxh4VlC",
+        "expanded_url": "https://www.aetechnologysolutions.com/blog/how-ai-agents-expand-reach-and-revenue-in-home-services",
+        "display_url": "aetechnologysolutions.com/blog/how-ai-ag…",
+        "status": 404,
+        "unwound_url": "https://www.aetechnologysolutions.com/blog/how-ai-agents-expand-reach-and-revenue-in-home-services"
+      },
+      {
+        "start": 254,
+        "end": 277,
+        "url": "https://t.co/dK6vQudXO8",
+        "expanded_url": "https://x.com/Technology35553/status/2043826574668058797/photo/1",
+        "display_url": "pic.x.com/dK6vQudXO8",
+        "media_key": "3_2042704585358479360"
+      }
+    ],
+    "hashtags": [
+      {
+        "start": 236,
+        "end": 239,
+        "tag": "AI"
+      },
+      {
+        "start": 240,
+        "end": 253,
+        "tag": "HomeServices"
+      }
+    ]
+  },
+  "id": "2043826574668058797",
+  "author_id": "2016322586137743361",
+  "text": "Most home service businesses don’t have a demand problem.\n\nThey have a capture problem.\n\nAI agents fix that by answering instantly, qualifying leads, and turning inbound demand into booked jobs — automatically.\nhttps://t.co/tmMuxh4VlC\n\n#AI #HomeServices https://t.co/dK6vQudXO8",
+  "_author": {
+    "id": "2016322586137743361",
+    "name": "AE Technology Solutions",
+    "username": "Technology35553"
+  },
+  "_collected_at": "2026-04-13T23:13:26.354Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

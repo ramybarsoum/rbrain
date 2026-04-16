@@ -1,0 +1,66 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 15
+  },
+  "entities": {
+    "urls": [
+      {
+        "start": 202,
+        "end": 225,
+        "url": "https://t.co/og64IflOXn",
+        "expanded_url": "https://x.com/Catalyze_RS/status/2039568728481017918?s=20",
+        "display_url": "x.com/Catalyze_RS/st…"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 60,
+        "end": 71,
+        "username": "buidl_conf",
+        "id": "1037634179888902144"
+      },
+      {
+        "start": 159,
+        "end": 171,
+        "username": "Catalyze_RS",
+        "id": "1442779963137036289"
+      },
+      {
+        "start": 173,
+        "end": 187,
+        "username": "redstone_defi",
+        "id": "1294053547630362630"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "2043832199871402280"
+  ],
+  "id": "2043832199871402280",
+  "author_id": "1547672532660105216",
+  "created_at": "2026-04-13T23:22:23.000Z",
+  "text": "APRIL 15\n\nAlso on Wednesday, Fig is speaking at AI/InfraCon @buidl_conf\n\nJoin him as he speaks on humans, AI agents, and the multichain economy.\n\nCo-hosted by @Catalyze_RS, @redstone_defi &amp; Squid 🤝\nhttps://t.co/og64IflOXn",
+  "referenced_tweets": [
+    {
+      "type": "quoted",
+      "id": "2039568728481017918"
+    },
+    {
+      "type": "replied_to",
+      "id": "2043832197581259129"
+    }
+  ],
+  "_author": {
+    "id": "1547672532660105216",
+    "name": "squid",
+    "username": "squidrouter"
+  },
+  "_collected_at": "2026-04-13T23:31:34.348Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

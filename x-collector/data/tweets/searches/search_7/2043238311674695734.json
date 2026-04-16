@@ -1,0 +1,31 @@
+{
+  "created_at": "2026-04-12T08:02:29.000Z",
+  "author_id": "1888377227764756480",
+  "text": "🔗 **The Standard is Set.** Anthropic's MCP (Model Context Protocol) just hit 97M installs. It’s no longer an experiment; it’s the foundational plumbing for the entire AI agent industry.",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 2,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 10
+  },
+  "edit_history_tweet_ids": [
+    "2043238311674695734"
+  ],
+  "id": "2043238311674695734",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043238310538080460"
+    }
+  ],
+  "_author": {
+    "id": "1888377227764756480",
+    "name": "The Aigenda",
+    "username": "theaigenda"
+  },
+  "_collected_at": "2026-04-13T23:13:27.349Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

@@ -1,0 +1,41 @@
+{
+  "edit_history_tweet_ids": [
+    "2043832361000022232"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 17
+  },
+  "created_at": "2026-04-13T23:23:02.000Z",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 12,
+        "username": "TSpencer260",
+        "id": "1813265242731720705"
+      }
+    ]
+  },
+  "id": "2043832361000022232",
+  "author_id": "19782851",
+  "text": "@TSpencer260 I honestly don’t notice it and I’m coding in Claude code 12 hours a day\n\nBut I don’t let Claude code just do whatever it wants so maybe if you just say build me the Empire State building it doesn’t do that as well as it once did",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043829758383858139"
+    }
+  ],
+  "_author": {
+    "id": "19782851",
+    "name": "Jason Akatiff",
+    "username": "smaxor"
+  },
+  "_collected_at": "2026-04-13T23:31:35.744Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

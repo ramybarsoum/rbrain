@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-04-13T19:32:51.000Z",
+  "author_id": "921815810485768192",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043765751958347839"
+    }
+  ],
+  "text": "@FoxNews Boy just took it so personal. Ai just a tool to help us to do things faster. Just like when calculator device was not invented and was later invented to help to do mathematical calculations faster. Why the fuse?",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 8,
+        "username": "FoxNews",
+        "id": "1367531"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "2043774433312039190"
+  ],
+  "id": "2043774433312039190",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 8,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 615
+  },
+  "_author": {
+    "id": "921815810485768192",
+    "name": "Daniel Asiegbu",
+    "username": "asiegbu_daniel"
+  },
+  "_collected_at": "2026-04-13T23:13:26.853Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

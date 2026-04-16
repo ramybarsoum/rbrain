@@ -1,0 +1,80 @@
+{
+  "edit_history_tweet_ids": [
+    "2043782442725839133"
+  ],
+  "text": "@Tocelot @speedrun Would love to chat. I'm building https://t.co/xyibJw0zMG: AI-native marketing platform with specialized agents and a common interface across integrations, data, and tools.\n\nTon of motion + updates incoming and we're working on something exciting with Supabase as well - just got https://t.co/fmXwaMxYRr",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043722348466225315"
+    }
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 16
+  },
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 8,
+        "username": "Tocelot",
+        "id": "16196307"
+      },
+      {
+        "start": 9,
+        "end": 18,
+        "username": "speedrun",
+        "id": "1760843364386443264"
+      }
+    ],
+    "urls": [
+      {
+        "start": 52,
+        "end": 75,
+        "url": "https://t.co/xyibJw0zMG",
+        "expanded_url": "http://hyperfx.ai",
+        "display_url": "hyperfx.ai",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2043350560964026368/QwWZ2OaW?format=png&name=orig",
+            "width": 1200,
+            "height": 630
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2043350560964026368/QwWZ2OaW?format=png&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "Hyper AI — The AI Agent Platform for Next-Gen Marketing",
+        "description": "The AI agent platform for next-gen marketing. Automate ads, SEO, content, analytics, and reporting with AI agents that connect to your tools and take action.",
+        "unwound_url": "https://www.hyperfx.ai/"
+      },
+      {
+        "start": 298,
+        "end": 321,
+        "url": "https://t.co/fmXwaMxYRr",
+        "expanded_url": "https://x.com/elliotfleck/status/2043782442725839133/photo/1",
+        "display_url": "pic.x.com/fmXwaMxYRr",
+        "media_key": "3_2043781830923485185"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T20:04:40.000Z",
+  "id": "2043782442725839133",
+  "author_id": "1759656388073299968",
+  "_author": {
+    "id": "1759656388073299968",
+    "name": "Elliot Fleck",
+    "username": "elliotfleck"
+  },
+  "_collected_at": "2026-04-13T23:13:28.354Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

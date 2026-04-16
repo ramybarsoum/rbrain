@@ -1,0 +1,41 @@
+{
+  "edit_history_tweet_ids": [
+    "2043761564419772593"
+  ],
+  "text": "@urieli17 Claude + Vercel/Netlify +Supabase is a great combination if it all comes from Anthripic.",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043689455169454556"
+    }
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 41
+  },
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 9,
+        "username": "urieli17",
+        "id": "195447548"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T18:41:42.000Z",
+  "id": "2043761564419772593",
+  "author_id": "10087022",
+  "_author": {
+    "id": "10087022",
+    "name": "Keren Dagan",
+    "username": "kerendg"
+  },
+  "_collected_at": "2026-04-13T23:13:28.358Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

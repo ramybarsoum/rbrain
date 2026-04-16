@@ -1,0 +1,60 @@
+{
+  "edit_history_tweet_ids": [
+    "2043820834024747239"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 8
+  },
+  "created_at": "2026-04-13T22:37:13.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 243,
+        "end": 266,
+        "url": "https://t.co/edZUl0uAqA",
+        "expanded_url": "https://blogs.nvidia.com/blog/nation",
+        "display_url": "blogs.nvidia.com/blog/nation",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2043820876903190528/jUpADm3R?format=jpg&name=orig",
+            "width": 1280,
+            "height": 680
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2043820876903190528/jUpADm3R?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "US National Science Foundation Launches National AI Research Resource Pilot",
+        "description": "The U.S. National Science Foundation has launched the National Artificial Intelligence Research Resource pilot with significant support from NVIDIA.",
+        "unwound_url": "https://blogs.nvidia.com/blog/national-ai-research-resource-pilot/"
+      },
+      {
+        "start": 268,
+        "end": 291,
+        "url": "https://t.co/Be82zsCUKT",
+        "expanded_url": "https://x.com/_MomentumTrader/status/2043820834024747239/photo/1",
+        "display_url": "pic.x.com/Be82zsCUKT",
+        "media_key": "3_2043820832720359424"
+      }
+    ]
+  },
+  "id": "2043820834024747239",
+  "author_id": "1936792477035626497",
+  "text": "Breaking watch:\nGTC Spotlights NVIDIA RTX PCs and DGX Sparks Running Latest Open Models and AI Agents Locally\nThe takeaway: Release details matter because benchmark shifts, pricing changes, and tooling updates can chang…\nSee the full context: https://t.co/edZUl0uAqA… https://t.co/Be82zsCUKT",
+  "_author": {
+    "id": "1936792477035626497",
+    "name": "MomentumAI",
+    "username": "_MomentumTrader"
+  },
+  "_collected_at": "2026-04-13T23:13:26.369Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

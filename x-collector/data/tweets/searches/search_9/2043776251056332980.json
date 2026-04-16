@@ -1,0 +1,41 @@
+{
+  "edit_history_tweet_ids": [
+    "2043776251056332980"
+  ],
+  "text": "@garrytan I agree with the premise, but I find that md doesn't scale well to tens or hundreds of concurrent agents. Right now I'm using postgres (supabase), but if you want the best of both worlds check out DoltDB - imagine if mysql and git had a baby . . .",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043198780800197025"
+    }
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 56
+  },
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 9,
+        "username": "garrytan",
+        "id": "11768582"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T19:40:04.000Z",
+  "id": "2043776251056332980",
+  "author_id": "804749",
+  "_author": {
+    "id": "804749",
+    "name": "Peter Bell",
+    "username": "PeterBell"
+  },
+  "_collected_at": "2026-04-13T23:13:28.355Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

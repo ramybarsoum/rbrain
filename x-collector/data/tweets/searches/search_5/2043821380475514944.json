@@ -1,0 +1,66 @@
+{
+  "edit_history_tweet_ids": [
+    "2043821380475514944"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 2
+  },
+  "created_at": "2026-04-13T22:39:24.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 216,
+        "end": 239,
+        "url": "https://t.co/QeNuRV9PA2",
+        "expanded_url": "https://github.com/pmbstyle/Octopal",
+        "display_url": "github.com/pmbstyle/Octop…",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2043819285487681537/bV3dMY2a?format=jpg&name=orig",
+            "width": 1200,
+            "height": 600
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2043819285487681537/bV3dMY2a?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "GitHub - pmbstyle/Octopal: Secure multi-agent runtime with isolated workers and powerful task execution under strict boundaries.",
+        "description": "Secure multi-agent runtime with isolated workers and powerful task execution under strict boundaries. - pmbstyle/Octopal",
+        "unwound_url": "https://github.com/pmbstyle/Octopal"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 0,
+        "end": 16,
+        "username": "NainsiDwiv50980",
+        "id": "1994840137336066051"
+      }
+    ]
+  },
+  "id": "2043821380475514944",
+  "author_id": "166602103",
+  "text": "@NainsiDwiv50980 I think that the major issue with AI agents right now is how easily they can be broken.  A simple prompt injection, or a file download, can compromise a whole system.\nThis is why I developed Octopal\nhttps://t.co/QeNuRV9PA2",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2042215290180608124"
+    }
+  ],
+  "_author": {
+    "id": "166602103",
+    "name": "Slava 🍁❤️ 🇺🇦",
+    "username": "pmbstuff"
+  },
+  "_collected_at": "2026-04-13T23:13:26.367Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

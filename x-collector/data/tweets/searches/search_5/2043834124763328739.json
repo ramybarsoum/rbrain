@@ -1,0 +1,39 @@
+{
+  "entities": {
+    "hashtags": [
+      {
+        "start": 161,
+        "end": 184,
+        "tag": "artificialintelligence"
+      },
+      {
+        "start": 185,
+        "end": 205,
+        "tag": "largelanguagemodels"
+      }
+    ]
+  },
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 17
+  },
+  "edit_history_tweet_ids": [
+    "2043834124763328739"
+  ],
+  "id": "2043834124763328739",
+  "author_id": "716348353915686912",
+  "created_at": "2026-04-13T23:30:02.000Z",
+  "text": "I built 31 open-source Rust CLI tools for AI agents and measured 35x better token efficiency vs MCP servers. Here's the stack, the design decisions, and why ...\n#artificialintelligence #largelanguagemodels...Show more",
+  "_author": {
+    "id": "716348353915686912",
+    "name": "HackerNoon | Learn Any Technology",
+    "username": "hackernoon"
+  },
+  "_collected_at": "2026-04-13T23:31:34.340Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

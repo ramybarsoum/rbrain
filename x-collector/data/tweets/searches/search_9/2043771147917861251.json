@@ -1,0 +1,42 @@
+{
+  "edit_history_tweet_ids": [
+    "2043771147917861251"
+  ],
+  "text": "Le Coup de Cœur : PostgreSQL\nl'Efficacité: Supabase\nfirebase :  le chouchou 😂 https://t.co/ORa3qqMTHe",
+  "referenced_tweets": [
+    {
+      "type": "quoted",
+      "id": "2043735858239476051"
+    }
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 6
+  },
+  "entities": {
+    "urls": [
+      {
+        "start": 78,
+        "end": 101,
+        "url": "https://t.co/ORa3qqMTHe",
+        "expanded_url": "https://twitter.com/gloiremurhigisi/status/2043735858239476051",
+        "display_url": "x.com/gloiremurhigis…"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T19:19:47.000Z",
+  "id": "2043771147917861251",
+  "author_id": "1975897834961395712",
+  "_author": {
+    "id": "1975897834961395712",
+    "name": "Ambassador Nathan Lumina",
+    "username": "Amb_luminat"
+  },
+  "_collected_at": "2026-04-13T23:13:28.356Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

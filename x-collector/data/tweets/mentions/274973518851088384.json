@@ -1,0 +1,47 @@
+{
+  "public_metrics": {
+    "retweet_count": 1,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "edit_history_tweet_ids": [
+    "274973518851088384"
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 12,
+        "username": "barsoumramy",
+        "id": "254267633"
+      },
+      {
+        "start": 13,
+        "end": 25,
+        "username": "aiman_attia",
+        "id": "506205482"
+      }
+    ]
+  },
+  "text": "@barsoumramy @aiman_attia باطل الف مرة دستور بديع واتباعه",
+  "author_id": "551884602",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "274972297268432896"
+    }
+  ],
+  "id": "274973518851088384",
+  "in_reply_to_user_id": "254267633",
+  "created_at": "2012-12-01T20:29:30.000Z",
+  "_author": {
+    "id": "551884602",
+    "name": "⚓m.taha⚓®",
+    "username": "tahaa_83"
+  },
+  "_collected_at": "2026-04-13T23:13:25.005Z",
+  "_stream": "mentions"
+}

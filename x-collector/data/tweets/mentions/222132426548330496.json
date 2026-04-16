@@ -1,0 +1,41 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "edit_history_tweet_ids": [
+    "222132426548330496"
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 12,
+        "username": "barsoumramy",
+        "id": "254267633"
+      }
+    ]
+  },
+  "text": "@barsoumramy اكيد",
+  "author_id": "308949045",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "222132348194529282"
+    }
+  ],
+  "id": "222132426548330496",
+  "in_reply_to_user_id": "254267633",
+  "created_at": "2012-07-09T00:57:52.000Z",
+  "_author": {
+    "id": "308949045",
+    "name": "عااااااجل الاااااان",
+    "username": "safaaahmmed"
+  },
+  "_collected_at": "2026-04-13T23:13:25.009Z",
+  "_stream": "mentions"
+}

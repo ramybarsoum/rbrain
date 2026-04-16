@@ -1,0 +1,28 @@
+{
+  "created_at": "2013-08-16T13:13:46.000Z",
+  "edit_history_tweet_ids": [
+    "368359931516567552"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "author_id": "254267633",
+  "text": "قناة الجزيرة مباشر مصر - عاجل | الشرطة تغلق الطرق امام مسيرة متجهة لمسجد الإيمان بمدينة نصر وتحليق لمروحيات الجيش .#مصر_ضد_الارهاب",
+  "entities": {
+    "hashtags": [
+      {
+        "start": 115,
+        "end": 130,
+        "tag": "مصر_ضد_الارهاب"
+      }
+    ]
+  },
+  "id": "368359931516567552",
+  "_collected_at": "2026-04-14T00:01:36.490Z",
+  "_stream": "own"
+}

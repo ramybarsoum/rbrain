@@ -1,0 +1,40 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "edit_history_tweet_ids": [
+    "294133367136464896"
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 1,
+        "end": 13,
+        "username": "barsoumramy",
+        "id": "254267633"
+      },
+      {
+        "start": 15,
+        "end": 23,
+        "username": "EmanRS_",
+        "id": "428344115"
+      }
+    ]
+  },
+  "text": "“@barsoumramy: @EmanRS_ @hennalolo اي خدمة..\nعملناله ريبورت سبام !!\nأشكال ضالة”\nشكرا:)",
+  "author_id": "275694766",
+  "id": "294133367136464896",
+  "created_at": "2013-01-23T17:23:54.000Z",
+  "_author": {
+    "id": "275694766",
+    "name": "7ENNA🇪🇬",
+    "username": "7ANANLOLO"
+  },
+  "_collected_at": "2026-04-13T23:13:25.000Z",
+  "_stream": "mentions"
+}

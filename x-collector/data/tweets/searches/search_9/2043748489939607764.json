@@ -1,0 +1,52 @@
+{
+  "edit_history_tweet_ids": [
+    "2043748489939607764"
+  ],
+  "text": "A new series on building a monetized API using Zuplo, Hono and Supabase. The author covers setting up a gateway, using a shared secret to lock down the origin, and forwarding consumer IDs to ensure data isolation. Good practical look at API architecture.\nhttps://t.co/9hg11WkKb9",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 13
+  },
+  "entities": {
+    "urls": [
+      {
+        "start": 255,
+        "end": 278,
+        "url": "https://t.co/9hg11WkKb9",
+        "expanded_url": "https://dev.to/zuplo/building-a-monetized-api-part-1-of-4-2po3",
+        "display_url": "dev.to/zuplo/building…",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2043748494796607488/mAdYpowb?format=jpg&name=orig",
+            "width": 1200,
+            "height": 630
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2043748494796607488/mAdYpowb?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "Building a Monetized API (Part 1 of 4)",
+        "description": "Before you can charge for your API, you need the gateway set up right. Set up origin auth, consumer isolation, and rate limiting as the foundation for adding monetization.",
+        "unwound_url": "https://dev.to/zuplo/building-a-monetized-api-part-1-of-4-2po3"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T17:49:45.000Z",
+  "id": "2043748489939607764",
+  "author_id": "153761702",
+  "_author": {
+    "id": "153761702",
+    "name": "Karpat",
+    "username": "karpat_dev"
+  },
+  "_collected_at": "2026-04-13T23:13:28.361Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

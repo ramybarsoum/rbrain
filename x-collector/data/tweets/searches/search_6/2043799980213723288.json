@@ -1,0 +1,58 @@
+{
+  "entities": {
+    "urls": [
+      {
+        "start": 212,
+        "end": 235,
+        "url": "https://t.co/v7Age81QRj",
+        "expanded_url": "https://x.com/testingcatalog/status/2043799980213723288/photo/1",
+        "display_url": "pic.x.com/v7Age81QRj",
+        "media_key": "3_2043799976288153600"
+      },
+      {
+        "start": 212,
+        "end": 235,
+        "url": "https://t.co/v7Age81QRj",
+        "expanded_url": "https://x.com/testingcatalog/status/2043799980213723288/photo/1",
+        "display_url": "pic.x.com/v7Age81QRj",
+        "media_key": "3_2043799976145223680"
+      },
+      {
+        "start": 236,
+        "end": 259,
+        "url": "https://t.co/u5tCnISjs1",
+        "expanded_url": "https://twitter.com/hirofinanceai/status/2043751090232144159",
+        "display_url": "x.com/hirofinanceai/…"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T21:14:21.000Z",
+  "author_id": "3980735590",
+  "referenced_tweets": [
+    {
+      "type": "quoted",
+      "id": "2043751090232144159"
+    }
+  ],
+  "text": "OpenAI acquired Hiro Finance 🔥\n\n&gt; Hiro Finance team has been building a personal AI CFO\n\n&gt; OpenAI has been developing their own Finance solution on ChatGPT for some time already\n\nAI CFOs are on the raise 👀 https://t.co/v7Age81QRj https://t.co/u5tCnISjs1",
+  "edit_history_tweet_ids": [
+    "2043799980213723288"
+  ],
+  "id": "2043799980213723288",
+  "public_metrics": {
+    "retweet_count": 6,
+    "reply_count": 10,
+    "like_count": 129,
+    "quote_count": 2,
+    "bookmark_count": 18,
+    "impression_count": 15562
+  },
+  "_author": {
+    "id": "3980735590",
+    "name": "TestingCatalog News 🗞",
+    "username": "testingcatalog"
+  },
+  "_collected_at": "2026-04-13T23:13:26.843Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

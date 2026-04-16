@@ -1,0 +1,87 @@
+{
+  "created_at": "2026-04-12T10:20:52.000Z",
+  "author_id": "16884787",
+  "text": "MCP. Trois lettres qui changent la façon dont tu utilises Claude. Model Context Protocol : un standard ouvert qui connecte Claude  à tes outils du quotidien. @gmail , @SlackHQ , @NotionHQ , @posthog , @figma , @HubSpot , @Jira , @googlesheets, etc... https://t.co/fWyVGjWhly",
+  "public_metrics": {
+    "retweet_count": 1,
+    "reply_count": 1,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 1,
+    "impression_count": 111
+  },
+  "edit_history_tweet_ids": [
+    "2043273134216708290"
+  ],
+  "id": "2043273134216708290",
+  "entities": {
+    "urls": [
+      {
+        "start": 251,
+        "end": 274,
+        "url": "https://t.co/fWyVGjWhly",
+        "expanded_url": "https://x.com/Cedric_r/status/2043273134216708290/photo/1",
+        "display_url": "pic.x.com/fWyVGjWhly",
+        "media_key": "3_2043272117886836736"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 158,
+        "end": 164,
+        "username": "gmail",
+        "id": "38679388"
+      },
+      {
+        "start": 167,
+        "end": 175,
+        "username": "SlackHQ",
+        "id": "1305940272"
+      },
+      {
+        "start": 178,
+        "end": 187,
+        "username": "NotionHQ",
+        "id": "708915428454576128"
+      },
+      {
+        "start": 190,
+        "end": 198,
+        "username": "posthog",
+        "id": "1221534581045620736"
+      },
+      {
+        "start": 201,
+        "end": 207,
+        "username": "figma",
+        "id": "3181020308"
+      },
+      {
+        "start": 210,
+        "end": 218,
+        "username": "HubSpot",
+        "id": "14458280"
+      },
+      {
+        "start": 221,
+        "end": 226,
+        "username": "Jira",
+        "id": "70575645"
+      },
+      {
+        "start": 229,
+        "end": 242,
+        "username": "googlesheets",
+        "id": "1150081370187845632"
+      }
+    ]
+  },
+  "_author": {
+    "id": "16884787",
+    "name": "Cédric Rittié",
+    "username": "Cedric_r"
+  },
+  "_collected_at": "2026-04-13T23:13:27.348Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

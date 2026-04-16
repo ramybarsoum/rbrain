@@ -1,0 +1,35 @@
+{
+  "created_at": "2026-04-13T18:06:35.000Z",
+  "author_id": "989708396445216768",
+  "text": "It is amazing just how bad @PayPal customer service operates. The \"AI Assistant\" is terrible.\nI disputed a charge after the vendor gave me the runaround. And PayPal closed the dispute in favor of the seller? Based on what?",
+  "entities": {
+    "mentions": [
+      {
+        "start": 27,
+        "end": 34,
+        "username": "PayPal",
+        "id": "30018058"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "2043752723808387265"
+  ],
+  "id": "2043752723808387265",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 9
+  },
+  "_author": {
+    "id": "989708396445216768",
+    "name": "InternetHateMob",
+    "username": "InternetHateMob"
+  },
+  "_collected_at": "2026-04-13T23:13:26.862Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

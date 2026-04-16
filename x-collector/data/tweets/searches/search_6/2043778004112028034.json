@@ -1,0 +1,58 @@
+{
+  "entities": {
+    "urls": [
+      {
+        "start": 140,
+        "end": 163,
+        "url": "https://t.co/W2w2YVKTSA",
+        "expanded_url": "http://orgface.com",
+        "display_url": "orgface.com",
+        "status": 200,
+        "unwound_url": "http://orgface.com"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 0,
+        "end": 8,
+        "username": "Tocelot",
+        "id": "16196307"
+      },
+      {
+        "start": 9,
+        "end": 18,
+        "username": "speedrun",
+        "id": "1760843364386443264"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T19:47:02.000Z",
+  "author_id": "1207874807158558720",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043722348466225315"
+    }
+  ],
+  "text": "@Tocelot @speedrun In the world of AI, I still can't believe that AI agents are not connecting people proactively. We're building that with https://t.co/W2w2YVKTSA . A Social Network powered by everyone's personal AI assistants. Everyone can train their AI assistants to only let qualified flocks",
+  "edit_history_tweet_ids": [
+    "2043778004112028034"
+  ],
+  "id": "2043778004112028034",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 2
+  },
+  "_author": {
+    "id": "1207874807158558720",
+    "name": "Mathews Joseph",
+    "username": "Mathews_Joseph_"
+  },
+  "_collected_at": "2026-04-13T23:13:26.853Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

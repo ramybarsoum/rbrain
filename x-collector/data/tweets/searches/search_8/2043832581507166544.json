@@ -1,0 +1,41 @@
+{
+  "edit_history_tweet_ids": [
+    "2043832581507166544"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 5
+  },
+  "created_at": "2026-04-13T23:23:54.000Z",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 16,
+        "username": "Sages_and_Pages",
+        "id": "1682829539653681154"
+      }
+    ]
+  },
+  "id": "2043832581507166544",
+  "author_id": "1645802695528415242",
+  "text": "@Sages_and_Pages Anyone with access to Anthropic Mythos?",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043715975464255511"
+    }
+  ],
+  "_author": {
+    "id": "1645802695528415242",
+    "name": "optictopic",
+    "username": "Optictopic"
+  },
+  "_collected_at": "2026-04-13T23:31:35.742Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

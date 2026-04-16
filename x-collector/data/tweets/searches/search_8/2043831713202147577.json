@@ -1,0 +1,25 @@
+{
+  "edit_history_tweet_ids": [
+    "2043831713202147577"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 11
+  },
+  "created_at": "2026-04-13T23:20:27.000Z",
+  "id": "2043831713202147577",
+  "author_id": "1918309309852659712",
+  "text": "OAI complex should continue to rip. Codex is great and Anthropic doesn’t have the compute to meet Code demand. I hate Sam but believe the view is that OAI has enough compute to release the new model for coding &amp; flip Anthropic on having compute &amp; thereby capacity alone",
+  "_author": {
+    "id": "1918309309852659712",
+    "name": "Lip Bae Tan",
+    "username": "Fillynillyswily"
+  },
+  "_collected_at": "2026-04-13T23:31:35.748Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

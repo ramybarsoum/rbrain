@@ -1,0 +1,60 @@
+{
+  "edit_history_tweet_ids": [
+    "2043825945149157548"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 4
+  },
+  "created_at": "2026-04-13T22:57:32.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 180,
+        "end": 203,
+        "url": "https://t.co/3tgGeINV77",
+        "expanded_url": "https://mvr.al/9gc7y",
+        "display_url": "mvr.al/9gc7y",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2043825947451740160/XALU8Eu0?format=jpg&name=orig",
+            "width": 1792,
+            "height": 1024
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2043825947451740160/XALU8Eu0?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "Microsoft e AI Agents vão mudar as licenças de SaaS?",
+        "description": "Licenças: Microsoft propõe que agentes de IA tenham licenças, o que pode reinventar a precificação SaaS e a economia de software.",
+        "unwound_url": "https://mvr.al/9gc7y"
+      },
+      {
+        "start": 204,
+        "end": 227,
+        "url": "https://t.co/TyZLYjE56f",
+        "expanded_url": "https://x.com/metodo_viral/status/2043825945149157548/photo/1",
+        "display_url": "pic.x.com/TyZLYjE56f",
+        "media_key": "3_2043825943467147265"
+      }
+    ]
+  },
+  "id": "2043825945149157548",
+  "author_id": "2028669195102375936",
+  "text": "Microsoft levantou uma bomba: e se AI agents precisarem de licença própria? Isso pode virar do avesso o modelo SaaS de seats e mudar a precificação do software. Entenda o debate 👇 https://t.co/3tgGeINV77 https://t.co/TyZLYjE56f",
+  "_author": {
+    "id": "2028669195102375936",
+    "name": "Método Viral",
+    "username": "metodo_viral"
+  },
+  "_collected_at": "2026-04-13T23:13:26.357Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

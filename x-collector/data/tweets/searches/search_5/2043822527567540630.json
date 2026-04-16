@@ -1,0 +1,37 @@
+{
+  "edit_history_tweet_ids": [
+    "2043822527567540630"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 219
+  },
+  "created_at": "2026-04-13T22:43:57.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 218,
+        "end": 241,
+        "url": "https://t.co/agFG7b6Eem",
+        "expanded_url": "https://x.com/JulianGoldieSEO/status/2043822527567540630/photo/1",
+        "display_url": "pic.x.com/agFG7b6Eem",
+        "media_key": "3_2043822518734295040"
+      }
+    ]
+  },
+  "id": "2043822527567540630",
+  "author_id": "1405031034",
+  "text": "💰 𝟭𝟯 𝗛𝗢𝗨𝗥𝗦 𝗟𝗘𝗙𝗧: 𝗬𝗢𝗨 𝗪𝗢𝗨𝗟𝗗𝗡'𝗧 𝗛𝗜𝗥𝗘 𝟮 𝗘𝗠𝗣𝗟𝗢𝗬𝗘𝗘𝗦 𝗙𝗢𝗥 $𝟬 — 𝗢𝗛 𝗪𝗔𝗜𝗧, 𝗬𝗢𝗨 𝗖𝗔𝗡 + $𝟱𝟳𝗞 𝗕𝗢𝗡𝗨𝗦𝗘𝗦 🔥\nYour future self will thank you for this decision. The AI Profit Boardroom + The Monday Money Agent Launch — two free AI agents https://t.co/agFG7b6Eem",
+  "_author": {
+    "id": "1405031034",
+    "name": "Julian Goldie SEO",
+    "username": "JulianGoldieSEO"
+  },
+  "_collected_at": "2026-04-13T23:13:26.364Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

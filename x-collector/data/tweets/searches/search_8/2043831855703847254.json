@@ -1,0 +1,42 @@
+{
+  "edit_history_tweet_ids": [
+    "2043831855703847254"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 13
+  },
+  "created_at": "2026-04-13T23:21:01.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 165,
+        "end": 188,
+        "url": "https://t.co/RFTdrmbAhG",
+        "expanded_url": "https://twitter.com/minimax_ai/status/2043750042113323308",
+        "display_url": "x.com/minimax_ai/sta…"
+      }
+    ]
+  },
+  "id": "2043831855703847254",
+  "author_id": "1493015997627830273",
+  "text": "MiniMaxのMusic skills面白そう。\n\n---\nminimax-music-gen: 1行のプロンプトでフルトラックを生成。エージェントがオリジナル、インストゥルメンタル、またはカバーを自動選択。\n\nbuddy-sings: あなたのClaude Codeキャラクターが自分のペルソナを読み上げ、一人称で歌います。 https://t.co/RFTdrmbAhG",
+  "referenced_tweets": [
+    {
+      "type": "quoted",
+      "id": "2043750042113323308"
+    }
+  ],
+  "_author": {
+    "id": "1493015997627830273",
+    "name": "Jun_|音楽・Podcast向け自動マスタリング「AudioMastering」",
+    "username": "Jun_BGM"
+  },
+  "_collected_at": "2026-04-13T23:31:35.747Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

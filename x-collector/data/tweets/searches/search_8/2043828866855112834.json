@@ -1,0 +1,41 @@
+{
+  "author_id": "1723977122782363648",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 13,
+        "username": "perrymetzger",
+        "id": "127100323"
+      }
+    ]
+  },
+  "id": "2043828866855112834",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 2
+  },
+  "text": "@perrymetzger ?? The only people saying this are actually working in ai\n\nMost still haven't sobered up from their anthropic mythos scare tactic marketing induced psychosis",
+  "created_at": "2026-04-13T23:09:09.000Z",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043477313371648217"
+    }
+  ],
+  "edit_history_tweet_ids": [
+    "2043828866855112834"
+  ],
+  "_author": {
+    "id": "1723977122782363648",
+    "name": "Jason",
+    "username": "TechnoKahn"
+  },
+  "_collected_at": "2026-04-13T23:13:27.835Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

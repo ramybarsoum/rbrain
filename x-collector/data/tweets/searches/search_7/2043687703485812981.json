@@ -1,0 +1,45 @@
+{
+  "created_at": "2026-04-13T13:48:13.000Z",
+  "author_id": "1783366345893330944",
+  "text": "The new @tradingview Copilot Chrome extension is now in beta and supports Model Context Protocol (MCP). I was able to plot celestial events on my TV chart in about 4 minutes. \n\nTo reproduce: \n1. Install and set up the TradingView Copilot extension. \n2. In the settings, add an MCP https://t.co/SlCi6WBiFX",
+  "public_metrics": {
+    "retweet_count": 2,
+    "reply_count": 3,
+    "like_count": 19,
+    "quote_count": 0,
+    "bookmark_count": 21,
+    "impression_count": 1098
+  },
+  "edit_history_tweet_ids": [
+    "2043687703485812981"
+  ],
+  "id": "2043687703485812981",
+  "entities": {
+    "urls": [
+      {
+        "start": 281,
+        "end": 304,
+        "url": "https://t.co/SlCi6WBiFX",
+        "expanded_url": "https://x.com/Blueprint_So9/status/2043687703485812981/photo/1",
+        "display_url": "pic.x.com/SlCi6WBiFX",
+        "media_key": "3_2043686548198375424"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 8,
+        "end": 20,
+        "username": "tradingview",
+        "id": "373457750"
+      }
+    ]
+  },
+  "_author": {
+    "id": "1783366345893330944",
+    "name": "Blueprint Research",
+    "username": "Blueprint_So9"
+  },
+  "_collected_at": "2026-04-13T23:13:27.329Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

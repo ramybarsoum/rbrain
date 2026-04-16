@@ -1,0 +1,36 @@
+{
+  "created_at": "2013-08-16T17:29:34.000Z",
+  "edit_history_tweet_ids": [
+    "368424306495479808"
+  ],
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "368424050164391937"
+    }
+  ],
+  "in_reply_to_user_id": "486747235",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "author_id": "254267633",
+  "text": "@AymanElfeky2 ههههههههه..عيب !!",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 13,
+        "username": "AymanElfeky2",
+        "id": "486747235"
+      }
+    ]
+  },
+  "id": "368424306495479808",
+  "_collected_at": "2026-04-14T00:01:36.489Z",
+  "_stream": "own"
+}

@@ -1,0 +1,110 @@
+{
+  "created_at": "2019-03-25T21:30:03.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 86,
+        "end": 109,
+        "url": "https://t.co/0R4Z0X9hjy",
+        "expanded_url": "https://www.grapera.com",
+        "display_url": "grapera.com"
+      },
+      {
+        "start": 266,
+        "end": 289,
+        "url": "https://t.co/zXFPgyvlCq",
+        "expanded_url": "https://x.com/barsoumramy/status/1110292786610401283/photo/1",
+        "display_url": "pic.x.com/zXFPgyvlCq",
+        "media_key": "3_1110292785045929984"
+      }
+    ],
+    "hashtags": [
+      {
+        "start": 110,
+        "end": 117,
+        "tag": "belief"
+      },
+      {
+        "start": 118,
+        "end": 130,
+        "tag": "bethechange"
+      },
+      {
+        "start": 131,
+        "end": 144,
+        "tag": "postivevibes"
+      },
+      {
+        "start": 145,
+        "end": 156,
+        "tag": "prosperity"
+      },
+      {
+        "start": 157,
+        "end": 169,
+        "tag": "pushthrough"
+      },
+      {
+        "start": 170,
+        "end": 183,
+        "tag": "pushyourself"
+      },
+      {
+        "start": 184,
+        "end": 190,
+        "tag": "focus"
+      },
+      {
+        "start": 191,
+        "end": 198,
+        "tag": "growth"
+      },
+      {
+        "start": 199,
+        "end": 208,
+        "tag": "hardwork"
+      },
+      {
+        "start": 209,
+        "end": 223,
+        "tag": "inspirational"
+      },
+      {
+        "start": 224,
+        "end": 235,
+        "tag": "aspiration"
+      },
+      {
+        "start": 236,
+        "end": 248,
+        "tag": "fallforward"
+      },
+      {
+        "start": 249,
+        "end": 254,
+        "tag": "move"
+      },
+      {
+        "start": 255,
+        "end": 265,
+        "tag": "bizgrowth"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "1110292786610401283"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 2,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "author_id": "254267633",
+  "text": "\"The difference between who you are and who you want to be is what you do.\" - Unknown\nhttps://t.co/0R4Z0X9hjy\n#belief #bethechange #postivevibes #prosperity #pushthrough #pushyourself #focus #growth #hardwork #inspirational #aspiration #fallforward #move #bizgrowth https://t.co/zXFPgyvlCq",
+  "id": "1110292786610401283",
+  "_collected_at": "2026-04-14T00:01:36.473Z",
+  "_stream": "own"
+}

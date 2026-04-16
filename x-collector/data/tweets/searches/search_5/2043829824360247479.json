@@ -1,0 +1,58 @@
+{
+  "edit_history_tweet_ids": [
+    "2043829824360247479"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "created_at": "2026-04-13T23:12:57.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 137,
+        "end": 160,
+        "url": "https://t.co/v33tQJDgR9",
+        "expanded_url": "https://portal-virtuals.xyz",
+        "display_url": "portal-virtuals.xyz",
+        "status": 403,
+        "unwound_url": "https://portal-virtuals.xyz"
+      },
+      {
+        "start": 272,
+        "end": 295,
+        "url": "https://t.co/VNtrPUiFwn",
+        "expanded_url": "https://x.com/crystalfoxeth/status/2043829824360247479/photo/1",
+        "display_url": "pic.x.com/VNtrPUiFwn",
+        "media_key": "3_2043829806211723264"
+      }
+    ],
+    "cashtags": [
+      {
+        "start": 0,
+        "end": 8,
+        "tag": "VIRTUAL"
+      },
+      {
+        "start": 110,
+        "end": 118,
+        "tag": "VIRTUAL"
+      }
+    ]
+  },
+  "id": "2043829824360247479",
+  "author_id": "1395881846",
+  "text": "$VIRTUAL is dishing out rewards. Up to $1M every month.\n\nThe AI agents community is giving back.\n\nThis is why $VIRTUAL is on the rise 🔥\n\nhttps://t.co/v33tQJDgR9\n\nHere’s the scoop:\n→ Used Virtual Protocol AI agents? You’re in.\n→ Chatted with their Twitter AI? You’re in.\n→ https://t.co/VNtrPUiFwn",
+  "_author": {
+    "id": "1395881846",
+    "name": "Crystal Fox",
+    "username": "crystalfoxeth"
+  },
+  "_collected_at": "2026-04-13T23:13:26.335Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

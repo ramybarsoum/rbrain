@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-04-13T11:15:00.000Z",
+  "author_id": "839528378",
+  "text": "Model Context Protocol standardizes how AI systems access external tools and data. The governance gap: who decides what tools an AI can use, and what stops it mid-operation? Organizations adopting MCP without explicit delegation of authority, escalation design, and kill",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 7
+  },
+  "edit_history_tweet_ids": [
+    "2043649147383804320"
+  ],
+  "id": "2043649147383804320",
+  "_author": {
+    "id": "839528378",
+    "name": "Murat H. CANDAN",
+    "username": "Mhcandan"
+  },
+  "_collected_at": "2026-04-13T23:13:27.332Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

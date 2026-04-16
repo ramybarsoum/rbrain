@@ -1,0 +1,47 @@
+{
+  "edit_history_tweet_ids": [
+    "2043787258407555138"
+  ],
+  "text": "@joud_swe @mo_mahdii سمعت عن env? وبالنسبة للامان. كل اللي تحتاجه md file يسويلك تشييك سريع هذا غير انه مسوي اصلا. الآن كلاود و كوديكس يسوون الفرونت اند والباك اند ويعمل push على supabase و vercel هذا وكله انت ماطلعت من التيرمينال",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043633257242116116"
+    }
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 10
+  },
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 9,
+        "username": "joud_swe",
+        "id": "1959344186697662464"
+      },
+      {
+        "start": 10,
+        "end": 20,
+        "username": "mo_mahdii",
+        "id": "2030810951239516160"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T20:23:48.000Z",
+  "id": "2043787258407555138",
+  "author_id": "524078124",
+  "_author": {
+    "id": "524078124",
+    "name": "حسن الصبحان",
+    "username": "HassanaIsobhan"
+  },
+  "_collected_at": "2026-04-13T23:13:28.353Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

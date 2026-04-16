@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "urls": [
+      {
+        "start": 211,
+        "end": 234,
+        "url": "https://t.co/78ficDZmxG",
+        "expanded_url": "https://360tft.co.uk/first-agent/",
+        "display_url": "360tft.co.uk/first-agent/",
+        "status": 200,
+        "title": "Your First Football AI Agent",
+        "description": "Build your own AI coaching assistant. No code. No tech skills. Just your expertise. 7 lessons + 5 bonus lessons. $10 until 26 April (normally $24).",
+        "unwound_url": "https://360tft.co.uk/first-agent/"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T20:35:03.000Z",
+  "author_id": "1081156438721024001",
+  "text": "Training tomorrow. No session planned. Sound familiar? \n\nI built a course showing you how to build your own AI Assistant to help.\n\n12 lessons. No coding or tech knowledge required. \n \nNow $10 (normally $24). \n \nhttps://t.co/78ficDZmxG",
+  "edit_history_tweet_ids": [
+    "2043790089084362867"
+  ],
+  "id": "2043790089084362867",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 182
+  },
+  "_author": {
+    "id": "1081156438721024001",
+    "name": "Kevin Middleton",
+    "username": "coach_kevin_m"
+  },
+  "_collected_at": "2026-04-13T23:13:26.849Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

@@ -1,0 +1,25 @@
+{
+  "edit_history_tweet_ids": [
+    "2043828729323929818"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 4
+  },
+  "created_at": "2026-04-13T23:08:36.000Z",
+  "id": "2043828729323929818",
+  "author_id": "4089912556",
+  "text": "The Arc team is pouring real energy into one big vision right now.  \n\nThey are building the agentic economy where AI agents do actual paid work onchain.",
+  "_author": {
+    "id": "4089912556",
+    "name": "Endangered Specie",
+    "username": "EndangeredSpecA"
+  },
+  "_collected_at": "2026-04-13T23:13:26.344Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

@@ -1,0 +1,41 @@
+{
+  "author_id": "1813265242731720705",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 7,
+        "username": "smaxor",
+        "id": "19782851"
+      }
+    ]
+  },
+  "id": "2043829758383858139",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 1
+  },
+  "text": "@smaxor It’s so obviously worse, like without even running benchmarks you can easily tell it’s worse. And to get nothing but gaslighting from Anthropic is so frustrating. They need to just come out and say they’re compute starved and be transparent about their rate limits changes. And",
+  "created_at": "2026-04-13T23:12:41.000Z",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043789333728211285"
+    }
+  ],
+  "edit_history_tweet_ids": [
+    "2043829758383858139"
+  ],
+  "_author": {
+    "id": "1813265242731720705",
+    "name": "Trevor Spencer",
+    "username": "TSpencer260"
+  },
+  "_collected_at": "2026-04-13T23:13:27.817Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

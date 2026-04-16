@@ -1,0 +1,37 @@
+{
+  "author_id": "1228687947861381120",
+  "id": "2043829457006538785",
+  "entities": {
+    "urls": [
+      {
+        "start": 167,
+        "end": 190,
+        "url": "https://t.co/K8lLOAF6WC",
+        "expanded_url": "https://x.com/no15koh/status/2043829457006538785/photo/1",
+        "display_url": "pic.x.com/K8lLOAF6WC",
+        "media_key": "3_2043829452740931585"
+      }
+    ]
+  },
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 8
+  },
+  "text": "✨AIエディタCursor 最高🥰\n\n私は正直、Claude CodeやGitHub Copilotに興味があったのだけど、AIたち全員が\n私にはCursorが合ってると激推ししたのよね💕\n\n確かに直感的にわかるし、超便利‼️\n修正箇所は全部AIが見つけてコードを書き直してくれる🩷\n必要なのは、正しく言語化できる日本語能力だけ😊🌟 https://t.co/K8lLOAF6WC",
+  "created_at": "2026-04-13T23:11:29.000Z",
+  "edit_history_tweet_ids": [
+    "2043829457006538785"
+  ],
+  "_author": {
+    "id": "1228687947861381120",
+    "name": "🍓野いちご",
+    "username": "no15koh"
+  },
+  "_collected_at": "2026-04-13T23:13:27.825Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

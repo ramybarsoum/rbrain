@@ -1,0 +1,54 @@
+{
+  "edit_history_tweet_ids": [
+    "2043826838284169397"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 1
+  },
+  "created_at": "2026-04-13T23:01:05.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 43,
+        "end": 66,
+        "url": "https://t.co/Xj6kZMPfZN",
+        "expanded_url": "http://cosmocalls.com",
+        "display_url": "cosmocalls.com",
+        "status": 200,
+        "title": "Cosmo - Your Universe of Conversation",
+        "description": "Cosmo helps you handle calls and outreach with AI voice bots, campaigns, and automations.",
+        "unwound_url": "https://cosmocalls.com/"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 0,
+        "end": 14,
+        "username": "buildinpublic",
+        "id": "2729705040"
+      }
+    ]
+  },
+  "id": "2043826838284169397",
+  "author_id": "1878841593324515333",
+  "text": "@buildinpublic Already built it, check out https://t.co/Xj6kZMPfZN. An automated voice ai agents platform. No need to hire physical receptionists",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043705847700914336"
+    }
+  ],
+  "_author": {
+    "id": "1878841593324515333",
+    "name": "Burhan Raza",
+    "username": "AllThingsTec"
+  },
+  "_collected_at": "2026-04-13T23:13:26.351Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

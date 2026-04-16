@@ -1,0 +1,47 @@
+{
+  "author_id": "31414330",
+  "id": "2043828136547164193",
+  "entities": {
+    "urls": [
+      {
+        "start": 225,
+        "end": 248,
+        "url": "https://t.co/ZhqMwqAHLE",
+        "expanded_url": "http://duna.cl",
+        "display_url": "duna.cl",
+        "status": 200,
+        "title": "Duna: Radio en vivo, noticias, análisis y programas en Chile",
+        "description": "Escucha Duna en vivo y accede a noticias, análisis, programas y podcasts sobre actualidad, política, economía y cultura en Chile y el mundo. Contenido actualizado y opinión en un solo lugar.",
+        "unwound_url": "https://duna.cl/"
+      }
+    ],
+    "hashtags": [
+      {
+        "start": 0,
+        "end": 13,
+        "tag": "NadaPersonal"
+      }
+    ]
+  },
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 35
+  },
+  "text": "#NadaPersonal | Juan Pablo Arias sobre Anthropic: “El tema de la ética y el uso responsable se ha discutido hace tiempo (…) hoy cuesta mucho seguir el ritmo y el impacto de lo que puede pasar con esto.”\n🔷 En vivo en YouTube, https://t.co/ZhqMwqAHLE y en nuestros diales.",
+  "created_at": "2026-04-13T23:06:14.000Z",
+  "edit_history_tweet_ids": [
+    "2043828136547164193"
+  ],
+  "_author": {
+    "id": "31414330",
+    "name": "Radio Duna",
+    "username": "RadioDuna"
+  },
+  "_collected_at": "2026-04-13T23:13:27.844Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

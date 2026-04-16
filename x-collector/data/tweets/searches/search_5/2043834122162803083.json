@@ -1,0 +1,52 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 1
+  },
+  "entities": {
+    "urls": [
+      {
+        "start": 253,
+        "end": 276,
+        "url": "https://t.co/e661m7NpsH",
+        "expanded_url": "https://social.ora.cl/6016B625xK",
+        "display_url": "social.ora.cl/6016B625xK",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2041604094708547584/bfiCNsde?format=jpg&name=orig",
+            "width": 1200,
+            "height": 630
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2041604094708547584/bfiCNsde?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "Oracle Fusion Apps Give Enterprises Secure, Specialized Agents",
+        "description": "Oracle added updates in AI Agent Studio that enable enterprises to build AI and connect AI automation and agentic applications.",
+        "unwound_url": "https://aibusiness.com/agentic-ai/oracle-fusion-apps-give-enterprises-secure-agents#close-modal"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "2043834122162803083"
+  ],
+  "id": "2043834122162803083",
+  "author_id": "15586175",
+  "created_at": "2026-04-13T23:30:01.000Z",
+  "text": "Oracle Fusion Agentic Applications deliver with specialized AI agents that can execute tasks, adapt to context, and drive real business outcomes. AI Business explores how Oracle is helping organizations build and orchestrate agentic workflows at scale: https://t.co/e661m7NpsH",
+  "_author": {
+    "id": "15586175",
+    "name": "Diogo BRUNACCI 🅰️+",
+    "username": "diogobrunacci"
+  },
+  "_collected_at": "2026-04-13T23:31:34.341Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

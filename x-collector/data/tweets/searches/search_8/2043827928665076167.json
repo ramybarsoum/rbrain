@@ -1,0 +1,41 @@
+{
+  "author_id": "1869941093942591488",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 8,
+        "username": "t_35423",
+        "id": "1519341237416841218"
+      }
+    ]
+  },
+  "id": "2043827928665076167",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 4
+  },
+  "text": "@t_35423 近日OSSで公開しますのでclaude codeの使用量等の実費分以外は無料です！",
+  "created_at": "2026-04-13T23:05:25.000Z",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043818930805060021"
+    }
+  ],
+  "edit_history_tweet_ids": [
+    "2043827928665076167"
+  ],
+  "_author": {
+    "id": "1869941093942591488",
+    "name": "ひかる｜動画運用AI",
+    "username": "hikarun_videoai"
+  },
+  "_collected_at": "2026-04-13T23:13:27.846Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

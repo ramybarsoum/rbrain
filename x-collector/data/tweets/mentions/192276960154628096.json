@@ -1,0 +1,47 @@
+{
+  "edit_history_tweet_ids": [
+    "192276960154628096"
+  ],
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "192219918043840512"
+    }
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 12,
+        "username": "barsoumramy",
+        "id": "254267633"
+      },
+      {
+        "start": 13,
+        "end": 24,
+        "username": "nawaranegm",
+        "id": "1472171177896554500"
+      }
+    ]
+  },
+  "text": "@barsoumramy @nawaranegm الكلام ده حقيقي",
+  "author_id": "223171361",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "created_at": "2012-04-17T15:42:54.000Z",
+  "in_reply_to_user_id": "254267633",
+  "id": "192276960154628096",
+  "_author": {
+    "id": "223171361",
+    "name": "Mohamed Yaqout",
+    "username": "mohamed_yaqout"
+  },
+  "_collected_at": "2026-04-13T23:31:33.107Z",
+  "_stream": "mentions"
+}

@@ -1,0 +1,25 @@
+{
+  "text": "SAMOC SAÚDE (ALLCARE) - RJ - Novo projeto de Adesão disponível - 07/04/2026",
+  "created_at": "2026-04-08T14:36:44.000Z",
+  "edit_history_tweet_ids": [
+    "2041887977039663404"
+  ],
+  "id": "2041887977039663404",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 16
+  },
+  "author_id": "429865976",
+  "_author": {
+    "id": "429865976",
+    "name": "Simulador On-Line",
+    "username": "SimuladorSP"
+  },
+  "_collected_at": "2026-04-13T23:13:25.715Z",
+  "_stream": "search_3",
+  "_search_query": "\"AllCare\" OR \"allcare.ai\""
+}

@@ -1,0 +1,53 @@
+{
+  "entities": {
+    "urls": [
+      {
+        "start": 270,
+        "end": 293,
+        "url": "https://t.co/P079HNPuf7",
+        "expanded_url": "https://x.com/Seekerbase/status/2043805464203288826/video/1",
+        "display_url": "pic.x.com/P079HNPuf7",
+        "media_key": "13_2043804951097552896"
+      },
+      {
+        "start": 270,
+        "end": 293,
+        "url": "https://t.co/P079HNPuf7",
+        "expanded_url": "https://x.com/Seekerbase/status/2043805464203288826/video/1",
+        "display_url": "pic.x.com/P079HNPuf7",
+        "media_key": "3_2043804950988558336"
+      },
+      {
+        "start": 270,
+        "end": 293,
+        "url": "https://t.co/P079HNPuf7",
+        "expanded_url": "https://x.com/Seekerbase/status/2043805464203288826/video/1",
+        "display_url": "pic.x.com/P079HNPuf7",
+        "media_key": "3_2043804952573706240"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T21:36:09.000Z",
+  "author_id": "1772177571372785664",
+  "text": "Yesterday I created a smart WhatsApp AI Assistant using n8n 🚀\n\nIt has Wikipedia, Calculator, Gmail, Google Calendar + Memory.\n\nI just message it like a normal person and it handles research, emails, scheduling and remembers context.\n\nLike, Retweet, andcomment plsss. 🤍🙏 https://t.co/P079HNPuf7",
+  "edit_history_tweet_ids": [
+    "2043805464203288826"
+  ],
+  "id": "2043805464203288826",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 16
+  },
+  "_author": {
+    "id": "1772177571372785664",
+    "name": "S€€K€R",
+    "username": "Seekerbase"
+  },
+  "_collected_at": "2026-04-13T23:13:26.840Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

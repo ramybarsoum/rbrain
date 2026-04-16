@@ -1,0 +1,37 @@
+{
+  "created_at": "2026-04-13T13:57:04.000Z",
+  "author_id": "1890029305205608448",
+  "text": "GitHub 上有个项目 blender-mcp，总 star 已经 19k+。\n\n这是个把 Blender 和 MCP（Model Context Protocol）协议打通的工具，让 AI Agent 能直接操作 Blender 完成 3D 建模工作。\n\n功能覆盖：\n- AI 直接调用 Blender 的建模、材质、渲染等核心操作\n- 支持通过自然语言描述生成 3D 场景\n- https://t.co/DBWnAdOtjE",
+  "public_metrics": {
+    "retweet_count": 1,
+    "reply_count": 2,
+    "like_count": 13,
+    "quote_count": 0,
+    "bookmark_count": 11,
+    "impression_count": 710
+  },
+  "edit_history_tweet_ids": [
+    "2043689931776934216"
+  ],
+  "id": "2043689931776934216",
+  "entities": {
+    "urls": [
+      {
+        "start": 192,
+        "end": 215,
+        "url": "https://t.co/DBWnAdOtjE",
+        "expanded_url": "https://x.com/wsl8297/status/2043689931776934216/photo/1",
+        "display_url": "pic.x.com/DBWnAdOtjE",
+        "media_key": "3_2043689925120536576"
+      }
+    ]
+  },
+  "_author": {
+    "id": "1890029305205608448",
+    "name": "Joruno",
+    "username": "wsl8297"
+  },
+  "_collected_at": "2026-04-13T23:13:27.329Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

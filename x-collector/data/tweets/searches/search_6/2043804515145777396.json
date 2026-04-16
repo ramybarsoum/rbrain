@@ -1,0 +1,37 @@
+{
+  "entities": {
+    "urls": [
+      {
+        "start": 278,
+        "end": 301,
+        "url": "https://t.co/OKfBZhM7CP",
+        "expanded_url": "https://x.com/AleksejAros/status/2043804515145777396/photo/1",
+        "display_url": "pic.x.com/OKfBZhM7CP",
+        "media_key": "3_2043804502948446208"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T21:32:23.000Z",
+  "author_id": "1466030314019504137",
+  "text": "Microsoft isn't killing Copilot — they're just playing the rebrand game again.\n\nThe AI assistant is getting renamed, not removed from Windows 11.\n\nThis feels like classic Microsoft confusion tactics. Remember when they couldn't decide what to call their browser? Or their cloud https://t.co/OKfBZhM7CP",
+  "edit_history_tweet_ids": [
+    "2043804515145777396"
+  ],
+  "id": "2043804515145777396",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 6
+  },
+  "_author": {
+    "id": "1466030314019504137",
+    "name": "Alex Yarosh · AI expert · CEO of AI Studio",
+    "username": "AleksejAros"
+  },
+  "_collected_at": "2026-04-13T23:13:26.840Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

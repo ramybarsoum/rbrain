@@ -1,0 +1,36 @@
+{
+  "created_at": "2013-11-01T21:37:55.000Z",
+  "edit_history_tweet_ids": [
+    "396390671067938816"
+  ],
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "396382283038351361"
+    }
+  ],
+  "in_reply_to_user_id": "964102057",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "author_id": "254267633",
+  "text": "@albrnameg ايه الخيبة دي..اذا كان البرنامج نفسه حاطط الحلقة ١ و مسميها الحلقة ٢ الممنوعة",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 10,
+        "username": "albrnameg",
+        "id": "2530662254"
+      }
+    ]
+  },
+  "id": "396390671067938816",
+  "_collected_at": "2026-04-14T00:01:36.477Z",
+  "_stream": "own"
+}

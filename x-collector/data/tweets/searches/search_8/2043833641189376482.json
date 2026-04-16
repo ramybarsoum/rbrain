@@ -1,0 +1,60 @@
+{
+  "edit_history_tweet_ids": [
+    "2043833641189376482"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 7
+  },
+  "created_at": "2026-04-13T23:28:07.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 28,
+        "end": 51,
+        "url": "https://t.co/TJEmKFabUZ",
+        "expanded_url": "http://Pi.dev",
+        "display_url": "Pi.dev",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2042108701360914432/GMyXuNkK?format=jpg&name=orig",
+            "width": 1586,
+            "height": 1162
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2042108701360914432/GMyXuNkK?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "pi.dev",
+        "description": "A terminal-based coding agent",
+        "unwound_url": "https://pi.dev/"
+      },
+      {
+        "start": 270,
+        "end": 293,
+        "url": "https://t.co/TRZsWoLuQD",
+        "expanded_url": "https://x.com/gitcconsole/status/2043833641189376482/photo/1",
+        "display_url": "pic.x.com/TRZsWoLuQD",
+        "media_key": "3_2043833397831667712"
+      }
+    ]
+  },
+  "id": "2043833641189376482",
+  "author_id": "2039714204538609664",
+  "text": "We give Claude Code, Codex, https://t.co/TJEmKFabUZ, and OpenCode each their own environment with your repo cloned and git configured.\n\nPick an agent per session. Switch models. Container keeps running when you close your browser.\n\nWhich AI coding agent would you pick? https://t.co/TRZsWoLuQD",
+  "_author": {
+    "id": "2039714204538609664",
+    "name": "Git Container Console",
+    "username": "gitcconsole"
+  },
+  "_collected_at": "2026-04-13T23:31:35.730Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

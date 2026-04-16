@@ -1,0 +1,37 @@
+{
+  "edit_history_tweet_ids": [
+    "2043826569504850405"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 2,
+    "quote_count": 0,
+    "bookmark_count": 3,
+    "impression_count": 180
+  },
+  "created_at": "2026-04-13T23:00:01.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 277,
+        "end": 300,
+        "url": "https://t.co/WnBicHb3fX",
+        "expanded_url": "https://x.com/JulianGoldieSEO/status/2043826569504850405/video/1",
+        "display_url": "pic.x.com/WnBicHb3fX",
+        "media_key": "13_2043674911718465536"
+      }
+    ]
+  },
+  "id": "2043826569504850405",
+  "author_id": "1405031034",
+  "text": "Most people are overpaying for AI agents.\n\nGemma 4 gives you a new free way to run OpenClaw right now.\n\nThe easiest setup looks like this:\n\nDownload Ollama.\n\nPull Gemma 4.\n\nLaunch OpenClaw.\n\nOpen the local URL.\n\nStart chatting.\n\nThat is it.\n\nYou can run it locally for free or https://t.co/WnBicHb3fX",
+  "_author": {
+    "id": "1405031034",
+    "name": "Julian Goldie SEO",
+    "username": "JulianGoldieSEO"
+  },
+  "_collected_at": "2026-04-13T23:13:26.355Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

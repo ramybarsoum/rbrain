@@ -1,0 +1,45 @@
+{
+  "created_at": "2013-08-15T08:29:01.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 44,
+        "end": 66,
+        "url": "http://t.co/I5pD2vcdwf",
+        "expanded_url": "https://x.com/amrAbdelwahab/status/367917503508271104/photo/1",
+        "display_url": "pic.x.com/I5pD2vcdwf",
+        "media_key": "3_367917503512465408"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 3,
+        "end": 17,
+        "username": "amrAbdelwahab",
+        "id": "147731130"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "367925886496305152"
+  ],
+  "referenced_tweets": [
+    {
+      "type": "retweeted",
+      "id": "367917503508271104"
+    }
+  ],
+  "public_metrics": {
+    "retweet_count": 7,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "author_id": "254267633",
+  "text": "RT @amrAbdelwahab: الصورة من مكرم عبيد الان http://t.co/I5pD2vcdwf",
+  "id": "367925886496305152",
+  "_collected_at": "2026-04-14T00:01:36.491Z",
+  "_stream": "own"
+}

@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-04-13T19:34:01.000Z",
+  "author_id": "1980282757633716224",
+  "text": "@theo how MCP protocol will change agent workflows, nobody talks about it 🤔",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 58
+  },
+  "edit_history_tweet_ids": [
+    "2043774729329488314"
+  ],
+  "id": "2043774729329488314",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043774163085865425"
+    }
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 5,
+        "username": "theo",
+        "id": "786375418685165568"
+      }
+    ]
+  },
+  "_author": {
+    "id": "1980282757633716224",
+    "name": "Sourabh",
+    "username": "Sourabhsinr"
+  },
+  "_collected_at": "2026-04-13T23:13:27.320Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

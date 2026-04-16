@@ -1,0 +1,47 @@
+{
+  "author_id": "1112667794514968576",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 11,
+        "username": "Lapis_0617",
+        "id": "835424565710901249"
+      },
+      {
+        "start": 12,
+        "end": 22,
+        "username": "Anthropic",
+        "id": "1819261"
+      }
+    ]
+  },
+  "id": "2043827851129172165",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 8
+  },
+  "text": "@Lapis_0617 @Anthropic お金取るつもりなかったですよ！笑\nというか受託といっても必要な情報は全部用意してもらって、ほんとに事務的にアップロードする程度しか考えてなかったですw\nAppStore用の画像用意したり文章考えたりそこらへんやる仕事は普通に成立しそうなぐらいめんどくさかったです⁝(ᵒ̴̶̷᷄⌑ ᵒ̴̶̷᷅   )⁝",
+  "created_at": "2026-04-13T23:05:06.000Z",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043826410188615778"
+    }
+  ],
+  "edit_history_tweet_ids": [
+    "2043827851129172165"
+  ],
+  "_author": {
+    "id": "1112667794514968576",
+    "name": "はじpay🕺🚕",
+    "username": "haji_pay_3"
+  },
+  "_collected_at": "2026-04-13T23:13:27.847Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

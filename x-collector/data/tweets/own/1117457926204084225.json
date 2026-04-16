@@ -1,0 +1,62 @@
+{
+  "text": "It takes a lot more than a great product to make a great brand. - Emily Weiss: https://t.co/0R4Z0X9hjy #businesslaunch #productlaunch #tribe #success #addvalue #value",
+  "edit_history_tweet_ids": [
+    "1117457926204084225"
+  ],
+  "created_at": "2019-04-14T16:01:45.000Z",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "author_id": "254267633",
+  "entities": {
+    "urls": [
+      {
+        "start": 79,
+        "end": 102,
+        "url": "https://t.co/0R4Z0X9hjy",
+        "expanded_url": "https://www.grapera.com",
+        "display_url": "grapera.com"
+      }
+    ],
+    "hashtags": [
+      {
+        "start": 103,
+        "end": 118,
+        "tag": "businesslaunch"
+      },
+      {
+        "start": 119,
+        "end": 133,
+        "tag": "productlaunch"
+      },
+      {
+        "start": 134,
+        "end": 140,
+        "tag": "tribe"
+      },
+      {
+        "start": 141,
+        "end": 149,
+        "tag": "success"
+      },
+      {
+        "start": 150,
+        "end": 159,
+        "tag": "addvalue"
+      },
+      {
+        "start": 160,
+        "end": 166,
+        "tag": "value"
+      }
+    ]
+  },
+  "id": "1117457926204084225",
+  "_collected_at": "2026-04-13T23:31:32.755Z",
+  "_stream": "own"
+}

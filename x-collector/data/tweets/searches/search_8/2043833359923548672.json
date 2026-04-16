@@ -1,0 +1,50 @@
+{
+  "edit_history_tweet_ids": [
+    "2043833359923548672"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 2,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 89
+  },
+  "created_at": "2026-04-13T23:27:00.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 191,
+        "end": 214,
+        "url": "https://t.co/UKOust1vXu",
+        "expanded_url": "https://x.com/runes_leo/status/2043833359923548672/photo/1",
+        "display_url": "pic.x.com/UKOust1vXu",
+        "media_key": "3_2043709677108895744"
+      },
+      {
+        "start": 215,
+        "end": 238,
+        "url": "https://t.co/ANCuwEvvgJ",
+        "expanded_url": "https://twitter.com/runes_leo/status/2033814225886343287",
+        "display_url": "x.com/runes_leo/stat…"
+      }
+    ]
+  },
+  "id": "2043833359923548672",
+  "author_id": "1578944561925468162",
+  "text": "Hacker News 上一堆人在说 Claude Code 额度不够用，有人 2 小时烧掉 20% 周额度。Leo labs 群里也有人反馈，聊两句就吃掉本 session 额度的 30%。\n\n贴一下我的真实用量：Max 20x 订阅，本周周额度用了 80%，extra usage 这个月花了 $64。每天跑好几个 session，写推文、跑策略、消化日报、评估 GitHub https://t.co/UKOust1vXu https://t.co/ANCuwEvvgJ",
+  "referenced_tweets": [
+    {
+      "type": "quoted",
+      "id": "2033814225886343287"
+    }
+  ],
+  "_author": {
+    "id": "1578944561925468162",
+    "name": "Leo",
+    "username": "runes_leo"
+  },
+  "_collected_at": "2026-04-13T23:31:35.733Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

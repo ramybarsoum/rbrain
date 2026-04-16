@@ -1,0 +1,30 @@
+{
+  "created_at": "2014-02-19T11:25:09.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 63,
+        "end": 85,
+        "url": "http://t.co/yg8X5htiMY",
+        "expanded_url": "http://www.facebook.com/haitham.tabei/posts/10153801131290632",
+        "display_url": "facebook.com/haitham.tabei/…"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "436099129484124161"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "author_id": "254267633",
+  "text": "بمناسبة الإشاعات اللي طالعة على الجيش بخصوص حادثة سانت كاترين\n\nhttp://t.co/yg8X5htiMY\n\nيتبع",
+  "id": "436099129484124161",
+  "_collected_at": "2026-04-14T00:01:36.476Z",
+  "_stream": "own"
+}

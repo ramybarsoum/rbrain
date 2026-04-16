@@ -1,0 +1,41 @@
+{
+  "author_id": "1696140580345028611",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 12,
+        "username": "1000xStocks",
+        "id": "1818455105798057984"
+      }
+    ]
+  },
+  "id": "2043828239412437161",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 7
+  },
+  "text": "@1000xStocks The P/E is actually lower than Tesla. I have a $22 cost basis, so I am not adding, but would be if I wasn’t fully allocated. A lot of the FUD is false (Anthropic being a threat is one of them)",
+  "created_at": "2026-04-13T23:06:39.000Z",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043744021340926012"
+    }
+  ],
+  "edit_history_tweet_ids": [
+    "2043828239412437161"
+  ],
+  "_author": {
+    "id": "1696140580345028611",
+    "name": "John Harizal",
+    "username": "JohnHariza58511"
+  },
+  "_collected_at": "2026-04-13T23:13:27.843Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

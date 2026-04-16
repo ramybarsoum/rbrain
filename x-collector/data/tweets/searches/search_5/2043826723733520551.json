@@ -1,0 +1,25 @@
+{
+  "edit_history_tweet_ids": [
+    "2043826723733520551"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 32
+  },
+  "created_at": "2026-04-13T23:00:38.000Z",
+  "id": "2043826723733520551",
+  "author_id": "1233186758503780352",
+  "text": "The people who learn to build AI agents now won't need a job in 2 years. They'll be hiring.",
+  "_author": {
+    "id": "1233186758503780352",
+    "name": "DeFiTrader ✳️🐧",
+    "username": "defitrader_"
+  },
+  "_collected_at": "2026-04-13T23:13:26.353Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

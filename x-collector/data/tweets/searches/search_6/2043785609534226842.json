@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-04-13T20:17:15.000Z",
+  "author_id": "1969385027008909312",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043021234141827407"
+    }
+  ],
+  "text": "@thekevinqi Building an AI assistant for students in uni.. coursework and social balance can be a lot kevin",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 11,
+        "username": "thekevinqi",
+        "id": "1954651032148979712"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "2043785609534226842"
+  ],
+  "id": "2043785609534226842",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 17
+  },
+  "_author": {
+    "id": "1969385027008909312",
+    "name": "astra?",
+    "username": "sam_aestra"
+  },
+  "_collected_at": "2026-04-13T23:13:26.849Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

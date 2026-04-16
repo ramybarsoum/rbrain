@@ -1,0 +1,81 @@
+{
+  "edit_history_tweet_ids": [
+    "2043814704045572478"
+  ],
+  "text": "@jspeiser @ppcguru @Netlify @supabase @tursodatabase @GoogleAI when you run into data analytics issues we'll be here 🙌 https://t.co/q5DRMv4mq7",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043813845903249862"
+    }
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 22
+  },
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 9,
+        "username": "jspeiser",
+        "id": "21213097"
+      },
+      {
+        "start": 10,
+        "end": 18,
+        "username": "ppcguru",
+        "id": "2411656111"
+      },
+      {
+        "start": 19,
+        "end": 27,
+        "username": "Netlify",
+        "id": "2571501973"
+      },
+      {
+        "start": 28,
+        "end": 37,
+        "username": "supabase",
+        "id": "1219566488325017602"
+      },
+      {
+        "start": 38,
+        "end": 52,
+        "username": "tursodatabase",
+        "id": "1432739296008671245"
+      },
+      {
+        "start": 53,
+        "end": 62,
+        "username": "GoogleAI",
+        "id": "33838201"
+      }
+    ],
+    "urls": [
+      {
+        "start": 119,
+        "end": 142,
+        "url": "https://t.co/q5DRMv4mq7",
+        "expanded_url": "https://x.com/codyschneider/status/2043814704045572478/photo/1",
+        "display_url": "pic.x.com/q5DRMv4mq7",
+        "media_key": "3_2043814582372970497"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T22:12:52.000Z",
+  "id": "2043814704045572478",
+  "author_id": "3299021150",
+  "_author": {
+    "id": "3299021150",
+    "name": "Cody Schneider",
+    "username": "codyschneider"
+  },
+  "_collected_at": "2026-04-13T23:13:28.346Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

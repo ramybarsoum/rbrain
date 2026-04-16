@@ -1,0 +1,48 @@
+{
+  "created_at": "2026-04-12T07:42:36.000Z",
+  "author_id": "2842904704",
+  "text": "I recently started learning MCP (Model Context Protocol), introduced by Anthropic, and it gave me a... Worth reading.\n\nhttps://t.co/WdcvM5pNiF https://t.co/xMkR97b4z6",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 13
+  },
+  "edit_history_tweet_ids": [
+    "2043233307798991218"
+  ],
+  "id": "2043233307798991218",
+  "entities": {
+    "urls": [
+      {
+        "start": 119,
+        "end": 142,
+        "url": "https://t.co/WdcvM5pNiF",
+        "expanded_url": "https://dev.to/harish_e2092259238667e0da/day-1-learning-mcp-hfa",
+        "display_url": "dev.to/harish_e209225…",
+        "status": 200,
+        "title": "#Day 1 - Learning MCP",
+        "description": "I recently started learning MCP (Model Context Protocol), introduced by Anthropic, and it gave me a...",
+        "unwound_url": "https://dev.to/harish_e2092259238667e0da/day-1-learning-mcp-hfa"
+      },
+      {
+        "start": 143,
+        "end": 166,
+        "url": "https://t.co/xMkR97b4z6",
+        "expanded_url": "https://x.com/AIDailyGems/status/2043233307798991218/photo/1",
+        "display_url": "pic.x.com/xMkR97b4z6",
+        "media_key": "3_2043233304586158080"
+      }
+    ]
+  },
+  "_author": {
+    "id": "2842904704",
+    "name": "AIDailyGems",
+    "username": "AIDailyGems"
+  },
+  "_collected_at": "2026-04-13T23:13:27.350Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

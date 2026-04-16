@@ -1,0 +1,64 @@
+{
+  "edit_history_tweet_ids": [
+    "2043822773227642908"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 3
+  },
+  "created_at": "2026-04-13T22:44:56.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 63,
+        "end": 86,
+        "url": "https://t.co/7zCCws94w9",
+        "expanded_url": "https://workos.com/blog/agents-need-authorization-not-just-authentication?utm_source=daringfireball&utm_medium=newsletter&utm_campaign=q22026",
+        "display_url": "workos.com/blog/agents-ne…",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2033415975639646208/ttBdudgi?format=jpg&name=orig",
+            "width": 2400,
+            "height": 1200
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2033415975639646208/ttBdudgi?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "WorkOS FGA: The authorization layer for AI agents — WorkOS",
+        "description": "As agents move at machine speed, your authorization layer must keep up. Today, we’re introducing WorkOS Fine-Grained Authorization, built for AI agents.",
+        "unwound_url": "https://workos.com/blog/agents-need-authorization-not-just-authentication?utm_source=daringfireball&utm_medium=newsletter&utm_campaign=q22026"
+      }
+    ],
+    "hashtags": [
+      {
+        "start": 87,
+        "end": 93,
+        "tag": "apple"
+      },
+      {
+        "start": 94,
+        "end": 101,
+        "tag": "feedly"
+      }
+    ]
+  },
+  "id": "2043822773227642908",
+  "author_id": "19072552",
+  "text": "\"[Sponsor] WorkOS FGA: The Authorization Layer for AI Agents\"  https://t.co/7zCCws94w9 #apple #feedly",
+  "_author": {
+    "id": "19072552",
+    "name": "IC22",
+    "username": "IC22"
+  },
+  "_collected_at": "2026-04-13T23:13:26.363Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

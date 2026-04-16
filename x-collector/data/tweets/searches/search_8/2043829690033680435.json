@@ -1,0 +1,25 @@
+{
+  "author_id": "1827190995412533249",
+  "id": "2043829690033680435",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 1
+  },
+  "text": "Claude Codeで自分の分身を作っている。\n業務効率化じゃなく、自分の考え方、癖、こだわりまで受け継ぐ分身を作りたいから。\n\n何のためかはわからない。",
+  "created_at": "2026-04-13T23:12:25.000Z",
+  "edit_history_tweet_ids": [
+    "2043829690033680435"
+  ],
+  "_author": {
+    "id": "1827190995412533249",
+    "name": "バナー",
+    "username": "choudoii_banner"
+  },
+  "_collected_at": "2026-04-13T23:13:27.820Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

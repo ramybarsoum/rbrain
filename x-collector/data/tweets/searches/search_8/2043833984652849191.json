@@ -1,0 +1,42 @@
+{
+  "edit_history_tweet_ids": [
+    "2043833984652849191"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 3
+  },
+  "created_at": "2026-04-13T23:29:29.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 158,
+        "end": 181,
+        "url": "https://t.co/qKMxzBUFsC",
+        "expanded_url": "https://twitter.com/serena_ailab/status/2043649188895093232",
+        "display_url": "x.com/serena_ailab/s…"
+      }
+    ]
+  },
+  "id": "2043833984652849191",
+  "author_id": "2028332270525063168",
+  "text": "これ、やらかす前に知りたかった。\nClaude Code、設定ゼロで使うと 普通に1日数千円飛びます。\n原因はシンプルで2つだけ。\n・会話を長く続けすぎる ・package-lock.jsonを無視してない\n対策も2行で終わる。\n/clear で会話履歴をリセット .claudeignore で不要ファイルを除外 https://t.co/qKMxzBUFsC",
+  "referenced_tweets": [
+    {
+      "type": "quoted",
+      "id": "2043649188895093232"
+    }
+  ],
+  "_author": {
+    "id": "2028332270525063168",
+    "name": "AI×ＲＯＯＭ",
+    "username": "ai_room_biz"
+  },
+  "_collected_at": "2026-04-13T23:31:35.720Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

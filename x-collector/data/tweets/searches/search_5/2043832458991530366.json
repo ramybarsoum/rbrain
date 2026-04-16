@@ -1,0 +1,41 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 3
+  },
+  "edit_history_tweet_ids": [
+    "2043832458991530366"
+  ],
+  "id": "2043832458991530366",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 5,
+        "username": "kgsi",
+        "id": "15080554"
+      }
+    ]
+  },
+  "author_id": "1863116005062361088",
+  "created_at": "2026-04-13T23:23:25.000Z",
+  "text": "@kgsi This Zen skill twist for AI agents? Game-changing interface potential.",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043827845131317397"
+    }
+  ],
+  "_author": {
+    "id": "1863116005062361088",
+    "name": "LEO",
+    "username": "leohuynh139"
+  },
+  "_collected_at": "2026-04-13T23:31:34.347Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

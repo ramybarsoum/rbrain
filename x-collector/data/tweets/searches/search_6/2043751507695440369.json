@@ -1,0 +1,74 @@
+{
+  "entities": {
+    "urls": [
+      {
+        "start": 211,
+        "end": 234,
+        "url": "https://t.co/EZtt6Q0E5I",
+        "expanded_url": "https://docs.google.com/forms/d/e/1FAIpQLScZ7YVLbFTHwuVl-1HLtddHg4dHN3GvUvNHAe4ij6DgiNqApw/viewform?usp=header",
+        "display_url": "docs.google.com/forms/d/e/1FAI…",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2043751508546899968/kYSY5CfY?format=jpg&name=orig",
+            "width": 1200,
+            "height": 630
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2043751508546899968/kYSY5CfY?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "CycloCast Mega Customer Research Survey",
+        "description": "At CycloCast India Pvt Ltd, we are on a mission to build India’s most accurate and powerful weather intelligence platform — combining a next-generation Weather Dashboard and an AI assistant called CycloCast GPT. This survey is designed to understand: What users dislike in current weather apps What features you truly need in a weather dashboard How AI can improve weather predictions and alerts And how we can build a platform that is simple, fast, and highly accurate Your feedback will directly help us: ✅ Improve real-time weather tracking ✅ Build better cyclone & disaster alerts 🌀 ✅ Design a clean, user-friendly dashboard ✅ Develop a powerful AI weather assistant ⏱️ Takes only 3–5 minutes 🔒 Your responses will be kept confidential and used only for research purposes 🚀 Be part of building India’s most advanced weather platform. Your opinion matters!",
+        "unwound_url": "https://docs.google.com/forms/d/e/1FAIpQLScZ7YVLbFTHwuVl-1HLtddHg4dHN3GvUvNHAe4ij6DgiNqApw/viewform?usp=header"
+      }
+    ],
+    "hashtags": [
+      {
+        "start": 236,
+        "end": 244,
+        "tag": "Weather"
+      },
+      {
+        "start": 245,
+        "end": 248,
+        "tag": "AI"
+      },
+      {
+        "start": 249,
+        "end": 262,
+        "tag": "StartupIndia"
+      },
+      {
+        "start": 263,
+        "end": 273,
+        "tag": "CycloCast"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T18:01:45.000Z",
+  "author_id": "1815342962924273665",
+  "text": "🚨 Building India’s Next-Gen Weather Platform!\nTired of inaccurate forecasts &amp; complex apps? 🌧️\n\nWe’re creating a powerful Weather Dashboard + AI assistant \n\n👉 Take this 3-min survey &amp; shape the future: \nhttps://t.co/EZtt6Q0E5I\n\n#Weather #AI #StartupIndia #CycloCast",
+  "edit_history_tweet_ids": [
+    "2043751507695440369"
+  ],
+  "id": "2043751507695440369",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 20
+  },
+  "_author": {
+    "id": "1815342962924273665",
+    "name": "CycloCast Weather India",
+    "username": "cyclo_cast_001"
+  },
+  "_collected_at": "2026-04-13T23:13:26.863Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

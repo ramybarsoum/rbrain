@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-04-13T23:22:13.000Z",
+  "edit_history_tweet_ids": [
+    "2043832158528090373"
+  ],
+  "text": "Um cara no Youtube não gostou que no meu vídeo eu disse pras pessoas não usarem supabase e que mysql e sqlite são melhores. \n\nO problema é que eu costumo desejar o melhor para as pessoas.",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 33
+  },
+  "author_id": "1270703271368417282",
+  "id": "2043832158528090373",
+  "_author": {
+    "id": "1270703271368417282",
+    "name": "Deivison Elias",
+    "username": "VivendodeSaas"
+  },
+  "_collected_at": "2026-04-13T23:31:36.201Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

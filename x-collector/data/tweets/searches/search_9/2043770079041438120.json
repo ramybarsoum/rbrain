@@ -1,0 +1,25 @@
+{
+  "edit_history_tweet_ids": [
+    "2043770079041438120"
+  ],
+  "text": "Very cool Supabase use case: \n\nYoutube transcript search \n→ give it a list of urls\n→ pull in the transcript via the transcript api\n→ transcripts get embedded and stored\n→ easy full text search\n\nThen ask questions like normal and jump to the exact timestamp\n\n🔗👇",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 4,
+    "quote_count": 1,
+    "bookmark_count": 0,
+    "impression_count": 144
+  },
+  "created_at": "2026-04-13T19:15:32.000Z",
+  "id": "2043770079041438120",
+  "author_id": "17030322",
+  "_author": {
+    "id": "17030322",
+    "name": "˗ˏˋ Terry Sutton ˎˊ˗ — e/shadcn/ui",
+    "username": "saltcod"
+  },
+  "_collected_at": "2026-04-13T23:13:28.356Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

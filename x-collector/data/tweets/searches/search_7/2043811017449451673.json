@@ -1,0 +1,31 @@
+{
+  "created_at": "2026-04-13T21:58:13.000Z",
+  "author_id": "1132845967508615168",
+  "text": "MCP = Model Context Protocol\n\nPlain English: it lets AI agents call \nyour existing tools, APIs and data.\n\nStandardised. Language-agnostic.\nNow owned by the Linux Foundation.\n\nThis is the HTTP of the AI agent era.",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 4
+  },
+  "edit_history_tweet_ids": [
+    "2043811017449451673"
+  ],
+  "id": "2043811017449451673",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043811012139462725"
+    }
+  ],
+  "_author": {
+    "id": "1132845967508615168",
+    "name": "Jainish Mistry",
+    "username": "itsnullpointer"
+  },
+  "_collected_at": "2026-04-13T23:13:27.318Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

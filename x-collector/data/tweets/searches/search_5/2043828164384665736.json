@@ -1,0 +1,40 @@
+{
+  "edit_history_tweet_ids": [
+    "2043828164384665736"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "created_at": "2026-04-13T23:06:21.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 237,
+        "end": 260,
+        "url": "https://t.co/u8FwjHRbon",
+        "expanded_url": "https://stuf.in/bibrbg",
+        "display_url": "stuf.in/bibrbg",
+        "status": 200,
+        "title": "Agent Store in Microsoft 365 Copilot",
+        "description": "Looking for the right AI agent to help simplify everyday work? The Agent Store in Microsoft 365 Copilot brings AI agents together in one place so you can automate tasks, create faster, and get more done. Watch this short video to see how the Agent Store works and how to start using it.",
+        "unwound_url": "https://contentmx.com/b/page/page.php?u=cralyntechsolutions&i=5441879"
+      }
+    ]
+  },
+  "id": "2043828164384665736",
+  "author_id": "467229801",
+  "text": "What if finding the right AI helper for work was as simple as browsing a store? 🧠 Watch how the Agent Store in Microsoft 365 Copilot brings AI agents together in one place so you can automate tasks and get work done faster. @msftcopilot https://t.co/u8FwjHRbon",
+  "_author": {
+    "id": "467229801",
+    "name": "Cralyn Tech",
+    "username": "cralyntech"
+  },
+  "_collected_at": "2026-04-13T23:13:26.347Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

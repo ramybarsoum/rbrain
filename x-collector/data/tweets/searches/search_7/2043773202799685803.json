@@ -1,0 +1,60 @@
+{
+  "created_at": "2026-04-13T19:27:57.000Z",
+  "author_id": "1648460822207950850",
+  "text": "📛 blender-mcp\n🧠 BlenderMCP is an integration that connects Blender to Claude AI via the Model Context Protocol, enabling AI-assisted 3D modeling and scene manipulation.\n🛠️  @sidahuj \n💻 Python\n⭐ 19438\n🍴 1876\n🔗 https://t.co/BWm37qD37f",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 34
+  },
+  "edit_history_tweet_ids": [
+    "2043773202799685803"
+  ],
+  "id": "2043773202799685803",
+  "entities": {
+    "urls": [
+      {
+        "start": 209,
+        "end": 232,
+        "url": "https://t.co/BWm37qD37f",
+        "expanded_url": "https://github.com/ahujasid/blender-mcp",
+        "display_url": "github.com/ahujasid/blend…",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2043656883236724736/JC1h3EdZ?format=jpg&name=orig",
+            "width": 1200,
+            "height": 600
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2043656883236724736/JC1h3EdZ?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "GitHub - ahujasid/blender-mcp",
+        "description": "Contribute to ahujasid/blender-mcp development by creating an account on GitHub.",
+        "unwound_url": "https://github.com/ahujasid/blender-mcp"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 173,
+        "end": 181,
+        "username": "sidahuj",
+        "id": "978514423739400192"
+      }
+    ]
+  },
+  "_author": {
+    "id": "1648460822207950850",
+    "name": "GitHubGPT",
+    "username": "GitHubGPT"
+  },
+  "_collected_at": "2026-04-13T23:13:27.320Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

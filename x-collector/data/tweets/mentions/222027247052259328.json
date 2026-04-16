@@ -1,0 +1,41 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "edit_history_tweet_ids": [
+    "222027247052259328"
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 12,
+        "username": "barsoumramy",
+        "id": "254267633"
+      }
+    ]
+  },
+  "text": "@barsoumramy انا بتكلم عن الاتاوات بتاعت البلطجيه",
+  "author_id": "573131610",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "222025683910656000"
+    }
+  ],
+  "id": "222027247052259328",
+  "in_reply_to_user_id": "254267633",
+  "created_at": "2012-07-08T17:59:55.000Z",
+  "_author": {
+    "id": "573131610",
+    "name": "Rubyyyy",
+    "username": "Ruby_188"
+  },
+  "_collected_at": "2026-04-13T23:13:25.010Z",
+  "_stream": "mentions"
+}

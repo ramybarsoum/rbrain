@@ -1,0 +1,37 @@
+{
+  "edit_history_tweet_ids": [
+    "2043759016132956250"
+  ],
+  "text": "day 8 of building onelivepage\n\nme every day for months: ok claude so i'm building a next.js supabase app, here's my full context, here's my stack, here's my--\n\nclaude skills, available the whole time:\n\n🗿\n\nit's fine. character development. https://t.co/6LQUdvQhdC",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "entities": {
+    "urls": [
+      {
+        "start": 239,
+        "end": 262,
+        "url": "https://t.co/6LQUdvQhdC",
+        "expanded_url": "https://x.com/sir_erii/status/2043759016132956250/photo/1",
+        "display_url": "pic.x.com/6LQUdvQhdC",
+        "media_key": "3_2043758996801400832"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T18:31:35.000Z",
+  "id": "2043759016132956250",
+  "author_id": "2043656063652605952",
+  "_author": {
+    "id": "2043656063652605952",
+    "name": "els",
+    "username": "sir_erii"
+  },
+  "_collected_at": "2026-04-13T23:13:28.358Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

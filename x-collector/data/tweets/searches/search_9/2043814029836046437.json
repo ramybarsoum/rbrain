@@ -1,0 +1,101 @@
+{
+  "edit_history_tweet_ids": [
+    "2043814029836046437"
+  ],
+  "text": "@Juphin5 @JamboWorld @DeniseNyakeru @PatrickMuyaya @AmaniBisimwa4 @BahigaTacite @FrumenceBoroto @amluzayamo @DoraMuanda @eric_ampire @cisirikalain3 Ce que vous nous conseillez supabase ?",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043773956117651677"
+    }
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 12
+  },
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 8,
+        "username": "Juphin5",
+        "id": "1242942379289718786"
+      },
+      {
+        "start": 9,
+        "end": 20,
+        "username": "JamboWorld",
+        "id": "1276286279848730625"
+      },
+      {
+        "start": 21,
+        "end": 35,
+        "username": "DeniseNyakeru",
+        "id": "1103447267695038465"
+      },
+      {
+        "start": 36,
+        "end": 50,
+        "username": "PatrickMuyaya",
+        "id": "933347119"
+      },
+      {
+        "start": 51,
+        "end": 65,
+        "username": "AmaniBisimwa4",
+        "id": "1476570418085613573"
+      },
+      {
+        "start": 66,
+        "end": 79,
+        "username": "BahigaTacite",
+        "id": "1430192914525822981"
+      },
+      {
+        "start": 80,
+        "end": 95,
+        "username": "FrumenceBoroto",
+        "id": "2989554707"
+      },
+      {
+        "start": 96,
+        "end": 107,
+        "username": "amluzayamo",
+        "id": "1770483411943067649"
+      },
+      {
+        "start": 108,
+        "end": 119,
+        "username": "DoraMuanda",
+        "id": "1241979199382052864"
+      },
+      {
+        "start": 120,
+        "end": 132,
+        "username": "eric_ampire",
+        "id": "3512843656"
+      },
+      {
+        "start": 133,
+        "end": 147,
+        "username": "cisirikalain3",
+        "id": "969872723932581888"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T22:10:11.000Z",
+  "id": "2043814029836046437",
+  "author_id": "891689844",
+  "_author": {
+    "id": "891689844",
+    "name": "Gloire Murhigisi 🇨🇩",
+    "username": "gloiremurhigisi"
+  },
+  "_collected_at": "2026-04-13T23:13:28.347Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

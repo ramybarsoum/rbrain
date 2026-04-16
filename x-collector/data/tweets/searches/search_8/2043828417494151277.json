@@ -1,0 +1,41 @@
+{
+  "author_id": "2593442503",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 13,
+        "username": "wealthmatica",
+        "id": "1820052265945710593"
+      }
+    ]
+  },
+  "id": "2043828417494151277",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 4
+  },
+  "text": "@wealthmatica And they own 14% of anthropic and 7% of space x",
+  "created_at": "2026-04-13T23:07:21.000Z",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043382598102061535"
+    }
+  ],
+  "edit_history_tweet_ids": [
+    "2043828417494151277"
+  ],
+  "_author": {
+    "id": "2593442503",
+    "name": "pmlisi1",
+    "username": "pmlisi1"
+  },
+  "_collected_at": "2026-04-13T23:13:27.841Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

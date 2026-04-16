@@ -1,0 +1,43 @@
+{
+  "entities": {
+    "urls": [
+      {
+        "start": 90,
+        "end": 113,
+        "url": "https://t.co/WIHC4XVdEi",
+        "expanded_url": "https://x.com/justaguy_net/status/2043797727666975124/photo/1",
+        "display_url": "pic.x.com/WIHC4XVdEi",
+        "media_key": "16_2043797718825611266"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T21:05:24.000Z",
+  "author_id": "1795120611586428928",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043797714953986149"
+    }
+  ],
+  "text": "Goal now:\n\nRun a private AI assistant locally\n24/7, low power, fully mine\nTime to build 👀 https://t.co/WIHC4XVdEi",
+  "edit_history_tweet_ids": [
+    "2043797727666975124"
+  ],
+  "id": "2043797727666975124",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 14
+  },
+  "_author": {
+    "id": "1795120611586428928",
+    "name": "Josef",
+    "username": "justaguy_net"
+  },
+  "_collected_at": "2026-04-13T23:13:26.845Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

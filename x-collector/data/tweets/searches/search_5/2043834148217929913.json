@@ -1,0 +1,25 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 241
+  },
+  "edit_history_tweet_ids": [
+    "2043834148217929913"
+  ],
+  "id": "2043834148217929913",
+  "author_id": "14800270",
+  "created_at": "2026-04-13T23:30:08.000Z",
+  "text": "Digital platforms have long thrived by capturing attention, data, and transactions—but that model is starting to crack. As consumers hand off decisions to AI agents, the rules of platform economics are changing fast. These agents compare options, choose the best value, and",
+  "_author": {
+    "id": "14800270",
+    "name": "Harvard Business Review",
+    "username": "HarvardBiz"
+  },
+  "_collected_at": "2026-04-13T23:31:34.339Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

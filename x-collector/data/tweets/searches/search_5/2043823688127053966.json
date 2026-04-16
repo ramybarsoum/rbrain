@@ -1,0 +1,71 @@
+{
+  "edit_history_tweet_ids": [
+    "2043823688127053966"
+  ],
+  "public_metrics": {
+    "retweet_count": 2,
+    "reply_count": 0,
+    "like_count": 4,
+    "quote_count": 1,
+    "bookmark_count": 1,
+    "impression_count": 264
+  },
+  "created_at": "2026-04-13T22:48:34.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 230,
+        "end": 253,
+        "url": "https://t.co/6Y2tBWbjWJ",
+        "expanded_url": "https://x.com/MCGlive/status/2043823688127053966/video/1",
+        "display_url": "pic.x.com/6Y2tBWbjWJ",
+        "media_key": "13_2043821996920979456"
+      },
+      {
+        "start": 254,
+        "end": 277,
+        "url": "https://t.co/2K0o2xMr50",
+        "expanded_url": "https://twitter.com/MCGlive/status/2043784432218452270",
+        "display_url": "x.com/MCGlive/status…"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 71,
+        "end": 83,
+        "username": "spawnagents",
+        "id": "2027090365480869888"
+      },
+      {
+        "start": 86,
+        "end": 97,
+        "username": "tonyGewrit",
+        "id": "1011505985796571136"
+      }
+    ],
+    "cashtags": [
+      {
+        "start": 109,
+        "end": 115,
+        "tag": "SPAWN"
+      }
+    ]
+  },
+  "id": "2043823688127053966",
+  "author_id": "1487274142596579329",
+  "text": "Anyone can now build AI agents that trade on Solana in real time using @spawnagents \n\n@tonyGewrit shares the $SPAWN thesis\n\n\"refine your agent to be consistent and find those margins every day. That's when you're onto something.\" https://t.co/6Y2tBWbjWJ https://t.co/2K0o2xMr50",
+  "referenced_tweets": [
+    {
+      "type": "quoted",
+      "id": "2043784432218452270"
+    }
+  ],
+  "_author": {
+    "id": "1487274142596579329",
+    "name": "MCG",
+    "username": "MCGlive"
+  },
+  "_collected_at": "2026-04-13T23:13:26.361Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

@@ -1,0 +1,37 @@
+{
+  "edit_history_tweet_ids": [
+    "2043831804508155950"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 7
+  },
+  "created_at": "2026-04-13T23:20:49.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 261,
+        "end": 284,
+        "url": "https://t.co/RVYaOQOAua",
+        "expanded_url": "https://x.com/jqueryscript/status/2043831804508155950/photo/1",
+        "display_url": "pic.x.com/RVYaOQOAua",
+        "media_key": "3_2043831711834976256"
+      }
+    ]
+  },
+  "id": "2043831804508155950",
+  "author_id": "1138850437",
+  "text": "Claude Code v2.1.105 is out\n\nFeatures\n- Added path parameter to EnterWorktree tool\n- Added PreCompact hook support for plugins\n- New background monitor support for plugins\n- /proactive is now an alias for /loop\n- Improved stalled API stream handling\n- Bugfixes https://t.co/RVYaOQOAua",
+  "_author": {
+    "id": "1138850437",
+    "name": "jQueryScript",
+    "username": "jqueryscript"
+  },
+  "_collected_at": "2026-04-13T23:31:35.747Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

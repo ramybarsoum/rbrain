@@ -1,0 +1,53 @@
+{
+  "edit_history_tweet_ids": [
+    "2043822246490259600"
+  ],
+  "public_metrics": {
+    "retweet_count": 1,
+    "reply_count": 0,
+    "like_count": 5,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 81
+  },
+  "created_at": "2026-04-13T22:42:50.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 150,
+        "end": 173,
+        "url": "https://t.co/mbzZOHkRTV",
+        "expanded_url": "https://portal-virtuals.xyz",
+        "display_url": "portal-virtuals.xyz",
+        "status": 403,
+        "unwound_url": "https://portal-virtuals.xyz"
+      },
+      {
+        "start": 273,
+        "end": 296,
+        "url": "https://t.co/GmjPjtYTCh",
+        "expanded_url": "https://x.com/tomcrypto_web3/status/2043822246490259600/photo/1",
+        "display_url": "pic.x.com/GmjPjtYTCh",
+        "media_key": "3_2043822228526215168"
+      }
+    ],
+    "cashtags": [
+      {
+        "start": 0,
+        "end": 8,
+        "tag": "VIRTUAL"
+      }
+    ]
+  },
+  "id": "2043822246490259600",
+  "author_id": "1190332830154407938",
+  "text": "$VIRTUAL is on the move, and there's a solid reason behind it.\n\nThe AI agents’ community is rewarding you now.\n\n🚨 Up to $1M every month in rewards 🚨\n\nhttps://t.co/mbzZOHkRTV\n\nIf you've engaged with any AI from Virtual Protocol, you could be in line for some rewards.\n\nThis https://t.co/GmjPjtYTCh",
+  "_author": {
+    "id": "1190332830154407938",
+    "name": "Tom | Web3 Insights",
+    "username": "tomcrypto_web3"
+  },
+  "_collected_at": "2026-04-13T23:13:26.364Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

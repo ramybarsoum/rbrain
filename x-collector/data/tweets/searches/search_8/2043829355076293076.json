@@ -1,0 +1,49 @@
+{
+  "author_id": "938701335456833537",
+  "id": "2043829355076293076",
+  "entities": {
+    "urls": [
+      {
+        "start": 244,
+        "end": 267,
+        "url": "https://t.co/gCCpxIHaH0",
+        "expanded_url": "https://twitter.com/sam_badawi/status/2043715986030039095",
+        "display_url": "x.com/sam_badawi/sta…"
+      }
+    ],
+    "cashtags": [
+      {
+        "start": 14,
+        "end": 19,
+        "tag": "ADBE"
+      }
+    ]
+  },
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 68
+  },
+  "text": "Michael Burry $ADBE almış. Anthropic Palantir'i bitirecek diyordu. Palantir'i bitirecek olan Adobe'ye neler yapmaz!\n\nBu adamın yatırım tezleri kadar ahmakça olan daha az şey vardır şu piyasada. Ve bunun peşinden giden binlerce insan var. 🤦🏻‍♂️ https://t.co/gCCpxIHaH0",
+  "created_at": "2026-04-13T23:11:05.000Z",
+  "referenced_tweets": [
+    {
+      "type": "quoted",
+      "id": "2043715986030039095"
+    }
+  ],
+  "edit_history_tweet_ids": [
+    "2043829355076293076"
+  ],
+  "_author": {
+    "id": "938701335456833537",
+    "name": "Cuma Cevik",
+    "username": "cevikfinance"
+  },
+  "_collected_at": "2026-04-13T23:13:27.827Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

@@ -1,0 +1,25 @@
+{
+  "edit_history_tweet_ids": [
+    "2043832798725959831"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 14
+  },
+  "created_at": "2026-04-13T23:24:46.000Z",
+  "id": "2043832798725959831",
+  "author_id": "1353819819385053185",
+  "text": "Codexで実装、Claude Codeでレビュー派です",
+  "_author": {
+    "id": "1353819819385053185",
+    "name": "改善係長｜個人開発|家庭菜園",
+    "username": "tatsuminminm"
+  },
+  "_collected_at": "2026-04-13T23:31:35.740Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

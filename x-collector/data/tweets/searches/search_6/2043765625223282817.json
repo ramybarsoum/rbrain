@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-04-13T18:57:51.000Z",
+  "author_id": "1821703177672257538",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043731134777794639"
+    }
+  ],
+  "text": "@missfifi__ i am open to work as an AI ASSISTANT",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 11,
+        "username": "missfifi__",
+        "id": "1844130075333349376"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "2043765625223282817"
+  ],
+  "id": "2043765625223282817",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 12
+  },
+  "_author": {
+    "id": "1821703177672257538",
+    "name": "xxtrabee🥀",
+    "username": "Web3Chic_"
+  },
+  "_collected_at": "2026-04-13T23:13:26.856Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

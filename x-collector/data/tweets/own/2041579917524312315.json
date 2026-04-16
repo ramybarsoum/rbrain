@@ -1,0 +1,35 @@
+{
+  "entities": {
+    "mentions": [
+      {
+        "start": 3,
+        "end": 15,
+        "username": "AnthropicAI",
+        "id": "1353836358901501952"
+      }
+    ]
+  },
+  "public_metrics": {
+    "retweet_count": 6617,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "created_at": "2026-04-07T18:12:37.000Z",
+  "id": "2041579917524312315",
+  "text": "RT @AnthropicAI: Introducing Project Glasswing: an urgent initiative to help secure the world’s most critical software.\n\nIt’s powered by ou…",
+  "edit_history_tweet_ids": [
+    "2041579917524312315"
+  ],
+  "referenced_tweets": [
+    {
+      "type": "retweeted",
+      "id": "2041578392852517128"
+    }
+  ],
+  "author_id": "254267633",
+  "_collected_at": "2026-04-13T23:13:24.441Z",
+  "_stream": "own"
+}

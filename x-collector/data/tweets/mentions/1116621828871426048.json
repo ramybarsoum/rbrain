@@ -1,0 +1,43 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "edit_history_tweet_ids": [
+    "1116621828871426048"
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 4,
+        "end": 16,
+        "username": "barsoumramy",
+        "id": "254267633"
+      }
+    ],
+    "urls": [
+      {
+        "start": 89,
+        "end": 112,
+        "url": "https://t.co/vAly2xTv3Z",
+        "expanded_url": "https://youtu.be/l7GuaIef61E",
+        "display_url": "youtu.be/l7GuaIef61E"
+      }
+    ]
+  },
+  "text": "Hey @barsoumramy, thanks for following us! Here is a quick video we made just to say hi! https://t.co/vAly2xTv3Z",
+  "author_id": "845037806737129472",
+  "id": "1116621828871426048",
+  "created_at": "2019-04-12T08:39:24.000Z",
+  "_author": {
+    "id": "845037806737129472",
+    "name": "David & Dana",
+    "username": "davidndana"
+  },
+  "_collected_at": "2026-04-13T23:13:24.980Z",
+  "_stream": "mentions"
+}

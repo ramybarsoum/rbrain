@@ -1,0 +1,31 @@
+{
+  "edit_history_tweet_ids": [
+    "2043833020038426671"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 4
+  },
+  "created_at": "2026-04-13T23:25:39.000Z",
+  "id": "2043833020038426671",
+  "author_id": "4720427994",
+  "text": "こんなこと言ってるけど、Claude Codeはむっちゃ好きです笑",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043832848332009654"
+    }
+  ],
+  "_author": {
+    "id": "4720427994",
+    "name": "hiraoku",
+    "username": "2020_hira"
+  },
+  "_collected_at": "2026-04-13T23:31:35.737Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

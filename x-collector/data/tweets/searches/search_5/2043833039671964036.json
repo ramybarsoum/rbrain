@@ -1,0 +1,55 @@
+{
+  "entities": {
+    "hashtags": [
+      {
+        "start": 95,
+        "end": 101,
+        "tag": "Qiita"
+      }
+    ],
+    "urls": [
+      {
+        "start": 71,
+        "end": 94,
+        "url": "https://t.co/2pMyszNNom",
+        "expanded_url": "https://qiita.com/yuji-arakawa/items/3861ed531b888bceae3f",
+        "display_url": "qiita.com/yuji-arakawa/i…",
+        "status": 200,
+        "title": "エージェントを追え！OCI Enterprise AI Agents - Responses API を LangSmith でトレーシング - Qiita",
+        "description": "はじめに 前回の記事では、OCI Enterprise AI Agents と Responses API を使って、MCP サーバー（DeepWiki）を呼び出すエージェント「GitHub DeepInsight」を作りました。たった数十行の Python コードで、サ...",
+        "unwound_url": "https://qiita.com/yuji-arakawa/items/3861ed531b888bceae3f"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 102,
+        "end": 117,
+        "username": "yuji_amanogawa",
+        "id": "1819007860346679296"
+      }
+    ]
+  },
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 10
+  },
+  "edit_history_tweet_ids": [
+    "2043833039671964036"
+  ],
+  "id": "2043833039671964036",
+  "author_id": "190587651",
+  "created_at": "2026-04-13T23:25:43.000Z",
+  "text": "エージェントを追え！OCI Enterprise AI Agents - Responses API を LangSmith でトレーシング https://t.co/2pMyszNNom #Qiita @yuji_amanogawaより",
+  "_author": {
+    "id": "190587651",
+    "name": "オラクル倶楽部",
+    "username": "ora_club"
+  },
+  "_collected_at": "2026-04-13T23:31:34.344Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

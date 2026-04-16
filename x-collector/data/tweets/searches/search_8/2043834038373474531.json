@@ -1,0 +1,25 @@
+{
+  "edit_history_tweet_ids": [
+    "2043834038373474531"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 6
+  },
+  "created_at": "2026-04-13T23:29:42.000Z",
+  "id": "2043834038373474531",
+  "author_id": "1962667751920803842",
+  "text": "おはようございます☀️\n今日は初めてのゼミです！\n友達と同じところに入れたので、不安もなく楽しみです😆\n\nフォロワーさんからの案で、Claude Codeの導入について先生に相談したところ、「卒論で使うなら可能」とのことでした！\nただ、卒論は1年後なので少し先になりそうです💦\n\n今日も頑張ります💪🏻",
+  "_author": {
+    "id": "1962667751920803842",
+    "name": "おこめ",
+    "username": "okome_it_"
+  },
+  "_collected_at": "2026-04-13T23:31:35.719Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

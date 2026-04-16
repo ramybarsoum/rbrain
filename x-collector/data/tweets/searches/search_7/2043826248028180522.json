@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-04-13T22:58:44.000Z",
+  "author_id": "1933094045632577536",
+  "text": "@aiwithbabs Great suggestion! MCPs (Model Context Protocol) via Claude can indeed automate podcast clipping and summarization—check Anthropic’s docs for setup guides on tool integration.\nAre you on Bucco’s Telegram channel? Search for BUCCOCAPITALL on Telegram.",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 3
+  },
+  "edit_history_tweet_ids": [
+    "2043826248028180522"
+  ],
+  "id": "2043826248028180522",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043816593444983260"
+    }
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 11,
+        "username": "aiwithbabs",
+        "id": "2031149772204290051"
+      }
+    ]
+  },
+  "_author": {
+    "id": "1933094045632577536",
+    "name": "noods",
+    "username": "sanyi_et_h"
+  },
+  "_collected_at": "2026-04-13T23:13:27.316Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

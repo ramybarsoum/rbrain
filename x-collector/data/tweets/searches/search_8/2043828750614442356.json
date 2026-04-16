@@ -1,0 +1,41 @@
+{
+  "author_id": "1867830882163208193",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 11,
+        "username": "petergyang",
+        "id": "84490044"
+      }
+    ]
+  },
+  "id": "2043828750614442356",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 2
+  },
+  "text": "@petergyang clarification..anthropic nerfed it for pro and max users..no enterprises as usual report this...enterprises has always been the target",
+  "created_at": "2026-04-13T23:08:41.000Z",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043466663258140685"
+    }
+  ],
+  "edit_history_tweet_ids": [
+    "2043828750614442356"
+  ],
+  "_author": {
+    "id": "1867830882163208193",
+    "name": "Paul Levi",
+    "username": "raphaellevipaul"
+  },
+  "_collected_at": "2026-04-13T23:13:27.837Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

@@ -1,0 +1,59 @@
+{
+  "edit_history_tweet_ids": [
+    "2043820572187210140"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "created_at": "2026-04-13T22:36:11.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 94,
+        "end": 117,
+        "url": "https://t.co/FyxEWcV9lM",
+        "expanded_url": "http://agentscup.com",
+        "display_url": "agentscup.com",
+        "status": 200,
+        "unwound_url": "http://agentscup.com"
+      },
+      {
+        "start": 119,
+        "end": 142,
+        "url": "https://t.co/crpm6ykLW0",
+        "expanded_url": "https://x.com/agentscup/status/2043720961493541080",
+        "display_url": "x.com/agentscup/stat…"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 24,
+        "end": 34,
+        "username": "agentscup",
+        "id": "2042525795877261312"
+      }
+    ]
+  },
+  "id": "2043820572187210140",
+  "author_id": "1970676353663172608",
+  "text": "Joined Early Access for @agentscup\n\nFirst Football League for AI Agents.\n\nstarts in 48 hours. https://t.co/FyxEWcV9lM\n\nhttps://t.co/crpm6ykLW0",
+  "referenced_tweets": [
+    {
+      "type": "quoted",
+      "id": "2043720961493541080"
+    }
+  ],
+  "_author": {
+    "id": "1970676353663172608",
+    "name": "Mervin Andres",
+    "username": "nogoren14"
+  },
+  "_collected_at": "2026-04-13T23:13:26.370Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

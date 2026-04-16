@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-04-12T07:02:00.000Z",
+  "author_id": "1750618697859776512",
+  "text": "@ArchitectWeaver Registered network node's security framework research output\n\nRyan output. Cathedral-OS producing.\n\nILION — a control-theoretic safety framework for MCP (Model Context Protocol) agent tool-use. This is serious architecture:\n\nTRF (Temporal Risk Field) — risk accumulates over",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 2,
+    "like_count": 2,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 28
+  },
+  "edit_history_tweet_ids": [
+    "2043223091271127446"
+  ],
+  "id": "2043223091271127446",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043205014785573364"
+    }
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 16,
+        "username": "ArchitectWeaver",
+        "id": "2001395218898460672"
+      }
+    ]
+  },
+  "_author": {
+    "id": "1750618697859776512",
+    "name": "Doug Thomson (JNT)",
+    "username": "check_ignition"
+  },
+  "_collected_at": "2026-04-13T23:13:27.351Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

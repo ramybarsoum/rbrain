@@ -1,0 +1,51 @@
+{
+  "author_id": "198397289",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 13,
+        "username": "toddsaunders",
+        "id": "349708361"
+      }
+    ],
+    "urls": [
+      {
+        "start": 292,
+        "end": 315,
+        "url": "https://t.co/SYb04xrm32",
+        "expanded_url": "https://x.com/MikeJRuggiero/status/2043827735194124721/photo/1",
+        "display_url": "pic.x.com/SYb04xrm32",
+        "media_key": "3_2043827728269332482"
+      }
+    ]
+  },
+  "id": "2043827735194124721",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 23
+  },
+  "text": "@toddsaunders LEAKED: Anthropic just dropped screenshots of a visual app builder inside Claude that generates full-stack apps from plain English prompts — live previews, real databases, one-click deployment. Branded “Let’s ship something great.”\n\nThis is coming for vibe-coding startups like https://t.co/SYb04xrm32",
+  "created_at": "2026-04-13T23:04:39.000Z",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043825202954391934"
+    }
+  ],
+  "edit_history_tweet_ids": [
+    "2043827735194124721"
+  ],
+  "_author": {
+    "id": "198397289",
+    "name": "Ruggiero Landscaping",
+    "username": "MikeJRuggiero"
+  },
+  "_collected_at": "2026-04-13T23:13:27.848Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

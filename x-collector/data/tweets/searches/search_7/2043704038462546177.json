@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-04-13T14:53:07.000Z",
+  "author_id": "1832666456242221056",
+  "text": "4/7\nThe @Bitseek_Ai Stack is built for builders:\n💻 Decentralized GPU Network: Scalable compute power.\n🛠️ Model-Context-Protocol (MCP): Seamless integration.\n📊 Data DAO: You own your data. You monetize your data.\nIt’s not just a wrapper; it’s a movement.",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 21
+  },
+  "edit_history_tweet_ids": [
+    "2043704038462546177"
+  ],
+  "id": "2043704038462546177",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043703924297732414"
+    }
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 8,
+        "end": 19,
+        "username": "BitSeek_Ai",
+        "id": "1915743607778410497"
+      }
+    ]
+  },
+  "_author": {
+    "id": "1832666456242221056",
+    "name": "AI_Lady(@QuantusNetwork)",
+    "username": "Frendz001"
+  },
+  "_collected_at": "2026-04-13T23:13:27.326Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

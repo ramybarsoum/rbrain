@@ -1,0 +1,40 @@
+{
+  "edit_history_tweet_ids": [
+    "2043831589281640516"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 33
+  },
+  "created_at": "2026-04-13T23:19:58.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 112,
+        "end": 135,
+        "url": "https://t.co/IfZopqOojI",
+        "expanded_url": "https://note.com/nice_rat9017/n/n6365d3d55abd",
+        "display_url": "note.com/nice_rat9017/n…",
+        "status": 200,
+        "title": "【技術力はOpenAIが今もトップ】今井翔太「新型GPTはClaude Mythosに匹敵する可能性」／動画生成「Sora」終了で“全方位戦略”中止→打倒Anthropicに全振り【AI QUEST】　｜山崎",
+        "description": "【OpenAIによる政策提言の真意】 OpenAIが発表した政策提言は、AIの活用が進むことで「週4日労働（週休3日制）」を推進すべきであることや、AIで高い利益を上げた企業に「課税」すべきであるといった、社会的な再分配に関する内容が含まれています。しかし、今井翔太氏によれば、これは特別なことではなく、サム・アルトマン氏が以前からブログなどで述べてきたことと共通しています。むしろ、現在のタイミングでこのような提言が出された背景には、AI開発に対する「批判をかわすための守りの一手」という側面が強いと指摘されています。本来、OpenAIが真剣に議論すべき深遠なテーマは他にもあるはずですが、",
+        "unwound_url": "https://note.com/nice_rat9017/n/n6365d3d55abd"
+      }
+    ]
+  },
+  "id": "2043831589281640516",
+  "author_id": "1182214504244891648",
+  "text": "【技術力はOpenAIが今もトップ】今井翔太「新型GPTはClaude Mythosに匹敵する可能性」／動画生成「Sora」終了で“全方位戦略”中止→打倒Anthropicに全振り【AI QUEST】　　　　　　　　　　　 https://t.co/IfZopqOojI",
+  "_author": {
+    "id": "1182214504244891648",
+    "name": "山崎",
+    "username": "heavydakahiro"
+  },
+  "_collected_at": "2026-04-13T23:31:35.750Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

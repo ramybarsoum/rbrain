@@ -1,0 +1,47 @@
+{
+  "edit_history_tweet_ids": [
+    "2043828489607098465"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 4
+  },
+  "created_at": "2026-04-13T23:07:39.000Z",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 13,
+        "username": "bas_fijneman",
+        "id": "1782142420102103040"
+      },
+      {
+        "start": 14,
+        "end": 27,
+        "username": "ThePrimeagen",
+        "id": "291797158"
+      }
+    ]
+  },
+  "id": "2043828489607098465",
+  "author_id": "99886636",
+  "text": "@bas_fijneman @ThePrimeagen I am a stay at home mom that homeschools my 4 little kids and spends nearly all day off my computer being with them… all of their lessons are hands on, which is why AI agents who handle admin are so helpful… it’s all in the podcast you are commenting on 🙃",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043818880527671320"
+    }
+  ],
+  "_author": {
+    "id": "99886636",
+    "name": "Jesse Genet",
+    "username": "jessegenet"
+  },
+  "_collected_at": "2026-04-13T23:13:26.345Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

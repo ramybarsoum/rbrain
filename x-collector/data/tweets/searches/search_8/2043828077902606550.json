@@ -1,0 +1,53 @@
+{
+  "author_id": "1311810649555636224",
+  "id": "2043828077902606550",
+  "entities": {
+    "urls": [
+      {
+        "start": 111,
+        "end": 134,
+        "url": "https://t.co/QaCkiB3Hpu",
+        "expanded_url": "https://openrouter.ai/nvidia/nemotron-3-super-120b-a12b:free",
+        "display_url": "openrouter.ai/nvidia/nemotro…",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2043826582763253766/_ZtINYZh?format=jpg&name=orig",
+            "width": 1200,
+            "height": 630
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2043826582763253766/_ZtINYZh?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "Nemotron 3 Super (free) - API Pricing & Providers",
+        "description": "NVIDIA Nemotron 3 Super is a 120B-parameter open hybrid MoE model, activating just 12B parameters for maximum compute efficiency and accuracy in complex multi-agent applications. $0 per million input tokens, $0 per million output tokens. 262,144 token context window, maximum output of 262,144 tokens. Higher uptime with 3 providers.",
+        "unwound_url": "https://openrouter.ai/nvidia/nemotron-3-super-120b-a12b:free"
+      }
+    ]
+  },
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 4
+  },
+  "text": "This free AI model is actually quite good, and you can hook it up to Claude Code, OpenCode, Cursor, or Kilo. \n\nhttps://t.co/QaCkiB3Hpu",
+  "created_at": "2026-04-13T23:06:00.000Z",
+  "edit_history_tweet_ids": [
+    "2043828077902606550",
+    "2043828263311814936"
+  ],
+  "_author": {
+    "id": "1311810649555636224",
+    "name": "racks",
+    "username": "racksdotcash"
+  },
+  "_collected_at": "2026-04-13T23:13:27.845Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

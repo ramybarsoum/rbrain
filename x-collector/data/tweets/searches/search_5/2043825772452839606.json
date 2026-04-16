@@ -1,0 +1,41 @@
+{
+  "edit_history_tweet_ids": [
+    "2043825772452839606"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 18
+  },
+  "created_at": "2026-04-13T22:56:51.000Z",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 15,
+        "username": "iAmHenryMascot",
+        "id": "30831264"
+      }
+    ]
+  },
+  "id": "2043825772452839606",
+  "author_id": "1332066726977138701",
+  "text": "@iAmHenryMascot Hermes brings ai agents to everyone, openclaw couldnt",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043757419805728930"
+    }
+  ],
+  "_author": {
+    "id": "1332066726977138701",
+    "name": "Name Cannot be Blank",
+    "username": "biggpeppa"
+  },
+  "_collected_at": "2026-04-13T23:13:26.357Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

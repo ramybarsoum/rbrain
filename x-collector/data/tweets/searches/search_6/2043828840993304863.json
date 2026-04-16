@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-04-13T23:09:02.000Z",
+  "author_id": "2034530639584829440",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043760408058835200"
+    }
+  ],
+  "text": "@CoachThisath Yes I have. Big money - so they must be up to something. I always presumed that their offering was hybrid, which I don't see why it wouldnt work well (e.g. lecture/lab with a person, and on the side you have a dedicated AI assistant that is hyper-familiar with the curriculum an",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 13,
+        "username": "CoachThisath",
+        "id": "1781242862362882048"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "2043828840993304863"
+  ],
+  "id": "2043828840993304863",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "_author": {
+    "id": "2034530639584829440",
+    "name": "GooGZ AI",
+    "username": "PaulGugAI"
+  },
+  "_collected_at": "2026-04-13T23:13:26.825Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

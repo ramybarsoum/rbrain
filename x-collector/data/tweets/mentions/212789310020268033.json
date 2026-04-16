@@ -1,0 +1,41 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "edit_history_tweet_ids": [
+    "212789310020268033"
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 12,
+        "username": "barsoumramy",
+        "id": "254267633"
+      }
+    ]
+  },
+  "text": "@barsoumramy @naootfatima  سافل اية يا بن العرص يا متناك ولا هو انت غاوين تعرصوا على الحريم اللبو الكدابة .طيب هى كدابة ولبوة  وانت اية خول",
+  "author_id": "290475430",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "212681751267520513"
+    }
+  ],
+  "id": "212789310020268033",
+  "in_reply_to_user_id": "254267633",
+  "created_at": "2012-06-13T06:11:39.000Z",
+  "_author": {
+    "id": "290475430",
+    "name": "ومالو",
+    "username": "Tamer_Saied"
+  },
+  "_collected_at": "2026-04-13T23:13:25.013Z",
+  "_stream": "mentions"
+}

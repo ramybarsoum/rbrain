@@ -1,0 +1,37 @@
+{
+  "author_id": "2036882394226024449",
+  "id": "2043829564569235679",
+  "entities": {
+    "urls": [
+      {
+        "start": 275,
+        "end": 298,
+        "url": "https://t.co/PxsYQdW2qf",
+        "expanded_url": "https://x.com/rerightai/status/2043829564569235679/photo/1",
+        "display_url": "pic.x.com/PxsYQdW2qf",
+        "media_key": "3_2043829561167585280"
+      }
+    ]
+  },
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "text": "Treasury just told every major bank to test Anthropic Mythos for vulnerability detection. Pentagon simultaneously called Anthropic a supply chain risk in court. One government, two contradictory signals. When policy incoherence becomes governance, what decision do you make? https://t.co/PxsYQdW2qf",
+  "created_at": "2026-04-13T23:11:55.000Z",
+  "edit_history_tweet_ids": [
+    "2043829564569235679"
+  ],
+  "_author": {
+    "id": "2036882394226024449",
+    "name": "ReRight",
+    "username": "rerightai"
+  },
+  "_collected_at": "2026-04-13T23:13:27.823Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

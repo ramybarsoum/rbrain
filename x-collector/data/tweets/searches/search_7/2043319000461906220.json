@@ -1,0 +1,48 @@
+{
+  "created_at": "2026-04-12T13:23:07.000Z",
+  "author_id": "105521686",
+  "text": "Sisteminiz, yapay zeka servisleriyle gerçek zamanlı veri senkronizasyonu sağlayan bir MCP (Model Context Protocol) sunucusuna sahip mi?\n\nLLM'lerin web sitenizle anlamlı veri alışverişi yapabilmesi için gereken MCP sunucu altyapısını kuruyoruz. https://t.co/X2ka1aiH0o https://t.co/U7wBsIRdt6",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 5
+  },
+  "edit_history_tweet_ids": [
+    "2043319000461906220"
+  ],
+  "id": "2043319000461906220",
+  "entities": {
+    "urls": [
+      {
+        "start": 244,
+        "end": 267,
+        "url": "https://t.co/X2ka1aiH0o",
+        "expanded_url": "http://tys.net.tr",
+        "display_url": "tys.net.tr",
+        "status": 200,
+        "title": "Yapay Zeka İçin Yeni Bir Şasi.",
+        "description": "Web sitenizin görünmez iskeletini MCP standartlarına taşıyoruz. Yapay zeka asistanlarıyla kayıpsız iletişim kurarsınız.",
+        "unwound_url": "https://tys.net.tr/"
+      },
+      {
+        "start": 268,
+        "end": 291,
+        "url": "https://t.co/U7wBsIRdt6",
+        "expanded_url": "https://x.com/saracty/status/2043319000461906220/photo/1",
+        "display_url": "pic.x.com/U7wBsIRdt6",
+        "media_key": "3_2043318942392098816"
+      }
+    ]
+  },
+  "_author": {
+    "id": "105521686",
+    "name": "Yilmaz Sarac",
+    "username": "saracty"
+  },
+  "_collected_at": "2026-04-13T23:13:27.345Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

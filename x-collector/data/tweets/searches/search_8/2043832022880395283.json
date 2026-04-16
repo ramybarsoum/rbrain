@@ -1,0 +1,42 @@
+{
+  "edit_history_tweet_ids": [
+    "2043832022880395283"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 20
+  },
+  "created_at": "2026-04-13T23:21:41.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 114,
+        "end": 137,
+        "url": "https://t.co/DfyPmDcNIc",
+        "expanded_url": "https://twitter.com/indiegamejoe/status/2043799853323411609",
+        "display_url": "x.com/indiegamejoe/s…"
+      }
+    ]
+  },
+  "id": "2043832022880395283",
+  "author_id": "50949650",
+  "text": "you could make a lot more money by giving the game away for free and selling the computer use traces to anthropic https://t.co/DfyPmDcNIc",
+  "referenced_tweets": [
+    {
+      "type": "quoted",
+      "id": "2043799853323411609"
+    }
+  ],
+  "_author": {
+    "id": "50949650",
+    "name": "Anshu",
+    "username": "anshuc"
+  },
+  "_collected_at": "2026-04-13T23:31:35.746Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

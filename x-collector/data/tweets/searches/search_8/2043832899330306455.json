@@ -1,0 +1,41 @@
+{
+  "edit_history_tweet_ids": [
+    "2043832899330306455"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 9
+  },
+  "created_at": "2026-04-13T23:25:10.000Z",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 8,
+        "username": "bekacru",
+        "id": "1188176252567478272"
+      }
+    ]
+  },
+  "id": "2043832899330306455",
+  "author_id": "2017200638505918465",
+  "text": "@bekacru but we wii need not it soon because codex and claude code",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043419820411302117"
+    }
+  ],
+  "_author": {
+    "id": "2017200638505918465",
+    "name": "Ecoo",
+    "username": "ecooai"
+  },
+  "_collected_at": "2026-04-13T23:31:35.739Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

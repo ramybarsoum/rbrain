@@ -1,0 +1,44 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "edit_history_tweet_ids": [
+    "551624597154836480"
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 12,
+        "username": "barsoumramy",
+        "id": "254267633"
+      }
+    ],
+    "urls": [
+      {
+        "start": 86,
+        "end": 108,
+        "url": "http://t.co/bm4GqLzlDu",
+        "expanded_url": "http://taps.io/hiSW",
+        "display_url": "taps.io/hiSW"
+      }
+    ]
+  },
+  "text": "@barsoumramy Hey Ramy, great to see you on Soundwave! Share this if you're liking it! http://t.co/bm4GqLzlDu",
+  "author_id": "2890562591",
+  "id": "551624597154836480",
+  "in_reply_to_user_id": "254267633",
+  "created_at": "2015-01-04T06:22:07.000Z",
+  "_author": {
+    "id": "2890562591",
+    "name": "Soundwave Team",
+    "username": "Soundwave_Team"
+  },
+  "_collected_at": "2026-04-13T23:13:24.981Z",
+  "_stream": "mentions"
+}

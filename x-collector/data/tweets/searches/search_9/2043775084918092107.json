@@ -1,0 +1,59 @@
+{
+  "edit_history_tweet_ids": [
+    "2043775084918092107"
+  ],
+  "text": "Supabase + Vercel is a cheat code.\n\nBeing able to spin up a full-stack app with a live DB, Auth, and Edge Functions in like 10 minutes is wild. The DX is actually unbeatable for moving fast.\n\nHard to go back to anything else after this.\n\n#buildinpublic #supabase #vercel #ship https://t.co/u2qcJNtIux",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 15
+  },
+  "entities": {
+    "hashtags": [
+      {
+        "start": 238,
+        "end": 252,
+        "tag": "buildinpublic"
+      },
+      {
+        "start": 253,
+        "end": 262,
+        "tag": "supabase"
+      },
+      {
+        "start": 263,
+        "end": 270,
+        "tag": "vercel"
+      },
+      {
+        "start": 271,
+        "end": 276,
+        "tag": "ship"
+      }
+    ],
+    "urls": [
+      {
+        "start": 277,
+        "end": 300,
+        "url": "https://t.co/u2qcJNtIux",
+        "expanded_url": "https://x.com/Lushenwar/status/2043775084918092107/photo/1",
+        "display_url": "pic.x.com/u2qcJNtIux",
+        "media_key": "3_2043774607438577664"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T19:35:26.000Z",
+  "id": "2043775084918092107",
+  "author_id": "2013033178932318208",
+  "_author": {
+    "id": "2013033178932318208",
+    "name": "Ryan Qi",
+    "username": "Lushenwar"
+  },
+  "_collected_at": "2026-04-13T23:13:28.355Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

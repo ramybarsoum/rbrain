@@ -1,0 +1,47 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "edit_history_tweet_ids": [
+    "294152046221873152"
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 12,
+        "username": "barsoumramy",
+        "id": "254267633"
+      },
+      {
+        "start": 13,
+        "end": 21,
+        "username": "emanrs_",
+        "id": "428344115"
+      }
+    ]
+  },
+  "text": "@barsoumramy @emanrs_ \nهو قال انو عمل لى اكاونت بصورتى",
+  "author_id": "275694766",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "294151126843027456"
+    }
+  ],
+  "id": "294152046221873152",
+  "in_reply_to_user_id": "254267633",
+  "created_at": "2013-01-23T18:38:07.000Z",
+  "_author": {
+    "id": "275694766",
+    "name": "7ENNA🇪🇬",
+    "username": "7ANANLOLO"
+  },
+  "_collected_at": "2026-04-13T23:13:25.000Z",
+  "_stream": "mentions"
+}

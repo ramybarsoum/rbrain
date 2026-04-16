@@ -1,0 +1,66 @@
+{
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043653001811042671"
+    }
+  ],
+  "created_at": "2026-04-13T23:17:53.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 20,
+        "end": 43,
+        "url": "https://t.co/I3ZqJiKQmT",
+        "expanded_url": "http://3Web.AI",
+        "display_url": "3Web.AI",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2042035434184683520/Vk6fxoSP?format=jpg&name=orig",
+            "width": 1200,
+            "height": 630
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2042035434184683520/Vk6fxoSP?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "3Web - The Operating System for High-Growth Agencies",
+        "description": "AI-powered development with investment tracking, sprint planning, and client management—all in one platform.",
+        "unwound_url": "https://www.3web.ai/"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 0,
+        "end": 14,
+        "username": "YashHustle_22",
+        "id": "2018941753601208320"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "2043831066906026044"
+  ],
+  "text": "@YashHustle_22 With https://t.co/I3ZqJiKQmT it's pretty easy you just enable the connectors you want and the agent does it automatically. They have Supabase and Firebase for backend connectors rn",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 6
+  },
+  "author_id": "2029245894487601152",
+  "id": "2043831066906026044",
+  "_author": {
+    "id": "2029245894487601152",
+    "name": "Joshua Palaisy",
+    "username": "JoshuaPalaisy"
+  },
+  "_collected_at": "2026-04-13T23:31:36.202Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

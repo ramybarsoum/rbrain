@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-04-12T19:03:05.000Z",
+  "author_id": "1365919499505950723",
+  "text": "MCP（Model Context Protocol）标准化了 AI 与工具的交互，但 AI agent 工作流本身的 orchestration 还是各自为政。Anthropic 的 MCP registry、Cline 的 marketplace、OpenAI 的 Agents SDK……大家都在做自己的 workflow 定义语言。\n\n最终活下来的不会是某家标准，而是被实际使用量压出来的 de facto",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 53
+  },
+  "edit_history_tweet_ids": [
+    "2043404555225051207"
+  ],
+  "id": "2043404555225051207",
+  "_author": {
+    "id": "1365919499505950723",
+    "name": "JasonLiu",
+    "username": "jsyqrt"
+  },
+  "_collected_at": "2026-04-13T23:13:27.342Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

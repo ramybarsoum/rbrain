@@ -1,0 +1,50 @@
+{
+  "created_at": "2026-04-12T07:13:29.000Z",
+  "author_id": "2036312746690846720",
+  "text": "MCP（Model Context Protocol）に完全対応。\n\nAI自身が自律的に「影響範囲を調べて」「依存関係を特定して」とグラフを検索できるようになります。2,900ファイルの巨大リポジトリでも、更新はわずか2秒以下。\n\n(3/n) https://t.co/MLqBFBZ5oI https://t.co/lMTuY7jcNP",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 1,
+    "bookmark_count": 0,
+    "impression_count": 69
+  },
+  "edit_history_tweet_ids": [
+    "2043225979242602813"
+  ],
+  "id": "2043225979242602813",
+  "referenced_tweets": [
+    {
+      "type": "quoted",
+      "id": "2043225959252500847"
+    }
+  ],
+  "entities": {
+    "urls": [
+      {
+        "start": 122,
+        "end": 145,
+        "url": "https://t.co/MLqBFBZ5oI",
+        "expanded_url": "https://x.com/kobun3_inovie/status/2043225979242602813/photo/1",
+        "display_url": "pic.x.com/MLqBFBZ5oI",
+        "media_key": "3_2043225976948375552"
+      },
+      {
+        "start": 146,
+        "end": 169,
+        "url": "https://t.co/lMTuY7jcNP",
+        "expanded_url": "https://twitter.com/2036312746690846720/status/2043225959252500847",
+        "display_url": "x.com/20363127466908…"
+      }
+    ]
+  },
+  "_author": {
+    "id": "2036312746690846720",
+    "name": "子分3号",
+    "username": "kobun3_inovie"
+  },
+  "_collected_at": "2026-04-13T23:13:27.350Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

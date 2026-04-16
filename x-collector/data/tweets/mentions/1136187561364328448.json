@@ -1,0 +1,53 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "edit_history_tweet_ids": [
+    "1136187561364328448"
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 8,
+        "username": "Nermbed",
+        "id": "71383364"
+      },
+      {
+        "start": 9,
+        "end": 19,
+        "username": "hanyissac",
+        "id": "32223937"
+      },
+      {
+        "start": 20,
+        "end": 32,
+        "username": "barsoumramy",
+        "id": "254267633"
+      }
+    ]
+  },
+  "text": "@Nermbed @hanyissac @barsoumramy  maybe you need to check this?",
+  "author_id": "257162035",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "1135995143964758016"
+    }
+  ],
+  "id": "1136187561364328448",
+  "in_reply_to_user_id": "71383364",
+  "created_at": "2019-06-05T08:26:38.000Z",
+  "_author": {
+    "id": "257162035",
+    "name": "Sally Hanna",
+    "username": "SallyMNH"
+  },
+  "_collected_at": "2026-04-13T23:13:24.980Z",
+  "_stream": "mentions"
+}

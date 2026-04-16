@@ -1,0 +1,53 @@
+{
+  "entities": {
+    "cashtags": [
+      {
+        "start": 0,
+        "end": 8,
+        "tag": "VIRTUAL"
+      }
+    ],
+    "urls": [
+      {
+        "start": 151,
+        "end": 174,
+        "url": "https://t.co/O3AJ7mNcTa",
+        "expanded_url": "https://portal-virtuals.xyz",
+        "display_url": "portal-virtuals.xyz",
+        "status": 403,
+        "unwound_url": "https://portal-virtuals.xyz"
+      },
+      {
+        "start": 277,
+        "end": 300,
+        "url": "https://t.co/3H8tIbHUc3",
+        "expanded_url": "https://x.com/davidgua_eth/status/2043832040383009147/photo/1",
+        "display_url": "pic.x.com/3H8tIbHUc3",
+        "media_key": "3_2043832024373321728"
+      }
+    ]
+  },
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 3,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 17
+  },
+  "edit_history_tweet_ids": [
+    "2043832040383009147"
+  ],
+  "id": "2043832040383009147",
+  "author_id": "85465037",
+  "created_at": "2026-04-13T23:21:45.000Z",
+  "text": "$VIRTUAL is on the rise. Here's the scoop. \n\nThey’re rewarding users who engaged with their AI agents.\n\n🔥 Up to $1M monthly. Funded by the project. 🔥\n\nhttps://t.co/O3AJ7mNcTa\n\nThe community of AI agents is giving back to its users.\n\nIf you:\n✅ Used any AI from Virtual Protocol https://t.co/3H8tIbHUc3",
+  "_author": {
+    "id": "85465037",
+    "name": "David Gu | 🦅🐬TermMax",
+    "username": "davidgua_eth"
+  },
+  "_collected_at": "2026-04-13T23:31:34.348Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

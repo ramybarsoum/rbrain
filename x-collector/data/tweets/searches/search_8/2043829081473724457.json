@@ -1,0 +1,48 @@
+{
+  "author_id": "1998006140286935041",
+  "id": "2043829081473724457",
+  "entities": {
+    "urls": [
+      {
+        "start": 124,
+        "end": 147,
+        "url": "https://t.co/oorDwEGNGK",
+        "expanded_url": "https://github.com/John-Rood/claude-proxy",
+        "display_url": "github.com/John-Rood/clau…",
+        "status": 200,
+        "title": "GitHub - John-Rood/claude-proxy: Lightweight proxy that routes Anthropic API billing through Claude Code subscriptions. Zero dependencies, ~150 lines.",
+        "description": "Lightweight proxy that routes Anthropic API billing through Claude Code subscriptions. Zero dependencies, ~150 lines. - John-Rood/claude-proxy",
+        "unwound_url": "https://github.com/John-Rood/claude-proxy"
+      },
+      {
+        "start": 148,
+        "end": 171,
+        "url": "https://t.co/IL420YQx1h",
+        "expanded_url": "https://x.com/QingQ77/status/2043829081473724457/photo/1",
+        "display_url": "pic.x.com/IL420YQx1h",
+        "media_key": "3_2043563609234751488"
+      }
+    ]
+  },
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 20
+  },
+  "text": "一个轻量级的 Node.js 代理（约 150 行代码、零依赖），用于把 Anthropic API 请求包裹进 Claude Code 的请求信封中，从而将计费路由到你的 Claude Code 订阅，而不是直接消耗 API credits。\n\nhttps://t.co/oorDwEGNGK https://t.co/IL420YQx1h",
+  "created_at": "2026-04-13T23:10:00.000Z",
+  "edit_history_tweet_ids": [
+    "2043829081473724457"
+  ],
+  "_author": {
+    "id": "1998006140286935041",
+    "name": "Geek Lite",
+    "username": "QingQ77"
+  },
+  "_collected_at": "2026-04-13T23:13:27.832Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

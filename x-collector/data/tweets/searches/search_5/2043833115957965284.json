@@ -1,0 +1,104 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 385
+  },
+  "entities": {
+    "urls": [
+      {
+        "start": 9,
+        "end": 32,
+        "url": "https://t.co/vhyTLS087W",
+        "expanded_url": "https://www.reddit.com/r/accelerate/comments/1sji6lo/the_mythos_effect/",
+        "display_url": "reddit.com/r/accelerate/c…",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2043652982873669632/1JahKhN4?format=jpg&name=orig",
+            "width": 1120,
+            "height": 584
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2043652982873669632/1JahKhN4?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "From the accelerate community on Reddit: The Mythos Effect",
+        "description": "Explore this post and more from the accelerate community",
+        "unwound_url": "https://www.reddit.com/r/accelerate/comments/1sji6lo/the_mythos_effect/"
+      },
+      {
+        "start": 91,
+        "end": 114,
+        "url": "https://t.co/M900Xkw4Eg",
+        "expanded_url": "https://www.taskade.com/blog/saaspocalypse-explained",
+        "display_url": "taskade.com/blog/saaspocal…",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2043833124950536192/TIIOor9A?format=png&name=orig",
+            "width": 1200,
+            "height": 630
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2043833124950536192/TIIOor9A?format=png&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "The SaaSpocalypse: $285B Wiped, AI Agents Rising (2026)",
+        "description": "February 2026: $285B wiped from SaaS valuations in 48 hours. Deep analysis of the AI-driven selloff, per-seat pricing collapse, and what teams should do now.",
+        "unwound_url": "https://www.taskade.com/blog/saaspocalypse-explained"
+      },
+      {
+        "start": 170,
+        "end": 193,
+        "url": "https://t.co/8eYihROt6L",
+        "expanded_url": "https://www.saastr.com/the-2026-saas-crash-its-not-what-you-think/",
+        "display_url": "saastr.com/the-2026-saas-…",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2043833116855504896/GBg0Cs-5?format=jpg&name=orig",
+            "width": 640,
+            "height": 959
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2043833116855504896/GBg0Cs-5?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "The 2026 SaaS Crash: It’s Not What You Think",
+        "description": "Software stocks just entered a bear market. IGV is down 22% from its highs. January 29 was the worst single day for software since the Covid crash. ServiceNow dropped 11% despite beating earnings f…",
+        "unwound_url": "https://www.saastr.com/the-2026-saas-crash-its-not-what-you-think/"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "2043833115957965284"
+  ],
+  "id": "2043833115957965284",
+  "author_id": "3120155797",
+  "created_at": "2026-04-13T23:26:02.000Z",
+  "text": "【参考ソース】\n\nhttps://t.co/vhyTLS087W\n\n・The SaaSpocalypse: $285B Wiped, AI Agents Rising (2026)\nhttps://t.co/M900Xkw4Eg\n\n・The 2026 SaaS Crash: It's Not What You Think（SaaStr）\nhttps://t.co/8eYihROt6L\n\n・AI fears pummel software stocks: panic or apocalypse?（CNBC）",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043833114104082736"
+    }
+  ],
+  "_author": {
+    "id": "3120155797",
+    "name": "チャエン | デジライズ CEO《重要AIニュースを毎日最速で発信⚡️》",
+    "username": "masahirochaen"
+  },
+  "_collected_at": "2026-04-13T23:31:34.343Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

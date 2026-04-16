@@ -1,0 +1,101 @@
+{
+  "edit_history_tweet_ids": [
+    "2043804820931252698"
+  ],
+  "text": "@gloiremurhigisi @JamboWorld @DeniseNyakeru @PatrickMuyaya @AmaniBisimwa4 @BahigaTacite @FrumenceBoroto @amluzayamo @DoraMuanda @eric_ampire @cisirikalain3 Pour moi, c’est Postgresql sans hésiter. C’est robuste, performant et très adapté aux projets sérieux. Après, chaque base a sa force : MongoDB pour la flexibilité, MySQL pour sa simplicité, et Supabase pour la rapidité de mise en place. Tout dépend du besoin au final.",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043735858239476051"
+    }
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 2,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 15
+  },
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 16,
+        "username": "gloiremurhigisi",
+        "id": "891689844"
+      },
+      {
+        "start": 17,
+        "end": 28,
+        "username": "JamboWorld",
+        "id": "1276286279848730625"
+      },
+      {
+        "start": 29,
+        "end": 43,
+        "username": "DeniseNyakeru",
+        "id": "1103447267695038465"
+      },
+      {
+        "start": 44,
+        "end": 58,
+        "username": "PatrickMuyaya",
+        "id": "933347119"
+      },
+      {
+        "start": 59,
+        "end": 73,
+        "username": "AmaniBisimwa4",
+        "id": "1476570418085613573"
+      },
+      {
+        "start": 74,
+        "end": 87,
+        "username": "BahigaTacite",
+        "id": "1430192914525822981"
+      },
+      {
+        "start": 88,
+        "end": 103,
+        "username": "FrumenceBoroto",
+        "id": "2989554707"
+      },
+      {
+        "start": 104,
+        "end": 115,
+        "username": "amluzayamo",
+        "id": "1770483411943067649"
+      },
+      {
+        "start": 116,
+        "end": 127,
+        "username": "DoraMuanda",
+        "id": "1241979199382052864"
+      },
+      {
+        "start": 128,
+        "end": 140,
+        "username": "eric_ampire",
+        "id": "3512843656"
+      },
+      {
+        "start": 141,
+        "end": 155,
+        "username": "cisirikalain3",
+        "id": "969872723932581888"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T21:33:36.000Z",
+  "id": "2043804820931252698",
+  "author_id": "1950142608338276356",
+  "_author": {
+    "id": "1950142608338276356",
+    "name": "Merveil Héros Kadima",
+    "username": "MerveilHk"
+  },
+  "_collected_at": "2026-04-13T23:13:28.352Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

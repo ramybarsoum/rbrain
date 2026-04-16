@@ -1,0 +1,47 @@
+{
+  "edit_history_tweet_ids": [
+    "2043832053502808526"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 16
+  },
+  "created_at": "2026-04-13T23:21:48.000Z",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 8,
+        "username": "ryunuck",
+        "id": "1098651775714893824"
+      },
+      {
+        "start": 9,
+        "end": 21,
+        "username": "somewheresy",
+        "id": "1293155875864141824"
+      }
+    ]
+  },
+  "id": "2043832053502808526",
+  "author_id": "1090821684230266882",
+  "text": "@ryunuck @somewheresy Even if AGI achieved here first they will achieve parity rather quick (There is no sudden loser condition because cybersec foom capabilities prob are not that much of a gap b/w deepseek pushed to limit and OAI or Anthropic).",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043831591265300688"
+    }
+  ],
+  "_author": {
+    "id": "1090821684230266882",
+    "name": "Xenofy",
+    "username": "_Xenofy_"
+  },
+  "_collected_at": "2026-04-13T23:31:35.745Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

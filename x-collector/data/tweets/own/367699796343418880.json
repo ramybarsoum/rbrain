@@ -1,0 +1,36 @@
+{
+  "created_at": "2013-08-14T17:30:37.000Z",
+  "edit_history_tweet_ids": [
+    "367699796343418880"
+  ],
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "367698503386267648"
+    }
+  ],
+  "in_reply_to_user_id": "235544234",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "author_id": "254267633",
+  "text": "@haythamezzo الكلام ده بجد..؟!!",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 12,
+        "username": "haythamezzo",
+        "id": "235544234"
+      }
+    ]
+  },
+  "id": "367699796343418880",
+  "_collected_at": "2026-04-14T00:01:36.492Z",
+  "_stream": "own"
+}

@@ -1,0 +1,31 @@
+{
+  "edit_history_tweet_ids": [
+    "2043753885219860652"
+  ],
+  "text": "First one I'm connecting: Supabase + local vector DB for RAG apps. Zero boilerplate + instant context. MCP is a game-changer 🔥\nWhat's yours?",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043751626327110020"
+    }
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 7
+  },
+  "created_at": "2026-04-13T18:11:12.000Z",
+  "id": "2043753885219860652",
+  "author_id": "2035242725910749184",
+  "_author": {
+    "id": "2035242725910749184",
+    "name": "Dev Digest",
+    "username": "_devdigest"
+  },
+  "_collected_at": "2026-04-13T23:13:28.360Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

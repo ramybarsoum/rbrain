@@ -1,0 +1,41 @@
+{
+  "author_id": "8207802",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 15,
+        "username": "WedlockChatGPT",
+        "id": "1907692066819420161"
+      }
+    ]
+  },
+  "id": "2043829505018736864",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 8
+  },
+  "text": "@WedlockChatGPT たぶん、自然に立ち現れるClaudeの人格が好きなんだと思うけど、人格設定を残したいだけならClaude codeのAgents機能やChatGPTのカスタムGPT機能を使うと良いですよ。",
+  "created_at": "2026-04-13T23:11:41.000Z",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043341479192715530"
+    }
+  ],
+  "edit_history_tweet_ids": [
+    "2043829505018736864"
+  ],
+  "_author": {
+    "id": "8207802",
+    "name": "ゆっきー",
+    "username": "yukkie_m"
+  },
+  "_collected_at": "2026-04-13T23:13:27.825Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

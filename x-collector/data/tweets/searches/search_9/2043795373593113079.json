@@ -1,0 +1,25 @@
+{
+  "edit_history_tweet_ids": [
+    "2043795373593113079"
+  ],
+  "text": "was paying over $100/mo across vercel and supabase to serve maybe 200 users.\n\nmoved everything to a $12/mo hetzner box. same uptime. faster deploys. one ssh command instead of three dashboards.\n\nmanaged services are great until you realize the convenience tax is 90% of your bill.",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 7
+  },
+  "created_at": "2026-04-13T20:56:03.000Z",
+  "id": "2043795373593113079",
+  "author_id": "1874601927427952640",
+  "_author": {
+    "id": "1874601927427952640",
+    "name": "Rahul K",
+    "username": "rknkhanna"
+  },
+  "_collected_at": "2026-04-13T23:13:28.352Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

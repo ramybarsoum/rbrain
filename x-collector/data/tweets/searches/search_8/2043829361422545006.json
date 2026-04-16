@@ -1,0 +1,69 @@
+{
+  "author_id": "1505330450193317888",
+  "id": "2043829361422545006",
+  "entities": {
+    "urls": [
+      {
+        "start": 101,
+        "end": 124,
+        "url": "https://t.co/gxk3wpcW4s",
+        "expanded_url": "https://qiita.com/hello_giita/items/3d6a8c80f7581f803e20",
+        "display_url": "qiita.com/hello_giita/it…",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2042007085253332992/khqh73OV?format=jpg&name=orig",
+            "width": 1200,
+            "height": 630
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2042007085253332992/khqh73OV?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "2026年4月最新AIニュース3選 - OpenAI大型調達、Anthropicの防衛的サイバーAI、GoogleのGemini 3.1 - Qiita",
+        "description": "📌 3行でわかるこの記事 OpenAIは1220億ドルの大型調達を発表し、AIインフラ・エージェント・開発基盤への投資を一段と加速させました。 AnthropicはProject Glasswingを公開し、AIの脆弱性発見能力を「攻撃側」ではなく「防御側」に振り向ける...",
+        "unwound_url": "https://qiita.com/hello_giita/items/3d6a8c80f7581f803e20"
+      }
+    ],
+    "hashtags": [
+      {
+        "start": 125,
+        "end": 128,
+        "tag": "AI"
+      },
+      {
+        "start": 129,
+        "end": 139,
+        "tag": "Anthropic"
+      },
+      {
+        "start": 140,
+        "end": 149,
+        "tag": "AIセキュリティ"
+      }
+    ]
+  },
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 2
+  },
+  "text": "🔐 AnthropicがProject Glasswingを発表！AWS・Apple・Google等24社が参加するAIセキュリティイニシアチブ。AIの防衛的活用で業界全体のセキュリティ強化を目指す。\nhttps://t.co/gxk3wpcW4s\n#AI #Anthropic #AIセキュリティ",
+  "created_at": "2026-04-13T23:11:06.000Z",
+  "edit_history_tweet_ids": [
+    "2043829361422545006"
+  ],
+  "_author": {
+    "id": "1505330450193317888",
+    "name": "D",
+    "username": "d8kingdom"
+  },
+  "_collected_at": "2026-04-13T23:13:27.826Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

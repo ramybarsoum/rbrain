@@ -1,0 +1,47 @@
+{
+  "created_at": "2026-04-13T18:18:11.000Z",
+  "author_id": "2023900462681124867",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043722348466225315"
+    }
+  ],
+  "text": "@Tocelot @speedrun Consumer AI assistant that leverages open models. I connect to your google and manage your day. \n\nBetween scheduling meeting and reminding you to do your laundry, I always remember facts about your life and help you recall what you've already forgotten.\n\nDMs are open!",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 8,
+        "username": "Tocelot",
+        "id": "16196307"
+      },
+      {
+        "start": 9,
+        "end": 18,
+        "username": "speedrun",
+        "id": "1760843364386443264"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "2043755643832561768"
+  ],
+  "id": "2043755643832561768",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 3
+  },
+  "_author": {
+    "id": "2023900462681124867",
+    "name": "Postal",
+    "username": "postalwtf"
+  },
+  "_collected_at": "2026-04-13T23:13:26.860Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

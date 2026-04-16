@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-04-13T18:02:00.000Z",
+  "author_id": "233722811",
+  "text": "If an AI assistant can't find clear, structured answers about your services on your website, do you think it will recommend you?",
+  "edit_history_tweet_ids": [
+    "2043751571058766167"
+  ],
+  "id": "2043751571058766167",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 3
+  },
+  "_author": {
+    "id": "233722811",
+    "name": "Frontburner Marketing | Local SEO",
+    "username": "Burnermarketing"
+  },
+  "_collected_at": "2026-04-13T23:13:26.863Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

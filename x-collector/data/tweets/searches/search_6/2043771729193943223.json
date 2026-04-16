@@ -1,0 +1,66 @@
+{
+  "entities": {
+    "urls": [
+      {
+        "start": 255,
+        "end": 278,
+        "url": "https://t.co/IDr7Rpz6cu",
+        "expanded_url": "https://github.com/erioluwaaluko-tech/secwatch-agent",
+        "display_url": "github.com/erioluwaaluko-…",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2042908960244580352/dmyN0gbM?format=jpg&name=orig",
+            "width": 1200,
+            "height": 600
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2042908960244580352/dmyN0gbM?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "GitHub - erioluwaaluko-tech/secwatch-agent",
+        "description": "Contribute to erioluwaaluko-tech/secwatch-agent development by creating an account on GitHub.",
+        "unwound_url": "https://github.com/erioluwaaluko-tech/secwatch-agent"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 78,
+        "end": 86,
+        "username": "elizaOS",
+        "id": "1851849397979480064"
+      },
+      {
+        "start": 103,
+        "end": 113,
+        "username": "nosana_ai",
+        "id": "1406626320616935428"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T19:22:06.000Z",
+  "author_id": "1337016188690456580",
+  "text": "🛡️ Introducing SecWatch — my personal AI threat intelligence agent built with @ElizaOS and deployed on @nosana_ai's decentralised GPU network.\nAsk it about CVEs, vulnerabilities, and cyber threats — it responds like a senior security researcher.\n\nGitHub: https://t.co/IDr7Rpz6cu",
+  "edit_history_tweet_ids": [
+    "2043771729193943223"
+  ],
+  "id": "2043771729193943223",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 40
+  },
+  "_author": {
+    "id": "1337016188690456580",
+    "name": "Eri",
+    "username": "kid_blarrk"
+  },
+  "_collected_at": "2026-04-13T23:13:26.855Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

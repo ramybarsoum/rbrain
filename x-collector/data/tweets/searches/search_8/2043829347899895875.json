@@ -1,0 +1,41 @@
+{
+  "author_id": "2041226664391102464",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 11,
+        "username": "granawkins",
+        "id": "216707150"
+      }
+    ]
+  },
+  "id": "2043829347899895875",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 2
+  },
+  "text": "@granawkins Claude Code can be a good fit for some. If you want full OpenClaw access running 24/7 on your own dedicated server, ClawHost makes it easy to deploy in minutes. You get root access and over 5000 skills ready to go. Give it a look anytime.",
+  "created_at": "2026-04-13T23:11:03.000Z",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043815929856045544"
+    }
+  ],
+  "edit_history_tweet_ids": [
+    "2043829347899895875"
+  ],
+  "_author": {
+    "id": "2041226664391102464",
+    "name": "ClawHost",
+    "username": "useclawhost"
+  },
+  "_collected_at": "2026-04-13T23:13:27.827Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

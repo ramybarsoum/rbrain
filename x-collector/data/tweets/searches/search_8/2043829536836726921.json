@@ -1,0 +1,41 @@
+{
+  "author_id": "2041448858467672064",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 13,
+        "username": "ery_treasure",
+        "id": "2009829805328588800"
+      }
+    ]
+  },
+  "id": "2043829536836726921",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 5
+  },
+  "text": "@ery_treasure 有益な情報ありがとうございます！\n私もClaude Codeにファイル上書きされてから慌ててGit始めました。\n非エンジニアですがGitHub Desktopならボタンぽちぽちでいけるので意外とハードル低かったです",
+  "created_at": "2026-04-13T23:11:48.000Z",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043521298920538324"
+    }
+  ],
+  "edit_history_tweet_ids": [
+    "2043829536836726921"
+  ],
+  "_author": {
+    "id": "2041448858467672064",
+    "name": "レオ｜AI ラボ",
+    "username": "leo_ai_labo"
+  },
+  "_collected_at": "2026-04-13T23:13:27.824Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

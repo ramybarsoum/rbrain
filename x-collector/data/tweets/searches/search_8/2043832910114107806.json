@@ -1,0 +1,37 @@
+{
+  "edit_history_tweet_ids": [
+    "2043832910114107806"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 44
+  },
+  "created_at": "2026-04-13T23:25:13.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 85,
+        "end": 108,
+        "url": "https://t.co/1KUMtTI7lQ",
+        "expanded_url": "https://x.com/WangNextDoor2/status/2043832910114107806/video/1",
+        "display_url": "pic.x.com/1KUMtTI7lQ",
+        "media_key": "13_2043832212857270272"
+      }
+    ]
+  },
+  "id": "2043832910114107806",
+  "author_id": "1378320364376219655",
+  "text": "的确硅谷为这事吵的挺凶的，但我还是觉得Anthropic这么做是合适的，如果他们仅仅crying wolf，市场早晚会惩罚他们的，万一他们担心是对的那还是值得谨慎的的。 https://t.co/1KUMtTI7lQ",
+  "_author": {
+    "id": "1378320364376219655",
+    "name": "WangNextDoor",
+    "username": "WangNextDoor2"
+  },
+  "_collected_at": "2026-04-13T23:31:35.738Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

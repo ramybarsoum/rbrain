@@ -1,0 +1,58 @@
+{
+  "created_at": "2026-04-13T08:30:22.000Z",
+  "author_id": "1711251327257636864",
+  "text": "Claude Code × MCP サーバー開発入門 -- 外部ツール連携で生産性を10倍にする実践ガイド - Claude CodeのMCP（Model Context Protocol）サーバー機能を使いこなすための実践入門書。外部ツール連携で生産性を10倍にする。\n👇\nhttps://t.co/sHlzN2M7Ms%",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 22
+  },
+  "edit_history_tweet_ids": [
+    "2043607715944255900"
+  ],
+  "id": "2043607715944255900",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043607714782445878"
+    }
+  ],
+  "entities": {
+    "urls": [
+      {
+        "start": 138,
+        "end": 161,
+        "url": "https://t.co/sHlzN2M7Ms",
+        "expanded_url": "https://zenn.dev/joinclass/books/claude-code-mcp-development?utm_source=twitter&utm_medium=social&utm_campaign=claude-code-%C3%97-mcp-%E3%82",
+        "display_url": "zenn.dev/joinclass/book…",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2043607759711883265/K1EcT8Oj?format=jpg&name=orig",
+            "width": 726,
+            "height": 381
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2043607759711883265/K1EcT8Oj?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "Claude Code × MCP サーバー開発入門 -- 外部ツール連携で生産性を10倍にする実践ガイド",
+        "description": "Claude CodeのMCP（Model Context Protocol）サーバー機能を使いこなすための実践入門書。ハンズオン形式で、ファイルシステム操作、データベース連携、外部API統合、認証・セキュリティ、テスト・デバッグ、本番運用まで、実際に動くMCPサーバーを作りなが",
+        "unwound_url": "https://zenn.dev/joinclass/books/claude-code-mcp-development?utm_source=twitter&utm_medium=social&utm_campaign=claude-code-%C3%97-mcp-%E3%82"
+      }
+    ]
+  },
+  "_author": {
+    "id": "1711251327257636864",
+    "name": "joinclass",
+    "username": "joinclass1002"
+  },
+  "_collected_at": "2026-04-13T23:13:27.334Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

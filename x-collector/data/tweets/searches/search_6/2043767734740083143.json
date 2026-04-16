@@ -1,0 +1,37 @@
+{
+  "entities": {
+    "urls": [
+      {
+        "start": 73,
+        "end": 96,
+        "url": "https://t.co/B9hzpMPmHQ",
+        "expanded_url": "https://x.com/stansirlewis/status/2043767734740083143/photo/1",
+        "display_url": "pic.x.com/B9hzpMPmHQ",
+        "media_key": "3_2043767726728937472"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T19:06:13.000Z",
+  "author_id": "4926053087",
+  "text": "حتى التيك توك عمل ai assistant ارحموووونا و بعدين ايه الاسم ده؟ Tako غتت https://t.co/B9hzpMPmHQ",
+  "edit_history_tweet_ids": [
+    "2043767734740083143"
+  ],
+  "id": "2043767734740083143",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 2,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 34
+  },
+  "_author": {
+    "id": "4926053087",
+    "name": "❥ ℒ ☽",
+    "username": "stansirlewis"
+  },
+  "_collected_at": "2026-04-13T23:13:26.856Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

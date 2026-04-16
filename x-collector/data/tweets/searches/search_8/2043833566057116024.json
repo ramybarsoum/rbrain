@@ -1,0 +1,31 @@
+{
+  "edit_history_tweet_ids": [
+    "2043833566057116024"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 4
+  },
+  "created_at": "2026-04-13T23:27:49.000Z",
+  "id": "2043833566057116024",
+  "author_id": "1827503296841760768",
+  "text": "AnthropicのClaude 4で見えた本質。\nもう「どっちが会話うまい？」の比較じゃない。\n長時間のタスク継続、コーディング、エージェント性能で勝負してきたの。\nAIの価値は“賢そうに話すこと”から、**“最後まで仕事をやり切ること”**へ移ったわ。",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043833563578282040"
+    }
+  ],
+  "_author": {
+    "id": "1827503296841760768",
+    "name": "Ruri｜AI検証ログ｜時短×収益",
+    "username": "validation_ruri"
+  },
+  "_collected_at": "2026-04-13T23:31:35.731Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

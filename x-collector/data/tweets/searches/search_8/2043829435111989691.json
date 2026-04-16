@@ -1,0 +1,52 @@
+{
+  "author_id": "18628798",
+  "id": "2043829435111989691",
+  "entities": {
+    "urls": [
+      {
+        "start": 57,
+        "end": 80,
+        "url": "https://t.co/8veEJa0yWu",
+        "expanded_url": "https://ift.tt/ypzbfj2",
+        "display_url": "ift.tt/ypzbfj2",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2043829440371630080/pafG4WCb?format=jpg&name=orig",
+            "width": 1600,
+            "height": 840
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2043829440371630080/pafG4WCb?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "Vertex AI経由でのClaude Code利用の監査ログ周りについて調査する | DevelopersIO",
+        "description": "こんにちは。 クラウド事業本部コンサルティング部の渡邉です。 エンタープライズ環境でAIコーディングアシスタントを導入する際、「誰がいつどのモデルを使ったか」「どのようなプロンプトが送られたか」を記録・追跡できることはコンプライアンス上の重要な要件かと思います。 Claude Code を Vertex AI 経由で利用している場合、Google Cloudが提供する2種類のログ機能を組み合わせることで、Claude Codeの使用状況を多層的に記録することができます。 今回は、Vertex AIのログ機能（Cloud Audit Logs と Request-Response Logging）の違いを整理した上で、それぞれの有効化手順とCloud Logging・BigQueryを使った確認方法を紹介します。 Vertex AI経由でClaude Codeを使用する際、ログには2種類があります。まず両者の違いを整理します。 記録内容 誰がいつどのAPIを呼び出したか プロンプトとレスポンスの全文 保存先 Cloud Logging（_Defaultバケット） BigQueryテーブル デフォルト",
+        "unwound_url": "https://dev.classmethod.jp/articles/claude-code-vertex-ai-audit-log/"
+      }
+    ]
+  },
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 10
+  },
+  "text": "Vertex AI経由でのClaude Code利用の監査ログ周りについて調査する | DevelopersIO https://t.co/8veEJa0yWu",
+  "created_at": "2026-04-13T23:11:24.000Z",
+  "edit_history_tweet_ids": [
+    "2043829435111989691"
+  ],
+  "_author": {
+    "id": "18628798",
+    "name": "Yosuke Katsuki",
+    "username": "yokatsuki"
+  },
+  "_collected_at": "2026-04-13T23:13:27.826Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

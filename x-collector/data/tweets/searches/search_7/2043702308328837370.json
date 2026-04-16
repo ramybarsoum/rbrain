@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-04-13T14:46:15.000Z",
+  "author_id": "1589235957966032899",
+  "text": "Nymbus AI Destekli Core Bankacılığı Dönüştürüyor!\n\nABD merkezli fintek altyapı sağlayıcısı Nymbus, yapay zeka destekli bankacılık işlemleri için geliştirdiği güvenli MCP (Model Context Protocol) sunucusunu duyurdu. \n\nYeni çözüm, bankaların core sistemleri üzerinde AI ajanlar",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 6
+  },
+  "edit_history_tweet_ids": [
+    "2043702308328837370"
+  ],
+  "id": "2043702308328837370",
+  "_author": {
+    "id": "1589235957966032899",
+    "name": "fintekwins",
+    "username": "fintekwins"
+  },
+  "_collected_at": "2026-04-13T23:13:27.327Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

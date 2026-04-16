@@ -1,0 +1,51 @@
+{
+  "author_id": "1179237859527548928",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 15,
+        "username": "cryptopunk7213",
+        "id": "1025381906173583361"
+      }
+    ],
+    "urls": [
+      {
+        "start": 235,
+        "end": 258,
+        "url": "https://t.co/NDg1ySQanm",
+        "expanded_url": "https://x.com/AkshayApsingi/status/2043829038733778956/video/1",
+        "display_url": "pic.x.com/NDg1ySQanm",
+        "media_key": "13_2043828906822905857"
+      }
+    ]
+  },
+  "id": "2043829038733778956",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 18
+  },
+  "text": "@cryptopunk7213 everything boils down to how much compute they are capable to serve.\n\nIts already proved that thinking effort went from high to medium cause claude code didn't have enough compute to serve users at peak business hours. https://t.co/NDg1ySQanm",
+  "created_at": "2026-04-13T23:09:49.000Z",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043711203525234947"
+    }
+  ],
+  "edit_history_tweet_ids": [
+    "2043829038733778956"
+  ],
+  "_author": {
+    "id": "1179237859527548928",
+    "name": "Akshay_",
+    "username": "AkshayApsingi"
+  },
+  "_collected_at": "2026-04-13T23:13:27.833Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

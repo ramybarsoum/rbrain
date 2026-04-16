@@ -1,0 +1,116 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "edit_history_tweet_ids": [
+    "1882934111335338055"
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 94,
+        "end": 110,
+        "username": "Anujkkaura33573",
+        "id": "1656927901730721794"
+      },
+      {
+        "start": 111,
+        "end": 124,
+        "username": "chuck_sanity",
+        "id": "1258355672"
+      },
+      {
+        "start": 125,
+        "end": 141,
+        "username": "DiamondValerie_",
+        "id": "3258843733"
+      },
+      {
+        "start": 142,
+        "end": 157,
+        "username": "CreativaEvents",
+        "id": "208269939"
+      },
+      {
+        "start": 158,
+        "end": 169,
+        "username": "VeraWati67",
+        "id": "486434645"
+      },
+      {
+        "start": 170,
+        "end": 178,
+        "username": "eyyoglu",
+        "id": "854067994573647874"
+      },
+      {
+        "start": 179,
+        "end": 193,
+        "username": "metamor4youth",
+        "id": "296341583"
+      },
+      {
+        "start": 194,
+        "end": 202,
+        "username": "cskndrl",
+        "id": "1883368105"
+      },
+      {
+        "start": 203,
+        "end": 215,
+        "username": "barsoumramy",
+        "id": "254267633"
+      },
+      {
+        "start": 216,
+        "end": 228,
+        "username": "DatBoyDelly",
+        "id": "4290283107"
+      },
+      {
+        "start": 229,
+        "end": 243,
+        "username": "carlos_cmce99",
+        "id": "2965202673"
+      },
+      {
+        "start": 244,
+        "end": 253,
+        "username": "BlatHola",
+        "id": "932047424482398208"
+      }
+    ],
+    "hashtags": [
+      {
+        "start": 1,
+        "end": 7,
+        "tag": "AI16Z"
+      }
+    ],
+    "urls": [
+      {
+        "start": 34,
+        "end": 57,
+        "url": "https://t.co/SefIt6miMa",
+        "expanded_url": "https://x.com/ai16z/thread/1861492460645474737",
+        "display_url": "x.com/ai16z/thread/1…"
+      }
+    ]
+  },
+  "text": "📈#AI16Z BIG CRYPTO PUMP - TODAY\n→ https://t.co/SefIt6miMa\n\n⚡️Be first to get access\n\nVC6DiKOz @Anujkkaura33573 @chuck_sanity @DiamondValerie_ @CreativaEvents @VeraWati67 @eyyoglu @metamor4youth @cskndrl @barsoumramy @DatBoyDelly @carlos_cmce99 @BlatHola",
+  "author_id": "780026539362648064",
+  "id": "1882934111335338055",
+  "created_at": "2025-01-24T23:30:50.000Z",
+  "_author": {
+    "id": "780026539362648064",
+    "name": "Sajid",
+    "username": "Sajid2552300"
+  },
+  "_collected_at": "2026-04-13T23:13:24.978Z",
+  "_stream": "mentions"
+}

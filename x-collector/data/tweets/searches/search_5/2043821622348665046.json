@@ -1,0 +1,25 @@
+{
+  "edit_history_tweet_ids": [
+    "2043821622348665046"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 5
+  },
+  "created_at": "2026-04-13T22:40:21.000Z",
+  "id": "2043821622348665046",
+  "author_id": "2026362912269545472",
+  "text": "AI agents can now buy live market data with USDC on Base.\n\nNo browser. No Stripe. No human.\n\nThree API calls, confirmed on-chain in 2 seconds.\n\nHere's how it works 🧵",
+  "_author": {
+    "id": "2026362912269545472",
+    "name": "o c t o d a m u s",
+    "username": "octodamusai"
+  },
+  "_collected_at": "2026-04-13T23:13:26.366Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

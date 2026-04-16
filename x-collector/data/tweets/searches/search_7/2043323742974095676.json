@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-04-12T13:41:58.000Z",
+  "author_id": "2026035689989554176",
+  "text": "An LLM without a local semantic index is like a genius without short-term memory.\n\nWith the Model Context Protocol (MCP), KYSYN becomes the \"source of truth\" for your workspace.",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 15
+  },
+  "edit_history_tweet_ids": [
+    "2043323742974095676"
+  ],
+  "id": "2043323742974095676",
+  "_author": {
+    "id": "2026035689989554176",
+    "name": "Will | Kysyn",
+    "username": "kysyn_dev"
+  },
+  "_collected_at": "2026-04-13T23:13:27.344Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

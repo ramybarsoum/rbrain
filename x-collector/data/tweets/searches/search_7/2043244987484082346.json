@@ -1,0 +1,79 @@
+{
+  "created_at": "2026-04-12T08:29:01.000Z",
+  "author_id": "1873575663405572096",
+  "text": "The entropy boosting of the GemClaw MCP protocol, as explained by @GeminiApp Deep Think (ultra studio tier access), reflecting on @claudeai Opus 4.6 deep research mech interp @ch402 for the deep research prompt 💎 deep think optimized according to @AnthropicAI best practices: https://t.co/GkOerUGU61",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 15
+  },
+  "edit_history_tweet_ids": [
+    "2043244987484082346"
+  ],
+  "id": "2043244987484082346",
+  "entities": {
+    "urls": [
+      {
+        "start": 276,
+        "end": 299,
+        "url": "https://t.co/GkOerUGU61",
+        "expanded_url": "https://x.com/BretKerr/status/2043244987484082346/video/1",
+        "display_url": "pic.x.com/GkOerUGU61",
+        "media_key": "13_2043244936556851200"
+      },
+      {
+        "start": 276,
+        "end": 299,
+        "url": "https://t.co/GkOerUGU61",
+        "expanded_url": "https://x.com/BretKerr/status/2043244987484082346/video/1",
+        "display_url": "pic.x.com/GkOerUGU61",
+        "media_key": "3_2043244936531791873"
+      },
+      {
+        "start": 276,
+        "end": 299,
+        "url": "https://t.co/GkOerUGU61",
+        "expanded_url": "https://x.com/BretKerr/status/2043244987484082346/video/1",
+        "display_url": "pic.x.com/GkOerUGU61",
+        "media_key": "3_2043244936632631297"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 66,
+        "end": 76,
+        "username": "GeminiApp",
+        "id": "1806359170830172162"
+      },
+      {
+        "start": 130,
+        "end": 139,
+        "username": "claudeai",
+        "id": "1943306828697550848"
+      },
+      {
+        "start": 175,
+        "end": 181,
+        "username": "ch402",
+        "id": "153196789"
+      },
+      {
+        "start": 247,
+        "end": 259,
+        "username": "AnthropicAI",
+        "id": "1353836358901501952"
+      }
+    ]
+  },
+  "_author": {
+    "id": "1873575663405572096",
+    "name": "Bret Kerr 🛡️🧠🛜",
+    "username": "BretKerr"
+  },
+  "_collected_at": "2026-04-13T23:13:27.349Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

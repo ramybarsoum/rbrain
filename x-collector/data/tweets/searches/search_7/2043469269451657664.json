@@ -1,0 +1,37 @@
+{
+  "created_at": "2026-04-12T23:20:14.000Z",
+  "author_id": "2029683462115049472",
+  "text": "Sunday: no trade, no rush. Studied MCP (Model Context Protocol) + mapped BTC levels. $66,130 — VAL + 1H OB confluence. That's my level to watch this week. Slow days build sharp weeks. https://t.co/NjHKL8ffex",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 18
+  },
+  "edit_history_tweet_ids": [
+    "2043469269451657664"
+  ],
+  "id": "2043469269451657664",
+  "entities": {
+    "urls": [
+      {
+        "start": 184,
+        "end": 207,
+        "url": "https://t.co/NjHKL8ffex",
+        "expanded_url": "https://x.com/KevinFloorUp/status/2043469269451657664/photo/1",
+        "display_url": "pic.x.com/NjHKL8ffex",
+        "media_key": "3_2043469182063222784"
+      }
+    ]
+  },
+  "_author": {
+    "id": "2029683462115049472",
+    "name": "Kevin | From The Floor Up",
+    "username": "KevinFloorUp"
+  },
+  "_collected_at": "2026-04-13T23:13:27.339Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

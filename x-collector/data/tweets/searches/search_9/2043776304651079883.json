@@ -1,0 +1,25 @@
+{
+  "edit_history_tweet_ids": [
+    "2043776304651079883"
+  ],
+  "text": "I run a startup alone.\n\nNo co-founder. No employees. No investors.\n\nMy monthly costs:\n\nClaude: $20/mo\nVercel: free\nSupabase: free\nStripe: free\nGitHub: free\nDomain: $12/year\nTotal: $21/month.\n\nRevenue last month: $10K+\n\nThe gap between \"I want to start a business\" and actually",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 3
+  },
+  "created_at": "2026-04-13T19:40:17.000Z",
+  "id": "2043776304651079883",
+  "author_id": "1535133674101948418",
+  "_author": {
+    "id": "1535133674101948418",
+    "name": "Lungu Filip",
+    "username": "felipeeewee"
+  },
+  "_collected_at": "2026-04-13T23:13:28.355Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

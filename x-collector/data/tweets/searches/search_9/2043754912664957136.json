@@ -1,0 +1,41 @@
+{
+  "edit_history_tweet_ids": [
+    "2043754912664957136"
+  ],
+  "text": "@Layton_Gott best stack for developers, maybe. but for non-technical builders the git + Vercel + Supabase combo still has a learning curve that stops most people before they ship anything.\nI'd add Lovable or Bolt as step zero for anyone who isn't comfortable in a terminal yet. get something",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043727285107265815"
+    }
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 29
+  },
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 12,
+        "username": "Layton_Gott",
+        "id": "1828475904818921472"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T18:15:16.000Z",
+  "id": "2043754912664957136",
+  "author_id": "1063658551",
+  "_author": {
+    "id": "1063658551",
+    "name": "Oskar Kohler",
+    "username": "OskarKohler"
+  },
+  "_collected_at": "2026-04-13T23:13:28.359Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

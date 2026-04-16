@@ -1,0 +1,54 @@
+{
+  "entities": {
+    "urls": [
+      {
+        "start": 103,
+        "end": 126,
+        "url": "https://t.co/HR59vVrZfK",
+        "expanded_url": "https://x.com/Mahyad95Nmd/status/2043811751507198458/video/1",
+        "display_url": "pic.x.com/HR59vVrZfK",
+        "media_key": "13_2043811688575840258"
+      }
+    ],
+    "hashtags": [
+      {
+        "start": 14,
+        "end": 17,
+        "tag": "AI"
+      },
+      {
+        "start": 65,
+        "end": 74,
+        "tag": "meetings"
+      },
+      {
+        "start": 79,
+        "end": 102,
+        "tag": "schedules_appointments"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T22:01:08.000Z",
+  "author_id": "1270684750664040455",
+  "text": "📱 Lindy is an #AI assistant that manages your calendar, prepares #meetings and #schedules_appointments https://t.co/HR59vVrZfK",
+  "edit_history_tweet_ids": [
+    "2043811751507198458"
+  ],
+  "id": "2043811751507198458",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 2
+  },
+  "_author": {
+    "id": "1270684750664040455",
+    "name": "MahyadAI",
+    "username": "Mahyad95Nmd"
+  },
+  "_collected_at": "2026-04-13T23:13:26.837Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

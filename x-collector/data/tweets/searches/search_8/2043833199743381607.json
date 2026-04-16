@@ -1,0 +1,25 @@
+{
+  "edit_history_tweet_ids": [
+    "2043833199743381607"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 2
+  },
+  "created_at": "2026-04-13T23:26:22.000Z",
+  "id": "2043833199743381607",
+  "author_id": "502728584",
+  "text": "📰Hermes Agent 已成功从 v0.8.0 升级到 v0.9.0 (v2026.4.13)\n\n---\n\n主要新功能：\n\n1. 本地 Web Dashboard — 全新的浏览器管理界面，可以配置设置、监控会话、浏览技能，无需触碰配置文件或终端\n\n2. Fast Mode (/fast) — OpenAI 和 Anthropic 模型的优先处理模式，显著降低延迟\n\n3. iMessage 支持 —",
+  "_author": {
+    "id": "502728584",
+    "name": "Alex | AI Builder",
+    "username": "redrain2012"
+  },
+  "_collected_at": "2026-04-13T23:31:35.735Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

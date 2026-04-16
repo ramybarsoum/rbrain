@@ -1,0 +1,26 @@
+{
+  "created_at": "2026-04-13T07:22:49.000Z",
+  "author_id": "1352614342093631488",
+  "text": "Today we're launching a ground-breaking product for asset managers. We now connects LLMs such as Claude Opus 4.6 with our huge central bank database. \n\nThese LLMs are undermining traditional business models. Our Central Bank Model Context Protocol server complements these latest",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 27
+  },
+  "edit_history_tweet_ids": [
+    "2043590714550825250",
+    "2043592701350736377"
+  ],
+  "id": "2043590714550825250",
+  "_author": {
+    "id": "1352614342093631488",
+    "name": "Insig.AI",
+    "username": "Insig_AI"
+  },
+  "_collected_at": "2026-04-13T23:13:27.335Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

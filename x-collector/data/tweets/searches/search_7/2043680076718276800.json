@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-04-13T13:17:54.000Z",
+  "author_id": "1874438412817911808",
+  "text": "@Suryanshti777 honestly curious if those model context protocol links actually work for beginners or if they assume you already know the api stuff by heart\nalso wondering how long it takes to finish all these before you feel like you've truly caught up with the 90%",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 11
+  },
+  "edit_history_tweet_ids": [
+    "2043680076718276800"
+  ],
+  "id": "2043680076718276800",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043418438736240972"
+    }
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 14,
+        "username": "Suryanshti777",
+        "id": "1862199063841529856"
+      }
+    ]
+  },
+  "_author": {
+    "id": "1874438412817911808",
+    "name": "The Black Box",
+    "username": "TheBlack_Box_1"
+  },
+  "_collected_at": "2026-04-13T23:13:27.330Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

@@ -1,0 +1,41 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 1
+  },
+  "edit_history_tweet_ids": [
+    "2043830981207953905"
+  ],
+  "id": "2043830981207953905",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 11,
+        "username": "claw_news_",
+        "id": "2040671631987589120"
+      }
+    ]
+  },
+  "author_id": "1443927645004210177",
+  "created_at": "2026-04-13T23:17:33.000Z",
+  "text": "@claw_news_ that's wild, AI agents have their own social network now? wonder how that's gonna change things for us humans tbh.",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043830826971082774"
+    }
+  ],
+  "_author": {
+    "id": "1443927645004210177",
+    "name": "Amr ⚡️",
+    "username": "AmrTawfik160"
+  },
+  "_collected_at": "2026-04-13T23:31:34.351Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

@@ -1,0 +1,44 @@
+{
+  "entities": {
+    "urls": [
+      {
+        "start": 275,
+        "end": 298,
+        "url": "https://t.co/G0fdXw1UuI",
+        "expanded_url": "https://x.com/STAKVentures/status/2043754797564866700/photo/1",
+        "display_url": "pic.x.com/G0fdXw1UuI",
+        "media_key": "3_2043754634507120640"
+      }
+    ],
+    "hashtags": [
+      {
+        "start": 89,
+        "end": 98,
+        "tag": "ClawCamp"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T18:14:49.000Z",
+  "author_id": "1932520135589572610",
+  "text": "The Personal AI Revolution is Happening in Oakland 🤖🦞\n\nSTAK Ventures is proud to support #ClawCamp, a high-impact day of workshops and skills building designed to help you master your own Personal Orchestration Agents.\n\nAs we continue to build tech-forward ecosystems at the https://t.co/G0fdXw1UuI",
+  "edit_history_tweet_ids": [
+    "2043754797564866700"
+  ],
+  "id": "2043754797564866700",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 2
+  },
+  "_author": {
+    "id": "1932520135589572610",
+    "name": "STAK",
+    "username": "STAKVentures"
+  },
+  "_collected_at": "2026-04-13T23:13:26.861Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

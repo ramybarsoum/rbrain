@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-04-12T13:02:59.000Z",
+  "author_id": "2032642204293017603",
+  "text": "AI Agent 真正的轉折點到了，但跟模型變強沒關係。\n\n是 MCP。Anthropic 推的 Model Context Protocol，正在變成 Agent 存取外部工具的統一標準。翻譯成白話：以前每家 AI Agent 都活在自己的封閉花園裡，現在有了共通語言，Agent 可以接任何工具、任何 API，不用每次都重寫整合。",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "edit_history_tweet_ids": [
+    "2043313933944287536"
+  ],
+  "id": "2043313933944287536",
+  "_author": {
+    "id": "2032642204293017603",
+    "name": "Judy AI Lab",
+    "username": "JudyaiLab"
+  },
+  "_collected_at": "2026-04-13T23:13:27.346Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

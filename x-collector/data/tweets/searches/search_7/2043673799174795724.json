@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-04-13T12:52:58.000Z",
+  "author_id": "134137246",
+  "text": "The MCP protocol has reportedly crossed 19,000 registered servers and nearly 100 million monthly SDK downloads.\n\nEvery major AI provider is backing it. Anthropic, OpenAI, Google, Microsoft. All in.\n\nIf you run an agency and you're not paying attention to this, you're about to",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 38
+  },
+  "edit_history_tweet_ids": [
+    "2043673799174795724"
+  ],
+  "id": "2043673799174795724",
+  "_author": {
+    "id": "134137246",
+    "name": "Chris Sloane 🇻🇦",
+    "username": "csloane"
+  },
+  "_collected_at": "2026-04-13T23:13:27.330Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

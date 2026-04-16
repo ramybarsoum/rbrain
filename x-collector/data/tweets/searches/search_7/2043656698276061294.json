@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-04-13T11:45:00.000Z",
+  "author_id": "839528378",
+  "text": "Model Context Protocol standardizes how agents access data and tools—but communication standards aren't governance standards. MCP solves the technical handshake; it doesn't solve accountability. When agents reach into multiple systems via standardized protocols, who decides what",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 2,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 14
+  },
+  "edit_history_tweet_ids": [
+    "2043656698276061294"
+  ],
+  "id": "2043656698276061294",
+  "_author": {
+    "id": "839528378",
+    "name": "Murat H. CANDAN",
+    "username": "Mhcandan"
+  },
+  "_collected_at": "2026-04-13T23:13:27.332Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

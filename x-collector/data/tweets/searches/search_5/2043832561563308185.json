@@ -1,0 +1,77 @@
+{
+  "entities": {
+    "hashtags": [
+      {
+        "start": 228,
+        "end": 242,
+        "tag": "OliviaNetwork"
+      },
+      {
+        "start": 243,
+        "end": 252,
+        "tag": "AIAgents"
+      },
+      {
+        "start": 253,
+        "end": 260,
+        "tag": "Web3AI"
+      }
+    ],
+    "urls": [
+      {
+        "start": 203,
+        "end": 226,
+        "url": "https://t.co/7HltYJVE5W",
+        "expanded_url": "https://operator.olivianetwork.com/?ref=#OPKRI5GX",
+        "display_url": "operator.olivianetwork.com/?ref=#OPKRI5GX",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2043832563375149056/lOxHjTro?format=jpg&name=orig",
+            "width": 1200,
+            "height": 630
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2043832563375149056/lOxHjTro?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "Olivia Operator Pass",
+        "description": "Join the AI network empowering AI agents. Billions of interactions. Thousands of agents. Hundreds of builders.",
+        "unwound_url": "https://operator.olivianetwork.com/?ref=#OPKRI5GX"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 11,
+        "end": 26,
+        "username": "Olivia_Network",
+        "id": "1805185597667196928"
+      }
+    ]
+  },
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 2
+  },
+  "edit_history_tweet_ids": [
+    "2043832561563308185"
+  ],
+  "id": "2043832561563308185",
+  "author_id": "1714900569427701760",
+  "created_at": "2026-04-13T23:23:49.000Z",
+  "text": "Join me on @Olivia_Network! 🤖\n\nBuild, deploy &amp; monetize AI agents on the world's most advanced AI network.\n\n✨ Create powerful AI agents\n💰 Earn from the marketplace\n🚀 Shape the future of AI\n\nSign up: https://t.co/7HltYJVE5W\n\n#OliviaNetwork #AIAgents #Web3AI",
+  "_author": {
+    "id": "1714900569427701760",
+    "name": "Atiqur Rahman",
+    "username": "Atiqur25802580"
+  },
+  "_collected_at": "2026-04-13T23:31:34.347Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

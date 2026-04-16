@@ -1,0 +1,46 @@
+{
+  "entities": {
+    "urls": [
+      {
+        "start": 93,
+        "end": 116,
+        "url": "https://t.co/Min6iLIhjr",
+        "expanded_url": "https://www.chadgeepeety.com/cartoons/chad-defines-ai-assistant",
+        "display_url": "chadgeepeety.com/cartoons/chad-…",
+        "status": 404,
+        "unwound_url": "https://www.chadgeepeety.com/cartoons/chad-defines-ai-assistant"
+      },
+      {
+        "start": 158,
+        "end": 181,
+        "url": "https://t.co/VvIjSV0pYt",
+        "expanded_url": "https://x.com/ChadGeepeety/status/2043771198014664741/photo/1",
+        "display_url": "pic.x.com/VvIjSV0pYt",
+        "media_key": "3_2043771193233129472"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T19:19:59.000Z",
+  "author_id": "2002836050478346240",
+  "text": "AI assistant: “Happy to help.”\nAlso AI: “Can you clarify what help means?”\n\nNew AI cartoon:\n\nhttps://t.co/Min6iLIhjr\n\nConfident advice. Questionable results. https://t.co/VvIjSV0pYt",
+  "edit_history_tweet_ids": [
+    "2043771198014664741"
+  ],
+  "id": "2043771198014664741",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 5
+  },
+  "_author": {
+    "id": "2002836050478346240",
+    "name": "ChadGeepeety",
+    "username": "ChadGeepeety"
+  },
+  "_collected_at": "2026-04-13T23:13:26.855Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

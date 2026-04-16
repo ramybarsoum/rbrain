@@ -1,0 +1,25 @@
+{
+  "edit_history_tweet_ids": [
+    "2043822542566129842"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 2
+  },
+  "created_at": "2026-04-13T22:44:01.000Z",
+  "id": "2043822542566129842",
+  "author_id": "1639689484252897280",
+  "text": "AI agents are already everywhere.\n\n79% of organizations are using them.\n\nThis is no longer “just a tool.”\n\nAI now\nmakes decisions\naccesses data\nacts across systems",
+  "_author": {
+    "id": "1639689484252897280",
+    "name": "Roseline Hosu",
+    "username": "RoselynePdee"
+  },
+  "_collected_at": "2026-04-13T23:13:26.363Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

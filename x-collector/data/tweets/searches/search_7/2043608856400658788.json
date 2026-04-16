@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-04-13T08:34:54.000Z",
+  "author_id": "1745057539887452160",
+  "text": "@dannyvankooten Hooking AI via MCP protocol, something like Novamira, works out of the box.\n\nI have my own setup using the official WordPress MCP adaptor. It includes an SEO audit, can generate featured images and post content, and can edit Yoast meta tags, etc.",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 4,
+    "quote_count": 0,
+    "bookmark_count": 1,
+    "impression_count": 177
+  },
+  "edit_history_tweet_ids": [
+    "2043608856400658788"
+  ],
+  "id": "2043608856400658788",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043596550840934648"
+    }
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 15,
+        "username": "dannyvankooten",
+        "id": "2039038404227194880"
+      }
+    ]
+  },
+  "_author": {
+    "id": "1745057539887452160",
+    "name": "Aleksandr Samokhin",
+    "username": "SamokhinAleks"
+  },
+  "_collected_at": "2026-04-13T23:13:27.334Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

@@ -1,0 +1,57 @@
+{
+  "entities": {
+    "urls": [
+      {
+        "start": 99,
+        "end": 122,
+        "url": "https://t.co/UuLIO2PJOD",
+        "expanded_url": "https://x.com/chrisco32272261/status/2043773418135531659/photo/1",
+        "display_url": "pic.x.com/UuLIO2PJOD",
+        "media_key": "16_2043773407586856960"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 0,
+        "end": 15,
+        "username": "BrandonTheHeel",
+        "id": "24175254"
+      },
+      {
+        "start": 16,
+        "end": 30,
+        "username": "A_L_W_podcast",
+        "id": "1640468957470629888"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T19:28:49.000Z",
+  "author_id": "1580333888328507394",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043772618357010529"
+    }
+  ],
+  "text": "@BrandonTheHeel @A_L_W_podcast I said promotion’s saying this not Google ai assistant lol ill wait https://t.co/UuLIO2PJOD",
+  "edit_history_tweet_ids": [
+    "2043773418135531659"
+  ],
+  "id": "2043773418135531659",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 24
+  },
+  "_author": {
+    "id": "1580333888328507394",
+    "name": "BigBadWolf",
+    "username": "chrisco32272261"
+  },
+  "_collected_at": "2026-04-13T23:13:26.854Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

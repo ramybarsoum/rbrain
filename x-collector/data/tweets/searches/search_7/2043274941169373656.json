@@ -1,0 +1,43 @@
+{
+  "created_at": "2026-04-12T10:28:02.000Z",
+  "author_id": "2036312746690846720",
+  "text": "MCP（Model Context Protocol）による強力な拡張性。\n\nPuppeteerをベースにした信頼性の高い自動化に加え、ネットワークリクエストの監視やメモリ・スナップショットの取得まで対応。ブラウザは「閲覧ツール」から「AIの高度な作業場」へと進化します。\n\n(3/n) https://t.co/9FdpXrCzvp",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 22
+  },
+  "edit_history_tweet_ids": [
+    "2043274941169373656"
+  ],
+  "id": "2043274941169373656",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043274918767517874"
+    }
+  ],
+  "entities": {
+    "urls": [
+      {
+        "start": 144,
+        "end": 167,
+        "url": "https://t.co/9FdpXrCzvp",
+        "expanded_url": "https://x.com/kobun3_inovie/status/2043274941169373656/photo/1",
+        "display_url": "pic.x.com/9FdpXrCzvp",
+        "media_key": "3_2043274938984099840"
+      }
+    ]
+  },
+  "_author": {
+    "id": "2036312746690846720",
+    "name": "子分3号",
+    "username": "kobun3_inovie"
+  },
+  "_collected_at": "2026-04-13T23:13:27.347Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

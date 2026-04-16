@@ -1,0 +1,37 @@
+{
+  "author_id": "143502228",
+  "id": "2043827593502437697",
+  "entities": {
+    "urls": [
+      {
+        "start": 165,
+        "end": 188,
+        "url": "https://t.co/o6k98pEmxq",
+        "expanded_url": "https://x.com/paramiao/status/2043827593502437697/photo/1",
+        "display_url": "pic.x.com/o6k98pEmxq",
+        "media_key": "3_2043827588611878914"
+      }
+    ]
+  },
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 7
+  },
+  "text": "✨ 2026-04-14 AI日更 | Claude Cowork 开启桌面 Agent 普及，\n\n💬 今日重点关注 AI 从“对话框”向“工作流智能体”的实质跨越。Anthropic 推出 Claude Cowork 降低了非技术人员实现桌面自动化的门槛；Cloudflare 与 OpenAI 深度集成，为企业级 Agent https://t.co/o6k98pEmxq",
+  "created_at": "2026-04-13T23:04:05.000Z",
+  "edit_history_tweet_ids": [
+    "2043827593502437697"
+  ],
+  "_author": {
+    "id": "143502228",
+    "name": "paramiao kong",
+    "username": "paramiao"
+  },
+  "_collected_at": "2026-04-13T23:13:27.848Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

@@ -1,0 +1,25 @@
+{
+  "edit_history_tweet_ids": [
+    "2043831512492048477"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 11
+  },
+  "created_at": "2026-04-13T23:19:39.000Z",
+  "id": "2043831512492048477",
+  "author_id": "940020544543567872",
+  "text": "In the past, when my coding agent would fail to deliver, I'd blame the model or the prompt/plan. But after reading everything from OpenAI, Anthropic, Böckeler, and HumanLayer on harness engineering, the pattern is clear: it's almost always a configuration problem, not a",
+  "_author": {
+    "id": "940020544543567872",
+    "name": "Mikel Gonzalez",
+    "username": "a_mikelgonzalez"
+  },
+  "_collected_at": "2026-04-13T23:31:35.750Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

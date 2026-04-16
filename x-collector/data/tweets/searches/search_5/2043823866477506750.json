@@ -1,0 +1,35 @@
+{
+  "edit_history_tweet_ids": [
+    "2043823866477506750"
+  ],
+  "public_metrics": {
+    "retweet_count": 3,
+    "reply_count": 1,
+    "like_count": 4,
+    "quote_count": 0,
+    "bookmark_count": 4,
+    "impression_count": 16
+  },
+  "created_at": "2026-04-13T22:49:16.000Z",
+  "entities": {
+    "mentions": [
+      {
+        "start": 157,
+        "end": 173,
+        "username": "abliteration_ai",
+        "id": "1991957112994533376"
+      }
+    ]
+  },
+  "id": "2043823866477506750",
+  "author_id": "1991957112994533376",
+  "text": "Everyone wants smarter AI agents. Right now the real moat looks more like eval data, policy controls, and safe rollout speed.\n\nThat’s what we’re building at @abliteration_ai.\n\nWhat breaks first in your stack: eval quality, policy, or cost?",
+  "_author": {
+    "id": "1991957112994533376",
+    "name": "Abliteration.ai",
+    "username": "abliteration_ai"
+  },
+  "_collected_at": "2026-04-13T23:13:26.360Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

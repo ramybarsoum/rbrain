@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-04-13T22:27:47.000Z",
+  "author_id": "1941929650738851841",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043802223688200383"
+    }
+  ],
+  "text": "@SawyerMerritt I need a personal AI to call the company's AI.",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 14,
+        "username": "SawyerMerritt",
+        "id": "243013409"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "2043818457255305587"
+  ],
+  "id": "2043818457255305587",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 1,
+    "bookmark_count": 0,
+    "impression_count": 96
+  },
+  "_author": {
+    "id": "1941929650738851841",
+    "name": "John Doe",
+    "username": "SaberToothsqrl"
+  },
+  "_collected_at": "2026-04-13T23:13:26.835Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

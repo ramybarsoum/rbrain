@@ -1,0 +1,59 @@
+{
+  "edit_history_tweet_ids": [
+    "2043833818373669270"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 4
+  },
+  "created_at": "2026-04-13T23:28:49.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 91,
+        "end": 114,
+        "url": "https://t.co/cWNK5YhdcR",
+        "expanded_url": "https://ift.tt/H96YQVs",
+        "display_url": "ift.tt/H96YQVs",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2043638491817381888/u4uivM3Y?format=jpg&name=orig",
+            "width": 1200,
+            "height": 896
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2043638491817381888/u4uivM3Y?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "【悲報】Claude Codeのナーフ(弱体化)、ガチだった。AMDのAI責任者が7000セッションのデータで実証 - すまほん!!",
+        "description": "怠けるClaude、データで露呈。AIコーディングツール「Claude Code」が、どうもnerf（弱体化）されている。筆者も周りもみんな感じていましたが、気のせいではなかったようです。しかも今回、それを定量データで示した人物が現れました。The Registerが伝えています...",
+        "unwound_url": "https://smhn.info/202604-claude-code-nerf"
+      }
+    ],
+    "hashtags": [
+      {
+        "start": 116,
+        "end": 125,
+        "tag": "bookmark"
+      }
+    ]
+  },
+  "id": "2043833818373669270",
+  "author_id": "4570101",
+  "text": "コストが合わなくなってきてるのかねぇ・・・ / 【悲報】Claude Codeのナーフ(弱体化)、ガチだった。AMDのAI責任者が7000セッションのデータで実証 - すまほん!! https://t.co/cWNK5YhdcR \n#bookmark",
+  "_author": {
+    "id": "4570101",
+    "name": "量産型IGALOG",
+    "username": "igaos"
+  },
+  "_collected_at": "2026-04-13T23:31:35.725Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

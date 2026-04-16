@@ -1,0 +1,60 @@
+{
+  "edit_history_tweet_ids": [
+    "2043832991269695833"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 5
+  },
+  "created_at": "2026-04-13T23:25:32.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 133,
+        "end": 156,
+        "url": "https://t.co/gL6ziMsiQQ",
+        "expanded_url": "https://note.com/panda_lab/n/n59429708aa46",
+        "display_url": "note.com/panda_lab/n/n5…",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2043832993777934336/SjZsQ0oH?format=png&name=orig",
+            "width": 1280,
+            "height": 670
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2043832993777934336/SjZsQ0oH?format=png&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "メルカリのClaude Code導入戦略が示すこと大企業でAIコーディングを全社展開するとき、本当に難しいのは「使うこと」ではなく「配ること」だ｜0xpanda alpha lab",
+        "description": "Claude Codeを安全に使いたい。これは、いま多くの企業が直面し始めている新しいテーマだ。 ただ、この話を「危険コマンドを禁止しましょう」という設定論で終わらせると、本質を外す。 メルカリが公開した組織展開の知見が面白いのは、Claude Codeのリスクをどう抑えるかだけではなく、それをどう全社員に届けるかまで含めて設計しているからだ。 これはかなり重要だと思う。 なぜなら、大企業におけるAI導入のボトルネックは、もう「使えるかどうか」ではなく、「組織としてどう安全に標準化するか」に移りつつあるからだ。 メルカリが示したのは、Claude Codeの“セキュリティ設定”そ",
+        "unwound_url": "https://note.com/panda_lab/n/n59429708aa46"
+      },
+      {
+        "start": 157,
+        "end": 180,
+        "url": "https://t.co/WT2zlLt58y",
+        "expanded_url": "https://x.com/beta_kwork/status/2043832991269695833/photo/1",
+        "display_url": "pic.x.com/WT2zlLt58y",
+        "media_key": "3_2043832078396272640"
+      }
+    ]
+  },
+  "id": "2043832991269695833",
+  "author_id": "1790895697308614656",
+  "text": "0xpanda alpha labさんが紹介する\nメルカリ社のClaude Code導入事例が興味深い。\n\n“全社一律設定“を目指すのではなく、\n役割ごとに違う“安全な初期値”を配る という設計。\n汎用AIエージェントを導入する標準設計のプロトタイプだと私も思う。\nhttps://t.co/gL6ziMsiQQ https://t.co/WT2zlLt58y",
+  "_author": {
+    "id": "1790895697308614656",
+    "name": "βeta",
+    "username": "beta_kwork"
+  },
+  "_collected_at": "2026-04-13T23:31:35.737Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

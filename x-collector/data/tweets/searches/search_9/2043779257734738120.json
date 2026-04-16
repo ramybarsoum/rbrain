@@ -1,0 +1,41 @@
+{
+  "edit_history_tweet_ids": [
+    "2043779257734738120"
+  ],
+  "text": "@dannyclassi_c Bun Ts + Hono + Drizzle orm + Cloudflare worker + SupaBase \n\nThis is the ultimate combo \n\nAll for free \n\nSuper fast and reliable",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043778695718936997"
+    }
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 45
+  },
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 14,
+        "username": "dannyclassi_c",
+        "id": "1460517506108600323"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T19:52:01.000Z",
+  "id": "2043779257734738120",
+  "author_id": "1501112959648641027",
+  "_author": {
+    "id": "1501112959648641027",
+    "name": "Onazi",
+    "username": "Vikchukwuemeka"
+  },
+  "_collected_at": "2026-04-13T23:13:28.355Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

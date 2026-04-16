@@ -1,0 +1,35 @@
+{
+  "entities": {
+    "mentions": [
+      {
+        "start": 3,
+        "end": 15,
+        "username": "lydiahallie",
+        "id": "879696238953865217"
+      }
+    ]
+  },
+  "public_metrics": {
+    "retweet_count": 133,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "created_at": "2026-03-27T16:58:15.000Z",
+  "id": "2037574935682679256",
+  "text": "RT @lydiahallie: Claude Code now supports an `if` field in hooks\n\nIt uses permission rule syntax to filter when a hook runs, which is usefu…",
+  "edit_history_tweet_ids": [
+    "2037574935682679256"
+  ],
+  "referenced_tweets": [
+    {
+      "type": "retweeted",
+      "id": "2037573738670297583"
+    }
+  ],
+  "author_id": "254267633",
+  "_collected_at": "2026-04-13T23:13:24.442Z",
+  "_stream": "own"
+}

@@ -1,0 +1,52 @@
+{
+  "edit_history_tweet_ids": [
+    "2043823983582154830"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 1
+  },
+  "created_at": "2026-04-13T22:49:44.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 225,
+        "end": 248,
+        "url": "https://t.co/EUYutfYzPe",
+        "expanded_url": "http://buildproven.ai/subscribe",
+        "display_url": "buildproven.ai/subscribe",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2041719623364624384/ebgrxQ-d?format=jpg&name=orig",
+            "width": 1200,
+            "height": 630
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2041719623364624384/ebgrxQ-d?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "BuildProven — Turn Expertise Into AI-Built Products | BuildProven",
+        "description": "Weekly AI strategies, tools, and frameworks for directors, senior managers, and experienced professionals. Learn how to stay indispensable, lead with confidence, and turn AI into a competitive advantage — without the hype.",
+        "unwound_url": "https://buildproven.ai/subscribe"
+      }
+    ]
+  },
+  "id": "2043823983582154830",
+  "author_id": "15007277",
+  "text": "I am 52. 9 AI agents. 18 cron jobs.\n\nStep 1: 165 commits across 13 repos last week\nStep 2: SQLite migration corrupted 14 posts\nStep 3: 3 hours at 10pm recovering from git\n\nBuild thread silently broken 2 weeks. Embarrassing.\n\nhttps://t.co/EUYutfYzPe",
+  "_author": {
+    "id": "15007277",
+    "name": "Brett Stark",
+    "username": "BrettStark"
+  },
+  "_collected_at": "2026-04-13T23:13:26.360Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

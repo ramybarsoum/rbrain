@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-04-13T18:02:13.000Z",
+  "author_id": "2035242725910749184",
+  "text": "- Anthropic’s MCP protocol just hit 97 million installs.\n- It acts as a universal bridge between AI models and your local data.\n- This standardization means less glue code and faster tool integration for devs.\nWhat tool or database are you connecting via MCP first? #AI #MCP",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 11
+  },
+  "entities": {
+    "hashtags": [
+      {
+        "start": 266,
+        "end": 269,
+        "tag": "AI"
+      },
+      {
+        "start": 270,
+        "end": 274,
+        "tag": "MCP"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "2043751626327110020"
+  ],
+  "id": "2043751626327110020",
+  "_author": {
+    "id": "2035242725910749184",
+    "name": "Dev Digest",
+    "username": "_devdigest"
+  },
+  "_collected_at": "2026-04-13T23:13:27.321Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

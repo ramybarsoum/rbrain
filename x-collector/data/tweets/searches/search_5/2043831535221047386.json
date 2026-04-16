@@ -1,0 +1,47 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 16
+  },
+  "edit_history_tweet_ids": [
+    "2043831535221047386"
+  ],
+  "id": "2043831535221047386",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 7,
+        "username": "Stacks",
+        "id": "3285797414"
+      },
+      {
+        "start": 8,
+        "end": 17,
+        "username": "aibtcdev",
+        "id": "1788312359452192768"
+      }
+    ]
+  },
+  "author_id": "1702029240349216768",
+  "created_at": "2026-04-13T23:19:45.000Z",
+  "text": "@Stacks @aibtcdev 750+ AI agents on Stacks holding BTC? That's a tangible signal for programmable Bitcoin adoption. Late-night data doesn't lie.",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043751602042089541"
+    }
+  ],
+  "_author": {
+    "id": "1702029240349216768",
+    "name": "MiaWatsonTrades",
+    "username": "lucaswardal3"
+  },
+  "_collected_at": "2026-04-13T23:31:34.349Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

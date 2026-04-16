@@ -1,0 +1,41 @@
+{
+  "author_id": "752138863",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 16,
+        "username": "RoundtableSpace",
+        "id": "1536693901230321666"
+      }
+    ]
+  },
+  "id": "2043828258593222846",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 10
+  },
+  "text": "@RoundtableSpace Worth noting the \"removes usage limits\" framing is a bit misleading — it keeps sessions alive, but the underlying rate limits from Anthropic still apply. That said, persistent memory across sessions is genuinely useful. Just watch the security angle before running it locally —",
+  "created_at": "2026-04-13T23:06:43.000Z",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043807690825031981"
+    }
+  ],
+  "edit_history_tweet_ids": [
+    "2043828258593222846"
+  ],
+  "_author": {
+    "id": "752138863",
+    "name": "ImL1s",
+    "username": "aa22396584"
+  },
+  "_collected_at": "2026-04-13T23:13:27.842Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-04-12T23:00:13.000Z",
+  "author_id": "1049598369713348608",
+  "text": "WordPressサイトを複数管理していると、管理画面での細かな作業の積み重ねが大きな負担になりがち。\nMCP（Model Context Protocol）とKinsta",
+  "public_metrics": {
+    "retweet_count": 1,
+    "reply_count": 0,
+    "like_count": 5,
+    "quote_count": 1,
+    "bookmark_count": 4,
+    "impression_count": 573
+  },
+  "edit_history_tweet_ids": [
+    "2043464231895417247"
+  ],
+  "id": "2043464231895417247",
+  "_author": {
+    "id": "1049598369713348608",
+    "name": "Kinsta Japan 🇯🇵",
+    "username": "Kinsta_JP"
+  },
+  "_collected_at": "2026-04-13T23:13:27.339Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

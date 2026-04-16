@@ -1,0 +1,41 @@
+{
+  "edit_history_tweet_ids": [
+    "2043833950158700944"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 5
+  },
+  "created_at": "2026-04-13T23:29:20.000Z",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 10,
+        "username": "Amank1412",
+        "id": "1833339220427214852"
+      }
+    ]
+  },
+  "id": "2043833950158700944",
+  "author_id": "2000154938429837312",
+  "text": "@Amank1412 so the Anthropic leak from earlier suggested they’re going after Lovable, and now Lovable is going after Stripe, who’s Stripe going to go after lol",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043716326779400651"
+    }
+  ],
+  "_author": {
+    "id": "2000154938429837312",
+    "name": "Armaan",
+    "username": "armaanhq"
+  },
+  "_collected_at": "2026-04-13T23:31:35.722Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

@@ -1,0 +1,42 @@
+{
+  "created_at": "2013-08-16T17:25:03.000Z",
+  "edit_history_tweet_ids": [
+    "368423172120801280"
+  ],
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "368422704048635904"
+    }
+  ],
+  "in_reply_to_user_id": "55574001",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "author_id": "254267633",
+  "text": "@evronia @SallyMNH حرام تفضح روحها...!!",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 8,
+        "username": "evronia",
+        "id": "55574001"
+      },
+      {
+        "start": 9,
+        "end": 18,
+        "username": "SallyMNH",
+        "id": "257162035"
+      }
+    ]
+  },
+  "id": "368423172120801280",
+  "_collected_at": "2026-04-14T00:01:36.489Z",
+  "_stream": "own"
+}

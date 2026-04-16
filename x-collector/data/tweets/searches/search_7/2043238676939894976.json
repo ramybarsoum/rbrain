@@ -1,0 +1,52 @@
+{
+  "created_at": "2026-04-12T08:03:56.000Z",
+  "author_id": "895240549871099904",
+  "text": "Using Model Context Protocol (MCP) with Spring AI https://t.co/I03gCjR1Cl",
+  "public_metrics": {
+    "retweet_count": 9,
+    "reply_count": 0,
+    "like_count": 58,
+    "quote_count": 0,
+    "bookmark_count": 28,
+    "impression_count": 1884
+  },
+  "edit_history_tweet_ids": [
+    "2043238676939894976"
+  ],
+  "id": "2043238676939894976",
+  "entities": {
+    "urls": [
+      {
+        "start": 50,
+        "end": 73,
+        "url": "https://t.co/I03gCjR1Cl",
+        "expanded_url": "https://piotrminkowski.com/2025/03/17/using-model-context-protocol-mcp-with-spring-ai",
+        "display_url": "piotrminkowski.com/2025/03/17/usi…",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2043364189759008769/jqS3g-d7?format=jpg&name=orig",
+            "width": 1024,
+            "height": 575
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2043364189759008769/jqS3g-d7?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "Using Model Context Protocol (MCP) with Spring AI - Piotr's TechBlog",
+        "description": "This article will show how to use Spring AI support for MCP (Model Context Protocol) in Spring Boot server-side and client-side applications.",
+        "unwound_url": "https://piotrminkowski.com/2025/03/17/using-model-context-protocol-mcp-with-spring-ai/"
+      }
+    ]
+  },
+  "_author": {
+    "id": "895240549871099904",
+    "name": "Piotr Mińkowski",
+    "username": "piotr_minkowski"
+  },
+  "_collected_at": "2026-04-13T23:13:27.349Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

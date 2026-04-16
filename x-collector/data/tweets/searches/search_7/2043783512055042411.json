@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-04-13T20:08:55.000Z",
+  "author_id": "1479991716258193413",
+  "text": "@VivienMe Ah ah 😂…\n\nPardon…\n\nBon. Tu as eu la gentillesse de m’honorer de ton aimable retour alors je développe le propos et tu me dira si je dois m’étendre d’avantage (ou pas).\n\nJ’ai vibe codé un MCP (Model Context Protocol) qui permet a deux IAs de discuter entres elles.\n\nCela permet",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 11
+  },
+  "edit_history_tweet_ids": [
+    "2043783512055042411"
+  ],
+  "id": "2043783512055042411",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043780066249765309"
+    }
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 9,
+        "username": "VivienMe",
+        "id": "1723753885"
+      }
+    ]
+  },
+  "_author": {
+    "id": "1479991716258193413",
+    "name": "Crwyptow Bruh",
+    "username": "CrwyptowBruh"
+  },
+  "_collected_at": "2026-04-13T23:13:27.319Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

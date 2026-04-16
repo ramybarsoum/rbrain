@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "urls": [
+      {
+        "start": 144,
+        "end": 167,
+        "url": "https://t.co/cPCJtzFYEn",
+        "expanded_url": "https://wayr.today/metas-name-tag-face-recognition-in-smart-glasses-sparks-civil-society-pushback/",
+        "display_url": "wayr.today/metas-name-tag…",
+        "status": 200,
+        "title": "Meta’s “Name Tag” Face Recognition in Smart Glasses Sparks Civil-Society Pushback - WAYR TODAY",
+        "description": "Meta’s “Name Tag” feature for Ray-Ban and Oakley smart glasses would use the built-in AI assistant to surface info about people in view, as reported by WIRED after a Feb reveal by The New York Times. Internal plans ranged from matching only people the wearer is already connected to on Meta to recognizing anyone with a public Meta account (e.g., Instagram), but a civil-society coalition says face recognition in consumer eyewear “cannot be resolved” via design tweaks, opt-outs, or safeguards because bystanders can’t meaningfully consent.",
+        "unwound_url": "https://wayr.today/metas-name-tag-face-recognition-in-smart-glasses-sparks-civil-society-pushback/"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T18:02:24.000Z",
+  "author_id": "2003360229849989120",
+  "text": "Meta’s “Name Tag” feature for Ray-Ban and Oakley smart glasses would use the built-in AI assistant to surface info about people in view, as...\n\nhttps://t.co/cPCJtzFYEn",
+  "edit_history_tweet_ids": [
+    "2043751671805657421"
+  ],
+  "id": "2043751671805657421",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 4
+  },
+  "_author": {
+    "id": "2003360229849989120",
+    "name": "wayr today",
+    "username": "wayrtoday"
+  },
+  "_collected_at": "2026-04-13T23:13:26.862Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

@@ -1,0 +1,41 @@
+{
+  "edit_history_tweet_ids": [
+    "2043832206460907621"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 12
+  },
+  "created_at": "2026-04-13T23:22:25.000Z",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 16,
+        "username": "GaddipatiHarsha",
+        "id": "1466837346104582147"
+      }
+    ]
+  },
+  "id": "2043832206460907621",
+  "author_id": "1939995221972197380",
+  "text": "@GaddipatiHarsha claude code skill to reduce token usage",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043831814868087095"
+    }
+  ],
+  "_author": {
+    "id": "1939995221972197380",
+    "name": "Nikhil Prabhu",
+    "username": "nikhilaprabhu"
+  },
+  "_collected_at": "2026-04-13T23:31:35.744Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

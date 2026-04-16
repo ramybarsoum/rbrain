@@ -1,0 +1,47 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "edit_history_tweet_ids": [
+    "365285633415057409"
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 12,
+        "username": "barsoumramy",
+        "id": "254267633"
+      },
+      {
+        "start": 24,
+        "end": 39,
+        "username": "ahmedeltahtawy",
+        "id": "497318529"
+      }
+    ]
+  },
+  "text": "@barsoumramy @eman_rm70 @ahmedeltahtawy هههههههههههه",
+  "author_id": "516906022",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "365281604660232194"
+    }
+  ],
+  "id": "365285633415057409",
+  "in_reply_to_user_id": "254267633",
+  "created_at": "2013-08-08T01:37:36.000Z",
+  "_author": {
+    "id": "516906022",
+    "name": "الحرة🙋بنت♥️⁩شبرا✌",
+    "username": "TOMAAAAAAA2"
+  },
+  "_collected_at": "2026-04-13T23:13:24.987Z",
+  "_stream": "mentions"
+}

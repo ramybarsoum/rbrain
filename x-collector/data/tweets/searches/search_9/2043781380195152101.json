@@ -1,0 +1,25 @@
+{
+  "edit_history_tweet_ids": [
+    "2043781380195152101"
+  ],
+  "text": "1:47am. just pushed a hipaa-compliant scheduling refactor, fuel quote flow, and a knowledge graph update.\n\nthree industries. one guy. claude code didn't file a single complaint.\n\nmy therapist would have thoughts. my supabase logs do not.",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 10
+  },
+  "created_at": "2026-04-13T20:00:27.000Z",
+  "id": "2043781380195152101",
+  "author_id": "922246936744288256",
+  "_author": {
+    "id": "922246936744288256",
+    "name": "Michael Kaufman",
+    "username": "mkaufmanentrep"
+  },
+  "_collected_at": "2026-04-13T23:13:28.355Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

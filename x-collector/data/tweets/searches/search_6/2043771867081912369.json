@@ -1,0 +1,52 @@
+{
+  "entities": {
+    "urls": [
+      {
+        "start": 281,
+        "end": 304,
+        "url": "https://t.co/Bf0rjjDAex",
+        "expanded_url": "https://x.com/MichaelNuunes/status/2043771867081912369/photo/1",
+        "display_url": "pic.x.com/Bf0rjjDAex",
+        "media_key": "3_2043771811813568512"
+      }
+    ],
+    "cashtags": [
+      {
+        "start": 270,
+        "end": 274,
+        "tag": "CDE"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 259,
+        "end": 269,
+        "username": "EdgenTech",
+        "id": "1768506538585653248"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T19:22:39.000Z",
+  "author_id": "431181530",
+  "text": "woke up to the personal AI CIO stitching my full bag across HK equities and on-chain plays into one live briefing no prompt just the always-on layer surfacing a quiet liquidity mismatch before it hits the tape clean provenance on the reprice setup right here @EdgenTech $CDE feels https://t.co/Bf0rjjDAex",
+  "edit_history_tweet_ids": [
+    "2043771867081912369"
+  ],
+  "id": "2043771867081912369",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 16,
+    "like_count": 32,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 96
+  },
+  "_author": {
+    "id": "431181530",
+    "name": "0xMichael.Base",
+    "username": "MichaelNuunes"
+  },
+  "_collected_at": "2026-04-13T23:13:26.855Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

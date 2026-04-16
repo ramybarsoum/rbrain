@@ -1,0 +1,41 @@
+{
+  "author_id": "1781009683743997952",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 9,
+        "username": "MoonCall",
+        "id": "1871621484340183040"
+      }
+    ]
+  },
+  "id": "2043829056957735288",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 8
+  },
+  "text": "@MoonCall I can see the codex is hallucinating a lot; \n\nhowever, I might just buy Codex Plus Claude code at the same time, but I will see how it goes.",
+  "created_at": "2026-04-13T23:09:54.000Z",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043799211854926201"
+    }
+  ],
+  "edit_history_tweet_ids": [
+    "2043829056957735288"
+  ],
+  "_author": {
+    "id": "1781009683743997952",
+    "name": "Ziwen",
+    "username": "ziwenxu_"
+  },
+  "_collected_at": "2026-04-13T23:13:27.832Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

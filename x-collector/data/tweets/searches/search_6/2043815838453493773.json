@@ -1,0 +1,45 @@
+{
+  "entities": {
+    "urls": [
+      {
+        "start": 245,
+        "end": 268,
+        "url": "https://t.co/f0lL0n4Nre",
+        "expanded_url": "https://x.com/MikelEcheve/status/2043815838453493773/photo/1",
+        "display_url": "pic.x.com/f0lL0n4Nre",
+        "media_key": "3_2043815835085537280"
+      },
+      {
+        "start": 245,
+        "end": 268,
+        "url": "https://t.co/f0lL0n4Nre",
+        "expanded_url": "https://x.com/MikelEcheve/status/2043815838453493773/photo/1",
+        "display_url": "pic.x.com/f0lL0n4Nre",
+        "media_key": "3_2043815835068739584"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T22:17:22.000Z",
+  "author_id": "1110550240598335490",
+  "text": "OpenAI acquiring Hiro Finance is a major signal. A personal AI CFO integrated directly into ChatGPT? This isn't just about expense tracking—it's moving toward autonomous financial management. The era of AI-native CFOs is officially starting. 🦾💰 https://t.co/f0lL0n4Nre",
+  "edit_history_tweet_ids": [
+    "2043815838453493773"
+  ],
+  "id": "2043815838453493773",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 21
+  },
+  "_author": {
+    "id": "1110550240598335490",
+    "name": "Mikel",
+    "username": "MikelEcheve"
+  },
+  "_collected_at": "2026-04-13T23:13:26.836Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

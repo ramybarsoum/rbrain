@@ -1,0 +1,25 @@
+{
+  "edit_history_tweet_ids": [
+    "2043833941841293692"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 6
+  },
+  "created_at": "2026-04-13T23:29:18.000Z",
+  "id": "2043833941841293692",
+  "author_id": "2018040490860449792",
+  "text": "『AnthropicがリスクなのにMythosを銀行に使わせる』というニュース、正直どう受け取ればいいか迷った人も多いと思う。\n\n、副業でAIを使う人向けに『ClaudeをこれからどうするかのシンプルJudging基準』を公開する。\n\n結論から言う。\n今すぐClaudeをやめる必要はない。ただし、分散させるべきだ。",
+  "_author": {
+    "id": "2018040490860449792",
+    "name": "ズルいAI",
+    "username": "ai_zurui"
+  },
+  "_collected_at": "2026-04-13T23:31:35.723Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

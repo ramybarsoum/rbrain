@@ -1,0 +1,25 @@
+{
+  "edit_history_tweet_ids": [
+    "2043781584428642773"
+  ],
+  "text": "controversial take:\nif your app needs more than\n\nnext.js + supabase + vercel\n\nyou’re probably overengineering it",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 8
+  },
+  "created_at": "2026-04-13T20:01:16.000Z",
+  "id": "2043781584428642773",
+  "author_id": "1958081348574334976",
+  "_author": {
+    "id": "1958081348574334976",
+    "name": "Kavya",
+    "username": "Kavyabuildss"
+  },
+  "_collected_at": "2026-04-13T23:13:28.354Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

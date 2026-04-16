@@ -1,0 +1,70 @@
+{
+  "entities": {
+    "urls": [
+      {
+        "start": 79,
+        "end": 102,
+        "url": "https://t.co/3Rr1tiTI8o",
+        "expanded_url": "https://openclawradar.com/article/building-personal-ai-agent-claude-code-wiz-lessons",
+        "display_url": "openclawradar.com/article/buildi…",
+        "status": 200,
+        "title": "Building a Personal AI Agent with Claude Code: Lessons from 6 Months of Wiz",
+        "description": "A developer shares their experience building Wiz, a personal AI agent on Claude Code that handles morning reports, evening summaries, and inbox triage. The post details 9 mistakes made during development, including starting with overly ambitious goals and letting Claude generate core instructions without review.",
+        "unwound_url": "https://openclawradar.com/article/building-personal-ai-agent-claude-code-wiz-lessons"
+      },
+      {
+        "start": 133,
+        "end": 156,
+        "url": "https://t.co/awm2332wdU",
+        "expanded_url": "https://x.com/openclawradar/status/2043792606375649567/photo/1",
+        "display_url": "pic.x.com/awm2332wdU",
+        "media_key": "3_2043792603322466304"
+      }
+    ],
+    "hashtags": [
+      {
+        "start": 104,
+        "end": 113,
+        "tag": "OpenClaw"
+      },
+      {
+        "start": 114,
+        "end": 123,
+        "tag": "AIAgents"
+      },
+      {
+        "start": 124,
+        "end": 127,
+        "tag": "AI"
+      },
+      {
+        "start": 128,
+        "end": 132,
+        "tag": "LLM"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T20:45:03.000Z",
+  "author_id": "2020125530528313344",
+  "text": "💡 Building a Personal AI Agent with Claude Code: Lessons from 6 Months of Wiz\n\nhttps://t.co/3Rr1tiTI8o\n\n#OpenClaw #AIAgents #AI #LLM https://t.co/awm2332wdU",
+  "edit_history_tweet_ids": [
+    "2043792606375649567"
+  ],
+  "id": "2043792606375649567",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 26
+  },
+  "_author": {
+    "id": "2020125530528313344",
+    "name": "openclawradar",
+    "username": "openclawradar"
+  },
+  "_collected_at": "2026-04-13T23:13:26.848Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

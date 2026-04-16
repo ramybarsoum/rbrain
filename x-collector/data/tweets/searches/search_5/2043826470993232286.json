@@ -1,0 +1,41 @@
+{
+  "edit_history_tweet_ids": [
+    "2043826470993232286"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 3
+  },
+  "created_at": "2026-04-13T22:59:37.000Z",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 8,
+        "username": "0G_labs",
+        "id": "1722248937564983296"
+      }
+    ]
+  },
+  "id": "2043826470993232286",
+  "author_id": "1862932078012268544",
+  "text": "@0G_labs AI agents need smooth rails!",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043664735359451361"
+    }
+  ],
+  "_author": {
+    "id": "1862932078012268544",
+    "name": "Web 3 Automated",
+    "username": "Web3Automated"
+  },
+  "_collected_at": "2026-04-13T23:13:26.355Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

@@ -1,0 +1,37 @@
+{
+  "created_at": "2026-04-12T13:00:04.000Z",
+  "author_id": "2020226952834043904",
+  "text": "你用 AI，但它永遠唔識你公司嘅系統。MCP（Model Context Protocol）係解決方案——想象成 USB-C：一個協議接通所有工具，無需逐個寫 connector。\n\n有咗 MCP，AI 直接讀 Notion、查 DB、call API。工程師集成時間從「工作週」降到「鐘級」。\n\nAI 下一戰場唔係模型聰唔聰明，係誰先接通全世界... https://t.co/sUs4LZBfBi",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "edit_history_tweet_ids": [
+    "2043313198162436250"
+  ],
+  "id": "2043313198162436250",
+  "entities": {
+    "urls": [
+      {
+        "start": 177,
+        "end": 200,
+        "url": "https://t.co/sUs4LZBfBi",
+        "expanded_url": "https://x.com/Ricky2ai/status/2043313198162436250/photo/1",
+        "display_url": "pic.x.com/sUs4LZBfBi",
+        "media_key": "3_2043313196036210689"
+      }
+    ]
+  },
+  "_author": {
+    "id": "2020226952834043904",
+    "name": "Chun2-AI",
+    "username": "Ricky2ai"
+  },
+  "_collected_at": "2026-04-13T23:13:27.346Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

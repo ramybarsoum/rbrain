@@ -1,0 +1,57 @@
+{
+  "edit_history_tweet_ids": [
+    "2043833818487107790"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "created_at": "2026-04-13T23:28:49.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 98,
+        "end": 121,
+        "url": "https://t.co/kURJBUnqjm",
+        "expanded_url": "https://note.com/zero_to_income/n/n35c107a7b2ba?sub_rt=share_pw",
+        "display_url": "note.com/zero_to_income…",
+        "status": 200,
+        "title": "AI副業挑戦3日目｜Claude Codeに事業計画書を作ってもらった｜すとび",
+        "description": "プログラミング未経験の30代が、AIを使って本当に稼げるのか。その記録を正直に書いていく。 今日やったこと Claude Codeに事業計画を立ててもらった。 アプリ開発でストックビジネスを始めたい、という話を伝えたら、ジャンルの選び方・収益化の方針・具体的なロードマップまで、整理して出してくれた。 自分一人だったら、こんなにきちんと整理できなかった。情報を分析して、予測まで出してくれる。 出てきたのは、アプリのジャンルの選び方、収益化の方針、リリースまでのロードマップ。使うツールの比較まであった。自分では調べるだけで半日かかりそうなことが、数分で整理されて出てきた。 最初",
+        "unwound_url": "https://note.com/zero_to_income/n/n35c107a7b2ba?sub_rt=share_pw"
+      }
+    ],
+    "hashtags": [
+      {
+        "start": 123,
+        "end": 128,
+        "tag": "AI副業"
+      },
+      {
+        "start": 129,
+        "end": 140,
+        "tag": "ClaudeCode"
+      },
+      {
+        "start": 141,
+        "end": 147,
+        "tag": "副業初心者"
+      }
+    ]
+  },
+  "id": "2043833818487107790",
+  "author_id": "2043831905699639296",
+  "text": "【3日目】Claude Codeに事業計画書を作ってもらった。\n\n自分一人では整理できないことが数分で出てきた。\nAIの精度がすごすぎて、使ってる自分が追いついていない。\n\n経験ゼロからの記録👇\nhttps://t.co/kURJBUnqjm\n\n#AI副業 #ClaudeCode #副業初心者",
+  "_author": {
+    "id": "2043831905699639296",
+    "name": "bi s",
+    "username": "zero_to_income"
+  },
+  "_collected_at": "2026-04-13T23:31:35.725Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

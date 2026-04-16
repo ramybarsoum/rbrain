@@ -1,0 +1,41 @@
+{
+  "author_id": "1781009683743997952",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 15,
+        "username": "AbdMuizAdeyemo",
+        "id": "1348627903521632257"
+      }
+    ]
+  },
+  "id": "2043828124031312376",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 6
+  },
+  "text": "@AbdMuizAdeyemo I know haha just sit here everyday.\n\nBut relax today cuz no usage for codex + Claude code",
+  "created_at": "2026-04-13T23:06:11.000Z",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043801827720806805"
+    }
+  ],
+  "edit_history_tweet_ids": [
+    "2043828124031312376"
+  ],
+  "_author": {
+    "id": "1781009683743997952",
+    "name": "Ziwen",
+    "username": "ziwenxu_"
+  },
+  "_collected_at": "2026-04-13T23:13:27.845Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

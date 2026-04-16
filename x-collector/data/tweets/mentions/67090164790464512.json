@@ -1,0 +1,67 @@
+{
+  "edit_history_tweet_ids": [
+    "67090164790464512"
+  ],
+  "entities": {
+    "hashtags": [
+      {
+        "start": 53,
+        "end": 63,
+        "tag": "bey2ollak"
+      },
+      {
+        "start": 64,
+        "end": 70,
+        "tag": "Copts"
+      },
+      {
+        "start": 71,
+        "end": 77,
+        "tag": "Egypt"
+      },
+      {
+        "start": 78,
+        "end": 85,
+        "tag": "imbaba"
+      },
+      {
+        "start": 86,
+        "end": 95,
+        "tag": "tahrirtv"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 3,
+        "end": 15,
+        "username": "barsoumramy",
+        "id": "254267633"
+      },
+      {
+        "start": 20,
+        "end": 27,
+        "username": "iRafla",
+        "id": "226616077"
+      }
+    ]
+  },
+  "text": "RT @barsoumramy: RT @iRafla: الدين لله و الوطن للبيع #bey2ollak #Copts #Egypt #imbaba #tahrirtv",
+  "author_id": "88916337",
+  "public_metrics": {
+    "retweet_count": 1,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "created_at": "2011-05-08T04:55:16.000Z",
+  "id": "67090164790464512",
+  "_author": {
+    "id": "88916337",
+    "name": "Rezo",
+    "username": "Rezo"
+  },
+  "_collected_at": "2026-04-13T23:31:33.108Z",
+  "_stream": "mentions"
+}

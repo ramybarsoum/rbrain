@@ -1,0 +1,42 @@
+{
+  "edit_history_tweet_ids": [
+    "2043821300825604229"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 9
+  },
+  "created_at": "2026-04-13T22:39:05.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 184,
+        "end": 207,
+        "url": "https://t.co/TMCKA3emMH",
+        "expanded_url": "https://twitter.com/SecretNetwork/status/2043720930497552678",
+        "display_url": "x.com/SecretNetwork/…"
+      }
+    ]
+  },
+  "id": "2043821300825604229",
+  "author_id": "1246241975248060417",
+  "text": "Integrating Secret Network's confidential VMs brings verifiable privacy and integrity to decentralized AI agents, a powerful step forward for autonomous, trust-minimized coordination. https://t.co/TMCKA3emMH",
+  "referenced_tweets": [
+    {
+      "type": "quoted",
+      "id": "2043720930497552678"
+    }
+  ],
+  "_author": {
+    "id": "1246241975248060417",
+    "name": "ozeddd.Dot",
+    "username": "Penggking"
+  },
+  "_collected_at": "2026-04-13T23:13:26.367Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

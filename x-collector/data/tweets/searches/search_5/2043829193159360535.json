@@ -1,0 +1,56 @@
+{
+  "edit_history_tweet_ids": [
+    "2043829193159360535"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 1
+  },
+  "created_at": "2026-04-13T23:10:26.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 152,
+        "end": 175,
+        "url": "https://t.co/hdCGZvmZCN",
+        "expanded_url": "https://stuf.in/bibric",
+        "display_url": "stuf.in/bibric",
+        "status": 200,
+        "title": "What is an Agent?",
+        "description": "Too much time is lost to repetitive tasks and fragmented processes. AI agents offer a way forward by automating workflows, retrieving information, and executing business processes across teams and departments. This infographic, \"What is an agent,\" illustrates the types of agents available. View the infographic to understand the possibilities and contact ACME Internet Services, LLC to discuss how agents can be deployed in your workplace.",
+        "unwound_url": "https://contentmx.com/b/page/page.php?u=Digtal2Analog&i=5445349"
+      },
+      {
+        "start": 176,
+        "end": 199,
+        "url": "https://t.co/2yF9Z8VxQF",
+        "expanded_url": "https://x.com/smbgurus/status/2043829193159360535/photo/1",
+        "display_url": "pic.x.com/2yF9Z8VxQF",
+        "media_key": "3_2043829188713385985"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 138,
+        "end": 151,
+        "username": "Microsoft365",
+        "id": "898250146797846528"
+      }
+    ]
+  },
+  "id": "2043829193159360535",
+  "author_id": "38001764",
+  "text": "🤖 AI agents are transforming work. View the infographic to see how Copilot Agents automate tasks and free teams to focus on what matters. @Microsoft365 https://t.co/hdCGZvmZCN https://t.co/2yF9Z8VxQF",
+  "_author": {
+    "id": "38001764",
+    "name": "Jacob Scott",
+    "username": "smbgurus"
+  },
+  "_collected_at": "2026-04-13T23:13:26.340Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

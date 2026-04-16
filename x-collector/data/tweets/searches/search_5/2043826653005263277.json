@@ -1,0 +1,47 @@
+{
+  "edit_history_tweet_ids": [
+    "2043826653005263277"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 24
+  },
+  "created_at": "2026-04-13T23:00:21.000Z",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 10,
+        "username": "chainlink",
+        "id": "1530530365"
+      },
+      {
+        "start": 11,
+        "end": 20,
+        "username": "coinbase",
+        "id": "574032254"
+      }
+    ]
+  },
+  "id": "2043826653005263277",
+  "author_id": "1412491165019017217",
+  "text": "@chainlink @coinbase This is the part most people are sleeping on. AI agents don't just need intelligence — they need economic agency. x402 gives them a wallet and Chainlink gives them verifiable trust. We're building the nervous system for an autonomous economy and most of tech Twitter is still",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043763341550583962"
+    }
+  ],
+  "_author": {
+    "id": "1412491165019017217",
+    "name": "Dan",
+    "username": "salinasdanielf"
+  },
+  "_collected_at": "2026-04-13T23:13:26.353Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

@@ -1,0 +1,51 @@
+{
+  "edit_history_tweet_ids": [
+    "2043763851879973329"
+  ],
+  "text": "Just shipped https://t.co/V79nStpo7G 🎉\n\nVibecoding tool with one twist:\nyou bring your own Supabase.\n\nYour data. Your infra. Forever.\n\n→ https://t.co/V79nStpo7G",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 10
+  },
+  "entities": {
+    "urls": [
+      {
+        "start": 13,
+        "end": 36,
+        "url": "https://t.co/V79nStpo7G",
+        "expanded_url": "http://cadrant.ai",
+        "display_url": "cadrant.ai",
+        "status": 200,
+        "title": "Cadrant — Turn your idea into a web app in minutes",
+        "description": "Cadrant builds production-ready web applications from plain language. Describe what you want to build — get the UI, logic, and data layer. No code required for personal or creative projects.",
+        "unwound_url": "https://cadrant.ai/en"
+      },
+      {
+        "start": 137,
+        "end": 160,
+        "url": "https://t.co/V79nStpo7G",
+        "expanded_url": "http://cadrant.ai",
+        "display_url": "cadrant.ai",
+        "status": 200,
+        "title": "Cadrant — Turn your idea into a web app in minutes",
+        "description": "Cadrant builds production-ready web applications from plain language. Describe what you want to build — get the UI, logic, and data layer. No code required for personal or creative projects.",
+        "unwound_url": "https://cadrant.ai/en"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T18:50:48.000Z",
+  "id": "2043763851879973329",
+  "author_id": "1551285754340458497",
+  "_author": {
+    "id": "1551285754340458497",
+    "name": "Luca Delanglade",
+    "username": "Cadrantai"
+  },
+  "_collected_at": "2026-04-13T23:13:28.357Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

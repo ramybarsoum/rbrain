@@ -1,0 +1,37 @@
+{
+  "edit_history_tweet_ids": [
+    "2043833357256274368"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 12
+  },
+  "created_at": "2026-04-13T23:26:59.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 275,
+        "end": 298,
+        "url": "https://t.co/3BsGm75AWU",
+        "expanded_url": "https://x.com/Negocios_Arg/status/2043833357256274368/photo/1",
+        "display_url": "pic.x.com/3BsGm75AWU",
+        "media_key": "3_2043833354508976128"
+      }
+    ]
+  },
+  "id": "2043833357256274368",
+  "author_id": "1814399388342460417",
+  "text": "Siempre leo las preguntas de inversores en Robinhood para la earnings call de Palantir.\n\nLa gente pregunta por “Anthropic como competidor de Palantir” por comentarios de Michael Burry (el que predijo la crisis de 2008).\n\nPero Anthropic viene a los chispazos con el gobierno… https://t.co/3BsGm75AWU",
+  "_author": {
+    "id": "1814399388342460417",
+    "name": "Negocios Argentina",
+    "username": "Negocios_Arg"
+  },
+  "_collected_at": "2026-04-13T23:31:35.733Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

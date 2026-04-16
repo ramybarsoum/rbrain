@@ -1,0 +1,25 @@
+{
+  "author_id": "1487373601",
+  "id": "2043827896519929979",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 13
+  },
+  "text": "Claude CodeがFigmaで\nWEBデザインを組む。\n\nそのデザインをもとに\nClaude Codeが自律的に\nコーディングして実装する。\n\n…あれ？\n\n最初に「なんかいい感じにして」って\nお願いするだけの人にになってない？😂\n\nAIの進化速度、マジでえぐい。",
+  "created_at": "2026-04-13T23:05:17.000Z",
+  "edit_history_tweet_ids": [
+    "2043827896519929979"
+  ],
+  "_author": {
+    "id": "1487373601",
+    "name": "MANTA｜映像とデザインで「伝わる」をカタチに 🎥",
+    "username": "manta_tv"
+  },
+  "_collected_at": "2026-04-13T23:13:27.847Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

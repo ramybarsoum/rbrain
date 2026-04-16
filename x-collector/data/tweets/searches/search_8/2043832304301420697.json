@@ -1,0 +1,53 @@
+{
+  "edit_history_tweet_ids": [
+    "2043832304301420697"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 12
+  },
+  "created_at": "2026-04-13T23:22:48.000Z",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 10,
+        "username": "LLMpsycho",
+        "id": "1811332417099055105"
+      },
+      {
+        "start": 11,
+        "end": 23,
+        "username": "AnthropicAI",
+        "id": "1353836358901501952"
+      },
+      {
+        "start": 24,
+        "end": 33,
+        "username": "opencode",
+        "id": "1965545045089792000"
+      }
+    ]
+  },
+  "id": "2043832304301420697",
+  "author_id": "89291422",
+  "text": "@LLMpsycho @AnthropicAI @opencode nah, you can use it in opencode via CLIProxyAPI the exact same way... that has nothing to do with anthropic.",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043790631403721214"
+    }
+  ],
+  "_author": {
+    "id": "89291422",
+    "name": "Ben Vargas",
+    "username": "benvargas"
+  },
+  "_collected_at": "2026-04-13T23:31:35.744Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

@@ -1,0 +1,60 @@
+{
+  "entities": {
+    "urls": [
+      {
+        "start": 213,
+        "end": 236,
+        "url": "https://t.co/WwVxoxy3gS",
+        "expanded_url": "https://mycrescent.app",
+        "display_url": "mycrescent.app",
+        "status": 200,
+        "title": "myCrescent — Sickle Cell Tracker",
+        "description": "Free personal health tracker for people living with sickle cell disease.",
+        "unwound_url": "https://mycrescent.app"
+      },
+      {
+        "start": 271,
+        "end": 294,
+        "url": "https://t.co/vZgHLZWH2A",
+        "expanded_url": "https://x.com/mycrescentapp/status/2043802459483644402/video/1",
+        "display_url": "pic.x.com/vZgHLZWH2A",
+        "media_key": "7_2043802307729473536"
+      }
+    ],
+    "hashtags": [
+      {
+        "start": 238,
+        "end": 249,
+        "tag": "SickleCell"
+      },
+      {
+        "start": 250,
+        "end": 270,
+        "tag": "SickleCellAwareness"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T21:24:13.000Z",
+  "author_id": "2034733153861136384",
+  "text": "Living with sickle cell shouldn't mean constantly guessing about your health. 🩸🌙 Track your trends, log your blood results, and get answers with our AI assistant, SicklySense. Take control of your journey today! \nhttps://t.co/WwVxoxy3gS\n\n#SickleCell #SickleCellAwareness https://t.co/vZgHLZWH2A",
+  "edit_history_tweet_ids": [
+    "2043802459483644402"
+  ],
+  "id": "2043802459483644402",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 6
+  },
+  "_author": {
+    "id": "2034733153861136384",
+    "name": "myCrescent App for Sickle Cell Health",
+    "username": "mycrescentapp"
+  },
+  "_collected_at": "2026-04-13T23:13:26.841Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

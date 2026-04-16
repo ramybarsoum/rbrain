@@ -1,0 +1,41 @@
+{
+  "author_id": "786375418685165568",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 13,
+        "username": "austinginder",
+        "id": "21239759"
+      }
+    ]
+  },
+  "id": "2043829047269175659",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 65
+  },
+  "text": "@austinginder This is great until you need to edit text 2 paragraphs ago or do a single copy paste.\n\nClaude Code is not a reliable enough interface for me to put real effort into it. If I have to type more than two sentences, I open up a real text editor to draft it",
+  "created_at": "2026-04-13T23:09:52.000Z",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043425860275798525"
+    }
+  ],
+  "edit_history_tweet_ids": [
+    "2043829047269175659"
+  ],
+  "_author": {
+    "id": "786375418685165568",
+    "name": "Theo - t3.gg",
+    "username": "theo"
+  },
+  "_collected_at": "2026-04-13T23:13:27.833Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

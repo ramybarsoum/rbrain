@@ -1,0 +1,60 @@
+{
+  "edit_history_tweet_ids": [
+    "2043833955213082636"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 7
+  },
+  "created_at": "2026-04-13T23:29:22.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 148,
+        "end": 171,
+        "url": "https://t.co/xq12tkQIvL",
+        "expanded_url": "https://www.jdsupra.com/legalnews/ai-news-roundup-anthropic-limits-7977687/",
+        "display_url": "jdsupra.com/legalnews/ai-n…",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2043780021731696640/C60Qlalm?format=jpg&name=orig",
+            "width": 1200,
+            "height": 900
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2043780021731696640/C60Qlalm?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "AI News Roundup – Anthropic limits release of Mythos cybersecurity model amid hacking fears, Google releases new open-source AI model, Anthropic suffers setback in legal battle with Pentagon, and more",
+        "description": "To help you stay on top of the latest news, our AI practice group has compiled a roundup of the developments we are following.",
+        "unwound_url": "https://www.jdsupra.com/legalnews/ai-news-roundup-anthropic-limits-7977687/"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 177,
+        "end": 182,
+        "username": "MBHB",
+        "id": "42702354"
+      }
+    ]
+  },
+  "id": "2043833955213082636",
+  "author_id": "16657603",
+  "text": "AI News Roundup – Anthropic limits release of Mythos cybersecurity model amid hacking fears, Google releases new open-source AI model, Anthropic... https://t.co/xq12tkQIvL | by @MBHB",
+  "_author": {
+    "id": "16657603",
+    "name": "Daily Law News",
+    "username": "Legal_Alerts"
+  },
+  "_collected_at": "2026-04-13T23:31:35.721Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

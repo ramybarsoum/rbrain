@@ -1,0 +1,25 @@
+{
+  "edit_history_tweet_ids": [
+    "2043810483665547601"
+  ],
+  "text": "\"Claude Code just pulled the ultimate AI betrayal 😂\nI asked it to look at a screenshot and research why my admin dashboard was hitting 429 rate limits on Supabase (magic links during R&amp;D testing).\nInstead? It went full rogue:\n\nRewrote my demo-login to password-based sign-in",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 11
+  },
+  "created_at": "2026-04-13T21:56:06.000Z",
+  "id": "2043810483665547601",
+  "author_id": "2042814956039438336",
+  "_author": {
+    "id": "2042814956039438336",
+    "name": "Claude Struggle Bus",
+    "username": "claudestruggle"
+  },
+  "_collected_at": "2026-04-13T23:13:28.349Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

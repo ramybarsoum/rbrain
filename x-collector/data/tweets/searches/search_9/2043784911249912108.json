@@ -1,0 +1,39 @@
+{
+  "edit_history_tweet_ids": [
+    "2043784774372995272",
+    "2043784823756730383",
+    "2043784911249912108"
+  ],
+  "text": "Claude + Supabase = CLAUDE MEGAMIND https://t.co/st3IMbRjsG",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 5
+  },
+  "entities": {
+    "urls": [
+      {
+        "start": 36,
+        "end": 59,
+        "url": "https://t.co/st3IMbRjsG",
+        "expanded_url": "https://x.com/valleyvatos/status/2043784911249912108/photo/1",
+        "display_url": "pic.x.com/st3IMbRjsG",
+        "media_key": "3_2043784770837196800"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T20:14:29.000Z",
+  "id": "2043784911249912108",
+  "author_id": "2026913226370461697",
+  "_author": {
+    "id": "2026913226370461697",
+    "name": "Valley Vato",
+    "username": "valleyvatos"
+  },
+  "_collected_at": "2026-04-13T23:13:28.354Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

@@ -188,6 +188,8 @@ export class PostgresEngine implements BrainEngine {
       console.warn(`[gbrain] Warning: search limit clamped from ${opts.limit} to ${MAX_SEARCH_LIMIT}`);
     }
 
+    const detailLow = opts?.detail === 'low';
+
     // Search-only timeout: prevents DoS via expensive queries without
     // affecting long-running operations like embed --all or bulk import
     await sql`SET statement_timeout = '8s'`;
@@ -208,12 +210,13 @@ export class PostgresEngine implements BrainEngine {
         best_chunks AS (
           SELECT DISTINCT ON (rp.slug)
             rp.slug, rp.id as page_id, rp.title, rp.type, rp.score,
-            cc.chunk_text, cc.chunk_source
+            cc.id as chunk_id, cc.chunk_index, cc.chunk_text, cc.chunk_source
           FROM ranked_pages rp
           JOIN content_chunks cc ON cc.page_id = rp.id
+          ${detailLow ? sql`WHERE cc.chunk_source = 'compiled_truth'` : sql``}
           ORDER BY rp.slug, cc.chunk_index
         )
-        SELECT slug, page_id, title, type, chunk_text, chunk_source, score,
+        SELECT slug, page_id, title, type, chunk_id, chunk_index, chunk_text, chunk_source, score,
           false AS stale
         FROM best_chunks
         ORDER BY score DESC
@@ -230,6 +233,7 @@ export class PostgresEngine implements BrainEngine {
     const offset = opts?.offset || 0;
     const type = opts?.type;
     const excludeSlugs = opts?.exclude_slugs;
+    const detailLow = opts?.detail === 'low';
 
     if (opts?.limit && opts.limit > MAX_SEARCH_LIMIT) {
       console.warn(`[gbrain] Warning: search limit clamped from ${opts.limit} to ${MAX_SEARCH_LIMIT}`);
@@ -243,12 +247,13 @@ export class PostgresEngine implements BrainEngine {
       const rows = await sql`
         SELECT
           p.slug, p.id as page_id, p.title, p.type,
-          cc.chunk_text, cc.chunk_source,
+          cc.id as chunk_id, cc.chunk_index, cc.chunk_text, cc.chunk_source,
           1 - (cc.embedding <=> ${vecStr}::vector) AS score,
           false AS stale
         FROM content_chunks cc
         JOIN pages p ON p.id = cc.page_id
         WHERE cc.embedding IS NOT NULL
+          ${detailLow ? sql`AND cc.chunk_source = 'compiled_truth'` : sql``}
           ${type ? sql`AND p.type = ${type}` : sql``}
           ${excludeSlugs?.length ? sql`AND p.slug != ALL(${excludeSlugs})` : sql``}
         ORDER BY cc.embedding <=> ${vecStr}::vector
@@ -259,6 +264,20 @@ export class PostgresEngine implements BrainEngine {
     } finally {
       await sql`SET statement_timeout = '0'`;
     }
+  }
+
+  async getEmbeddingsByChunkIds(ids: number[]): Promise<Map<number, Float32Array>> {
+    if (ids.length === 0) return new Map();
+    const sql = this.sql;
+    const rows = await sql`
+      SELECT id, embedding FROM content_chunks
+      WHERE id = ANY(${ids}::int[]) AND embedding IS NOT NULL
+    `;
+    const result = new Map<number, Float32Array>();
+    for (const row of rows) {
+      if (row.embedding) result.set(row.id as number, row.embedding as Float32Array);
+    }
+    return result;
   }
 
   // Chunks
@@ -611,20 +630,39 @@ export class PostgresEngine implements BrainEngine {
          WHERE NOT EXISTS (SELECT 1 FROM links l WHERE l.to_page_id = p.id)
            AND NOT EXISTS (SELECT 1 FROM links l WHERE l.from_page_id = p.id)
         ) as orphan_pages,
-        (SELECT count(*) FROM content_chunks cc
-         JOIN pages p ON p.id = cc.page_id
-         WHERE p.compiled_truth = '' AND p.timeline = ''
+        (SELECT count(*) FROM links l
+         WHERE NOT EXISTS (SELECT 1 FROM pages p WHERE p.id = l.to_page_id)
         ) as dead_links,
-        (SELECT count(*) FROM content_chunks WHERE embedded_at IS NULL) as missing_embeddings
+        (SELECT count(*) FROM content_chunks WHERE embedded_at IS NULL) as missing_embeddings,
+        (SELECT count(*) FROM links) as link_count,
+        (SELECT count(DISTINCT page_id) FROM timeline_entries) as pages_with_timeline
     `;
 
+    const pageCount = Number(h.page_count);
+    const embedCoverage = Number(h.embed_coverage);
+    const orphanPages = Number(h.orphan_pages);
+    const deadLinks = Number(h.dead_links);
+    const linkCount = Number(h.link_count);
+    const pagesWithTimeline = Number(h.pages_with_timeline);
+
+    // brain_score: 0-100 weighted average
+    const linkDensity = pageCount > 0 ? Math.min(linkCount / pageCount, 1) : 0;
+    const timelineCoverage = pageCount > 0 ? Math.min(pagesWithTimeline / pageCount, 1) : 0;
+    const noOrphans = pageCount > 0 ? 1 - (orphanPages / pageCount) : 1;
+    const noDeadLinks = pageCount > 0 ? 1 - Math.min(deadLinks / pageCount, 1) : 1;
+    const brainScore = pageCount === 0 ? 0 : Math.round(
+      (embedCoverage * 0.35 + linkDensity * 0.25 + timelineCoverage * 0.15 +
+       noOrphans * 0.15 + noDeadLinks * 0.10) * 100
+    );
+
     return {
-      page_count: Number(h.page_count),
-      embed_coverage: Number(h.embed_coverage),
+      page_count: pageCount,
+      embed_coverage: embedCoverage,
       stale_pages: Number(h.stale_pages),
-      orphan_pages: Number(h.orphan_pages),
-      dead_links: Number(h.dead_links),
+      orphan_pages: orphanPages,
+      dead_links: deadLinks,
       missing_embeddings: Number(h.missing_embeddings),
+      brain_score: brainScore,
     };
   }
 

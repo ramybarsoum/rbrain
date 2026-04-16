@@ -1,0 +1,35 @@
+{
+  "edit_history_tweet_ids": [
+    "2043820500171010425"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 2
+  },
+  "created_at": "2026-04-13T22:35:54.000Z",
+  "entities": {
+    "mentions": [
+      {
+        "start": 65,
+        "end": 80,
+        "username": "TheARCTERMINAL",
+        "id": "1983183794543951872"
+      }
+    ]
+  },
+  "id": "2043820500171010425",
+  "author_id": "1991885609431126016",
+  "text": "The future of Web3 isn’t just decentralized — it’s intelligent.\n\n@TheARCTERMINAL is building a powerful AI-driven operating system that merges DeFi, multichain data, and privacy-first AI agents into one seamless experience.",
+  "_author": {
+    "id": "1991885609431126016",
+    "name": "aaran",
+    "username": "youtub221p"
+  },
+  "_collected_at": "2026-04-13T23:13:26.370Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

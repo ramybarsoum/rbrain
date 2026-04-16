@@ -1,0 +1,60 @@
+{
+  "author_id": "14324821",
+  "entities": {
+    "mentions": [
+      {
+        "start": 117,
+        "end": 126,
+        "username": "LinkedIn",
+        "id": "13058772"
+      }
+    ],
+    "urls": [
+      {
+        "start": 89,
+        "end": 112,
+        "url": "https://t.co/ZDuK4FDvMv",
+        "expanded_url": "https://www.linkedin.com/pulse/using-anthropics-advisor-strategy-rag-systems-charles-angione-wtv4e",
+        "display_url": "linkedin.com/pulse/using-an…",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2043828505490694144/_ANyQQ5y?format=jpg&name=orig",
+            "width": 1280,
+            "height": 720
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2043828505490694144/_ANyQQ5y?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "Using Anthropic's Advisor Strategy with RAG Systems",
+        "description": "Anthropic's new Advisor strategy fundamentally changes RAG architecture. Instead of stuffing pre-fetched chunks into a prompt and hoping for the best, the model decides what to retrieve, when to iterate, and when to escalate to a stronger reasoner.",
+        "unwound_url": "https://www.linkedin.com/pulse/using-anthropics-advisor-strategy-rag-systems-charles-angione-wtv4e"
+      }
+    ]
+  },
+  "id": "2043828498242945453",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 1
+  },
+  "text": "Check out my latest article: Using Anthropic&amp;#39;s Advisor Strategy with RAG Systems https://t.co/ZDuK4FDvMv via @LinkedIn",
+  "created_at": "2026-04-13T23:07:41.000Z",
+  "edit_history_tweet_ids": [
+    "2043828498242945453"
+  ],
+  "_author": {
+    "id": "14324821",
+    "name": "Charles Angione",
+    "username": "cangione"
+  },
+  "_collected_at": "2026-04-13T23:13:27.839Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

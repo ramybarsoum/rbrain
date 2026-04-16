@@ -1,0 +1,25 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 13
+  },
+  "edit_history_tweet_ids": [
+    "2043831241431011632"
+  ],
+  "id": "2043831241431011632",
+  "author_id": "1371514360191975427",
+  "created_at": "2026-04-13T23:18:35.000Z",
+  "text": "OpenClaw just hit 250k GitHub stars in 60 days, beating React's 243k. Gained 9k stars in 24h, 60k in 72h. 35k forks, 600+ contributors. For non-devs: It automates chats on WhatsApp/Slack, local storage saves 30-50% on cloud costs vs big AI agents. But 20% of skills are mali...",
+  "_author": {
+    "id": "1371514360191975427",
+    "name": "Cherri Hackney",
+    "username": "CherriHackney"
+  },
+  "_collected_at": "2026-04-13T23:31:34.350Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

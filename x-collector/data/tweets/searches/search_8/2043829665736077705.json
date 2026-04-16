@@ -1,0 +1,25 @@
+{
+  "author_id": "2033515032873758720",
+  "id": "2043829665736077705",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 4
+  },
+  "text": "エージェントに「何でもやっていいよ」は危険すぎる。\n\nClaude Code auto modeの研究論文が面白くて、誤判定を前提に設計するという発想が刺さった。\n\n自動化ツールって「便利＝全部任せる」になりがちだけど、現実はちがう。",
+  "created_at": "2026-04-13T23:12:19.000Z",
+  "edit_history_tweet_ids": [
+    "2043829665736077705"
+  ],
+  "_author": {
+    "id": "2033515032873758720",
+    "name": "リョウタ｜AI Agent & Communications Specialist",
+    "username": "aiagent_builder"
+  },
+  "_collected_at": "2026-04-13T23:13:27.821Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

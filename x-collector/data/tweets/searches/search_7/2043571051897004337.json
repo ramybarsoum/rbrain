@@ -1,0 +1,44 @@
+{
+  "created_at": "2026-04-13T06:04:41.000Z",
+  "author_id": "1259109623254200320",
+  "text": "#tradingfloorai | #INSG | #Launch | Insig AI plc launches its Central Bank Model Context Protocol (MCP) server, connecting Large Language Models to its extensive Central Bank Dataset. This innovation enables real-time, on-demand insights for traders and investment",
+  "public_metrics": {
+    "retweet_count": 1,
+    "reply_count": 1,
+    "like_count": 3,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 182
+  },
+  "entities": {
+    "hashtags": [
+      {
+        "start": 0,
+        "end": 15,
+        "tag": "tradingfloorai"
+      },
+      {
+        "start": 18,
+        "end": 23,
+        "tag": "INSG"
+      },
+      {
+        "start": 26,
+        "end": 33,
+        "tag": "Launch"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "2043571051897004337"
+  ],
+  "id": "2043571051897004337",
+  "_author": {
+    "id": "1259109623254200320",
+    "name": "Albert Arthur",
+    "username": "tradingfloorai"
+  },
+  "_collected_at": "2026-04-13T23:13:27.337Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

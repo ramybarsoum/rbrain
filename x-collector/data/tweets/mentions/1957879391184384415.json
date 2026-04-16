@@ -1,0 +1,40 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 54
+  },
+  "article": {
+    "title": "🔰 PREMIUM CRYPTO PUMP SIGNALS 🔰"
+  },
+  "edit_history_tweet_ids": [
+    "1957879391184384415"
+  ],
+  "text": "https://t.co/OyH81Y769u",
+  "author_id": "1926892455179280384",
+  "id": "1957879391184384415",
+  "entities": {
+    "urls": [
+      {
+        "start": 0,
+        "end": 23,
+        "url": "https://t.co/OyH81Y769u",
+        "expanded_url": "http://x.com/i/article/1957879385077256192",
+        "display_url": "x.com/i/article/1957…",
+        "status": 500,
+        "unwound_url": "https://x.com/i/article/1957879385077256192"
+      }
+    ]
+  },
+  "created_at": "2025-08-19T18:56:37.000Z",
+  "_author": {
+    "id": "1926892455179280384",
+    "name": "Patricia Fuller",
+    "username": "PatriciaFu67730"
+  },
+  "_collected_at": "2026-04-13T23:13:24.975Z",
+  "_stream": "mentions"
+}

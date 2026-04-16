@@ -1,0 +1,47 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 10
+  },
+  "edit_history_tweet_ids": [
+    "2043832941579776409"
+  ],
+  "id": "2043832941579776409",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 9,
+        "username": "TurboDad",
+        "id": "36904502"
+      },
+      {
+        "start": 10,
+        "end": 23,
+        "username": "ThePrimeagen",
+        "id": "291797158"
+      }
+    ]
+  },
+  "author_id": "99886636",
+  "created_at": "2026-04-13T23:25:20.000Z",
+  "text": "@TurboDad @ThePrimeagen I am a stay at home mom who homeschools four little kids, I like AI agents because I don't spend time on my laptop during the day so I can be present with them. jfyi. I know you didn't listen to the podcast 😅",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043817674174542178"
+    }
+  ],
+  "_author": {
+    "id": "99886636",
+    "name": "Jesse Genet",
+    "username": "jessegenet"
+  },
+  "_collected_at": "2026-04-13T23:31:34.346Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

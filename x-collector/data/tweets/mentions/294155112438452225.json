@@ -1,0 +1,47 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 2,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "edit_history_tweet_ids": [
+    "294155112438452225"
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 12,
+        "username": "barsoumramy",
+        "id": "254267633"
+      },
+      {
+        "start": 13,
+        "end": 21,
+        "username": "emanrs_",
+        "id": "428344115"
+      }
+    ]
+  },
+  "text": "@barsoumramy @emanrs_ \nما اعرف اذا كان مجرد كلام \nهو قالى انو فيه 200 فولورز عشان ما اقدر اقفله \nشكرا :)",
+  "author_id": "275694766",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "294154636473024512"
+    }
+  ],
+  "id": "294155112438452225",
+  "in_reply_to_user_id": "254267633",
+  "created_at": "2013-01-23T18:50:18.000Z",
+  "_author": {
+    "id": "275694766",
+    "name": "7ENNA🇪🇬",
+    "username": "7ANANLOLO"
+  },
+  "_collected_at": "2026-04-13T23:13:24.999Z",
+  "_stream": "mentions"
+}

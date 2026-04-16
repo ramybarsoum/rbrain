@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-04-13T18:20:07.000Z",
+  "author_id": "1785045001149292545",
+  "text": "Just switched my everyday AI assistant from Gemini to Claude — we'll see how it goes!",
+  "edit_history_tweet_ids": [
+    "2043756133186158811"
+  ],
+  "id": "2043756133186158811",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 12
+  },
+  "_author": {
+    "id": "1785045001149292545",
+    "name": "Alexander Rodriguez",
+    "username": "the_web_crawler"
+  },
+  "_collected_at": "2026-04-13T23:13:26.859Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

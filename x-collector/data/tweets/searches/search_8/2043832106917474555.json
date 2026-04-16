@@ -1,0 +1,41 @@
+{
+  "edit_history_tweet_ids": [
+    "2043832106917474555"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 13
+  },
+  "created_at": "2026-04-13T23:22:01.000Z",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 9,
+        "username": "elonmusk",
+        "id": "44196397"
+      }
+    ]
+  },
+  "id": "2043832106917474555",
+  "author_id": "1518741936491823104",
+  "text": "@elonmusk We need Grok agentic coding. I'm tired of giving anthropic my money!",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043773334983455121"
+    }
+  ],
+  "_author": {
+    "id": "1518741936491823104",
+    "name": "Ammon",
+    "username": "Ammonious"
+  },
+  "_collected_at": "2026-04-13T23:31:35.745Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

@@ -1,0 +1,47 @@
+{
+  "public_metrics": {
+    "retweet_count": 1,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "edit_history_tweet_ids": [
+    "217523570094514176"
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 12,
+        "username": "barsoumramy",
+        "id": "254267633"
+      },
+      {
+        "start": 13,
+        "end": 23,
+        "username": "ibra_reda",
+        "id": "2589796308"
+      }
+    ]
+  },
+  "text": "@barsoumramy @ibra_reda با معلش الدنيا بالنسبة لس كانت باينة من اول ما اجتمع عمر سليمان بالاخوان قبل تنحي مبارك؟",
+  "author_id": "260455305",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "217522378891206658"
+    }
+  ],
+  "id": "217523570094514176",
+  "in_reply_to_user_id": "254267633",
+  "created_at": "2012-06-26T07:43:55.000Z",
+  "_author": {
+    "id": "260455305",
+    "name": "jailan",
+    "username": "afifyj"
+  },
+  "_collected_at": "2026-04-13T23:13:25.010Z",
+  "_stream": "mentions"
+}

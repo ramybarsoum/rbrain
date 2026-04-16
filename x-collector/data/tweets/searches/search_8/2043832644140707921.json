@@ -1,0 +1,25 @@
+{
+  "edit_history_tweet_ids": [
+    "2043832644140707921"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 5
+  },
+  "created_at": "2026-04-13T23:24:09.000Z",
+  "id": "2043832644140707921",
+  "author_id": "195356643",
+  "text": "Claude Code just leaked thousands of repos. Here's your protection:\n\n→ Lock permissions in allowedTools\n→ .env files NEVER in repo\n→ hooks block rm -rf, chmod before execution\n→ settings.json encrypted\n→ Audit npm deps weekly\n\nOne misconfiguration = total compromise.",
+  "_author": {
+    "id": "195356643",
+    "name": "鬼徹",
+    "username": "raindog_kitetu"
+  },
+  "_collected_at": "2026-04-13T23:31:35.741Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

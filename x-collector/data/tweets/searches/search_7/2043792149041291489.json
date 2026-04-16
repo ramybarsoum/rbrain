@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-04-13T20:43:14.000Z",
+  "author_id": "1639382794500468736",
+  "text": "@AnthropicAI , Anthropic, in inventing MCP, was truly ingenious—the protocol is so flexible that it can give rise to other protocols. Even though MEP isn’t really a redefinition, it’s still heavily inspired by it.\n\n-- Model Context Protocol (MCP) To Model Environement Protocol",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 12
+  },
+  "edit_history_tweet_ids": [
+    "2043792149041291489"
+  ],
+  "id": "2043792149041291489",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043790990679367852"
+    }
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 12,
+        "username": "AnthropicAI",
+        "id": "1353836358901501952"
+      }
+    ]
+  },
+  "_author": {
+    "id": "1639382794500468736",
+    "name": "OneOrigine",
+    "username": "OneOrigine"
+  },
+  "_collected_at": "2026-04-13T23:13:27.319Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

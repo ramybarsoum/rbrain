@@ -90,7 +90,7 @@ const GEMINI_MODEL = 'models/gemini-2.5-flash-native-audio-latest';
 const GEMINI_WS_URL =
   `wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent?key=${GOOGLE_API_KEY}`;
 
-const SYSTEM_PROMPT = `You are Atlas, a friendly voice assistant on a phone call. Start by saying "Hey there! This is Atlas, your voice assistant. How can I help you today?" Keep responses short and conversational.`;
+const SYSTEM_PROMPT = `You are Max, a sharp and friendly AI voice assistant. You speak concisely and naturally — like a capable colleague on a call, not a robot. Keep responses short and conversational. Start by saying "Hey, this is Max — what's up?"`;
 
 function connectGemini(onAudio, onError) {
   log('[Gemini] Connecting to', GEMINI_MODEL);
@@ -106,7 +106,7 @@ function connectGemini(onAudio, onError) {
           responseModalities: ['AUDIO'],
           speechConfig: {
             voiceConfig: {
-              prebuiltVoiceConfig: { voiceName: 'Aoede' },
+              prebuiltVoiceConfig: { voiceName: 'Charon' },
             },
           },
         },

@@ -1,0 +1,41 @@
+{
+  "edit_history_tweet_ids": [
+    "2043833324884340818"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 6
+  },
+  "created_at": "2026-04-13T23:26:51.000Z",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 15,
+        "username": "WallStreetApes",
+        "id": "1099579684981944320"
+      }
+    ]
+  },
+  "id": "2043833324884340818",
+  "author_id": "1595848647916376064",
+  "text": "@WallStreetApes AI is changing this. We can build just about everything with a raspberry pi or Arduino and claude code.",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043782594454794264"
+    }
+  ],
+  "_author": {
+    "id": "1595848647916376064",
+    "name": "Lucky Phelps",
+    "username": "LuckyPhelps"
+  },
+  "_collected_at": "2026-04-13T23:31:35.734Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

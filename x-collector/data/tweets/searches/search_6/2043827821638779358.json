@@ -1,0 +1,47 @@
+{
+  "created_at": "2026-04-13T23:04:59.000Z",
+  "author_id": "1383604800583921667",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043827324236509344"
+    }
+  ],
+  "text": "@eggyolkery @Sonayesul literally they route their calls through an ai “assistant” and if you curse at that thing enough you get through to a call center that can’t actually do anything useful for you and then they patch you through to the “scheduling team” at which point the system hangs up on you",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 11,
+        "username": "eggyolkery",
+        "id": "1918151550473781248"
+      },
+      {
+        "start": 12,
+        "end": 22,
+        "username": "Sonayesul",
+        "id": "1528875240243200002"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "2043827821638779358"
+  ],
+  "id": "2043827821638779358",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 8
+  },
+  "_author": {
+    "id": "1383604800583921667",
+    "name": "emily 💍 comms closed",
+    "username": "moonlarking"
+  },
+  "_collected_at": "2026-04-13T23:13:26.827Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

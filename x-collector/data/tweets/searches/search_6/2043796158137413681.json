@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-04-13T20:59:10.000Z",
+  "author_id": "1580503416698200064",
+  "text": "Using VsCode Chat as your ai assistant for web development is better if you know what you're doing. \n\nI use it often, and the best part is that it has no limit, unlike Claude and ChatGPT.\n\nToo bad my laptop crashed. I'm now building with my phone",
+  "edit_history_tweet_ids": [
+    "2043796158137413681"
+  ],
+  "id": "2043796158137413681",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 13
+  },
+  "_author": {
+    "id": "1580503416698200064",
+    "name": "LoneWolf 🗿",
+    "username": "BuildWith_AJ"
+  },
+  "_collected_at": "2026-04-13T23:13:26.846Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

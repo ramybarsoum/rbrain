@@ -1,0 +1,40 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 1
+  },
+  "entities": {
+    "urls": [
+      {
+        "start": 226,
+        "end": 249,
+        "url": "https://t.co/fblo1QjOYa",
+        "expanded_url": "https://www.infoworld.com/article/4158015/google-cloud-introduces-querydata-to-help-ai-agents-create-reliable-database-queries.html",
+        "display_url": "infoworld.com/article/415801…",
+        "status": 200,
+        "title": "Google Cloud introduces QueryData to help AI agents create reliable database queries",
+        "description": "However, analysts say that its deterministic, controls-based features add complexity to upfront design.",
+        "unwound_url": "https://www.infoworld.com/article/4158015/google-cloud-introduces-querydata-to-help-ai-agents-create-reliable-database-queries.html"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "2043830536146219011"
+  ],
+  "id": "2043830536146219011",
+  "author_id": "1109590224617832449",
+  "created_at": "2026-04-13T23:15:47.000Z",
+  "text": "Google Cloud launches QueryData to help AI agents generate more reliable database queries. While experts note its deterministic, controls-based approach may add complexity early on, it aims to boost accuracy in data handling. https://t.co/fblo1QjOYa",
+  "_author": {
+    "id": "1109590224617832449",
+    "name": "Ale𝕏 David",
+    "username": "lexdavid42"
+  },
+  "_collected_at": "2026-04-13T23:31:34.351Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

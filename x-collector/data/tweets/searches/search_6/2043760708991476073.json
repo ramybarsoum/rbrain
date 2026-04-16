@@ -1,0 +1,45 @@
+{
+  "entities": {
+    "urls": [
+      {
+        "start": 277,
+        "end": 300,
+        "url": "https://t.co/ErhQc0R9K1",
+        "expanded_url": "https://x.com/gabekoin/status/2043760708991476073/photo/1",
+        "display_url": "pic.x.com/ErhQc0R9K1",
+        "media_key": "3_2043760659674865665"
+      }
+    ],
+    "mentions": [
+      {
+        "start": 231,
+        "end": 244,
+        "username": "PhalaNetwork",
+        "id": "1166273105456578561"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T18:38:18.000Z",
+  "author_id": "2390166116",
+  "text": "What if your AI assistant didn’t live in a browser…\n\n…but inside the tools you already use every day?\n\nThat’s the idea behind OpenClaw and why it’s gaining attention fast.\n\n👉 Want to run AI agents where they actually work? Explore @PhalaNetwork \n\nHere’s what most people still https://t.co/ErhQc0R9K1",
+  "edit_history_tweet_ids": [
+    "2043760708991476073"
+  ],
+  "id": "2043760708991476073",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 52
+  },
+  "_author": {
+    "id": "2390166116",
+    "name": "GabeKoin",
+    "username": "gabekoin"
+  },
+  "_collected_at": "2026-04-13T23:13:26.858Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

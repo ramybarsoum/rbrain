@@ -1,0 +1,26 @@
+{
+  "created_at": "2026-04-12T13:31:04.000Z",
+  "author_id": "113598297",
+  "text": "SiteMCP was created on 8 April 2025, in the very early days of the Model Context Protocol(MCP). At the time, MCP was a brand-new concept, and passing documentation to AI assistants via an MCP server was one of the only practical options available. Claude Code was exclusively",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 1,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 38
+  },
+  "edit_history_tweet_ids": [
+    "2043320999819493563",
+    "2043321307236818960"
+  ],
+  "id": "2043320999819493563",
+  "_author": {
+    "id": "113598297",
+    "name": "ryoppippi",
+    "username": "ryoppippi"
+  },
+  "_collected_at": "2026-04-13T23:13:27.345Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

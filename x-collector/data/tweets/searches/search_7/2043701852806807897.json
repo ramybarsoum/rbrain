@@ -1,0 +1,42 @@
+{
+  "created_at": "2026-04-13T14:44:26.000Z",
+  "author_id": "2579120668",
+  "text": "In the world of AI,\n\n10 Terms Every Developer Should Know in 2026:\n\n1.  Agentic AI  \n2.  MCP (Model Context Protocol)  \n3.  Quantum-Resistant Cryptography  \n4.  AI-Native Databases  \n5.  Distributed Consensus  \n6.  Homomorphic Encryption  \n7.  Vector Databases  \n8.  Continuous https://t.co/kOn7glkTlF",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 2,
+    "like_count": 17,
+    "quote_count": 0,
+    "bookmark_count": 6,
+    "impression_count": 344
+  },
+  "edit_history_tweet_ids": [
+    "2043701852806807897"
+  ],
+  "id": "2043701852806807897",
+  "referenced_tweets": [
+    {
+      "type": "quoted",
+      "id": "2043697958911361451"
+    }
+  ],
+  "entities": {
+    "urls": [
+      {
+        "start": 278,
+        "end": 301,
+        "url": "https://t.co/kOn7glkTlF",
+        "expanded_url": "https://twitter.com/sumitm_x/status/2043697958911361451",
+        "display_url": "x.com/sumitm_x/statu…"
+      }
+    ]
+  },
+  "_author": {
+    "id": "2579120668",
+    "name": "Akshay Shinde",
+    "username": "ConsciousRide"
+  },
+  "_collected_at": "2026-04-13T23:13:27.327Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

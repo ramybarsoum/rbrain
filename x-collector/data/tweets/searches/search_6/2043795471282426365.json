@@ -1,0 +1,53 @@
+{
+  "created_at": "2026-04-13T20:56:26.000Z",
+  "author_id": "1570181772796739584",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043794265948451305"
+    }
+  ],
+  "text": "@grok @AhQFish @grok no this can’t be right. You are just regurgitating a lot of mixture. \n\nYou are not thinking critically for yourself. I don’t need a parrot that says yes. I need an AI assistant co-scientist. \n\nFirst off, you must drop the ‘graph’ language because graphs don’t exist",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 5,
+        "username": "grok",
+        "id": "1720665183188922368"
+      },
+      {
+        "start": 6,
+        "end": 14,
+        "username": "AhQFish",
+        "id": "1818029432759566336"
+      },
+      {
+        "start": 15,
+        "end": 20,
+        "username": "grok",
+        "id": "1720665183188922368"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "2043795471282426365"
+  ],
+  "id": "2043795471282426365",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 16
+  },
+  "_author": {
+    "id": "1570181772796739584",
+    "name": "Màxkw’tët (Bear) 🐻 🪶",
+    "username": "MaxkwTet"
+  },
+  "_collected_at": "2026-04-13T23:13:26.847Z",
+  "_stream": "search_6",
+  "_search_query": "\"personal AI\" OR \"AI assistant\""
+}

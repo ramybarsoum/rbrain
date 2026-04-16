@@ -1,0 +1,35 @@
+{
+  "created_at": "2013-08-22T00:16:46.000Z",
+  "edit_history_tweet_ids": [
+    "370338720278654976"
+  ],
+  "referenced_tweets": [
+    {
+      "type": "retweeted",
+      "id": "370274890814742528"
+    }
+  ],
+  "public_metrics": {
+    "retweet_count": 162,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "author_id": "254267633",
+  "text": "RT @nabilelhalfawy: أعتقد أن التسجيلات التى أذيعت لصفوت حجازى خلال التحقيق معه ستساهم فى جعل كثير ممن خدعوا يصححون موقفهم ويعودون لحضن الوط…",
+  "entities": {
+    "mentions": [
+      {
+        "start": 3,
+        "end": 18,
+        "username": "nabilelhalfawy",
+        "id": "282705059"
+      }
+    ]
+  },
+  "id": "370338720278654976",
+  "_collected_at": "2026-04-14T00:01:36.483Z",
+  "_stream": "own"
+}

@@ -1,0 +1,25 @@
+{
+  "edit_history_tweet_ids": [
+    "2043831977514807724"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 6
+  },
+  "created_at": "2026-04-13T23:21:30.000Z",
+  "id": "2043831977514807724",
+  "author_id": "1832667368948211712",
+  "text": "日々個人でClaudeCodeなどを使っていると、GWS環境で劣化版を試すことの意味が見いだせなくなってきた\n\nGWS制約の中でできることを探すよりも、社内でClaude Codeを利用できるように動いた方がずっと将来性がある",
+  "_author": {
+    "id": "1832667368948211712",
+    "name": "sei🔰AIエージェント企業導入",
+    "username": "seiseiaibgnr"
+  },
+  "_collected_at": "2026-04-13T23:31:35.747Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

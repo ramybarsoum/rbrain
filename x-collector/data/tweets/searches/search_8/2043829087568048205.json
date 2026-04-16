@@ -1,0 +1,52 @@
+{
+  "author_id": "1805135517635538944",
+  "id": "2043829087568048205",
+  "entities": {
+    "urls": [
+      {
+        "start": 114,
+        "end": 137,
+        "url": "https://t.co/E3xYaxRPIe",
+        "expanded_url": "https://garryslist.org/posts/half-the-ai-agent-market-is-one-category-the-rest-is-wide-open",
+        "display_url": "garryslist.org/posts/half-the…",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2043829100482310145/l8cyNme0?format=jpg&name=orig",
+            "width": 1200,
+            "height": 630
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2043829100482310145/l8cyNme0?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "Half the AI Agent Market Is One Category. The Rest Is Wide Open.",
+        "description": "Anthropic's new data shows software engineering dominates agentic AI. For founders, that's not a warning. It's a treasure map.",
+        "unwound_url": "https://garryslist.org/posts/half-the-ai-agent-market-is-one-category-the-rest-is-wide-open"
+      }
+    ]
+  },
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 1
+  },
+  "text": "Anthropic 的最新数据显示，软件工程在智能体人工智能领域占据主导地位。医疗保健、法律、金融以及其他十几个垂直领域几乎无人问津 ，每个领域占比均不足 5%。这意味着有 300 个垂直领域的人工智能独角兽企业等待着被开发。\nhttps://t.co/E3xYaxRPIe",
+  "created_at": "2026-04-13T23:10:01.000Z",
+  "edit_history_tweet_ids": [
+    "2043829087568048205"
+  ],
+  "_author": {
+    "id": "1805135517635538944",
+    "name": "0xSkill",
+    "username": "0xSkill"
+  },
+  "_collected_at": "2026-04-13T23:13:27.831Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

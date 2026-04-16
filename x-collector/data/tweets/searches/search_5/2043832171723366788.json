@@ -1,0 +1,58 @@
+{
+  "entities": {
+    "cashtags": [
+      {
+        "start": 0,
+        "end": 8,
+        "tag": "VIRTUAL"
+      },
+      {
+        "start": 230,
+        "end": 238,
+        "tag": "VIRTUAL"
+      }
+    ],
+    "urls": [
+      {
+        "start": 205,
+        "end": 228,
+        "url": "https://t.co/mbzZOHkRTV",
+        "expanded_url": "https://portal-virtuals.xyz",
+        "display_url": "portal-virtuals.xyz",
+        "status": 403,
+        "unwound_url": "https://portal-virtuals.xyz"
+      },
+      {
+        "start": 273,
+        "end": 296,
+        "url": "https://t.co/efttoueV5X",
+        "expanded_url": "https://x.com/tomcrypto_web3/status/2043832171723366788/photo/1",
+        "display_url": "pic.x.com/efttoueV5X",
+        "media_key": "3_2043832153621049345"
+      }
+    ]
+  },
+  "public_metrics": {
+    "retweet_count": 2,
+    "reply_count": 0,
+    "like_count": 5,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 33
+  },
+  "edit_history_tweet_ids": [
+    "2043832171723366788"
+  ],
+  "id": "2043832171723366788",
+  "author_id": "1190332830154407938",
+  "created_at": "2026-04-13T23:22:16.000Z",
+  "text": "$VIRTUAL update: If you've chatted with AI agents on Twitter, you might be in for some cash.\n\nThey’re dishing out up to $1M monthly in rewards. This project is legit.\n\n💰 The AI community is giving back 💰\n\nhttps://t.co/mbzZOHkRTV\n\n$VIRTUAL is on the rise because of this:\n✅ https://t.co/efttoueV5X",
+  "_author": {
+    "id": "1190332830154407938",
+    "name": "Tom | Web3 Insights",
+    "username": "tomcrypto_web3"
+  },
+  "_collected_at": "2026-04-13T23:31:34.348Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

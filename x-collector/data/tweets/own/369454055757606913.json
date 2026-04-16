@@ -1,0 +1,33 @@
+{
+  "created_at": "2013-08-19T13:41:25.000Z",
+  "edit_history_tweet_ids": [
+    "369454055757606913"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "author_id": "254267633",
+  "text": "شبكة أخبار مصر - #اخبار_مصر | مصدر أمني: الجيش يُغلق سيناء.. و11مُسلحا نفذوا عملية قتل 25 جنديا في رفح #ENN",
+  "entities": {
+    "hashtags": [
+      {
+        "start": 17,
+        "end": 27,
+        "tag": "اخبار_مصر"
+      },
+      {
+        "start": 103,
+        "end": 107,
+        "tag": "ENN"
+      }
+    ]
+  },
+  "id": "369454055757606913",
+  "_collected_at": "2026-04-14T00:01:36.484Z",
+  "_stream": "own"
+}

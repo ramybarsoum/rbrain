@@ -1,0 +1,42 @@
+{
+  "edit_history_tweet_ids": [
+    "2043832272303075787"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 93
+  },
+  "created_at": "2026-04-13T23:22:40.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 27,
+        "end": 50,
+        "url": "https://t.co/shtRImDYP5",
+        "expanded_url": "https://twitter.com/androiddev/status/2043817719301296138",
+        "display_url": "x.com/androiddev/sta…"
+      }
+    ]
+  },
+  "id": "2043832272303075787",
+  "author_id": "46585371",
+  "text": "直接 Claude code 即可，IDE 没啥用了 https://t.co/shtRImDYP5",
+  "referenced_tweets": [
+    {
+      "type": "quoted",
+      "id": "2043817719301296138"
+    }
+  ],
+  "_author": {
+    "id": "46585371",
+    "name": "Max Lv",
+    "username": "m0d8ye"
+  },
+  "_collected_at": "2026-04-13T23:31:35.744Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

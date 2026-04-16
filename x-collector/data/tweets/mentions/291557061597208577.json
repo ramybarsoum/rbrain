@@ -1,0 +1,41 @@
+{
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 0
+  },
+  "edit_history_tweet_ids": [
+    "291557061597208577"
+  ],
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 12,
+        "username": "barsoumramy",
+        "id": "254267633"
+      }
+    ]
+  },
+  "text": "@barsoumramy you 'r write. :))",
+  "author_id": "345564476",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "291556675117252608"
+    }
+  ],
+  "id": "291557061597208577",
+  "in_reply_to_user_id": "254267633",
+  "created_at": "2013-01-16T14:46:35.000Z",
+  "_author": {
+    "id": "345564476",
+    "name": "Mai kamel",
+    "username": "mayousha8803"
+  },
+  "_collected_at": "2026-04-13T23:13:25.001Z",
+  "_stream": "mentions"
+}

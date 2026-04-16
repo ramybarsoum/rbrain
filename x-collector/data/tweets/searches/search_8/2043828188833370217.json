@@ -1,0 +1,50 @@
+{
+  "author_id": "4592195181",
+  "id": "2043828188833370217",
+  "entities": {
+    "urls": [
+      {
+        "start": 66,
+        "end": 89,
+        "url": "https://t.co/gehStaQ5hf",
+        "expanded_url": "https://x.com/h4x0r_dz/status/2043828188833370217/photo/1",
+        "display_url": "pic.x.com/gehStaQ5hf",
+        "media_key": "3_2043827951909675009"
+      },
+      {
+        "start": 90,
+        "end": 113,
+        "url": "https://t.co/2r97MJJ28N",
+        "expanded_url": "https://twitter.com/h4x0r_dz/status/2043433680362688864",
+        "display_url": "x.com/h4x0r_dz/statu…"
+      }
+    ]
+  },
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 2,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 145
+  },
+  "text": "Now I'm allowed to do cybersecurity staff with my Claude Code Max https://t.co/gehStaQ5hf https://t.co/2r97MJJ28N",
+  "created_at": "2026-04-13T23:06:27.000Z",
+  "referenced_tweets": [
+    {
+      "type": "quoted",
+      "id": "2043433680362688864"
+    }
+  ],
+  "edit_history_tweet_ids": [
+    "2043828188833370217"
+  ],
+  "_author": {
+    "id": "4592195181",
+    "name": "H4x0r.DZ 🇰🇵",
+    "username": "h4x0r_dz"
+  },
+  "_collected_at": "2026-04-13T23:13:27.843Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

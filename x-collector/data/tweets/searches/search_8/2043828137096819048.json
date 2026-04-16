@@ -1,0 +1,41 @@
+{
+  "author_id": "4690015250",
+  "entities": {
+    "mentions": [
+      {
+        "start": 0,
+        "end": 15,
+        "username": "nosuke_moneque",
+        "id": "101906956"
+      }
+    ]
+  },
+  "id": "2043828137096819048",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 7
+  },
+  "text": "@nosuke_moneque Claude codeからMedusaってのでショップ構築を行ってます！",
+  "created_at": "2026-04-13T23:06:15.000Z",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043654195111465276"
+    }
+  ],
+  "edit_history_tweet_ids": [
+    "2043828137096819048"
+  ],
+  "_author": {
+    "id": "4690015250",
+    "name": "古田 健＠AIを使って業務を実装する人",
+    "username": "kenfuruta7737"
+  },
+  "_collected_at": "2026-04-13T23:13:27.844Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

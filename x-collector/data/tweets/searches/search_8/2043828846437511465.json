@@ -1,0 +1,31 @@
+{
+  "author_id": "1737134179240783873",
+  "id": "2043828846437511465",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 1,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 6
+  },
+  "text": "🛠️ Built for the Autonomous Era Watchtower isn't just an NDR—it’s an Agentic Skills Protocol. We built explicit JSON wrappers mapping our threat-hunting Python scripts directly to OpenAI/Anthropic tool schemas. Agents like OpenClaw or Hermes can natively execute EDR sweeps on",
+  "created_at": "2026-04-13T23:09:04.000Z",
+  "referenced_tweets": [
+    {
+      "type": "replied_to",
+      "id": "2043828844277186666"
+    }
+  ],
+  "edit_history_tweet_ids": [
+    "2043828846437511465"
+  ],
+  "_author": {
+    "id": "1737134179240783873",
+    "name": "Corrupt",
+    "username": "CorruptFun"
+  },
+  "_collected_at": "2026-04-13T23:13:27.836Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

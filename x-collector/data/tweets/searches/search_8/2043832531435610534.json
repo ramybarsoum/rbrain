@@ -1,0 +1,42 @@
+{
+  "edit_history_tweet_ids": [
+    "2043832531435610534"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 20
+  },
+  "created_at": "2026-04-13T23:23:42.000Z",
+  "entities": {
+    "urls": [
+      {
+        "start": 121,
+        "end": 144,
+        "url": "https://t.co/YjgGug65Bv",
+        "expanded_url": "https://twitter.com/bloombergjapan/status/2043721178179666370",
+        "display_url": "x.com/bloombergjapan…"
+      }
+    ]
+  },
+  "id": "2043832531435610534",
+  "author_id": "1619191566786240514",
+  "text": "Anthropic新AIが示したのは「便利な生成AIの次」ではない。企業の守りが先に試される時代だ\n\nAnthropicの新モデル「Claude Mythos Preview」をめぐる話で本当に見るべき点は、性能がすごいという感想ではない。 https://t.co/YjgGug65Bv",
+  "referenced_tweets": [
+    {
+      "type": "quoted",
+      "id": "2043721178179666370"
+    }
+  ],
+  "_author": {
+    "id": "1619191566786240514",
+    "name": "吉村佑介｜Field X 取締役｜高専卒によるAI導入支援",
+    "username": "JgOwDOe6JI6OCCB"
+  },
+  "_collected_at": "2026-04-13T23:31:35.743Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

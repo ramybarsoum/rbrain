@@ -1,0 +1,59 @@
+{
+  "author_id": "2013172057014689792",
+  "id": "2043829255617032379",
+  "entities": {
+    "urls": [
+      {
+        "start": 119,
+        "end": 142,
+        "url": "https://t.co/mG9VzE6elO",
+        "expanded_url": "https://www.capy-tech-log.tech/anthropic-claude-mythos-preview-cybersecurity-project-glasswing/",
+        "display_url": "capy-tech-log.tech/anthropic-clau…",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2043829300764532736/FLXYurJK?format=jpg&name=orig",
+            "width": 1024,
+            "height": 559
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2043829300764532736/FLXYurJK?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "AIが27年前のゼロデイを自律発見：Anthropic「Claude Mythos Preview」の衝撃と、なぜ一般公開されないのか",
+        "description": "【エグゼクティブ・サマリー】AnthropicのAI「Claude Mythos Preview」が、27年前・16年前という超長期間見逃されてきたゼロデイ脆弱性を自律的に発見・実証するという前例のない能力を示した安全上の懸念から一般公開は...",
+        "unwound_url": "https://www.capy-tech-log.tech/anthropic-claude-mythos-preview-cybersecurity-project-glasswing/"
+      }
+    ],
+    "hashtags": [
+      {
+        "start": 144,
+        "end": 149,
+        "tag": "ゼロデイ"
+      }
+    ]
+  },
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 1
+  },
+  "text": "🔐AIが27年モノのバグを一晩で特定！\nAnthropicの自律脆弱性研究能力がヤバい。\n\n✅強力すぎるため一般公開はなし \n✅AWS・Google等とProject Glasswingを結成\n\nAIサイバー防衛の歴史的転換点を解説👇 \nhttps://t.co/mG9VzE6elO\n\n#ゼロデイ",
+  "created_at": "2026-04-13T23:10:41.000Z",
+  "edit_history_tweet_ids": [
+    "2043829255617032379"
+  ],
+  "_author": {
+    "id": "2013172057014689792",
+    "name": "Capibara Lab",
+    "username": "CapibaraLa51515"
+  },
+  "_collected_at": "2026-04-13T23:13:27.830Z",
+  "_stream": "search_8",
+  "_search_query": "\"Claude Code\" OR \"Anthropic\""
+}

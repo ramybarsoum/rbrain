@@ -1,0 +1,74 @@
+{
+  "created_at": "2026-04-12T22:11:52.000Z",
+  "author_id": "1505330450193317888",
+  "text": "🔗 AnthropicのMCPが9700万インストール突破：Model Context Protocolが業界標準インフラへ。主要AIプロバイダー全社がMCP互換ツールを提供し、エージェントが外部ツールに接続するデファクトスタンダードに。\nhttps://t.co/m5dHOmxNY2\n#AI #Anthropic #MCP #AIニュース",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 14
+  },
+  "entities": {
+    "hashtags": [
+      {
+        "start": 144,
+        "end": 147,
+        "tag": "AI"
+      },
+      {
+        "start": 148,
+        "end": 158,
+        "tag": "Anthropic"
+      },
+      {
+        "start": 159,
+        "end": 163,
+        "tag": "MCP"
+      },
+      {
+        "start": 164,
+        "end": 171,
+        "tag": "AIニュース"
+      }
+    ],
+    "urls": [
+      {
+        "start": 120,
+        "end": 143,
+        "url": "https://t.co/m5dHOmxNY2",
+        "expanded_url": "https://www.crescendo.ai/news/latest-ai-news-and-updates",
+        "display_url": "crescendo.ai/news/latest-ai…",
+        "images": [
+          {
+            "url": "https://pbs.twimg.com/news_img/2041799177160499200/IXFsbv0Y?format=jpg&name=orig",
+            "width": 2880,
+            "height": 1620
+          },
+          {
+            "url": "https://pbs.twimg.com/news_img/2041799177160499200/IXFsbv0Y?format=jpg&name=150x150",
+            "width": 150,
+            "height": 150
+          }
+        ],
+        "status": 200,
+        "title": "Latest AI News and AI Breakthroughs that Matter Most: 2026 | News",
+        "description": "Wondering what’s happening in the AI world? Here are the latest AI breakthroughs and news that are shaping the world around us!",
+        "unwound_url": "https://www.crescendo.ai/news/latest-ai-news-and-updates"
+      }
+    ]
+  },
+  "edit_history_tweet_ids": [
+    "2043452067239669908"
+  ],
+  "id": "2043452067239669908",
+  "_author": {
+    "id": "1505330450193317888",
+    "name": "D",
+    "username": "d8kingdom"
+  },
+  "_collected_at": "2026-04-13T23:13:27.340Z",
+  "_stream": "search_7",
+  "_search_query": "\"MCP protocol\" OR \"model context protocol\""
+}

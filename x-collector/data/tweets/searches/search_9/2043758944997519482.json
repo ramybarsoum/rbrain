@@ -1,0 +1,42 @@
+{
+  "edit_history_tweet_ids": [
+    "2043758944997519482"
+  ],
+  "text": "i run a full micro-SaaS operation for $86/month. Next.js, Supabase, Claude, Vercel, Tailwind, shadcn, Notion, Telegram. no team. 8 to 12 hours a day. 25+ custom AI skills doing the heavy lifting. wrote up my exact stack, costs, and what i'd cut if i had to keep only three tools. https://t.co/woMYq1oa0w",
+  "referenced_tweets": [
+    {
+      "type": "quoted",
+      "id": "2043758486757208097"
+    }
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 37
+  },
+  "entities": {
+    "urls": [
+      {
+        "start": 280,
+        "end": 303,
+        "url": "https://t.co/woMYq1oa0w",
+        "expanded_url": "https://twitter.com/1bsfraja/status/2043758486757208097",
+        "display_url": "x.com/1bsfraja/statu…"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T18:31:18.000Z",
+  "id": "2043758944997519482",
+  "author_id": "2043587846335033344",
+  "_author": {
+    "id": "2043587846335033344",
+    "name": "Raja | 1BSF",
+    "username": "1bsfraja"
+  },
+  "_collected_at": "2026-04-13T23:13:28.358Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}

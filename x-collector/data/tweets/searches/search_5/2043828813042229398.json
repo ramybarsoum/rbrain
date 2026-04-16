@@ -1,0 +1,44 @@
+{
+  "edit_history_tweet_ids": [
+    "2043828813042229398"
+  ],
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 2
+  },
+  "created_at": "2026-04-13T23:08:56.000Z",
+  "id": "2043828813042229398",
+  "author_id": "2017112662212050944",
+  "entities": {
+    "hashtags": [
+      {
+        "start": 125,
+        "end": 128,
+        "tag": "AI"
+      },
+      {
+        "start": 129,
+        "end": 138,
+        "tag": "AIAgents"
+      },
+      {
+        "start": 139,
+        "end": 150,
+        "tag": "Automation"
+      }
+    ]
+  },
+  "text": "AI agents leveled up! \n\nPerplexity builds finance systems &amp; SEO audits in MINUTES.\n\nThe agent economy is already here. \n\n#AI #AIAgents #Automation",
+  "_author": {
+    "id": "2017112662212050944",
+    "name": "Matt Botter",
+    "username": "MattBotterAI"
+  },
+  "_collected_at": "2026-04-13T23:13:26.343Z",
+  "_stream": "search_5",
+  "_search_query": "\"AI agents\" OR \"LLM agents\""
+}

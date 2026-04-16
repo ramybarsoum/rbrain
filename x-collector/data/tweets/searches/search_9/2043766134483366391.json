@@ -1,0 +1,64 @@
+{
+  "edit_history_tweet_ids": [
+    "2043766134483366391"
+  ],
+  "text": "🎥 Supabase = Backend Without Backend\n\nBuild apps faster ⚡\n Supabase gives you database, auth, APIs &amp; realtime — all in one place.\n🚀 Realtime DB\n🔒 Built-in auth\n⚡ Auto APIs\n📦 Storage\nPerfect for startups, SaaS &amp; MVPs.\n#Supabase #FirebaseAlternative #Backend #FullStack #Web https://t.co/VGES4EFXAr",
+  "public_metrics": {
+    "retweet_count": 0,
+    "reply_count": 0,
+    "like_count": 0,
+    "quote_count": 0,
+    "bookmark_count": 0,
+    "impression_count": 32
+  },
+  "entities": {
+    "hashtags": [
+      {
+        "start": 225,
+        "end": 234,
+        "tag": "Supabase"
+      },
+      {
+        "start": 235,
+        "end": 255,
+        "tag": "FirebaseAlternative"
+      },
+      {
+        "start": 256,
+        "end": 264,
+        "tag": "Backend"
+      },
+      {
+        "start": 265,
+        "end": 275,
+        "tag": "FullStack"
+      },
+      {
+        "start": 276,
+        "end": 280,
+        "tag": "Web"
+      }
+    ],
+    "urls": [
+      {
+        "start": 281,
+        "end": 304,
+        "url": "https://t.co/VGES4EFXAr",
+        "expanded_url": "https://x.com/ALogics3609/status/2043766134483366391/photo/1",
+        "display_url": "pic.x.com/VGES4EFXAr",
+        "media_key": "3_2043766042816851968"
+      }
+    ]
+  },
+  "created_at": "2026-04-13T18:59:52.000Z",
+  "id": "2043766134483366391",
+  "author_id": "1896890696017014784",
+  "_author": {
+    "id": "1896890696017014784",
+    "name": "A7 Logics | Web & Mobile Experts",
+    "username": "ALogics3609"
+  },
+  "_collected_at": "2026-04-13T23:13:28.357Z",
+  "_stream": "search_9",
+  "_search_query": "\"Supabase\""
+}
