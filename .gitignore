@@ -11,3 +11,8 @@ bin/
 supabase/.temp/
 .claude/skills/
 .idea
+
+# Personal / RBrain-specific (Ramy's fork) — keep on disk, never commit
+SOUL.md
+voice-agent/
+x-collector/

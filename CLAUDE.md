@@ -10,7 +10,7 @@ cron scheduling, reports, identity, and access control.
 ## This machine's active brain
 
 The active brain on this machine is **Supabase project `rlgonegzlxakquoiyzqq`**
-(formerly RBrain-V0). Connection details live in `/Users/cole/RBrain/.env` (0600,
+(formerly RBrain-V0). Connection details live in `/Users/ramybarsoum/Projects/RBrain/.env` (0600,
 gitignored) and `~/.gbrain/config.json` (0600). V0's original schema and data are
 preserved in the `v0_archive` schema of the same Postgres instance for future
 migration. Do NOT touch `v0_archive` without explicit instructions — it contains
@@ -21,7 +21,7 @@ Pooler host: `aws-1-us-east-1.pooler.supabase.com:5432` (session pooler; the
 transaction pooler on 6543 was timing out at cutover time).
 
 The stdio MCP server is wired into Claude Code, Cursor, and Codex via
-`/Users/cole/RBrain/scripts/rbrain-mcp-stdio.sh` (cds into the repo, sources `.env`,
+`/Users/ramybarsoum/Projects/RBrain/scripts/rbrain-mcp-stdio.sh` (cds into the repo, sources `.env`,
 execs `bun src/cli.ts serve`). OpenClaw uses the existing `openclaw.plugin.json`
 manifest (ClawHub plugin flow, not a direct config edit).
 
@@ -51,7 +51,7 @@ markdown files (tool-agnostic, work with both CLI and plugin contexts).
 - `src/core/chunkers/` — 3-tier chunking (recursive, semantic, LLM-guided)
 - `src/core/search/` — Hybrid search: vector + keyword + RRF + multi-query expansion + dedup
 - `src/core/search/intent.ts` — Query intent classifier (entity/temporal/event/general → auto-selects detail level)
-- `src/core/search/eval.ts` — Retrieval eval harness: P@k, R@k, MRR, nDCG@k metrics + runEval() orchestrator
+- `src/core/search/eval.ts`: Retrieval eval harness: P@k, R@k, MRR, nDCG@k metrics + runEval() orchestrator
 - `src/commands/eval.ts` — `gbrain eval` command: single-run table + A/B config comparison
 - `src/core/embedding.ts` — OpenAI text-embedding-3-large, batch, retry, backoff
 - `src/core/check-resolvable.ts` — Resolver validation: reachability, MECE overlap, DRY checks, structured fix objects
@@ -73,7 +73,7 @@ markdown files (tool-agnostic, work with both CLI and plugin contexts).
 - `docs/guides/` — Individual SKILLPACK guides (broken out from monolith)
 - `docs/integrations/` — "Getting Data In" guides and integration docs
 - `docs/architecture/infra-layer.md` — Shared infrastructure documentation
-- `docs/ethos/THIN_HARNESS_FAT_SKILLS.md` — Architecture philosophy essay
+- `docs/ethos/THIN_HARNESS_FAT_SKILLS.md`: Architecture philosophy essay
 - `docs/ethos/MARKDOWN_SKILLS_AS_RECIPES.md` — "Homebrew for Personal AI" essay
 - `docs/guides/repo-architecture.md` — Two-repo pattern (agent vs brain)
 - `docs/guides/sub-agent-routing.md` — Model routing table for sub-agents

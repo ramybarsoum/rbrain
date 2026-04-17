@@ -1,1 +1,0 @@
-[2026-04-15T19:31:28Z] RUN: 0 tweets collected | 0 new | 0 deletions | STATUS: ALL_402 | All API calls returned HTTP 402 (insufficient access tier). Token is present but API access level is too low for v2 endpoints. Needs Basic tier or higher. /users/me returns 403.
