@@ -1,6 +1,8 @@
-# GBrain
+# RBrain
 
-Your AI agent is smart but forgetful. GBrain gives it a brain.
+> **This is RBrain**, Ramy Barsoum's personal fork of [GBrain](https://github.com/garrytan/gbrain) by Garry Tan. The CLI binary, config path (`~/.gbrain/`), and env vars still use `gbrain` on purpose. That keeps upstream merges clean. The fork adds custom brain data (not committed) and RBrain-specific tooling on top of the upstream engine.
+
+Your AI agent is smart but forgetful. RBrain (built on GBrain) gives it a brain.
 
 Built by the President and CEO of Y Combinator to run his actual AI agents. The production brain powering his OpenClaw and Hermes deployments: **17,888 pages, 4,383 people, 723 companies**, 21 cron jobs running autonomously, built in 12 days. The agent ingests meetings, emails, tweets, voice calls, and original ideas while you sleep. It enriches every person and company it encounters. It fixes its own citations and consolidates memory overnight. You wake up and the brain is smarter than when you went to bed.
 
