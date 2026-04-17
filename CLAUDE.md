@@ -7,7 +7,7 @@ Supabase instance. `gbrain init` defaults to PGLite; suggests Supabase for 1000+
 ## This machine's active brain
 
 The active brain on this machine is **Supabase project `rlgonegzlxakquoiyzqq`**
-(formerly RBrain-V0). Connection details live in `/Users/cole/RBrain/.env` (0600,
+(formerly RBrain-V0). Connection details live in `/Users/ramybarsoum/Projects/RBrain/.env` (0600,
 gitignored) and `~/.gbrain/config.json` (0600). V0's original schema and data are
 preserved in the `v0_archive` schema of the same Postgres instance for future
 migration. Do NOT touch `v0_archive` without explicit instructions — it contains
@@ -18,7 +18,7 @@ Pooler host: `aws-1-us-east-1.pooler.supabase.com:5432` (session pooler; the
 transaction pooler on 6543 was timing out at cutover time).
 
 The stdio MCP server is wired into Claude Code, Cursor, and Codex via
-`/Users/cole/RBrain/scripts/rbrain-mcp-stdio.sh` (cds into the repo, sources `.env`,
+`/Users/ramybarsoum/Projects/RBrain/scripts/rbrain-mcp-stdio.sh` (cds into the repo, sources `.env`,
 execs `bun src/cli.ts serve`). OpenClaw uses the existing `openclaw.plugin.json`
 manifest (ClawHub plugin flow, not a direct config edit).
 
@@ -61,9 +61,7 @@ strict behavior when unset.
 - `src/commands/code-def.ts` + `src/commands/code-refs.ts` (v0.19.0) — symbol definition + references lookup. Query `content_chunks.symbol_name` or chunk_text ILIKE with `page_kind='code'` filter. Auto-JSON when stdout is not a TTY (gh-CLI convention). Bypass the standard `searchKeyword` `DISTINCT ON (slug)` collapse so multiple call-sites from the same file surface.
 - `src/core/search/` — Hybrid search: vector + keyword + RRF + multi-query expansion + dedup. As of v0.22.0, `searchKeyword` / `searchKeywordChunks` / `searchVector` apply source-aware ranking at the SQL layer (curated content like `originals/`, `concepts/`, `writing/` outranks bulk content like `wintermute/chat/`, `daily/`, `media/x/`). `searchVector` uses a two-stage CTE so source-boost re-ranking doesn't kill the HNSW index. Hard-exclude prefixes (`test/`, `archive/`, `attachments/`, `.raw/` by default) filter at retrieval, not post-rank. Both gates honor `detail !== 'high'` so temporal queries surface chat pages normally.
 - `src/core/search/intent.ts` — Query intent classifier (entity/temporal/event/general → auto-selects detail level)
-- `src/core/search/eval.ts` — Retrieval eval harness: P@k, R@k, MRR, nDCG@k metrics + runEval() orchestrator
-- `src/core/search/source-boost.ts` (v0.22.0) — Source-type boost map keyed by slug prefix. `DEFAULT_SOURCE_BOOSTS` (originals/ 1.5, concepts/ 1.3, writing/ 1.4, people/companies/deals/ 1.2, daily/ 0.8, media/x/ 0.7, wintermute/chat/ 0.5) and `DEFAULT_HARD_EXCLUDES` (test/, archive/, attachments/, .raw/). `parseSourceBoostEnv` / `parseHardExcludesEnv` parse comma-separated `prefix:factor` pairs from `GBRAIN_SOURCE_BOOST` / `GBRAIN_SEARCH_EXCLUDE` env vars. `resolveBoostMap` and `resolveHardExcludes` merge defaults + env + caller `SearchOpts.exclude_slug_prefixes`/`include_slug_prefixes`.
-- `src/core/search/sql-ranking.ts` (v0.22.0) — Pure SQL string builders. `buildSourceFactorCase(slugColumn, boostMap, detail)` emits a CASE expression with longest-prefix-match wins (returns literal `'1.0'` when `detail === 'high'` for temporal-bypass parity with COMPILED_TRUTH_BOOST). `buildHardExcludeClause(slugColumn, prefixes)` emits `NOT (col LIKE 'p1%' OR col LIKE 'p2%')` — OR-chain wrapped in NOT, NOT `NOT LIKE ALL/ANY` (those quantifiers don't express set-exclusion). LIKE meta-character escape covers all three of `%`, `_`, AND `\` (backslash matters because it's Postgres LIKE's default escape char). Single-quote doubling on SQL string literals so injection-style inputs are inert text.
+- `src/core/search/eval.ts`: Retrieval eval harness: P@k, R@k, MRR, nDCG@k metrics + runEval() orchestrator
 - `src/commands/eval.ts` — `gbrain eval` command: single-run table + A/B config comparison
 - `src/core/embedding.ts` — OpenAI text-embedding-3-large, batch, retry, backoff
 - `src/core/check-resolvable.ts` — Resolver validation: reachability, MECE overlap, DRY checks, structured fix objects. v0.14.1: `CROSS_CUTTING_PATTERNS.conventions` is an array (notability gate accepts both `conventions/quality.md` and `_brain-filing-rules.md`). New `extractDelegationTargets()` parses `> **Convention:**`, `> **Filing rule:**`, and inline backtick references. DRY suppression is proximity-based via `DRY_PROXIMITY_LINES = 40`.
@@ -147,7 +145,7 @@ strict behavior when unset.
 - `docs/guides/` — Individual SKILLPACK guides (broken out from monolith)
 - `docs/integrations/` — "Getting Data In" guides and integration docs
 - `docs/architecture/infra-layer.md` — Shared infrastructure documentation
-- `docs/ethos/THIN_HARNESS_FAT_SKILLS.md` — Architecture philosophy essay
+- `docs/ethos/THIN_HARNESS_FAT_SKILLS.md`: Architecture philosophy essay
 - `docs/ethos/MARKDOWN_SKILLS_AS_RECIPES.md` — "Homebrew for Personal AI" essay
 - `docs/guides/repo-architecture.md` — Two-repo pattern (agent vs brain)
 - `docs/guides/sub-agent-routing.md` — Model routing table for sub-agents
