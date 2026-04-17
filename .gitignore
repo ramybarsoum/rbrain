@@ -20,5 +20,8 @@ eval/data/amara-life-v1/_cache/
 
 # Personal / RBrain-specific (Ramy's fork) — keep on disk, never commit
 SOUL.md
+USER.md
+ACCESS_POLICY.md
+HEARTBEAT.md
 voice-agent/
 x-collector/
