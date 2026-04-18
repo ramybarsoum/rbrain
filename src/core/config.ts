@@ -4,12 +4,13 @@ import { homedir } from 'os';
 import type { EngineConfig } from './types.ts';
 
 // Lazy-evaluated to avoid calling homedir() at module scope (breaks in serverless/bundled environments).
-// Prefer ~/.rbrain (the active brand on this fork). If a legacy ~/.gbrain/config.json exists
-// from an older install AND ~/.rbrain/config.json doesn't, fall back to it for read-only loads
-// so existing users aren't surprised. New writes always go to ~/.rbrain.
-function getConfigDir() { return join(homedir(), '.rbrain'); }
+// Primary: ~/.gbrain (upstream-aligned, documented path, matches autopilot/install code).
+// Legacy: ~/.rbrain (the fork's earlier branding). Read-only fallback for existing installs
+// so the half-migrated state from before 2026-04-18 doesn't surprise anyone. New writes
+// always go to ~/.gbrain.
+function getConfigDir() { return join(homedir(), '.gbrain'); }
 function getConfigPath() { return join(getConfigDir(), 'config.json'); }
-function getLegacyConfigPath() { return join(homedir(), '.gbrain', 'config.json'); }
+function getLegacyConfigPath() { return join(homedir(), '.rbrain', 'config.json'); }
 
 export interface GBrainConfig {
   engine: 'postgres' | 'pglite';
@@ -29,7 +30,7 @@ export function loadConfig(): GBrainConfig | null {
     const raw = readFileSync(getConfigPath(), 'utf-8');
     fileConfig = JSON.parse(raw) as GBrainConfig;
   } catch {
-    // No ~/.rbrain/config.json — try legacy ~/.gbrain/config.json once
+    // No ~/.gbrain/config.json — try legacy ~/.rbrain/config.json once
     try {
       const raw = readFileSync(getLegacyConfigPath(), 'utf-8');
       fileConfig = JSON.parse(raw) as GBrainConfig;
@@ -74,7 +75,7 @@ export function toEngineConfig(config: GBrainConfig): EngineConfig {
 }
 
 export function configDir(): string {
-  return join(homedir(), '.rbrain');
+  return join(homedir(), '.gbrain');
 }
 
 export function configPath(): string {
