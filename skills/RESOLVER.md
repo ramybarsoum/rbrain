@@ -77,6 +77,7 @@ Never guess about people, companies, skills, or MCPs. The resolver has the answe
 | Webhook setup, external event processing | `skills/webhook-transforms/SKILL.md` |
 | "Spawn agent", "background task", "parallel tasks", "steer agent", "pause/resume agent" | `skills/minion-orchestrator/SKILL.md` |
 | Continuous learning, knowledge extraction | `skills/claudeception/SKILL.md` |
+| "Context rescue", "save this session", long conversation cleanup | `skills/context-rescue/SKILL.md` |
 
 ## Setup & migration
 
