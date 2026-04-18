@@ -21,6 +21,21 @@ function parseArg(args: string[], flag: string): string | undefined {
   return idx >= 0 && idx + 1 < args.length ? args[idx + 1] : undefined;
 }
 
+/**
+ * Returns true if the dream cycle is due to run based on the last-run timestamp.
+ * Used to rate-limit nightly promotion to roughly once per day even though the
+ * autopilot cycle fires every few minutes.
+ *
+ * @param lastRunMs  Epoch ms of the last successful run, or 0 if never
+ * @param nowMs      Current epoch ms
+ * @param minHours   Minimum gap between runs in hours (default 23)
+ */
+export function shouldRunDreamCycle(lastRunMs: number, nowMs: number, minHours: number = 23): boolean {
+  if (!Number.isFinite(lastRunMs) || lastRunMs <= 0) return true;
+  if (nowMs < lastRunMs) return true;
+  return (nowMs - lastRunMs) / 3600000 >= minHours;
+}
+
 function logError(phase: string, e: unknown) {
   const msg = e instanceof Error ? e.message : String(e);
   const ts = new Date().toISOString().slice(0, 19);
@@ -123,7 +138,35 @@ export async function runAutopilot(engine: BrainEngine, args: string[]) {
       await runEmbed(engine, ['--stale']);
     } catch (e) { logError('embed', e); cycleOk = false; }
 
-    // 4. Health check + adaptive interval
+    // 4. Dream cycle (nightly, rate-limited to once per ~23h)
+    try {
+      const stampPath = join(process.env.HOME || '', '.gbrain', 'dream-cycle.stamp');
+      let lastRun = 0;
+      try {
+        lastRun = parseInt(readFileSync(stampPath, 'utf-8').trim(), 10) || 0;
+      } catch { /* first run, never run before */ }
+      if (shouldRunDreamCycle(lastRun, Date.now())) {
+        const { runDreamCycle } = await import('../core/promotion.ts');
+        const report = await runDreamCycle(engine, {}, false);
+        writeFileSync(stampPath, String(Date.now()));
+        const line = `[dream-cycle] promoted=${report.promoted.length} skipped=${report.skipped.length}`;
+        if (jsonMode) {
+          process.stderr.write(JSON.stringify({ event: 'dream-cycle', promoted: report.promoted.length, skipped: report.skipped.length }) + '\n');
+        } else {
+          console.log(line);
+        }
+        try {
+          await engine.logIngest({
+            source_type: 'dream-cycle',
+            source_ref: report.runAt,
+            pages_updated: report.promoted.map(p => p.slugs[0]),
+            summary: `Dream cycle (autopilot): ${report.promoted.length} promoted, ${report.skipped.length} skipped`,
+          });
+        } catch { /* best-effort */ }
+      }
+    } catch (e) { logError('dream-cycle', e); cycleOk = false; }
+
+    // 5. Health check + adaptive interval
     let interval = baseInterval;
     try {
       const health = await engine.getHealth();
