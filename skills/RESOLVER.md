@@ -72,6 +72,7 @@ Never guess about people, companies, skills, or MCPs. The resolver has the answe
 | "Validate skills", skill health check | `skills/testing/SKILL.md` |
 | Webhook setup, external event processing | `skills/webhook-transforms/SKILL.md` |
 | Continuous learning, knowledge extraction | `skills/claudeception/SKILL.md` |
+| "Context rescue", "save this session", long conversation cleanup | `skills/context-rescue/SKILL.md` |
 
 ## Setup & migration
 
