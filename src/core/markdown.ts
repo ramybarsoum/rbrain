@@ -362,6 +362,7 @@ function inferType(filePath?: string): PageType {
   if (lower.includes('/yc/')) return 'yc';
   if (lower.includes('/civic/')) return 'civic';
   if (lower.includes('/projects/') || lower.includes('/project/')) return 'project';
+  if (lower.includes('/working/') || lower.includes('/workspace/')) return 'working';
   if (lower.includes('/sources/') || lower.includes('/source/')) return 'source';
   if (lower.includes('/media/')) return 'media';
   // BrainBench v1 amara-life-v1 corpus directories. One-slash slug convention

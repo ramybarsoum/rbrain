@@ -86,10 +86,15 @@ describe('PGLiteEngine: Pages', () => {
   test('listPages with type filter', async () => {
     await engine.putPage('people/alice', { ...testPage, type: 'person', title: 'Alice' });
     await engine.putPage('concepts/rag', { ...testPage, type: 'concept', title: 'RAG' });
+    await engine.putPage('working/concierge-reliability', { ...testPage, type: 'working', title: 'Concierge Reliability Workspace' });
 
     const people = await engine.listPages({ type: 'person' });
     expect(people.length).toBe(1);
     expect(people[0].title).toBe('Alice');
+
+    const working = await engine.listPages({ type: 'working' });
+    expect(working.length).toBe(1);
+    expect(working[0].slug).toBe('working/concierge-reliability');
   });
 
   test('listPages with tag filter', async () => {

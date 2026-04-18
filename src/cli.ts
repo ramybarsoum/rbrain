@@ -19,7 +19,7 @@ for (const op of operations) {
 }
 
 // CLI-only commands that bypass the operation layer
-const CLI_ONLY = new Set(['init', 'upgrade', 'post-upgrade', 'check-update', 'integrations', 'publish', 'check-backlinks', 'lint', 'report', 'import', 'export', 'files', 'embed', 'serve', 'call', 'config', 'doctor', 'migrate', 'eval', 'sync', 'extract', 'features', 'autopilot', 'graph-query', 'jobs', 'agent', 'apply-migrations', 'skillpack-check', 'skillpack', 'resolvers', 'integrity', 'repair-jsonb', 'orphans', 'sources', 'dream', 'check-resolvable', 'routing-eval', 'skillify', 'smoke-test', 'storage', 'repos', 'code-def', 'code-refs', 'reindex-code', 'code-callers', 'code-callees', 'frontmatter', 'auth', 'friction', 'claw-test']);
+const CLI_ONLY = new Set(['init', 'upgrade', 'post-upgrade', 'check-update', 'integrations', 'publish', 'check-backlinks', 'lint', 'report', 'import', 'export', 'files', 'embed', 'serve', 'call', 'config', 'doctor', 'migrate', 'eval', 'sync', 'extract', 'features', 'autopilot', 'dream-cycle']);
 
 async function main() {
   // Parse global flags (--quiet / --progress-json / --progress-interval)
@@ -514,75 +514,9 @@ async function handleCliOnly(command: string, args: string[]) {
         await runAutopilot(engine, args);
         return; // autopilot doesn't disconnect (long-running)
       }
-      case 'graph-query': {
-        const { runGraphQuery } = await import('./commands/graph-query.ts');
-        await runGraphQuery(engine, args);
-        break;
-      }
-      case 'reconcile-links': {
-        // v0.20.0 Cathedral II Layer 8 D3: batch-recompute doc↔impl edges
-        // for any markdown page that cites code files. Idempotent; safe to
-        // re-run. Closes the v0.19.0 Layer 6 order-dependency bug where
-        // guides imported before their code never got their edges written.
-        const { runReconcileLinksCli } = await import('./commands/reconcile-links.ts');
-        await runReconcileLinksCli(engine, args);
-        break;
-      }
-      case 'orphans': {
-        const { runOrphans } = await import('./commands/orphans.ts');
-        await runOrphans(engine, args);
-        break;
-      }
-      case 'sources': {
-        const { runSources } = await import('./commands/sources.ts');
-        await runSources(engine, args);
-        break;
-      }
-      case 'storage': {
-        const { runStorage } = await import('./commands/storage.ts');
-        await runStorage(engine, args);
-        break;
-      }
-      case 'code-def': {
-        const { runCodeDef } = await import('./commands/code-def.ts');
-        await runCodeDef(engine, args);
-        break;
-      }
-      case 'code-refs': {
-        const { runCodeRefs } = await import('./commands/code-refs.ts');
-        await runCodeRefs(engine, args);
-        break;
-      }
-      case 'reindex-code': {
-        // v0.20.0 Cathedral II Layer 13 (E2): explicit code-page reindex
-        // for users upgrading from v0.19.0. Cost-preview gated; TTY prompt
-        // or ConfirmationRequired envelope for non-TTY/JSON callers.
-        const { runReindexCodeCli } = await import('./commands/reindex-code.ts');
-        await runReindexCodeCli(engine, args);
-        break;
-      }
-      case 'code-callers': {
-        // v0.20.0 Cathedral II Layer 10 (C4): "who calls <symbol>?"
-        const { runCodeCallers } = await import('./commands/code-callers.ts');
-        await runCodeCallers(engine, args);
-        break;
-      }
-      case 'code-callees': {
-        // v0.20.0 Cathedral II Layer 10 (C5): "what does <symbol> call?"
-        const { runCodeCallees } = await import('./commands/code-callees.ts');
-        await runCodeCallees(engine, args);
-        break;
-      }
-      case 'repos': {
-        // v0.19.0: `gbrain repos ...` is an alias into the v0.18.0 sources
-        // subsystem. The repos abstraction (Wintermute's baseline) was
-        // redundant with sources and carried per-user config state that
-        // couldn't participate in federation / RLS / multi-tenancy. We
-        // keep the alias so scripts like `gbrain repos add .` keep
-        // working, with a nudge toward the canonical command.
-        console.error('[gbrain] Note: "repos" is an alias for "sources" as of v0.19.0. Prefer `gbrain sources <subcommand>`.');
-        const { runSources } = await import('./commands/sources.ts');
-        await runSources(engine, args);
+      case 'dream-cycle': {
+        const { runDreamCycleCommand } = await import('./commands/dream-cycle.ts');
+        await runDreamCycleCommand(engine, args);
         break;
       }
     }
@@ -740,6 +674,7 @@ ADMIN
   revert <slug> <version-id>         Revert to version
   features [--json] [--auto-fix]     Scan usage + recommend unused features
   autopilot [--repo] [--interval N]  Self-maintaining brain daemon
+  dream-cycle [--dry-run] [--json]   Episodic-to-semantic promotion
   config [show|get|set] <key> [val]  Brain config
   storage status [--repo <path>]     Storage tier status and health
         [--json]                     (git-tracked vs supabase-only)
