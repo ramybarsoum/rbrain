@@ -78,7 +78,7 @@ This keeps context lean and prevents skill-routing instructions from crowding ou
 - `src/core/data-research.ts` — Recipe validation, field extraction (MRR/ARR regex), dedup, tracker parsing, HTML stripping
 - `src/commands/extract.ts` — `gbrain extract links|timeline|all`: batch link/timeline extraction from markdown
 - `src/commands/features.ts` — `gbrain features --json --auto-fix`: usage scan + feature adoption salesman
-- `src/commands/autopilot.ts` — `gbrain autopilot --install`: self-maintaining brain daemon (sync+extract+embed)
+- `src/commands/autopilot.ts` — `gbrain autopilot --install`: self-maintaining brain daemon (sync+extract+embed+dream-cycle nightly). Exports pure `shouldRunDreamCycle(lastRunMs, nowMs, minHours?)` for rate-limiting the nightly promotion step. Stamp file at `~/.gbrain/dream-cycle.stamp`.
 - `src/mcp/server.ts` — MCP stdio server (generated from operations)
 - `src/commands/auth.ts` — Standalone token management (create/list/revoke/test)
 - `src/commands/upgrade.ts` — Self-update CLI with post-upgrade feature discovery + features hook
@@ -140,7 +140,7 @@ Key commands added in v0.7:
 
 ## Testing
 
-`bun test` runs all tests (47 unit test files + 6 E2E test files). Unit tests run
+`bun test` runs all tests (48 unit test files + 6 E2E test files). Unit tests run
 without a database. E2E tests skip gracefully when `DATABASE_URL` is not set.
 
 Unit tests: `test/markdown.test.ts` (frontmatter parsing), `test/chunkers/recursive.test.ts`
@@ -176,7 +176,8 @@ parity), `test/cli.test.ts` (CLI structure), `test/config.test.ts` (config redac
 `test/features.test.ts` (feature scanning, brain_score calculation, CLI routing, persistence),
 `test/file-upload-security.test.ts` (symlink traversal, cwd confinement, slug + filename allowlists, remote vs local trust),
 `test/query-sanitization.test.ts` (prompt-injection stripping, output sanitization, structural boundary),
-`test/search-limit.test.ts` (clampSearchLimit default/cap behavior across list_pages and get_ingest_log).
+`test/search-limit.test.ts` (clampSearchLimit default/cap behavior across list_pages and get_ingest_log),
+`test/autopilot.test.ts` (shouldRunDreamCycle: first-run, boundary, corrupt stamp, clock-backwards defensive cases).
 
 E2E tests (`test/e2e/`): Run against real Postgres+pgvector. Require `DATABASE_URL`.
 - `bun run test:e2e` runs Tier 1 (mechanical, all operations, no API keys)
