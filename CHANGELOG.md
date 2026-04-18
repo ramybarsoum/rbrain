@@ -2,6 +2,16 @@
 
 All notable changes to GBrain will be documented in this file.
 
+## [0.12.1] - 2026-04-18
+
+### Unify on `~/.gbrain/` across code and docs, retire the half-migrated fork rebrand
+
+The fork's earlier attempt to rebrand `~/.gbrain/` to `~/.rbrain/` was incomplete: `config.ts` wrote to `~/.rbrain/` while the rest of the code (autopilot, install scripts, docs in CLAUDE.md) used `~/.gbrain/`. The split caused real test failures and made the fork harder to reason about. This release flips the primary path back to `~/.gbrain/` everywhere and keeps `~/.rbrain/` as a silent read-only fallback so existing installs keep working.
+
+- Existing `~/.rbrain/config.json` is still read if no `~/.gbrain/config.json` exists. New writes always go to `~/.gbrain/`. No manual migration required.
+- Fixed two env-leaky tests (`init-migrate-only`, `skillpack-check`) that depended on the tester having no active brain. They now strip `RBRAIN_DATABASE_URL` alongside `GBRAIN_DATABASE_URL` / `DATABASE_URL` and run subprocesses with `cwd: tmp` so Bun's auto-`.env`-load can't re-inject project env vars.
+- Fixed a typo in `detectInstallMethod` that was checking `execPath.endsWith('.rbrain')` when it should have been `/gbrain` — installed binaries will never be named `.rbrain`.
+
 ## [0.12.0] - 2026-04-18
 
 > **Merge release**: this version combines upstream v0.12.0 (knowledge graph) with the RBrain fork's independent v0.11.0 and v0.11.1 (dream-cycle command + autopilot integration + skills expansion). Both streams are preserved below.
