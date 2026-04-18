@@ -2,6 +2,16 @@
 
 All notable changes to GBrain will be documented in this file.
 
+## [0.11.1] - 2026-04-18
+
+### Autopilot now runs dream cycle nightly
+
+`gbrain autopilot` gained a fifth phase. After sync, extract, and embed, it runs dream-cycle promotion once every 23 hours and logs the result to the ingest audit trail. Live mode by default (no dry-run). Your brain compounds overnight without cron setup or manual runs. Rate-limited via a stamp file at `~/.gbrain/dream-cycle.stamp`, defensive against clock skew, corrupt stamps, and first-run paths. Errors are non-fatal and best-effort, matching every other autopilot step, so a failed dream cycle never kills the daemon.
+
+- If you already have autopilot installed, restart it once to pick up the new phase: `gbrain autopilot --uninstall && gbrain autopilot --install`
+- New exported helper `shouldRunDreamCycle(lastRunMs, nowMs, minHours?)` is a pure function with 9 unit tests covering boundary, clock-backwards, corrupt-stamp, and first-run cases
+- Operational disciplines doc (phase 5d) is now wired to actual code, not just prose
+
 ## [0.11.0] - 2026-04-18
 
 ### Dream cycle: your brain now promotes recurring patterns into semantic memory
