@@ -10,6 +10,14 @@ version: 2.0.0
 A continuous learning system that extracts reusable knowledge from work sessions and
 codifies it into new skills. This enables autonomous improvement over time.
 
+## Contract
+
+This skill guarantees:
+- Before creating any skill, searches RBrain and local skill directories for duplicates.
+- Only extracts knowledge that meets all four quality criteria (reusable, non-trivial, specific, verified).
+- Every new skill follows the standard SKILL.md frontmatter format.
+- After creation, the skill is captured back to RBrain for cross-session discovery.
+
 ## Core Principle
 
 When working on tasks, continuously evaluate whether the current work contains extractable
@@ -196,6 +204,14 @@ n8n's REST API has undocumented constraints...
 **Step 4 - Save**: `~/.claude/skills/n8n-workflow-api-quirks/SKILL.md`
 
 **Step 5 - Capture to RBrain**: Records the skill's existence for cross-session discovery.
+
+## Output Format
+
+When Claudeception runs, it produces:
+- A list of candidate extractions with brief justifications (1-3 per session typically).
+- For each extracted skill: a new SKILL.md file in the appropriate location.
+- An RBrain capture entry for each new skill.
+- A summary of what was created and why.
 
 ## Anti-Patterns
 

@@ -2,6 +2,44 @@
 
 All notable changes to GBrain will be documented in this file.
 
+## [0.11.0] - 2026-04-18
+
+### Dream cycle: your brain now promotes recurring patterns into semantic memory
+
+The biggest gap in an always-on knowledge brain is the jump from episodic capture (every signal) to semantic truth (what actually matters). `gbrain dream-cycle` closes it. Run it nightly (or via cron) and your brain consolidates: scans the last 14 days of timeline entries, finds patterns that recur 3+ times, scores them by recurrence + recency + spread, and promotes the durable ones into compiled truth with a dated semantic note. PHI rejection, dry-run default, max 10 promotions per run. Phase 1 is deterministic — no LLM calls, predictable behavior, safe to cron.
+
+- **New command:** `gbrain dream-cycle [--dry-run] [--window N] [--min-recurrence N] [--max-promotions N] [--json]`
+- **New page type:** `working/` for active task state and resumable workspace context. The kind of thing that should survive a session reset but doesn't belong in a permanent project or concept page yet.
+- **Operational guide updated:** nightly loop now has a `5d` promotion phase before the final sync.
+
+### Skills expansion: 9 new and upgraded
+
+Five new skills added:
+
+- **`article-learning`** — deep article analysis tied to your real RBrain context. Extracts actionable insights, challenges weak ideas in the regulated-healthcare-SaaS frame, maps each insight to a concrete landing spot, and ends with an explicit confirmation gate. Never writes — proposes.
+- **`article-apply-changes`** — executes only the changes you explicitly approved from article-learning. Parses numbered selections, exclusions, and ranges. Logs the batch to RBrain. Reports exact slugs touched. Chains after article-learning.
+- **`grill-me`** — interview the user relentlessly about a plan or design until you reach shared understanding. Walks down each branch of the decision tree, one question at a time, with a recommended answer for each. From [mattpocock/skills](https://github.com/mattpocock/skills).
+- **`write-a-prd`** — structured PRD creation through problem discovery, codebase exploration, and module design. Submits as a GitHub issue. Chains into `prd-to-issues` and `grill-me`.
+- **`prd-to-issues`** — break a PRD into independently-grabbable GitHub issues using tracer-bullet vertical slices. Each issue cuts top-to-bottom through all integration layers, not a horizontal slice of one layer.
+
+Four existing skills upgraded with Contract + Output Format + Anti-Patterns sections (standardized conformance): `claudeception`, `daily-digest`, `heavy-file-ingestion`, `weekly-signal-diff`.
+
+New `skills-lock.json` tracks provenance of externally-sourced skills via computed hash.
+
+### Resolver refresh: lighter session context, clearer schema
+
+Split brain schema from skill routing. The new root `RESOLVER.md` (~40 lines) is always loaded and tells the agent the brain page schema and directory tree. `skills/RESOLVER.md` is now load-on-demand — only read when you need skill routing, filing decisions, or a brain-writing workflow. Result: SOUL.md + root RESOLVER.md preload cheaply; the full skill routing table doesn't crowd out the actual task.
+
+- **Root `RESOLVER.md`** — brain schema, directory table (`people/`, `companies/`, `concepts/`, `ideas/`, `projects/`, `working/`, `sources/`, `decisions/`), slug patterns, pointer to full filing rules.
+- **`skills/RESOLVER.md` expanded** — MCP tools inventory table, filing resolver, triggers for all 9 new/upgraded skills, "Always read first" section.
+- **`skills/_brain-filing-rules.md`** — adds `working/` directory exception and opt-in Skill Self-Rewrite Protocol (review skills after 5 real uses or a meaningful failure).
+- **`skills/conventions/quality.md`** — adds "Destinations and Fences" convention: skills should describe what good looks like and the boundaries that must not be crossed, not shell-by-shell driving directions.
+- **`CLAUDE.md`** — formalized Read Order: SOUL.md first, root RESOLVER.md second, `skills/RESOLVER.md` on demand only.
+
+### Contributors
+
+Shipped as a single wave after triaging work done on cole-macbook.
+
 ## [0.10.2] - 2026-04-17
 
 ### Security — Wave 3 (9 vulnerabilities closed)

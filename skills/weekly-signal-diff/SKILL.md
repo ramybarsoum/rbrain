@@ -15,6 +15,15 @@ version: 1.0.0
 
 # Weekly Signal Diff
 
+## Contract
+
+This skill guarantees:
+- Starts from RBrain context (active projects, priorities, prior digests) before gathering any signals.
+- Produces structural diffs, not headline roundups. A good week has 3-7 real shifts.
+- Personalizes using RBrain memory. The starter universe is a bootstrap layer, not the final list.
+- Saves the digest back to RBrain with provenance (week ending date, topic scope, entities).
+- Falls back to browser-based source scraping if web search tools are unavailable.
+
 ## Problem
 
 A wall of news does not tell the user what structurally changed. Most weekly
@@ -123,14 +132,36 @@ Use this default structure:
    - Include provenance: week ending date, topic scope, and major entities
      covered.
 
-## Output
+## Output Format
 
-When this skill works correctly, the user gets:
+```markdown
+**Weekly Signal Diff — Week ending [date]**
 
-- a concise weekly structural diff instead of a headline roundup
-- a clear explanation of why the shifts matter to them specifically
-- citations or source links when live search is available
-- a durable weekly digest saved back into RBrain for future comparison
+**Coverage note**: what was scanned, how it was personalized, date window.
+
+**Structural shifts** (3-7 items):
+- What changed
+- Why it matters in general
+- Why it matters to this user
+- Supporting evidence or citations
+
+**What changed from last week**: new, rising, fading, or resolved themes.
+
+**Watch next**: entities, constraints, or questions to monitor.
+
+**Actions**: optional follow-ups, only if evidence supports them.
+```
+
+The digest is also saved back to RBrain as a durable page.
+
+## Anti-Patterns
+
+- Forcing all 30 suggested companies into the final output. They prevent blank-page syndrome, not fake coverage.
+- Mistaking product launches, benchmark screenshots, or funding headlines for structural change.
+- Producing a headline roundup instead of a structural diff.
+- Hiding the freshness limitation when live search is unavailable.
+- Forcing signals when the week was thin. Say it was thin.
+- Mixing general market analysis with personalized implications without clear separation.
 
 ## Search Fallback (when web_search / web_extract are down)
 
