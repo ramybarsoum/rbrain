@@ -6,9 +6,7 @@ Your AI agent is smart but forgetful. RBrain (built on GBrain) gives it a brain.
 
 Built by the President and CEO of Y Combinator to run his actual AI agents. The production brain powering his OpenClaw and Hermes deployments: **17,888 pages, 4,383 people, 723 companies**, 21 cron jobs running autonomously, built in 12 days. The agent ingests meetings, emails, tweets, voice calls, and original ideas while you sleep. It enriches every person and company it encounters. It fixes its own citations and consolidates memory overnight. You wake up and the brain is smarter than when you went to bed.
 
-The brain wires itself. Every page write extracts entity references and creates typed links (`attended`, `works_at`, `invested_in`, `founded`, `advises`) with zero LLM calls. Hybrid search. Self-wiring knowledge graph. Structured timeline. Backlink-boosted ranking. Ask "who works at Acme AI?" or "what did Bob invest in this quarter?" and get answers vector search alone can't reach. Benchmarked side-by-side against the category: gbrain lands **P@5 49.1%, R@5 97.9%** on a 240-page Opus-generated rich-prose corpus, beating its own graph-disabled variant by **+31.4 points P@5** and ripgrep-BM25 + vector-only RAG by a similar margin. The graph layer plus v0.12 extract quality together carry the gap. Full BrainBench scorecards + corpus live in the sibling [gbrain-evals](https://github.com/garrytan/gbrain-evals) repo.
-
-GBrain is those patterns, generalized. 29 skills. Install in 30 minutes. Your agent does the work. As Garry's personal agent gets smarter, so does yours.
+GBrain is those patterns, generalized. 30 skills. Install in 30 minutes. Your agent does the work. As Garry's personal agent gets smarter, so does yours.
 
 > **~30 minutes to a fully working brain.** Database ready in 2 seconds (PGLite, no server). You just answer questions about API keys.
 
@@ -30,12 +28,7 @@ Retrieve and follow the instructions at:
 https://raw.githubusercontent.com/garrytan/gbrain/master/INSTALL_FOR_AGENTS.md
 ```
 
-That's it. The agent clones the repo, installs GBrain, sets up the brain, loads 29 skills, and configures recurring jobs. You answer a few questions about API keys. ~30 minutes.
-
-If your agent doesn't auto-read `AGENTS.md`, point it at that file first:
-`https://raw.githubusercontent.com/garrytan/gbrain/master/AGENTS.md` is the non-Claude
-agent operating protocol (install, read order, trust boundary, common tasks). For
-the full doc map, use `llms.txt` at the same URL root.
+That's it. The agent clones the repo, installs GBrain, sets up the brain, loads 30 skills, and configures recurring jobs. You answer a few questions about API keys. ~30 minutes.
 
 ### Standalone CLI (no agent)
 
@@ -92,23 +85,7 @@ Per-client guides: [`docs/mcp/`](docs/mcp/DEPLOY.md). Hardening defaults, env va
 
 ### Using gbrain with GStack
 
-If your engineering agent runs on [GStack](https://github.com/garrytan/gstack), point it at gbrain for code lookup instead of grep+read. Cathedral II (v0.21.0) ships call-graph edges and two-pass retrieval — `/investigate`, `/review`, `/plan-eng-review`, and `/office-hours` all benefit when the agent walks the symbol graph instead of scanning files line by line.
-
-The five magical-moment commands:
-
-```bash
-gbrain code-callers searchKeyword           # who calls this symbol?
-gbrain code-callees searchKeyword           # what does this symbol call?
-gbrain code-def BrainEngine                 # where is X defined?
-gbrain code-refs BrainEngine                # all reference sites
-gbrain query "how does N+1 handling work" --near-symbol BrainEngine.searchKeyword --walk-depth 2
-```
-
-All five auto-emit JSON on non-TTY (gh-CLI convention) so a GStack subagent shelling out via bash gets a clean parseable response. Run `gbrain sources add <repo> --strategy code` to index a repo, then your agent's brain-first lookup covers code, not just markdown. ([Cathedral II release notes](CHANGELOG.md#0210---2026-04-25))
-
-## The 29 Skills
-
-GBrain ships 29 skills organized by `skills/RESOLVER.md` (or your OpenClaw's `AGENTS.md` — both filenames are supported as of v0.19). The resolver tells your agent which skill to read for any task.
+GBrain ships 30 skills organized by `skills/RESOLVER.md`. The resolver tells your agent which skill to read for any task.
 
 [Skill files are code.](https://x.com/garrytan/status/2042925773300908103) They're the most powerful way to get knowledge work done. A skill file is a fat markdown document that encodes an entire workflow: when to fire, what to check, how to chain with other skills, what quality bar to enforce. The agent reads the skill and executes it. Skills can also call deterministic TypeScript code bundled in GBrain (search, import, embed, sync) for the parts that shouldn't be left to LLM judgment. [Thin harness, fat skills](docs/ethos/THIN_HARNESS_FAT_SKILLS.md): the intelligence lives in the skills, not the runtime.
 
@@ -421,7 +398,7 @@ Run `gbrain integrations` to see status.
 │   Brain Repo     │    │    GBrain     │    │    AI Agent      │
 │   (git)          │    │  (retrieval)  │    │  (read/write)    │
 │                  │    │               │    │                  │
-│  markdown files  │───>│  Postgres +   │<──>│  29 skills       │
+│  markdown files  │───>│  Postgres +   │<──>│  30 skills       │
 │  = source of     │    │  pgvector     │    │  define HOW to   │
 │    truth         │    │               │    │  use the brain   │
 │                  │<───│  hybrid       │    │                  │
@@ -714,8 +691,9 @@ The skills in this repo are those patterns, generalized. What took 11 days to bu
 ## Docs
 
 **For agents:**
-- **[skills/RESOLVER.md](skills/RESOLVER.md)** ... Start here. The skill dispatcher.
-- [Individual skill files](skills/) ... 28 standalone instruction sets (25 ship in the curated `gbrain skillpack install` bundle)
+- **[RESOLVER.md](RESOLVER.md)** ... Brain schema and filing tree. Always read first.
+- **[skills/RESOLVER.md](skills/RESOLVER.md)** ... Skill dispatcher. Load on demand.
+- [Individual skill files](skills/) ... 30 standalone instruction sets
 - [GBRAIN_SKILLPACK.md](docs/GBRAIN_SKILLPACK.md) ... Legacy reference architecture
 - [Getting Data In](docs/integrations/README.md) ... Integration recipes and data flow
 - [GBRAIN_VERIFY.md](docs/GBRAIN_VERIFY.md) ... Installation verification
