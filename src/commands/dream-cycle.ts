@@ -35,7 +35,8 @@ Options:
   }
 
   const jsonMode = args.includes('--json');
-  const dryRun = args.includes('--dry-run') || !args.includes('--no-dry-run');
+  // Default to dry-run only in non-interactive contexts for safety
+  const dryRun = args.includes('--dry-run') || (!args.includes('--no-dry-run') && !process.stdin.isTTY);
 
   const config: Partial<PromotionConfig> = {};
   const window = parseArg(args, '--window');
