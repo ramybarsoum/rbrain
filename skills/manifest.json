@@ -135,24 +135,49 @@
       "description": "Structured data research: search, extract, archive, deduplicate, track. Parameterized YAML recipes for investor updates, donations, company metrics."
     },
     {
-      "name": "minion-orchestrator",
-      "path": "minion-orchestrator/SKILL.md",
-      "description": "Unified Minions skill for deterministic shell jobs and LLM subagent orchestration. Submit, monitor, steer, pause/resume, replay. Replaces the older gbrain-jobs routing intent and sessions_spawn for durable observable background work."
+      "name": "daily-digest",
+      "path": "daily-digest/SKILL.md",
+      "description": "Morning digest of yesterday's RBrain activity, delivered to Discord."
     },
     {
-      "name": "skillify",
-      "path": "skillify/SKILL.md",
-      "description": "Meta skill. Turn any raw feature into a properly-skilled, tested, resolvable, evaled unit. Paired with gbrain check-resolvable gives user-controllable auto-skill-creation."
+      "name": "heavy-file-ingestion",
+      "path": "heavy-file-ingestion/SKILL.md",
+      "description": "Convert heavyweight files (PDF, DOCX, PPTX, XLSX) into cheap artifacts with a tiered escalation model."
     },
     {
-      "name": "skillpack-check",
-      "path": "skillpack-check/SKILL.md",
-      "description": "Agent-readable gbrain health report. Wraps doctor + apply-migrations --list into one JSON blob with exit codes. Cron-friendly for morning-briefing pipelines."
+      "name": "weekly-signal-diff",
+      "path": "weekly-signal-diff/SKILL.md",
+      "description": "Weekly structural diff on fast-moving markets, personalized via RBrain context and saved as a durable digest."
     },
     {
-      "name": "smoke-test",
-      "path": "smoke-test/SKILL.md",
-      "description": "Post-restart smoke tests + auto-fix for gbrain and OpenClaw environments"
+      "name": "claudeception",
+      "path": "claudeception/SKILL.md",
+      "description": "Continuous learning system that extracts reusable knowledge from work sessions into new skills."
+    },
+    {
+      "name": "article-learning",
+      "path": "article-learning/SKILL.md",
+      "description": "Deep article analysis tied to Ramy's context. Extracts actionable insights, challenges weak ideas, maps landing spots, and ends with a confirmation gate."
+    },
+    {
+      "name": "article-apply-changes",
+      "path": "article-apply-changes/SKILL.md",
+      "description": "Execute only the article-derived changes Ramy explicitly approved. Applies sequentially, logs the batch, and reports exact slugs and paths touched."
+    },
+    {
+      "name": "grill-me",
+      "path": "grill-me/SKILL.md",
+      "description": "Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree."
+    },
+    {
+      "name": "prd-to-issues",
+      "path": "prd-to-issues/SKILL.md",
+      "description": "Break a PRD into independently-grabbable GitHub issues using tracer-bullet vertical slices."
+    },
+    {
+      "name": "write-a-prd",
+      "path": "write-a-prd/SKILL.md",
+      "description": "Create a PRD through user interview, codebase exploration, and module design, then submit as a GitHub issue."
     }
   ],
   "dependencies": {
