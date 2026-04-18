@@ -22,16 +22,25 @@ let tmp: string;
 let origHome: string | undefined;
 
 function run(args: string[]): { exitCode: number; stdout: string; stderr: string } {
-  // Strip DATABASE_URL / GBRAIN_DATABASE_URL from the subprocess env. The
+  // Strip every env var that loadConfig() reads (src/core/config.ts:40). The
   // "no config" error-path tests need loadConfig() to return null, which it
-  // won't if any env var fallback is set (src/core/config.ts:30). Tests
-  // that seed their own config use freshHomeWithConfig() below.
+  // won't if any env var fallback is set. Tests that seed their own config
+  // use freshHomeWithConfig() below.
+  //
+  // RBRAIN_DATABASE_URL is the fork-specific variant and Bun auto-loads it
+  // from the project `.env` into every subprocess, so forgetting to strip
+  // it silently couples these tests to the tester's live brain.
   const env = { ...process.env, HOME: tmp } as Record<string, string | undefined>;
   delete env.DATABASE_URL;
   delete env.GBRAIN_DATABASE_URL;
+  delete env.RBRAIN_DATABASE_URL;
   try {
+    // cwd: tmp so Bun's auto-.env-load doesn't find the project .env and
+    // re-inject the RBRAIN_DATABASE_URL we just stripped. Absolute CLI path
+    // above makes this cwd-independent.
     const stdout = execFileSync('bun', ['run', CLI, ...args], {
       env: env as Record<string, string>,
+      cwd: tmp,
       encoding: 'utf-8',
       stdio: ['ignore', 'pipe', 'pipe'],
     });

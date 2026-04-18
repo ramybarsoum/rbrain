@@ -103,7 +103,7 @@ async function initMigrateOnly(opts: { jsonOutput: boolean }) {
 }
 
 async function initPGLite(opts: { jsonOutput: boolean; apiKey: string | null; customPath: string | null }) {
-  const dbPath = opts.customPath || join(homedir(), '.rbrain', 'brain.pglite');
+  const dbPath = opts.customPath || join(homedir(), '.gbrain', 'brain.pglite');
   console.log(`Setting up local brain with PGLite (no server needed)...`);
 
   const engine = await createEngine({ engine: 'pglite' });
@@ -197,7 +197,7 @@ async function initPostgres(opts: { databaseUrl: string; jsonOutput: boolean; ap
     ...(opts.apiKey ? { openai_api_key: opts.apiKey } : {}),
   };
   saveConfig(config);
-  console.log('Config saved to ~/.rbrain/config.json');
+  console.log('Config saved to ~/.gbrain/config.json');
 
     const config: GBrainConfig = {
       engine: 'postgres',
