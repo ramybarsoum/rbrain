@@ -5,6 +5,10 @@
 The PRIMARY SUBJECT of the content determines where it goes. Not the format,
 not the source, not the skill that's running.
 
+`working/` is the exception by design: use it only for short-lived active task
+state, resumable workspace context, checkpoints, and open hypotheses that should
+survive a session reset but should not yet be hardened into project or concept pages.
+
 ## Decision Protocol
 
 1. Identify the primary subject (a person? company? concept? policy issue?)
@@ -72,6 +76,27 @@ Source precedence (highest to lowest):
 
 When sources conflict, note the contradiction with both citations. Don't
 silently pick one.
+
+## Skill Self-Rewrite Protocol (OPT-IN)
+
+Use this on high-traffic or high-value skills. Not every skill needs it.
+
+Trigger a self-review when either condition is true:
+- after every 5 real uses
+- on any meaningful failure, contradiction, or repeated correction
+
+When the hook fires:
+1. Read recent evidence tied to that skill (timeline entries, ingest logs, known failures, recent edits)
+2. Check whether the skill's triggers, constraints, or output format are stale
+3. If the pattern is clear, update the skill conservatively
+4. Record the reason in the skill file or adjacent knowledge note
+5. If the issue is safety-relevant or cross-cutting, promote it to shared conventions instead of keeping it local
+
+Rules:
+- Do not rewrite on every run
+- Do not change a skill because of one weak anecdote
+- Prefer tightening constraints and clarifying success criteria over adding procedural clutter
+- If a change would alter system-wide behavior, escalate it to shared conventions or a reviewed concept page
 
 ## Raw Source Preservation
 
