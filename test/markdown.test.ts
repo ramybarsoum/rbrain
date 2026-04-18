@@ -77,6 +77,17 @@ Content
     expect(parsed.type).toBe('person');
   });
 
+  test('infers working type from file path', () => {
+    const md = `---
+title: Active Concierge Debug Session
+---
+Open issues and next steps.
+`;
+    const parsed = parseMarkdown(md, 'working/concierge-reliability.md');
+    expect(parsed.type).toBe('working');
+    expect(parsed.slug).toBe('working/concierge-reliability');
+  });
+
   test('infers slug from file path', () => {
     const md = `---
 type: concept

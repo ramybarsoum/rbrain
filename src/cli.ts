@@ -18,7 +18,7 @@ for (const op of operations) {
 }
 
 // CLI-only commands that bypass the operation layer
-const CLI_ONLY = new Set(['init', 'upgrade', 'post-upgrade', 'check-update', 'integrations', 'publish', 'check-backlinks', 'lint', 'report', 'import', 'export', 'files', 'embed', 'serve', 'call', 'config', 'doctor', 'migrate', 'eval', 'sync', 'extract', 'features', 'autopilot']);
+const CLI_ONLY = new Set(['init', 'upgrade', 'post-upgrade', 'check-update', 'integrations', 'publish', 'check-backlinks', 'lint', 'report', 'import', 'export', 'files', 'embed', 'serve', 'call', 'config', 'doctor', 'migrate', 'eval', 'sync', 'extract', 'features', 'autopilot', 'dream-cycle']);
 
 async function main() {
   const args = process.argv.slice(2);
@@ -370,6 +370,11 @@ async function handleCliOnly(command: string, args: string[]) {
         await runAutopilot(engine, args);
         return; // autopilot doesn't disconnect (long-running)
       }
+      case 'dream-cycle': {
+        const { runDreamCycleCommand } = await import('./commands/dream-cycle.ts');
+        await runDreamCycleCommand(engine, args);
+        break;
+      }
     }
   } finally {
     if (command !== 'serve') await engine.disconnect();
@@ -481,6 +486,7 @@ ADMIN
   revert <slug> <version-id>         Revert to version
   features [--json] [--auto-fix]     Scan usage + recommend unused features
   autopilot [--repo] [--interval N]  Self-maintaining brain daemon
+  dream-cycle [--dry-run] [--json]   Episodic-to-semantic promotion
   config [show|get|set] <key> [val]  Brain config
   serve                              MCP server (stdio)
   call <tool> '<json>'               Raw tool invocation

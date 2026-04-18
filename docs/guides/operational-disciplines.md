@@ -86,7 +86,17 @@ on nightly_schedule("02:00"):
             updated_truth = consolidate(page.compiled_truth, timeline.new_entries)
             gbrain put <page.slug> --content updated_truth
 
-    # 5d: Sync everything
+    # 5d: Episodic-to-semantic promotion -- harden recurring patterns
+    recurring = detect_recurring_patterns(
+        timeline_entries=all_recent_timelines(window="14d"),
+        min_recurrence=3,
+        min_salience="medium"
+    )
+    for pattern in recurring:
+        if pattern.is_cross_cutting and not pattern.is_conflicted:
+            promote_to_semantic_memory(pattern)
+
+    # 5e: Sync everything
     gbrain sync
 
 # BONUS: Durable Skills Over One-Off Work
