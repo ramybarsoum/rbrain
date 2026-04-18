@@ -7,6 +7,14 @@ version: 1.0.0
 
 # Heavy File Ingestion
 
+## Contract
+
+This skill guarantees:
+- Never dumps raw heavyweight files into model context when a deterministic converter can produce a cheaper artifact.
+- Always generates an index file first. The agent reads the index before deciding what to reason about.
+- Escalates by cost tier (deterministic first, cheap model second, expensive model last).
+- Leaves behind deterministic artifacts for future use.
+
 ## Problem
 
 Agents waste money and context when they read heavyweight files raw. This skill turns bulky documents into cheaper working artifacts first, then tells the main agent how much reasoning power the file actually deserves.
@@ -58,14 +66,22 @@ python skills/heavy-file-ingestion/scripts/convert_heavy_file.py /absolute/path/
    - Use a small model to rebuild only the structure or outline from the extracted artifact
    - Escalate to a stronger model only when the cheaper passes still leave critical ambiguity
 
-## Output
+## Output Format
 
-The skill should leave behind:
+The skill leaves behind:
 
 - A deterministic artifact the agent can work from
 - `index.md` with file counts, structure hints, preview lines, and a recommended next step
 - `index.json` with the same information in machine-friendly form
 - Warnings when the deterministic pass is not trustworthy enough for direct reasoning
+
+## Anti-Patterns
+
+- Dumping raw file content into model context without conversion first
+- Skipping the index step and reading the full extracted artifact immediately
+- Defaulting to "use a sub-agent" for what a deterministic converter handles better
+- Escalating to an expensive model before trying a cheaper pass
+- Ignoring quality flags that indicate the deterministic extraction lost structure
 
 ## Notes
 
