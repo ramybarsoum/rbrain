@@ -1,6 +1,15 @@
 # GBrain Skill Resolver
 
-This is the dispatcher. Skills are the implementation. **Read the skill file before acting.** If two skills could match, read both. They are designed to chain (e.g., ingest then enrich for each entity).
+This is the dispatcher. Skills are the implementation. MCPs are the tools. **Read this file before acting.** If two skills could match, read both. They are designed to chain (e.g., ingest then enrich for each entity).
+
+## Always read first
+
+Before any task, read these files in order:
+
+1. **`~/RBrain/SOUL.md`** — user personality, writing style, company info, key people, product principles, decision rights.
+2. **This file (RESOLVER.md)** — skill routing, MCP tool lookup, filing rules.
+
+Never guess about people, companies, skills, or MCPs. The resolver has the answer.
 
 ## Always-on (every message)
 
@@ -20,15 +29,20 @@ This is the dispatcher. Skills are the implementation. **Read the skill file bef
 | Fix broken citations in brain pages | `skills/citation-fixer/SKILL.md` |
 | "Research", "track", "extract from email", "investor updates", "donations" | `skills/data-research/SKILL.md` |
 | Share a brain page as a link | `skills/publish/SKILL.md` |
+| "Weekly signal diff", "what changed this week" | `skills/weekly-signal-diff/SKILL.md` |
+| "Daily digest", "yesterday's summary", "morning brief" | `skills/daily-digest/SKILL.md` |
 
 ## Content & media ingestion
 
 | Trigger | Skill |
 |---------|-------|
 | User shares a link, article, tweet, or idea | `skills/idea-ingest/SKILL.md` |
+| User shares an article with learning intent ("what can I learn", "extract learnings") | `skills/article-learning/SKILL.md` (review only, can chain after idea-ingest) |
+| User approves numbered article changes ("1, 3, 5", "all except 2", "apply them") | `skills/article-apply-changes/SKILL.md` |
 | Video, audio, PDF, book, YouTube, screenshot | `skills/media-ingest/SKILL.md` |
 | Meeting transcript received | `skills/meeting-ingestion/SKILL.md` |
 | Generic "ingest this" (auto-routes to above) | `skills/ingest/SKILL.md` |
+| Large file (>10MB), bulk document ingestion | `skills/heavy-file-ingestion/SKILL.md` |
 
 ## Thinking skills (from GStack)
 
@@ -36,6 +50,9 @@ This is the dispatcher. Skills are the implementation. **Read the skill file bef
 |---------|-------|
 | "Brainstorm", "I have an idea", "office hours" | GStack: office-hours |
 | "Review this plan", "CEO review", "poke holes" | GStack: ceo-review |
+| "Grill me", "stress test this plan", "challenge this design" | `skills/grill-me/SKILL.md` |
+| "Write a PRD", "create a PRD", "plan a new feature" | `skills/write-a-prd/SKILL.md` |
+| "Break PRD into issues", "PRD to tickets", "create issues from PRD" | `skills/prd-to-issues/SKILL.md` |
 | "Debug", "fix", "broken", "investigate" | GStack: investigate |
 | "Retro", "what shipped", "retrospective" | GStack: retro |
 
@@ -59,6 +76,7 @@ This is the dispatcher. Skills are the implementation. **Read the skill file bef
 | "Validate skills", skill health check | `skills/testing/SKILL.md` |
 | Webhook setup, external event processing | `skills/webhook-transforms/SKILL.md` |
 | "Spawn agent", "background task", "parallel tasks", "steer agent", "pause/resume agent" | `skills/minion-orchestrator/SKILL.md` |
+| Continuous learning, knowledge extraction | `skills/claudeception/SKILL.md` |
 
 ## Setup & migration
 
@@ -74,14 +92,39 @@ This is the dispatcher. Skills are the implementation. **Read the skill file bef
 | "Populate links", "extract links", "backfill graph" | `skills/maintain/SKILL.md` (graph population phase) |
 | "Populate timeline", "extract timeline entries" | `skills/maintain/SKILL.md` (graph population phase) |
 
-## Identity & access (always-on)
+## MCP Tools
 
-| Trigger | Skill |
-|---------|-------|
-| Non-owner sends a message | Check `ACCESS_POLICY.md` before responding |
-| Agent needs to know its identity/vibe | Read `SOUL.md` |
-| Agent needs user context | Read `USER.md` |
-| Operational cadence (what to check and when) | Read `HEARTBEAT.md` |
+| MCP Server | Purpose | When to use |
+|------------|---------|-------------|
+| **rbrain** | Persistent knowledge base (RBrain) | Any person/company/concept lookup, page reads/writes, search, timeline, links |
+| **agentmail** | Email (max.brain@agentmail.to) | Send/receive emails, inbox management |
+| **granola** | Meeting notes & transcripts | Query meeting content, get transcripts, list meetings |
+| **Discord** (`mcp__plugin_discord_discord__*`) | Messaging (RStack HQ) | Send messages, read channels, thread management |
+| **Slack** | Team messaging | AllCare team comms, channel messages |
+| **Google Workspace** (`gws` CLI) | Gmail, Calendar, Drive, Sheets, Docs | Email search, calendar events, file access, spreadsheet data |
+| **HeroUI** (`heroui-react`) | UI component docs | Before using any HeroUI component, call for docs first |
+| **Figma** | Design files | Read design specs, component designs, layouts |
+| **Stedi** | Eligibility checks | Insurance eligibility verification |
+| **Linear** | Project management | Issue tracking, sprint management, task boards |
+| **Playwright** | Browser automation | E2E testing, browser-based QA |
+| **CodeGraph** | Code exploration | Symbol search, call graphs, impact analysis, code context |
+
+## Filing resolver
+
+Content goes where its primary subject dictates, not by format:
+
+| Content type | Directory |
+|-------------|-----------|
+| Person | `people/` |
+| Company | `companies/` |
+| Meeting | `meetings/` |
+| Concept or framework | `concepts/` |
+| Idea or original thinking | `ideas/` |
+| Project or initiative | `projects/` |
+| Active task state or resumable workspace context | `working/` |
+| Raw source material | `sources/` (bulk imports only) |
+
+Full filing rules: `skills/_brain-filing-rules.md`
 
 ## Disambiguation rules
 
