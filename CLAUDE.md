@@ -35,6 +35,16 @@ markdown files (tool-agnostic, work with both CLI and plugin contexts).
 `file_upload` tighten filesystem confinement when `remote=true` and default to
 strict behavior when unset.
 
+## Read Order (MANDATORY)
+
+1. Read `SOUL.md` at the start of every session.
+2. Read `RESOLVER.md` (root) for brain schema and filing directories.
+3. Do **not** preload `skills/RESOLVER.md` on every session.
+4. Read `skills/RESOLVER.md` only when you need skill routing, filing decisions, or a specific brain-writing workflow.
+5. Load only the specific skill files the current task actually needs.
+
+This keeps context lean and prevents skill-routing instructions from crowding out the task itself.
+
 ## Key files
 
 - `src/core/operations.ts` — Contract-first operation definitions (the foundation). Also exports upload validators: `validateUploadPath`, `validatePageSlug`, `validateFilename`. `OperationContext.remote` flags untrusted callers.
@@ -392,8 +402,11 @@ stop and remove it before starting a new one.
 
 ## Skills
 
-Read the skill files in `skills/` before doing brain operations. GBrain ships 29 skills
-organized by `skills/RESOLVER.md` (`AGENTS.md` is also accepted as of v0.19):
+Do **not** read the full skill library on every task. Use `skills/RESOLVER.md` only when
+you need skill routing, filing guidance, or a specific brain-writing workflow. Then load
+only the specific skill files the current task needs.
+
+GBrain ships skills organized by `skills/RESOLVER.md`:
 
 **Original 8 (conformance-migrated):** ingest (thin router), query, maintain, enrich,
 briefing, migrate, setup, publish.
