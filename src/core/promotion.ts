@@ -96,7 +96,7 @@ export function scoreCandidate(
   lastSeenDate: string,
   slugCount: number,
 ): number {
-  // Recurrence factor: 0.3 at min (3), 1.0 at 6+
+  // Recurrence factor: 0.5 at min (3), 1.0 at 6+
   const recFactor = Math.min(recurrence / 6, 1.0);
 
   // Recency factor: 1.0 if today, decays over 14 days
