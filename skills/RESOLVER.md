@@ -78,6 +78,16 @@ Never guess about people, companies, skills, or MCPs. The resolver has the answe
 | "Context rescue", "save this session", long conversation cleanup | `skills/context-rescue/SKILL.md` |
 | "Spawn agent", "background task", "parallel tasks", "steer agent", "pause/resume agent" | `skills/minion-orchestrator/SKILL.md` |
 
+## Browser interaction (live attach, user's session)
+
+| Trigger | Skill |
+|---------|-------|
+| "Open the browser", "go to URL", "click this page", "scrape this site" | `skills/browser-harness/SKILL.md` |
+| "Automate my Chrome", "log me into X", "take a screenshot of page Y" | `skills/browser-harness/SKILL.md` |
+| User shares a site they want the agent to interact with live (uses their real cookies/session) | `skills/browser-harness/SKILL.md` |
+
+> Use `skills/browser-harness/` over the Playwright MCP whenever the task needs the user's real browser session (cookies, logins, open tabs). Playwright spawns its own ephemeral browser; browser-harness attaches via CDP to the user's already-running Chrome and uses screenshot-first coordinate clicks. First-time install on a new machine: read `skills/browser-harness/install.md`.
+
 ## Setup & migration
 
 | Trigger | Skill |
