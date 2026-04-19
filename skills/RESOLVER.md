@@ -11,6 +11,10 @@ Before any task, read these files in order:
 
 Never guess about people, companies, skills, or MCPs. The resolver has the answer.
 
+## Before mutating anything in this repo (NON-NEGOTIABLE)
+
+If you are about to **add or modify a row in this file, create a new fat file under `mcps/` or `tools/`, or add a new skill**, read `skills/conventions/router-pattern.md` first. It defines the "earn the file" test, the thin-row vs fat-file split, and the cross-linking rules. Any agent touching RBrain structure without applying that convention will break the organization the rest of this repo depends on.
+
 ## Always-on (every message)
 
 | Trigger | Skill |
@@ -104,20 +108,25 @@ Never guess about people, companies, skills, or MCPs. The resolver has the answe
 
 ## MCP Tools
 
-| MCP Server | Purpose | When to use |
-|------------|---------|-------------|
-| **rbrain** | Persistent knowledge base (RBrain) | Any person/company/concept lookup, page reads/writes, search, timeline, links |
+Thin rows here are the router. When a row has a **fat file** link, read that file when you need depth (auth, gotchas, operation tables).
+
+| MCP / Tool | Purpose | Depth |
+|------------|---------|-------|
+| **rbrain** | Persistent knowledge base | **Fat file:** `mcps/rbrain.md` (operations, slug rules, session-start rules, gotchas) |
+| **Google Workspace** (`gws` CLI) | Gmail, Calendar, Drive, Sheets, Docs, Slides, Tasks | **Fat file:** `mcps/gws.md` (subcommands, OAuth, gotchas) |
+| **Browser Use** (cloud API) | Remote browsers via CDP — parallel agents, headless servers | **Fat file:** `tools/browser-use.md` (API key, remote daemon, profile sync) |
 | **agentmail** | Email (max.brain@agentmail.to) | Send/receive emails, inbox management |
 | **granola** | Meeting notes & transcripts | Query meeting content, get transcripts, list meetings |
 | **Discord** (`mcp__plugin_discord_discord__*`) | Messaging (RStack HQ) | Send messages, read channels, thread management |
 | **Slack** | Team messaging | AllCare team comms, channel messages |
-| **Google Workspace** (`gws` CLI) | Gmail, Calendar, Drive, Sheets, Docs | Email search, calendar events, file access, spreadsheet data |
 | **HeroUI** (`heroui-react`) | UI component docs | Before using any HeroUI component, call for docs first |
 | **Figma** | Design files | Read design specs, component designs, layouts |
 | **Stedi** | Eligibility checks | Insurance eligibility verification |
 | **Linear** | Project management | Issue tracking, sprint management, task boards |
-| **Playwright** | Browser automation | E2E testing, browser-based QA |
+| **Playwright** | Browser automation | E2E testing. For live user session, prefer `skills/browser-harness/` |
 | **CodeGraph** | Code exploration | Symbol search, call graphs, impact analysis, code context |
+
+> **Pattern:** rows with a fat-file link mirror how skills work (thin router → fat `SKILL.md`). Add a new fat file under `mcps/` or `tools/` only when a row grows complexity worth documenting in one place. Simple rows stay thin.
 
 ## Filing resolver
 
