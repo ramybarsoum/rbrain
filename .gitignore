@@ -11,6 +11,8 @@ bin/
 .gstack/
 supabase/.temp/
 .claude/skills/
+.claude/settings.local.json
+.obsidian/
 .idea
 eval/reports/
 eval/data/world-v1/world.html
