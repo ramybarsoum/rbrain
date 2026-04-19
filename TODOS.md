@@ -546,30 +546,6 @@ iteration's residuals.
 
 ## P1
 
-### Minions shell jobs — Phase 2 scheduling (deferred from v0.13.0)
-
-**What:** `minion_schedules` table + autopilot-cycle scanner that submits due shell jobs.
-
-**Why:** v0.13.0 moves shell scripts to Minions but still leaves scheduling in the host crontab. Your OpenClaw's `scripts/service-manager.sh` + crontab is the only piece left on the host side. A DB-driven scheduler would mean a single `gbrain autopilot --install` replaces the host crontab entirely, scheduling is visible via `gbrain jobs list --scheduled`, and downtime-on-one-machine tolerance improves (schedule is shared DB state, not per-host crontab).
-
-**Pros:** Canonical host-agnostic deployment. No more host-specific crontab.
-
-**Cons:** Cross-engine migration complexity (new table on both PGLite + Postgres). Autopilot-cycle scanner needs to handle missed-schedule semantics (fire-once-on-startup or skip-if-past-now), and this is where every other cron-like system has historically accrued bugs.
-
-**Depends on:** v0.13.0 shell jobs shipped. ✅
-
-### `gbrain crontab-to-minions <file>` migration helper (deferred from v0.13.0)
-
-**What:** Parse an existing crontab file, emit a proposed rewrite using `gbrain jobs submit shell ...` for each deterministic entry, keep LLM-requiring entries as-is.
-
-**Why:** Hand-rewriting ~14 OpenClaw cron entries is error-prone and one-shot. A helper would make the migration reversible and auditable (diff the before/after crontab, dry-run the first N, commit).
-
-**Pros:** Removes the "rewrite 14 lines by hand" tax every agent operator pays on adoption.
-
-**Cons:** Crontab parsing is historically fiddly (5-field vs 6-field, `@hourly` aliases, Vixie extensions, env vars in crontab). Could misrewrite entries with shell substitution.
-
-**Depends on:** v0.13.0 shell jobs shipped. ✅
-
 ### Batch the DB-source extract read path (deferred from v0.12.1)
 **What:** `extractLinksFromDB` and `extractTimelineFromDB` at `src/commands/extract.ts:447, 504` issue one `engine.getPage(slug)` per slug after `engine.getAllSlugs()`. On a 47K-page brain that's still 47K serial reads over the Supabase pooler.
 
