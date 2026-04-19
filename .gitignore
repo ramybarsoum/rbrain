@@ -11,6 +11,8 @@ bin/
 .gstack/
 supabase/.temp/
 .claude/skills/
+.claude/settings.local.json
+.obsidian/
 .idea
 
 # Personal / RBrain-specific (Ramy's fork) — keep on disk, never commit
