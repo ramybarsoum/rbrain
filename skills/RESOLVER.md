@@ -47,6 +47,7 @@ If you are about to **add or modify a row in this file, create a new fat file un
 | Meeting transcript received | `skills/meeting-ingestion/SKILL.md` |
 | Generic "ingest this" (auto-routes to above) | `skills/ingest/SKILL.md` |
 | Large file (>10MB), bulk document ingestion | `skills/heavy-file-ingestion/SKILL.md` |
+| "NotebookLM", "load channel", "expert interview", "notebooklm ask", "health protocol", "cite podcast" | `skills/notebooklm/SKILL.md` |
 
 ## Thinking skills (from GStack)
 
@@ -81,6 +82,23 @@ If you are about to **add or modify a row in this file, create a new fat file un
 | Continuous learning, knowledge extraction | `skills/claudeception/SKILL.md` |
 | "Context rescue", "save this session", long conversation cleanup | `skills/context-rescue/SKILL.md` |
 | "Spawn agent", "background task", "parallel tasks", "steer agent", "pause/resume agent" | `skills/minion-orchestrator/SKILL.md` |
+
+## Marketing & content
+
+| Trigger | Skill |
+|---------|-------|
+| "Expert panel", "score this", "rate these variants", "quality check", "panel review", "evaluate this copy" | `skills/content-ops/SKILL.md` |
+| "Write an X post", "long-form tweet", "X thread", "thought leadership post" | `skills/x-longform-post/SKILL.md` |
+| "YouTube analysis", "competitive analysis YouTube", "viral video patterns", "outlier videos" | `skills/yt-competitive-analysis/SKILL.md` |
+| "Create a deck", "generate slides", "pitch deck", "presentation" | `skills/deck-generator/SKILL.md` |
+| "Optimize this page", "run autoresearch", "A/B test this copy", "score variants" | `skills/autoresearch/SKILL.md` |
+
+## Team & finance ops
+
+| Trigger | Skill |
+|---------|-------|
+| "Team performance audit", "stack rank", "meeting action items", "extract decisions from meeting" | `skills/team-ops/SKILL.md` |
+| "CFO briefing", "financial analysis", "burn rate", "runway analysis", "cost estimate", "development cost", "Claude ROI" | `skills/finance-ops/SKILL.md` |
 
 ## Browser interaction (live attach, user's session)
 

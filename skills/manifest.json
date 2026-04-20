@@ -193,6 +193,11 @@
       "name": "skillpack-check",
       "path": "skillpack-check/SKILL.md",
       "description": "Agent-readable gbrain health report. Wraps doctor + apply-migrations --list into one JSON blob with exit codes. Cron-friendly for morning-briefing pipelines."
+    },
+    {
+      "name": "notebooklm",
+      "path": "notebooklm/SKILL.md",
+      "description": "Turn expert podcasts into personalized cited protocols via Google NotebookLM. Load YouTube channels from terminal, run expert-informed Q&A, resolve citations."
     }
   ],
   "dependencies": {
