@@ -1,6 +1,7 @@
 import { describe, test, expect } from "bun:test";
 import { readFileSync, existsSync, readdirSync } from "fs";
 import { join } from "path";
+import { parseResolverEntries } from "../src/core/check-resolvable";
 
 const SKILLS_DIR = join(import.meta.dir, "..", "skills");
 const MANIFEST_PATH = join(SKILLS_DIR, "manifest.json");
@@ -101,6 +102,78 @@ describe("skills conformance", () => {
         expect(names).not.toContain(name);
         names.push(name);
       }
+    }
+  });
+
+  test("every resolver skill entry has a corresponding manifest entry", () => {
+    const RESOLVER_PATH = join(SKILLS_DIR, "RESOLVER.md");
+    if (!existsSync(RESOLVER_PATH)) return;
+    const manifest = JSON.parse(readFileSync(MANIFEST_PATH, "utf-8"));
+    const manifestNames = new Set(manifest.skills.map((s: { name: string }) => s.name));
+    const resolverContent = readFileSync(RESOLVER_PATH, "utf-8");
+    const entries = parseResolverEntries(resolverContent);
+    for (const entry of entries) {
+      if (entry.isGStack) continue;
+      const skillName = entry.skillPath.replace(/^skills\//, "").replace(/\/SKILL\.md$/, "");
+      expect(
+        manifestNames.has(skillName),
+        `Resolver references "${skillName}" but it's not in manifest.json`
+      ).toBe(true);
+    }
+  });
+
+  test("every manifest entry is reachable from RESOLVER.md", () => {
+    const RESOLVER_PATH = join(SKILLS_DIR, "RESOLVER.md");
+    if (!existsSync(RESOLVER_PATH)) return;
+    const manifest = JSON.parse(readFileSync(MANIFEST_PATH, "utf-8"));
+    const resolverContent = readFileSync(RESOLVER_PATH, "utf-8");
+    const entries = parseResolverEntries(resolverContent);
+    const resolverSkillPaths = new Set(entries.filter(e => !e.isGStack).map(e => e.skillPath));
+    const resolverTriggers = entries.map(e => e.trigger.toLowerCase());
+
+    for (const skill of manifest.skills) {
+      const expectedPath = `skills/${skill.path}`;
+      const inPath = resolverSkillPaths.has(expectedPath);
+      const nameInTrigger = resolverTriggers.some(t => t.includes(skill.name));
+      // Either the skill path is in the resolver or its name appears in a trigger
+      expect(
+        inPath || nameInTrigger,
+        `Manifest skill "${skill.name}" has no trigger row in RESOLVER.md`
+      ).toBe(true);
+    }
+  });
+
+  test("skills with frontmatter triggers field have at least one trigger", () => {
+    for (const dir of skillDirs) {
+      const content = readFileSync(join(SKILLS_DIR, dir, "SKILL.md"), "utf-8");
+      // Extract raw frontmatter section
+      const fmMatch = content.match(/^---\n([\s\S]*?)\n---/);
+      if (!fmMatch) continue;
+      const fm = fmMatch[1];
+      // Check if triggers: key exists in frontmatter
+      if (!/^triggers:/m.test(fm)) continue;
+      // If triggers key exists, verify there's at least one array entry (line starting with "  - ")
+      const linesAfterTriggers = fm.split("\n");
+      let foundTriggers = false;
+      let hasEntries = false;
+      for (const line of linesAfterTriggers) {
+        if (/^triggers:/.test(line)) {
+          foundTriggers = true;
+          continue;
+        }
+        if (foundTriggers) {
+          if (/^\s+-\s+/.test(line)) {
+            hasEntries = true;
+            break;
+          }
+          // If we hit another key, stop looking
+          if (/^[a-zA-Z]/.test(line)) break;
+        }
+      }
+      expect(
+        hasEntries,
+        `skills/${dir}/SKILL.md has a triggers field but no array entries`
+      ).toBe(true);
     }
   });
 });
