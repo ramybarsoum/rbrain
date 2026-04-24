@@ -183,6 +183,71 @@
       "name": "context-rescue",
       "path": "context-rescue/SKILL.md",
       "description": "Extract minimum viable context from a long conversation so you can start a clean new chat without losing work. Saves a deterministic rescue package to disk."
+    },
+    {
+      "name": "minion-orchestrator",
+      "path": "minion-orchestrator/SKILL.md",
+      "description": "Unified Minions skill for deterministic shell jobs and LLM subagent orchestration. Submit, monitor, steer, pause/resume, replay. Replaces the older gbrain-jobs routing intent and sessions_spawn for durable observable background work."
+    },
+    {
+      "name": "skillify",
+      "path": "skillify/SKILL.md",
+      "description": "Meta skill. Turn any raw feature into a properly-skilled, tested, resolvable, evaled unit. Paired with gbrain check-resolvable gives user-controllable auto-skill-creation."
+    },
+    {
+      "name": "skillpack-check",
+      "path": "skillpack-check/SKILL.md",
+      "description": "Agent-readable gbrain health report. Wraps doctor + apply-migrations --list into one JSON blob with exit codes. Cron-friendly for morning-briefing pipelines."
+    },
+    {
+      "name": "notebooklm",
+      "path": "notebooklm/SKILL.md",
+      "description": "Turn expert podcasts into personalized cited protocols via Google NotebookLM. Load YouTube channels from terminal, run expert-informed Q&A, resolve citations."
+    },
+    {
+      "name": "smoke-test",
+      "path": "smoke-test/SKILL.md",
+      "description": "Post-restart smoke tests + auto-fix for gbrain and OpenClaw environments"
+    },
+    {
+      "name": "autoresearch",
+      "path": "autoresearch/SKILL.md",
+      "description": "Karpathy-style optimization loops for conversion-focused content. 50+ variants, 5-expert simulated panel scoring, multi-round evolution."
+    },
+    {
+      "name": "browser-harness",
+      "path": "browser-harness/SKILL.md",
+      "description": "Direct browser control via CDP. Connects to the user's running Chrome for scraping, automation, and live interaction."
+    },
+    {
+      "name": "content-ops",
+      "path": "content-ops/SKILL.md",
+      "description": "Auto-assembled expert panel for scoring copy, strategy, landing pages, visuals, and recruiting evaluations. Iterates until 90+."
+    },
+    {
+      "name": "deck-generator",
+      "path": "deck-generator/SKILL.md",
+      "description": "Generate full presentations with AI-generated images in a consistent visual style. Imagen 4.0 + Google Slides."
+    },
+    {
+      "name": "finance-ops",
+      "path": "finance-ops/SKILL.md",
+      "description": "CFO briefings from QuickBooks exports plus codebase development cost estimator with AI ROI analysis."
+    },
+    {
+      "name": "team-ops",
+      "path": "team-ops/SKILL.md",
+      "description": "Team performance audits and meeting intelligence. Stack ranking + action item / decision extraction with optional HubSpot push."
+    },
+    {
+      "name": "x-longform-post",
+      "path": "x-longform-post/SKILL.md",
+      "description": "Long-form X posts and threads in a founder voice. ASCII diagrams mandatory, 24-pattern humanizer pass before returning."
+    },
+    {
+      "name": "yt-competitive-analysis",
+      "path": "yt-competitive-analysis/SKILL.md",
+      "description": "YouTube outlier detection and packaging pattern extraction across channels. 2x-view threshold against each channel's own average."
     }
   ],
   "dependencies": {

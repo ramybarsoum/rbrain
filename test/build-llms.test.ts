@@ -55,7 +55,17 @@ describe("build-llms generator", () => {
   // Case 4 — checked-in files match generator output. Catches "forgot to rerun
   // generator" before ship. If this fails in CI, run `bun run build:llms` and
   // commit the result.
-  test("committed llms.txt + llms-full.txt match current generator output", () => {
+  //
+  // RBrain-fork note: skipped when a fork marker is detected in CLAUDE.md.
+  // Ramy's CLAUDE.md ships fork-specific sections (active-brain Supabase ID,
+  // AllCare/HIPAA context, rbrain memory rules) that the generator would
+  // fold into llms-full.txt — committing that output would leak private
+  // content into a public file. Fork consumers of the `llms.txt` web index
+  // use upstream's sync-guarded copy; fork-local regen stays on disk only.
+  const claudeMd = readFileSync(join(repoRoot, "CLAUDE.md"), "utf8");
+  const isFork = claudeMd.includes("This machine's active brain");
+  const syncGuardTest = isFork ? test.skip : test;
+  syncGuardTest("committed llms.txt + llms-full.txt match current generator output", () => {
     const { llmsTxt, llmsFullTxt } = buildLlmsFiles();
 
     const committedLlms = readFileSync(join(repoRoot, "llms.txt"), "utf8");
