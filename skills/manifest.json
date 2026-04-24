@@ -180,6 +180,11 @@
       "description": "Execute only the article-derived changes Ramy explicitly approved. Applies sequentially, logs the batch, and reports exact slugs and paths touched."
     },
     {
+      "name": "content-mine",
+      "path": "content-mine/SKILL.md",
+      "description": "Interactive weekly interview that mines real work activity into 5 concrete personal-brand content ideas."
+    },
+    {
       "name": "grill-me",
       "path": "grill-me/SKILL.md",
       "description": "Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree."

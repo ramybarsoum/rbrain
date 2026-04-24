@@ -1,6 +1,6 @@
 ---
 name: cron-scheduler
-version: 1.0.0
+version: 1.0.1
 description: |
   Schedule management with staggering, quiet hours, and wake-up override.
   Validates schedules, prevents collisions, and gates delivery during quiet hours.
@@ -28,6 +28,7 @@ This skill guarantees:
 - Thin job prompts: jobs say "Read skills/X/SKILL.md and run it" (no inline 3000-word prompts)
 - Idempotency: jobs can run twice without duplicate side effects
 - Results saved as reports: `reports/{job-name}/{YYYY-MM-DD-HHMM}.md`
+- Delivery targets are explicit when output must land in a specific channel or thread (`origin`, `discord:<channel_id>`, etc.), not left on a default local target.
 
 ## Phases
 
@@ -40,7 +41,8 @@ This skill guarantees:
    - During quiet hours: save output to held queue
    - Morning contact releases the backlog
 4. **Register with host scheduler.** OpenClaw cron, Railway cron, crontab, or process manager. **Each registered entry should execute via Minions, not `agentTurn`.** See `skills/conventions/cron-via-minions.md` for the rewrite pattern (PGLite uses `--follow`, Postgres uses fire-and-forget + `--idempotency-key` on the cycle slot). GBrain's v0.11.0 migration auto-rewrites entries for built-in handlers; host-specific handlers need a code-level registration per `docs/guides/plugin-handlers.md`.
-5. **Write thin prompt.** Job prompt is one line: "Read skills/{name}/SKILL.md and run it."
+5. **Set delivery explicitly.** If the output belongs in a specific Discord thread/channel or other destination, set `deliver` on the job (`origin`, `discord:<channel_id>`, etc.) instead of relying on the scheduler default.
+6. **Write thin prompt.** Job prompt is one line: "Read skills/{name}/SKILL.md and run it."
 
 ## Idempotency Requirement
 
@@ -60,3 +62,4 @@ Job configuration saved. Report: "Job '{name}' scheduled at {cron expression}. N
 - Running cron jobs without testing on 3-5 items first
 - Jobs that produce different output on re-run (not idempotent)
 - Sending notifications during quiet hours (save to held queue instead)
+- Letting a job default to local delivery when the real target is a specific Discord channel or thread

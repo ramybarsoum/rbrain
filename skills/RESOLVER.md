@@ -48,6 +48,12 @@ If you are about to **add or modify a row in this file, create a new fat file un
 | Generic "ingest this" (auto-routes to above) | `skills/ingest/SKILL.md` |
 | Large file (>10MB), bulk document ingestion | `skills/heavy-file-ingestion/SKILL.md` |
 
+## Content ideation
+
+| Trigger | Skill |
+|---------|-------|
+| "What should I post about", "I don't know what to write", "help me find content", "content from my week", "personal brand content", "weekly content review" | `skills/content-mine/SKILL.md` |
+
 ## Thinking skills (from GStack)
 
 | Trigger | Skill |
@@ -62,6 +68,18 @@ If you are about to **add or modify a row in this file, create a new fat file un
 
 > These skills come from GStack. If GStack is installed, the agent reads them directly.
 > If not, brain-only mode still works (brain skills function without thinking skills).
+
+## Session persistence (CPR)
+
+| Trigger | Skill |
+|---------|-------|
+| "Preserve", save session learnings to CLAUDE.md | `/preserve` (global command: `~/.claude/commands/preserve.md`) |
+| "Compress", save full session log before compacting | `/compress` (global command: `~/.claude/commands/compress.md`) |
+| "Resume", load context from CLAUDE.md + session logs | `/resume` (global command: `~/.claude/commands/resume.md`) |
+
+> CPR (Compress-Preserve-Resume) manages session persistence across Claude Code conversations.
+> Workflow: `/preserve` (optional) -> `/compress` -> `/compact` (end of session). `/resume` at session start.
+> Session logs saved to `{project_root}/CC-Session-Logs/`. Source: github.com/eliaalberti/cpr-compress-preserve-resume
 
 ## Operational
 
@@ -81,6 +99,7 @@ If you are about to **add or modify a row in this file, create a new fat file un
 | Webhook setup, external event processing | `skills/webhook-transforms/SKILL.md` |
 | "Spawn agent", "background task", "parallel tasks", "steer agent", "pause/resume agent" | `skills/minion-orchestrator/SKILL.md` |
 | Continuous learning, knowledge extraction | `skills/claudeception/SKILL.md` |
+| Nightly learnings, "what did I learn today", daily insights collection | `skills/nightly-learnings-collector/SKILL.md` |
 | "Context rescue", "save this session", long conversation cleanup | `skills/context-rescue/SKILL.md` |
 
 ## Browser interaction (live attach, user's session)
