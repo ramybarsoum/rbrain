@@ -2,7 +2,7 @@
   "name": "gbrain",
   "version": "0.10.0",
   "conformance_version": "1.0.0",
-  "description": "Personal knowledge brain with hybrid RAG search — GStack mod for agent platforms",
+  "description": "Personal knowledge brain with hybrid RAG search \u2014 GStack mod for agent platforms",
   "skills": [
     {
       "name": "ingest",
@@ -68,6 +68,11 @@
       "name": "meeting-ingestion",
       "path": "meeting-ingestion/SKILL.md",
       "description": "Ingest meeting transcripts with attendee enrichment, entity propagation, and timeline merge."
+    },
+    {
+      "name": "meeting-attendee-enrich",
+      "path": "meeting-attendee-enrich/SKILL.md",
+      "description": "Follow-up to meeting-ingestion: per-attendee notability gate, Tier 1/2/3 routing to enrich, HIPAA escalation, structured skip log."
     },
     {
       "name": "citation-fixer",
@@ -182,7 +187,7 @@
     {
       "name": "minion-orchestrator",
       "path": "minion-orchestrator/SKILL.md",
-      "description": "Manage background agents via Minions job queue. Submit, monitor, steer, pause/resume, replay. Replaces sessions_spawn for durable observable agents."
+      "description": "Unified Minions skill for deterministic shell jobs and LLM subagent orchestration. Submit, monitor, steer, pause/resume, replay. Replaces the older gbrain-jobs routing intent and sessions_spawn for durable observable background work."
     },
     {
       "name": "skillify",
@@ -198,6 +203,11 @@
       "name": "notebooklm",
       "path": "notebooklm/SKILL.md",
       "description": "Turn expert podcasts into personalized cited protocols via Google NotebookLM. Load YouTube channels from terminal, run expert-informed Q&A, resolve citations."
+    },
+    {
+      "name": "smoke-test",
+      "path": "smoke-test/SKILL.md",
+      "description": "Post-restart smoke tests + auto-fix for gbrain and OpenClaw environments"
     }
   ],
   "dependencies": {

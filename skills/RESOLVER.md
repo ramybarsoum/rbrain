@@ -76,12 +76,13 @@ If you are about to **add or modify a row in this file, create a new fat file un
 | "Create a skill", "improve this skill" | `skills/skill-creator/SKILL.md` |
 | "Skillify this", "is this a skill?", "make this proper" | `skills/skillify/SKILL.md` |
 | "Is gbrain healthy?", morning health check, skillpack-check | `skills/skillpack-check/SKILL.md` |
+| Post-restart health + auto-fix, "did the container restart break anything", smoke test | `skills/smoke-test/SKILL.md` |
 | Cross-modal review, second opinion | `skills/cross-modal-review/SKILL.md` |
 | "Validate skills", skill health check | `skills/testing/SKILL.md` |
 | Webhook setup, external event processing | `skills/webhook-transforms/SKILL.md` |
 | Continuous learning, knowledge extraction | `skills/claudeception/SKILL.md` |
 | "Context rescue", "save this session", long conversation cleanup | `skills/context-rescue/SKILL.md` |
-| "Spawn agent", "background task", "parallel tasks", "steer agent", "pause/resume agent" | `skills/minion-orchestrator/SKILL.md` |
+| "Spawn agent", "background task", "parallel tasks", "steer agent", "pause/resume agent", "gbrain jobs submit", "submit a gbrain job", "submit a shell job", "shell job" | `skills/minion-orchestrator/SKILL.md` |
 
 ## Marketing & content
 

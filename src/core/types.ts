@@ -1,5 +1,11 @@
 // Page types
-export type PageType = 'person' | 'company' | 'deal' | 'yc' | 'civic' | 'project' | 'concept' | 'source' | 'media' | 'writing' | 'analysis' | 'guide' | 'hardware' | 'architecture' | 'working';
+// email | slack | calendar-event: native Page types for inbox/chat/calendar
+// ingest (and the amara-life-v1 eval corpus in the sibling gbrain-evals repo).
+// Previously these collapsed into `source`, which lost workflow semantics
+// (e.g. "attended meetings" vs "received emails").
+// 'working' = RBrain-fork addition for ephemeral scratch pages that are
+// currently being drafted and should not participate in search quality metrics.
+export type PageType = 'person' | 'company' | 'deal' | 'yc' | 'civic' | 'project' | 'concept' | 'source' | 'media' | 'writing' | 'analysis' | 'guide' | 'hardware' | 'architecture' | 'meeting' | 'note' | 'email' | 'slack' | 'calendar-event' | 'working';
 
 export interface Page {
   id: number;
@@ -66,6 +72,12 @@ export interface SearchResult {
   chunk_index: number;
   score: number;
   stale: boolean;
+  /**
+   * v0.18.0: the sources.id the page belongs to. Dedup composite-keys
+   * on (source_id, slug) — see src/core/search/dedup.ts. Defaults to
+   * 'default' for pre-v0.17 rows that lacked the column.
+   */
+  source_id?: string;
 }
 
 export interface SearchOpts {
