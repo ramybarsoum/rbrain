@@ -208,6 +208,46 @@
       "name": "smoke-test",
       "path": "smoke-test/SKILL.md",
       "description": "Post-restart smoke tests + auto-fix for gbrain and OpenClaw environments"
+    },
+    {
+      "name": "autoresearch",
+      "path": "autoresearch/SKILL.md",
+      "description": "Karpathy-style optimization loops for conversion-focused content. 50+ variants, 5-expert simulated panel scoring, multi-round evolution."
+    },
+    {
+      "name": "browser-harness",
+      "path": "browser-harness/SKILL.md",
+      "description": "Direct browser control via CDP. Connects to the user's running Chrome for scraping, automation, and live interaction."
+    },
+    {
+      "name": "content-ops",
+      "path": "content-ops/SKILL.md",
+      "description": "Auto-assembled expert panel for scoring copy, strategy, landing pages, visuals, and recruiting evaluations. Iterates until 90+."
+    },
+    {
+      "name": "deck-generator",
+      "path": "deck-generator/SKILL.md",
+      "description": "Generate full presentations with AI-generated images in a consistent visual style. Imagen 4.0 + Google Slides."
+    },
+    {
+      "name": "finance-ops",
+      "path": "finance-ops/SKILL.md",
+      "description": "CFO briefings from QuickBooks exports plus codebase development cost estimator with AI ROI analysis."
+    },
+    {
+      "name": "team-ops",
+      "path": "team-ops/SKILL.md",
+      "description": "Team performance audits and meeting intelligence. Stack ranking + action item / decision extraction with optional HubSpot push."
+    },
+    {
+      "name": "x-longform-post",
+      "path": "x-longform-post/SKILL.md",
+      "description": "Long-form X posts and threads in a founder voice. ASCII diagrams mandatory, 24-pattern humanizer pass before returning."
+    },
+    {
+      "name": "yt-competitive-analysis",
+      "path": "yt-competitive-analysis/SKILL.md",
+      "description": "YouTube outlier detection and packaging pattern extraction across channels. 2x-view threshold against each channel's own average."
     }
   ],
   "dependencies": {

@@ -1,6 +1,11 @@
 ---
 name: x-longform-post
 description: Write long-form X (Twitter) posts and threads in a founder/CEO voice. Use when drafting X articles, long tweets, thought leadership threads, or viral content. Produces contrarian, data-backed posts with ASCII diagrams and code block visuals. Includes mandatory AI humanizer pass (24-pattern detector) before finalizing.
+triggers:
+  - "Write an X post"
+  - "long-form tweet"
+  - "X thread"
+  - "thought leadership post"
 ---
 
 # X Long-Form Post Writer
@@ -171,3 +176,29 @@ Start at 100. Deduct points per the rubric in `../content-ops/experts/humanizer.
 - **70-89**: Minor AI tells. Quick fixes needed.
 - **50-69**: Obvious AI patterns. Significant rewrite needed.
 - **0-49**: Full rewrite.
+
+## Contract
+
+- Every post opens with a scroll-stopping hook (contrarian claim, surprising number, or uncomfortable truth).
+- At least one ASCII diagram per post, rendered inside a code block for monospace display on X.
+- Runs the mandatory 24-pattern humanizer pass before returning any draft. Final score must be 90+ to ship.
+- Uses real numbers from real incidents, never fabricated metrics.
+- Never includes banned AI vocabulary (delve, leverage, robust, etc. — full list in the humanizer section).
+
+## Anti-Patterns
+
+- Fabricating metrics to punch up a post ("we saw 3x growth" without a real number behind it).
+- Em dash overuse (more than 1 per 200 words triggers the humanizer).
+- "Not X, it's Y" constructions — the #1 AI slop tell.
+- Sycophantic openings ("Great question!", "I hope this helps").
+- Emoji in body text, curly quotes, mechanical bold-face, title case in every heading.
+- Using this skill to generate posts for product launches without real customer numbers or incident stories to anchor the post.
+
+## Output Format
+
+A ready-to-paste X post, no preamble:
+
+- Single post if under ~1500 characters.
+- Numbered thread (1/N, 2/N, ...) if longer, each tweet standalone-valuable.
+- Humanizer score appended as a comment-like trailer the caller can strip: `<!-- humanizer: 94/100 -->`.
+- If score is < 90: returns the draft + a rewrite diff showing which sections triggered which patterns.

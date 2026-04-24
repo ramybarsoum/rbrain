@@ -1,6 +1,14 @@
 ---
 name: finance-ops
 description: "AI-powered financial analysis suite. Generates executive CFO briefings from QuickBooks exports (P&L, Balance Sheet, General Ledger, Cash Flow, etc.) with anomaly detection, burn rate, runway analysis, and scenario modeling. Also estimates codebase development costs with organizational overhead and AI ROI analysis. Triggers on: 'CFO briefing', 'financial analysis', 'cost briefing', 'expense review', 'runway analysis', 'burn rate', 'cost estimate', 'how much would this cost to build', 'development cost', 'Claude ROI'."
+triggers:
+  - "CFO briefing"
+  - "financial analysis"
+  - "burn rate"
+  - "runway analysis"
+  - "cost estimate"
+  - "development cost"
+  - "Claude ROI"
 ---
 
 
@@ -133,3 +141,27 @@ If the codebase was built with AI assistance, calculate value per AI hour using 
 - Highlight highest-complexity areas that drive cost
 - Always show ranges (low/avg/high), never a single number
 - Search for CURRENT year market rates, don't use stale data
+
+## Contract
+
+- CFO briefings compute burn, runway, revenue trends, and top anomalies from the supplied QuickBooks export. Every anomaly includes a reason and a confidence score.
+- Cost estimates always produce low/avg/high ranges with explicit assumptions and a confidence level.
+- Runway math uses current-month burn, not an average, unless the user requests a different window.
+- Scenario modeling is deterministic given the same inputs — no random sampling in the base case.
+- Outputs suitable for board presentation: no jargon, no LLM-speak, no filler.
+
+## Anti-Patterns
+
+- Giving a single-number cost estimate. Always ranges.
+- Pulling stale market rates from training data — search for the current year's figures first.
+- Treating every expense outlier as an anomaly. Seasonality, one-off purchases, and FX swings need to be distinguished.
+- Mixing currencies without explicit conversion rate + date stamp.
+- Running this skill on data the user hasn't confirmed is production-grade (e.g., a draft export mid-month).
+
+## Output Format
+
+- `cfo-briefing-{period}.md` — executive summary (burn, runway, top 3 anomalies, one-line recommendation).
+- `cfo-briefing-{period}.json` — structured metrics for downstream charts.
+- `cost-estimate-{name}.md` — scope table + range table + assumption list + confidence level.
+
+Summary line to user: `CFO briefing for {period}: burn ${burn}, runway {months}mo, {N} anomalies.` or `Estimated {name} at ${low}-${high} (avg ${avg}), confidence {level}.`

@@ -10,6 +10,13 @@ description: >-
   "expert score", "evaluate this copy/strategy/page", or when another skill
   needs a quality gate on its output. Also triggers on: "score this landing page",
   "expert panel these email variants", "rate this headline", "panel these charts".
+triggers:
+  - "Expert panel"
+  - "score this"
+  - "rate these variants"
+  - "quality check"
+  - "panel review"
+  - "evaluate this copy"
 ---
 
 
@@ -244,3 +251,25 @@ experts miss them.
 | `scoring-rubrics/evaluation-quality.md` | Candidate/assessment rubric | Eval scoring |
 | `references/patterns.md` | Learned rejection patterns | Every scoring run |
 | `references/expert-assembly.md` | Domain-expert examples for auto-assembly | When building unfamiliar panels |
+
+## Contract
+
+- Auto-assembles a domain-relevant expert panel for the content type being scored (copy, strategy, visual, evaluation, etc.).
+- Scores against an explicit rubric per expert (see `scoring-rubrics/*.md`). Every expert returns a numeric score + 1-3 sentence rationale.
+- Iterates up to 3 rounds; stops early when every expert scores 90+. Never loops forever.
+- Carries learned rejection patterns forward via `references/patterns.md`.
+- Reports a single winning variant plus the full score matrix for every variant evaluated.
+
+## Anti-Patterns
+
+- Using a generic panel for domain-specific content (pick the right rubric file for the content type — copy, strategy, visual, eval).
+- Iterating past round 3 without changing strategy — if scores are stuck in the 70s, the underlying positioning is wrong, not the word choice.
+- Ignoring a low-scoring expert because the other four liked it — the panel's job is to flag the weakest dimension, not average out the noise.
+- Treating "expert panel" as a proxy for live-traffic validation; this is a pre-launch gate, not a deployment signal.
+
+## Output Format
+
+- A winner declaration: `Winner: variant-{id} with score {N} (round {R} of 3).`
+- Score matrix: every variant × every expert, numeric + rationale.
+- Delta list: what changed between rounds and which expert's feedback drove the change.
+- Optional: updated `references/patterns.md` entries if new rejection patterns emerged.

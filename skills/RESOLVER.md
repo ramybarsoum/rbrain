@@ -45,6 +45,7 @@ If you are about to **add or modify a row in this file, create a new fat file un
 | User approves numbered article changes ("1, 3, 5", "all except 2", "apply them") | `skills/article-apply-changes/SKILL.md` |
 | Video, audio, PDF, book, YouTube, screenshot | `skills/media-ingest/SKILL.md` |
 | Meeting transcript received | `skills/meeting-ingestion/SKILL.md` |
+| "enrich attendees", "meeting follow-up enrichment", "build people pages from meeting" | `skills/meeting-attendee-enrich/SKILL.md` |
 | Generic "ingest this" (auto-routes to above) | `skills/ingest/SKILL.md` |
 | Large file (>10MB), bulk document ingestion | `skills/heavy-file-ingestion/SKILL.md` |
 | "NotebookLM", "load channel", "expert interview", "notebooklm ask", "health protocol", "cite podcast" | `skills/notebooklm/SKILL.md` |

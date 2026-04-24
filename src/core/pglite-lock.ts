@@ -17,7 +17,7 @@
 import { mkdirSync, existsSync, readFileSync, writeFileSync, rmSync, statSync } from 'fs';
 import { join } from 'path';
 
-const LOCK_DIR_NAME = '.rbrain-lock';
+const LOCK_DIR_NAME = '.gbrain-lock';
 const LOCK_FILE = 'lock';
 const STALE_THRESHOLD_MS = 5 * 60 * 1000; // 5 minutes — embed jobs can be long
 
