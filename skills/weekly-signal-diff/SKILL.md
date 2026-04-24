@@ -9,6 +9,9 @@ description: |
   market", or "turn this week's news into structural shifts". Optional live
   search upgrade: if OpenRouter access is available, prefer the Perplexity
   Sonar family for fresh web-grounded retrieval with citations.
+triggers:
+  - "Weekly signal diff"
+  - "what changed this week"
 author: Jonathan Edwards
 version: 1.0.0
 ---

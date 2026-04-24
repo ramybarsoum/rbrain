@@ -1,11 +1,25 @@
 ---
 name: autoresearch
 description: Run Karpathy-style autoresearch optimization on any content. Generates 50+ variants, scores with a 5-expert simulated panel, evolves winners through multiple rounds, outputs optimized version + full experiment log. Use when optimizing landing pages, email sequences, ad copy, headlines, form pages, CTA text, or any conversion-focused content. Triggers on "optimize this page", "run autoresearch", "score these variants", "A/B test this copy".
+triggers:
+  - "Optimize this page"
+  - "run autoresearch"
+  - "A/B test this copy"
+  - "score variants"
+  - "score these variants"
 ---
 
 # Autoresearch Skill
 
 Karpathy-style optimization loops for any conversion-focused content. No traffic needed. Simulated expert panel. Minutes, not weeks.
+
+## Contract
+
+- Generates at least 50 variants per element before narrowing.
+- Scores every variant with a 5-expert simulated panel (see `## Expert Panel` below).
+- Evolves through up to 5 rounds; aborts early if target score (default 85) is hit.
+- Never runs on live-traffic content — simulated panel is pre-launch only.
+- Writes 3 artifacts to disk per run: optimized content, experiment log, summary report (see `## Output Format`).
 
 **When to use this:** Pre-launch content optimization. Generate 50+ variants, score with 5 simulated experts, evolve winners, output the best version + full experiment log.
 
@@ -257,3 +271,13 @@ Summarize results to user:
 - **Don't over-optimize for one dimension.** If you're hitting 95 on clarity but 45 on trust, the overall score is misleading.
 - **Don't run more than 5 rounds.** If you're not hitting 80 after 3 rounds, the problem is strategic (wrong positioning), not tactical (wrong words).
 - **Don't cross-breed until each element has its own winner.** Premature cross-breeding creates incoherent combinations.
+
+## Output Format
+
+Every run writes three artifacts to disk (see `## What You'll Produce` above for full shape):
+
+- `{name}-optimized.{ext}` — the winning optimized content, ready to ship.
+- `data/{name}-experiments.json` — full log of every variant and every expert score across rounds.
+- `data/{name}-optimization-report.md` — human-readable summary naming the winner and the rationale.
+
+Return value to caller: a one-line summary with the final score and the path to the optimized artifact.

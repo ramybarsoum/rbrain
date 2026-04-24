@@ -1,6 +1,11 @@
 ---
 name: deck-generator
 description: Generate professional presentations with AI-generated images. Use when asked to create a deck, presentation, pitch deck, or slides. Supports style presets (whiteboard, corporate, minimalist, etc). Uses Imagen 4.0 API for image generation and Google Slides API for assembly. Produces full decks from markdown content specs in minutes.
+triggers:
+  - "Create a deck"
+  - "generate slides"
+  - "pitch deck"
+  - "presentation"
 ---
 
 # Deck Generator
@@ -104,3 +109,26 @@ python3 scripts/generate-deck.py \
   --google-slides \
   --google-account your-email@example.com
 ```
+
+## Contract
+
+- Every slide in the deck is an AI-generated image in a single consistent visual style.
+- Normalizes input (markdown, JSON, or free-text topic) into the slide content spec before generating.
+- Style is picked from `references/styles.md` or customized once per deck; never mixed across slides.
+- On topic-only input, generates 10-14 slides following a standard deck structure (problem → solution → traction → ask).
+- Google Slides assembly is optional; the deterministic output is a folder of PNG/JPG slide images + a content spec.
+
+## Anti-Patterns
+
+- Mixing styles across slides (the visual consistency is the whole point).
+- Generating images before the content spec is locked — regenerating wastes Imagen 4.0 calls.
+- Feeding long-form prose into a single slide — split into bullets or parallel slides first.
+- Relying on generated text inside images for anything legibility-critical; use Google Slides text overlays for key numbers and names.
+- Skipping the `--google-account` flag when you need shareable output — the local PNG folder isn't what the user needs to present.
+
+## Output Format
+
+- `decks/{name}/` folder with one image per slide (`slide-01.png`, `slide-02.png`, ...).
+- `decks/{name}/content-spec.json` — the normalized slide content used to drive generation.
+- If `--google-slides`: a Google Slides URL + the title assembled with the images imported.
+- Summary line to user: `Generated {N} slides in style "{style}". Deck: {url-or-path}.`

@@ -11,7 +11,7 @@ triggers:
   - "enrich attendees"
   - "meeting follow-up enrichment"
   - "build people pages from meeting"
-  - meeting-ingestion completed
+  - "meeting-ingestion completed"
 tools:
   - get_page
   - put_page

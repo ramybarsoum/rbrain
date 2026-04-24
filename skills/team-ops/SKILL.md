@@ -1,3 +1,13 @@
+---
+name: team-ops
+description: AI-powered team performance analysis and meeting intelligence. Runs ruthless performance audits using the Elon Algorithm, stack-ranks team members A/B/C, and extracts action items + decisions + follow-ups from meeting transcripts. Optionally pushes action items to HubSpot as tasks.
+triggers:
+  - "Team performance audit"
+  - "stack rank"
+  - "meeting action items"
+  - "extract decisions from meeting"
+---
+
 # AI Team Ops
 
 ## Preamble (runs on skill start)
@@ -105,3 +115,29 @@ Structured JSON / Markdown + Optional CRM Push
 - Python 3.9+
 - `anthropic` or `openai` (for LLM-powered analysis)
 - `requests` (for optional HubSpot integration)
+
+## Contract
+
+- Performance audits rank every team member A, B, or C against OKRs/KPIs with explicit reasoning per rating.
+- Every meeting transcript produces: action items (with owner + due date), decisions, follow-ups, and implicit commitments.
+- Output always distinguishes extracted facts from inferred intent; confidence scores accompany inferred items.
+- HubSpot push is opt-in per run and confirms each task before creating it.
+- No PHI or protected personal data is ever pushed to a third-party CRM.
+
+## Anti-Patterns
+
+- Ranking team members without evidence from real OKR/KPI data — the output becomes gut feel dressed up as a framework.
+- Extracting "decisions" from a transcript that only contains discussion — mark as "proposed" if no owner or timeline was stated.
+- Pushing action items to CRM without naming the owner — results in orphan tasks.
+- Running on transcripts flagged `hipaa_flag: true` or concierge/clinical meetings — escalate instead.
+- Using this skill on 1:1 performance conversations without explicit consent from the manager.
+
+## Output Format
+
+Every run returns:
+
+- `team-audit-{date}.md` or `meeting-{slug}-followups.md` — human-readable summary.
+- `team-audit-{date}.json` or `meeting-{slug}-followups.json` — structured payload with per-item confidence scores.
+- CRM push (optional): count of tasks created + HubSpot IDs returned to caller.
+
+Summary line to user: `Audited N team members (A: a, B: b, C: c)` or `Extracted N action items, M decisions, K follow-ups from meeting {slug}.`

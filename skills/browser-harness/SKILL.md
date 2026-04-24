@@ -1,6 +1,14 @@
 ---
 name: browser-harness
 description: Direct browser control via CDP. Use when the user wants to automate, scrape, test, or interact with web pages. Connects to the user's already-running Chrome.
+triggers:
+  - "Open the browser"
+  - "go to URL"
+  - "click this page"
+  - "scrape this site"
+  - "Automate my Chrome"
+  - "log me into X"
+  - "take a screenshot of page Y"
 ---
 
 # browser-harness
@@ -199,3 +207,30 @@ Chrome / Browser Use cloud -> CDP WS -> daemon.py -> /tmp/bu-<NAME>.sock -> run.
 
 - `interaction-skills/` holds reusable UI mechanics such as dialogs, tabs, dropdowns, iframes, and uploads.
 - `domain-skills/` holds site-specific workflows and should be updated when you discover reusable patterns for a website.
+
+## Contract
+
+- Connects to the user's already-running Chrome via CDP. Never launches a fresh browser.
+- Coordinate clicks pass through iframes, shadow DOM, and cross-origin frames at the compositor level.
+- `new_tab(url)` is the navigation primitive; `goto(url)` is never used (it would clobber the user's active tab).
+- First action on any tab is `wait_for_load()`, then `screenshot()` to verify state.
+- Domain knowledge discovered during a run is contributed back to `domain-skills/<site>/` as a PR before finishing.
+
+## Anti-Patterns
+
+- Hardcoding pixel coordinates into `domain-skills/` docs — they break on viewport/zoom/layout change.
+- Typing credentials from screenshots when the page redirects to auth — stop and ask the user.
+- Inventing a new approach for a site before searching `domain-skills/` + `interaction-skills/` for an existing helper.
+- Assuming `wait_for_load()` is enough without a follow-up `screenshot()` or `page_info()` check.
+- Logging secrets, cookies, or session tokens into shared `domain-skills/` pages.
+- Leaving a remote daemon running after a task — it bills until timeout.
+
+## Output Format
+
+Each invocation returns the Python stdout of the `browser-harness <<PY` block. For discovery runs, the caller typically gets:
+
+- `page_info()` JSON (url, title, readyState, tab count)
+- Selector hits or extracted data structured as the user asked
+- A final `screenshot()` path or base64 payload if verification was requested
+
+For contribution runs, the side effect is a PR against `domain-skills/<site>/` or `interaction-skills/<pattern>.md`.

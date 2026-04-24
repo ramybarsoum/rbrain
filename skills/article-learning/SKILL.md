@@ -8,9 +8,11 @@ description: |
   an article and wants to learn from it before deciding what to apply.
 triggers:
   - "read this article"
+  - "what can I learn"
   - "what can I learn from this"
   - "article learning"
-  - shares an article with learning intent
+  - "shares an article with learning intent"
+  - "extract learnings"
   - "extract learnings from this"
   - "summarize this article for me"
   - "what should I change based on this article"

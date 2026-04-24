@@ -6,7 +6,9 @@ description: |
   vertical slices. Use when user wants to convert a PRD to issues, create
   implementation tickets, or break down a PRD into work items.
 triggers:
+  - "Break PRD into issues"
   - "break this PRD into issues"
+  - "PRD to tickets"
   - "create issues from PRD"
   - "prd to issues"
   - "convert PRD to tickets"
