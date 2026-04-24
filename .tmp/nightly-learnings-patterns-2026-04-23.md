@@ -1,0 +1,29 @@
+---
+type: concept
+title: Nightly Learnings Patterns
+tags:
+  - hermes
+  - nightly-learnings
+  - operations
+  - rbrain
+---
+
+Recurring patterns extracted from the nightly learnings collector. Update this page only with durable patterns that should change future operator behavior.
+
+## 2026-04-21 patterns
+
+- **Legacy Supabase schemas can fail before migrations run.** On older RBrain databases, initSchema can try to create indexes on `links.link_source` and `links.origin_page_id` before the migration that adds those columns runs. The reliable recovery is to `ALTER TABLE links ADD COLUMN IF NOT EXISTS link_source text, origin_page_id uuid, origin_field text` and then rerun the migration path. [Source: Nightly learnings collector, 2026-04-21; sessions: `session_20260420_090318_913dcdd3.json`, `session_20260420_090714_2d46e2.json`]
+- **New X monitoring topics should start by extending existing coverage.** The durable onboarding sequence is: audit current active searches, extend the closest existing search with competitor names and adjacent terms, then pair the query change with a dedicated digest cron and run it once immediately. [Source: Nightly learnings collector, 2026-04-21; session: `session_20260420_064521_6534787e.json`]
+- **Cron reliability is currently bottlenecked by runner behavior, not just task logic.** Three repeatable failure patterns appeared: provider 429s can abort maintenance jobs before any terminal work starts; missing-skill jobs can still emit `[SILENT]` and hide the failure; and some jobs blur script-mode vs command-mode, producing false preamble errors even when the terminal task succeeds. [Source: Nightly learnings collector, 2026-04-21; cron outputs: `2026-04-20_05-02-13.md`, `2026-04-20_06-17-18.md`, `2026-04-20_02-03-20.md`]
+- **Nightly X review is spending too much effort on duplicate or already-known clusters.** The current loop can collect dozens of tweets, dedupe them down to a single already-covered theme, enrich zero pages, and still spend review budget on fuzzy entity matches like `abridge` versus Abridge. [Source: Nightly learnings collector, 2026-04-21; cron outputs: `2026-04-21_00-02-42.md`, `2026-04-21_00-37-06.md`]
+## 2026-04-22 patterns
+
+- **Interactive content workflows should be cron-started, not cron-completed.** When a skill needs live back-and-forth, the cron job should only kick off the first prompt and then hand the conversation to the user, not try to fake a full interview without replies. [Source: Hermes sessions `20260421_181512_d69c7961.jsonl`, `20260421_221912_df0590e3.jsonl`, 2026-04-21]
+- **X collection is only valuable when it feeds a higher-order output.** Ramy explicitly rejected standalone daily X runs; the durable routing is X -> repost candidates, content angles, and Daily AI enrichment, with draft topics/posts delivered only to Discord channel `1492040431746154506`. [Source: Hermes session `20260421_181512_d69c7961.jsonl`, 2026-04-21]
+- **RBrain stale embedding is currently bottlenecked by Supabase session-pool saturation, not embedding logic.** Repeated `embed --stale` runs failed with `EMAXCONNSESSION` after 1-3 pages and 0 chunks, which points to pool exhaustion at `pool_size: 15` rather than a bad corpus page. [Source: Hermes cron outputs `2026-04-21_12-15-30.md`, `2026-04-21_13-46-30.md`, `2026-04-21_18-16-49.md`, 2026-04-21]
+
+## 2026-04-23 patterns
+
+- **Circleback is now the canonical meeting source.** Ramy explicitly stopped using Granola and directed Hermes to replace Granola meeting workflows and daily-briefing inputs with Circleback, so future meeting automation should migrate or deprecate Granola paths rather than maintain both in parallel. [Source: User, Discord, 2026-04-22; Hermes session `session_20260422_234130_edfc3eb7.json`]
+- **Page-visible attachments and raw provenance uploads are not interchangeable.** When a file must show up as a reliable page attachment, prefer `gbrain files upload <file> --page <slug>`; `upload-raw` can succeed without giving trustworthy attachment verification, and `gbrain files list <slug>` currently has a BigInt display bug that can crash after showing the count. [Source: Hermes session `session_20260422_043851_1ba4ec.json`, 2026-04-22]
+- **Agent self-improvement should promote evidence, not mutate itself.** The durable Hermes pattern is strategy telemetry -> registry -> promotion gate -> bounded runtime guidance, with ephemeral injection into the live prompt instead of unrestricted self-editing of the stable core. [Source: Hermes session `session_20260422_052536_a32fa3.json`, 2026-04-22]
