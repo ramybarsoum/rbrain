@@ -155,25 +155,62 @@ export function normalizeSummary(summary: string): string {
     .trim();
 }
 
-// --- Sensitive-content gate (best-effort regex filter, NOT a HIPAA control) ---
+// --- Sensitive-content filter (best-effort regex, NOT a HIPAA control) ---
+//
+// What this is: a 5-pattern regex filter that flags text containing
+// phone-number-shaped sequences, SSN-shaped sequences, a few ID shapes,
+// the literal phrase "patient (id|name|dob|ssn|mrn)", and date-formatted
+// MM/DD/YYYY. Used to prevent the dream cycle from promoting recurring
+// timeline summaries that contain these specific patterns.
+//
+// What this is NOT:
+//   - A PHI detector. Real PHI redaction requires named-entity recognition
+//     (e.g., Microsoft Presidio, healthcare NLP services), context-aware
+//     classification, and a model trained on medical text. This regex
+//     misses paraphrased PHI ("the patient", "John's medication"), free-form
+//     diagnosis text, lab values, and most clinical notes.
+//   - A HIPAA control. HIPAA requires administrative + physical + technical
+//     safeguards plus audit logging plus BAA agreements; a regex on a
+//     promotion candidate is none of these.
+//   - A PII detector. The patterns are USA-centric (US phone format, US
+//     SSN format, US date format). International equivalents are missed.
+//
+// Why ship it anyway: it's a low-cost defense-in-depth that catches the
+// most-obvious leaks of phone/SSN/ID into compiled_truth — text that has
+// no business being promoted to semantic memory. It's strictly better
+// than no filter; it's strictly worse than a real PHI engine. Treat as
+// belt-and-braces, never as the only gate.
 
 const SENSITIVE_PATTERNS = [
-  /\b\d{3}[-.\s]?\d{3}[-.\s]?\d{4}\b/,           // phone numbers
-  /\b\d{3}[-.\s]?\d{2}[-.\s]?\d{4}\b/,            // SSN-like
+  /\b\d{3}[-.\s]?\d{3}[-.\s]?\d{4}\b/,           // phone numbers (US format)
+  /\b\d{3}[-.\s]?\d{2}[-.\s]?\d{4}\b/,            // SSN-shaped sequences
   /\b[A-Z]\d{3}[A-Z]{2}\d\b/i,                    // some ID patterns
-  /\b(patient\s+(id|name|dob|ssn|mrn))\b/i,       // patient fields
-  /\b\d{1,2}\/\d{1,2}\/\d{2,4}\b/,                // dates that could be DOB
+  /\b(patient\s+(id|name|dob|ssn|mrn))\b/i,       // literal "patient X" phrasing
+  /\b\d{1,2}\/\d{1,2}\/\d{2,4}\b/,                // MM/DD/YYYY dates
 ];
 
 /**
- * Best-effort regex filter for phone, SSN, and "patient X" patterns.
- * NOT a real PHI/PII detector. Use as a defense-in-depth filter, not as
- * the only gate against sensitive content. Real PHI handling needs a
- * dedicated engine (Presidio, healthcare NLP service, etc).
+ * Returns true if text matches any of the SENSITIVE_PATTERNS.
+ *
+ * NAMING NOTE: this function used to be called `looksLikePhi`. That name
+ * over-claimed: 5 regex patterns are not PHI detection. The honest name
+ * `looksLikePhoneOrIdShape` describes what the function actually checks.
+ * `looksLikePhi` is preserved as a deprecated alias to avoid breaking
+ * external callers; new code should use the honest name.
+ *
+ * Use as a defense-in-depth filter only. NOT a real PHI/PII detector.
+ * NOT a HIPAA control. See module-level comment above for full scope.
  */
-export function looksLikePhi(text: string): boolean {
+export function looksLikePhoneOrIdShape(text: string): boolean {
   return SENSITIVE_PATTERNS.some(p => p.test(text));
 }
+
+/**
+ * @deprecated Use `looksLikePhoneOrIdShape` instead. The name `looksLikePhi`
+ * over-claimed scope (5 regex patterns are not PHI detection). Kept as an
+ * alias for compatibility; will be removed in a future major version.
+ */
+export const looksLikePhi = looksLikePhoneOrIdShape;
 
 // --- Scoring ---
 
@@ -536,7 +573,7 @@ export function rankCandidates(
       continue;
     }
 
-    if (looksLikePhi(cluster.canonical)) {
+    if (looksLikePhoneOrIdShape(cluster.canonical)) {
       candidates.push({
         ...base,
         score: 0,

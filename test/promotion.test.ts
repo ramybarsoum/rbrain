@@ -2,6 +2,7 @@ import { describe, test, expect } from 'bun:test';
 import {
   normalizeSummary,
   looksLikePhi,
+  looksLikePhoneOrIdShape,
   scoreCandidate,
   cosineSimilarity,
   clusterByEmbedding,
@@ -25,21 +26,25 @@ describe('normalizeSummary', () => {
   });
 });
 
-describe('looksLikePhi (best-effort sensitive-text filter)', () => {
+describe('looksLikePhoneOrIdShape (best-effort regex filter, NOT PHI detection)', () => {
   test('detects phone numbers', () => {
-    expect(looksLikePhi('Call patient at 555-123-4567')).toBe(true);
+    expect(looksLikePhoneOrIdShape('Call patient at 555-123-4567')).toBe(true);
   });
 
-  test('detects SSN-like patterns', () => {
-    expect(looksLikePhi('SSN: 123-45-6789')).toBe(true);
+  test('detects SSN-shaped patterns', () => {
+    expect(looksLikePhoneOrIdShape('SSN: 123-45-6789')).toBe(true);
   });
 
   test('allows normal text', () => {
-    expect(looksLikePhi('sync completed for facility')).toBe(false);
+    expect(looksLikePhoneOrIdShape('sync completed for facility')).toBe(false);
   });
 
   test('allows safe patterns', () => {
-    expect(looksLikePhi('meeting with team about care coordination')).toBe(false);
+    expect(looksLikePhoneOrIdShape('meeting with team about care coordination')).toBe(false);
+  });
+
+  test('looksLikePhi is the same function (deprecated alias preserved for compat)', () => {
+    expect(looksLikePhi).toBe(looksLikePhoneOrIdShape);
   });
 });
 
