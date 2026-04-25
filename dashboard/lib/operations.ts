@@ -210,17 +210,25 @@ export async function upsertTodo(slug: string, fields: {
 export async function getMeetings(opts: { limit?: number } = {}) {
   const db = sql();
   const limit = Math.min(opts.limit ?? 100, 200);
-  // v0_meeting_at is an ISO timestamp in frontmatter; sort newest first
+  // Circleback uses frontmatter->>'date' (YYYY-MM-DD)
+  // Old Granola archive uses frontmatter->>'v0_meeting_at' (ISO timestamp)
+  // COALESCE so both sort correctly newest-first
   return db`
     SELECT slug, title, frontmatter, updated_at FROM pages
     WHERE type = 'meeting'
-    ORDER BY (frontmatter->>'v0_meeting_at') DESC NULLS LAST, updated_at DESC
+    ORDER BY
+      COALESCE(
+        frontmatter->>'date',
+        (frontmatter->>'v0_meeting_at')::date::text
+      ) DESC NULLS LAST,
+      updated_at DESC
     LIMIT ${limit}
   `;
 }
 
 export async function getMeetingAttendees(meetingSlug: string) {
   const db = sql();
+  // Graph-linked people (from v0 archive migration)
   return db`
     SELECT p.slug, p.title, p.frontmatter, l.link_type
     FROM links l
@@ -261,12 +269,16 @@ export async function getDailyBriefData() {
       WHERE t.date = ${today}::date
       ORDER BY t.created_at DESC LIMIT 20
     `,
-    // Recent meetings (last 30 days — no live calendar)
+    // Today's meetings — Circleback uses 'date', old Granola used 'v0_meeting_at'
     db`
       SELECT slug, title, frontmatter FROM pages
       WHERE type = 'meeting'
-        AND (frontmatter->>'v0_meeting_at') >= ${today + 'T00:00:00.000Z'}
-      ORDER BY frontmatter->>'v0_meeting_at' ASC
+        AND (
+          frontmatter->>'date' = ${today}
+          OR (frontmatter->>'v0_meeting_at')::date::text = ${today}
+        )
+      ORDER BY
+        COALESCE(frontmatter->>'date', (frontmatter->>'v0_meeting_at')::date::text) ASC
       LIMIT 5
     `,
   ]);
