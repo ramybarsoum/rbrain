@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'bun:test';
-import { shouldRunDreamCycle } from '../src/commands/autopilot.ts';
+import { shouldRunDreamCycle } from '../src/core/promotion.ts';
 
 describe('shouldRunDreamCycle', () => {
   const HOUR = 3600000;
