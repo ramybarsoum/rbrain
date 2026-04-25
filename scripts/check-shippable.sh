@@ -70,10 +70,68 @@ fi
 BLOCKING=0
 WARNINGS=0
 
+# --- Diff-awareness: only flag lines that were ADDED in this diff ---
+# Pre-existing patterns in modified files are not the fork's debt to fix.
+# Cache added-line sets per file in /tmp for the duration of this run.
+ADDED_LINES_CACHE_DIR="/tmp/shippable-$$"
+mkdir -p "$ADDED_LINES_CACHE_DIR"
+trap 'rm -rf "$ADDED_LINES_CACHE_DIR"' EXIT
+
+build_added_lines_for_file() {
+  local f="$1"
+  local cache_file="$ADDED_LINES_CACHE_DIR/$(echo "$f" | tr '/' '_').added"
+  [[ -f "$cache_file" ]] && return 0
+
+  # Untracked files (new): all lines are added.
+  if ! git ls-files --error-unmatch -- "$f" >/dev/null 2>&1; then
+    if [[ -f "$f" ]]; then
+      awk 'NR { print NR }' "$f" > "$cache_file"
+    else
+      : > "$cache_file"
+    fi
+    return 0
+  fi
+
+  # Tracked: parse hunk bodies line-by-line. Only `+` lines (excluding `+++`
+  # file markers) are true additions; context and `-` lines don't count.
+  # Hunk headers tell us where the new-file line counter starts.
+  git diff "$BASE" -- "$f" --unified=0 2>/dev/null | awk '
+    /^\+\+\+ / { in_hunk = 0; next }
+    /^--- /    { in_hunk = 0; next }
+    /^@@/ {
+      if (match($0, /\+([0-9]+)/)) {
+        cur_line = substr($0, RSTART+1, RLENGTH-1) + 0
+        in_hunk = 1
+      }
+      next
+    }
+    in_hunk && /^\+/ {
+      print cur_line
+      cur_line++
+      next
+    }
+    in_hunk && /^-/ { next }              # removed: no new-line advance
+    in_hunk && /^[ ]/ { cur_line++; next } # context: advance counter
+    in_hunk && /^\\/ { next }              # "\ No newline at end of file"
+  ' > "$cache_file"
+}
+
+is_line_added() {
+  local f="$1" line="$2"
+  local cache_file="$ADDED_LINES_CACHE_DIR/$(echo "$f" | tr '/' '_').added"
+  [[ -f "$cache_file" ]] || build_added_lines_for_file "$f"
+  grep -qFx "$line" "$cache_file"
+}
+
 emit() {
   local gate="$1" severity="$2" file="$3" line="$4" evidence="$5" fix="$6"
+  # Diff-aware suppression: skip findings on lines that were not added in this
+  # diff. Pre-existing content in modified files is upstream's responsibility,
+  # not the fork's.
+  if [[ "${GBRAIN_SHIPPABLE_FULL_FILE:-0}" != "1" ]]; then
+    is_line_added "$file" "$line" || return 0
+  fi
   if [[ "$severity" == "blocking" ]]; then BLOCKING=$((BLOCKING+1)); else WARNINGS=$((WARNINGS+1)); fi
-  # Escape evidence/fix for JSON (basic — quotes, backslashes, newlines)
   local ev fx
   ev=$(printf '%s' "$evidence" | sed -e 's/\\/\\\\/g' -e 's/"/\\"/g' | tr '\n' ' ')
   fx=$(printf '%s' "$fix" | sed -e 's/\\/\\\\/g' -e 's/"/\\"/g' | tr '\n' ' ')
@@ -227,8 +285,28 @@ check_engine_bypass() {
   rm -f /tmp/shippable-sql-$$.txt
 }
 
+# --- Upstream-identical exemption ---
+# A file that's byte-identical to upstream/master represents debt the fork
+# didn't introduce. Don't block the ship on inherited upstream patterns.
+# Newly-modified or fork-only files run gates normally.
+#
+# Set GBRAIN_NO_UPSTREAM_EXEMPT=1 to disable (e.g. for upstream-bound PRs
+# where you DO want to clean up inherited debt before submitting).
+EXEMPTED=0
+is_upstream_identical() {
+  local f="$1"
+  [[ "${GBRAIN_NO_UPSTREAM_EXEMPT:-0}" == "1" ]] && return 1
+  git rev-parse --verify upstream/master >/dev/null 2>&1 || return 1
+  git ls-tree upstream/master -- "$f" >/dev/null 2>&1 || return 1
+  [[ -z "$(git diff upstream/master -- "$f" 2>/dev/null)" ]]
+}
+
 # --- Run all checks against the file list ---
 for f in "${FILES[@]}"; do
+  if is_upstream_identical "$f"; then
+    EXEMPTED=$((EXEMPTED+1))
+    continue
+  fi
   check_empty_catches "$f"
   check_missing_progress "$f"
   check_report_schema_version "$f"
@@ -236,7 +314,7 @@ for f in "${FILES[@]}"; do
 done
 
 # --- Summary line at end (machine-readable) ---
-printf '{"summary":{"blocking_count":%d,"warning_count":%d}}\n' "$BLOCKING" "$WARNINGS"
+printf '{"summary":{"blocking_count":%d,"warning_count":%d,"upstream_exempted_files":%d}}\n' "$BLOCKING" "$WARNINGS" "$EXEMPTED"
 
 # --- Exit code ---
 [[ "$BLOCKING" -eq 0 ]]
