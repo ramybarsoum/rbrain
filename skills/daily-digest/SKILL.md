@@ -11,8 +11,9 @@ tools:
   - get_stats
   - search
   - get_ingest_log
-  - list_meetings
-  - query_granola_meetings
+  - circleback_search_meetings
+  - circleback_read_meetings
+  - circleback_search_action_items
 mutating: false
 ---
 
@@ -21,7 +22,7 @@ mutating: false
 ## Contract
 
 This skill guarantees:
-- Gathers yesterday's RBrain activity from stats, ingest log, search, and Granola meetings.
+- Gathers yesterday's RBrain activity from stats, ingest log, search, and Circleback meetings.
 - If no activity, responds with a brief "no activity" message. No padding.
 - If activity exists, organizes into a scannable Discord-formatted digest under 2000 characters.
 - Output is delivered as the final response. No additional routing needed.
@@ -32,8 +33,9 @@ This skill guarantees:
    - `mcp_rbrain_get_stats` for brain health overview
    - `mcp_rbrain_search` with a query like "today" or recent dates to find recently updated pages
    - `mcp_rbrain_get_ingest_log` (limit: 20) to see recent ingestion events
-   - `mcp_granola_list_meetings` (time_range: "last_30_days") to check for recent meetings
-   - `mcp_granola_query_granola_meetings` with query "yesterday" for meeting summaries
+   - `mcp_circleback_search_meetings` with a date filter for yesterday to list meetings
+   - `mcp_circleback_read_meetings` for full notes and summaries on the matched meetings
+   - `mcp_circleback_search_action_items` (optional) for action items captured yesterday
 
 2. If there is no activity, just respond with a brief "No new brain activity yesterday" message.
 
@@ -47,6 +49,7 @@ This skill guarantees:
 **Brain Stats**: total pages, recent changes
 **Recent Ingestions**: new pages added (grouped by source)
 **Meetings**: any meetings from yesterday with key takeaways
+**Action Items**: open follow-ups captured yesterday
 **Top Topics/Themes**: what was captured
 ```
 
@@ -60,4 +63,4 @@ This skill guarantees:
 - Padding a quiet day with filler. If nothing happened, say nothing happened.
 - Dumping raw stats without grouping or context.
 - Exceeding 2000 characters. Discord will truncate.
-- Skipping the Granola meeting check. Meetings are the highest-signal source.
+- Skipping the Circleback meeting check. Meetings are the highest-signal source.
