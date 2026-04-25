@@ -1,0 +1,72 @@
+name: Sync upstream gbrain
+
+on:
+  schedule:
+    - cron: '0 10 * * 1'   # Every Monday at 10am UTC
+  workflow_dispatch:        # Also runnable manually from GitHub UI → Actions tab
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure git
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Add upstream remote
+        run: git remote add upstream https://github.com/garrytan/gbrain.git || true
+
+      - name: Fetch upstream
+        run: git fetch upstream master --quiet
+
+      - name: Check how far behind upstream
+        id: check
+        run: |
+          BEHIND=$(git rev-list HEAD..upstream/master --count)
+          echo "behind=$BEHIND" >> "$GITHUB_OUTPUT"
+          echo "RBrain is $BEHIND commit(s) behind upstream"
+
+      - name: Already up to date
+        if: steps.check.outputs.behind == '0'
+        run: echo "Nothing to do — already up to date with upstream."
+
+      - name: Create sync branch and merge
+        if: steps.check.outputs.behind != '0'
+        run: |
+          BRANCH="upstream/sync-$(date +%Y-%m-%d)"
+          git checkout -b "$BRANCH"
+          UPSTREAM_SHA=$(git rev-parse --short upstream/master)
+          git merge upstream/master \
+            -X ours \
+            --no-edit \
+            -m "merge: upstream gbrain $UPSTREAM_SHA"
+          git push origin "$BRANCH"
+          echo "SYNC_BRANCH=$BRANCH" >> "$GITHUB_ENV"
+
+      - name: Open pull request
+        if: steps.check.outputs.behind != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BEHIND_COUNT: ${{ steps.check.outputs.behind }}
+        run: |
+          gh pr create \
+            --base master \
+            --head "$SYNC_BRANCH" \
+            --title "chore: sync upstream gbrain ($BEHIND_COUNT new commits)" \
+            --body "Automated weekly sync from garrytan/gbrain.
+
+          Merged with \`-X ours\` — conflicts resolved in favor of RBrain.
+
+          Review the diff, verify CI passes, then merge when ready.
+
+          _Triggered by scheduled GitHub Action (every Monday 10am UTC)._"
