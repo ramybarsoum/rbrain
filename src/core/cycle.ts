@@ -580,7 +580,11 @@ async function runPhaseOrphans(engine: BrainEngine): Promise<PhaseResult> {
  * This phase wrapper handles: rate-limit gate, stamp update, structured
  * PhaseResult shape.
  */
-async function runPhasePromotion(engine: BrainEngine, dryRun: boolean): Promise<PhaseResult> {
+async function runPhasePromotion(
+  engine: BrainEngine,
+  dryRun: boolean,
+  progress: ProgressReporter,
+): Promise<PhaseResult> {
   try {
     const { runDreamCycle, shouldRunDreamCycle } = await import('./promotion.ts');
 
@@ -605,7 +609,16 @@ async function runPhasePromotion(engine: BrainEngine, dryRun: boolean): Promise<
       };
     }
 
-    const report = await runDreamCycle(engine, {}, dryRun);
+    // Thread per-iteration progress through to runDreamCycle so a long
+    // page-walk on big brains doesn't go silent for minutes.
+    const onProgress = (phase: 'pages' | 'embed', done: number, total: number) => {
+      // Re-emit as tick events on the cycle's reporter. The reporter
+      // dedupes/throttles per its rate-limit settings, so frequent ticks
+      // are cheap.
+      progress.tick(done, `${phase} ${done}/${total}`);
+    };
+
+    const report = await runDreamCycle(engine, {}, dryRun, onProgress);
 
     if (!dryRun) {
       try {
@@ -831,7 +844,7 @@ export async function runCycle(
         });
       } else {
         progress.start('cycle.promotion');
-        const { result, duration_ms } = await timePhase(() => runPhasePromotion(engine, dryRun));
+        const { result, duration_ms } = await timePhase(() => runPhasePromotion(engine, dryRun, progress));
         result.duration_ms = duration_ms;
         phaseResults.push(result);
         progress.finish();

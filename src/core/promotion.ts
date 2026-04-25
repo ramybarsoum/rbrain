@@ -205,6 +205,25 @@ export function scoreCandidate(
   return recFactor * 0.5 + recencyFactor * 0.3 + spreadFactor * 0.2;
 }
 
+// --- Idempotency helper ---
+
+/**
+ * Compute the stable promotion hash for a (cluster_id, target_slug) tuple.
+ * Used as the primary key in dream_cycle_promotions. Same inputs always
+ * produce the same hash, so a re-run is a clean no-op (existence check
+ * skips the page write; INSERT ... ON CONFLICT DO NOTHING short-circuits
+ * the row insert against concurrent races).
+ *
+ * Keyed on cluster_id (not raw pattern text) so the hash is stable across
+ * algorithm tweaks: re-running with the same brain content produces the
+ * same canonical text → same cluster_id → same hash.
+ */
+export function promotionHash(cluster_id: string, targetSlug: string): string {
+  return createHash('sha256')
+    .update(`${cluster_id}\x00${targetSlug}`)
+    .digest('hex');
+}
+
 // --- Embedding helpers ---
 
 function summaryHashOf(normalized: string): string {
@@ -396,6 +415,7 @@ export function clusterByEmbedding(
 export async function collectEvidence(
   engine: BrainEngine,
   config: PromotionConfig,
+  onProgress?: (phase: 'pages' | 'embed', done: number, total: number) => void,
 ): Promise<Cluster[]> {
   const since = new Date(Date.now() - config.evidenceWindowDays * 86400000);
   const sinceStr = since.toISOString().slice(0, 10);
@@ -403,8 +423,11 @@ export async function collectEvidence(
   const pages = await engine.listPages({ limit: MAX_PAGES_TO_SCAN });
 
   // Collect raw entries from every page's timeline within the window.
+  // Progress reported per-page so a 500-page brain doesn't go silent for
+  // minutes while we walk timelines.
   const rawEntries: { slug: string; entry: TimelineEntry; normalized: string }[] = [];
-  for (const page of pages) {
+  for (let i = 0; i < pages.length; i++) {
+    const page = pages[i];
     try {
       const timeline = await engine.getTimeline(page.slug, {
         after: sinceStr,
@@ -423,6 +446,7 @@ export async function collectEvidence(
         e instanceof Error ? e.message : String(e),
       );
     }
+    onProgress?.('pages', i + 1, pages.length);
   }
 
   if (rawEntries.length === 0) return [];
@@ -562,6 +586,7 @@ export async function applyPromotions(
 
     // Pick the first slug as the target (most recent entry's page).
     const targetSlug = candidate.slugs[0];
+    const hash = promotionHash(candidate.cluster_id, targetSlug);
 
     if (dryRun) {
       promoted.push({ ...candidate, reason: `[dry-run] would promote to ${targetSlug}` });
@@ -570,6 +595,20 @@ export async function applyPromotions(
     }
 
     try {
+      // Idempotency check: was this (cluster, target) tuple already promoted?
+      const existing = await engine.executeRaw<{ promoted_at: string }>(
+        'SELECT promoted_at FROM dream_cycle_promotions WHERE pattern_hash = $1 LIMIT 1',
+        [hash],
+      );
+      if (existing.length > 0) {
+        const promotedDate = String(existing[0].promoted_at).slice(0, 10);
+        skipped.push({
+          ...candidate,
+          reason: `already promoted on ${promotedDate}`,
+        });
+        continue;
+      }
+
       const page = await engine.getPage(targetSlug);
       if (!page) {
         skipped.push({ ...candidate, reason: `target page ${targetSlug} not found` });
@@ -596,6 +635,17 @@ export async function applyPromotions(
         detail: `Pattern: "${candidate.pattern}". Cluster: ${candidate.cluster_id}. Score: ${candidate.score.toFixed(2)}. Spread across: ${candidate.slugs.join(', ')}`,
       });
 
+      // Record the promotion. ON CONFLICT DO NOTHING is belt-and-braces:
+      // the SELECT above already gates this branch, but a concurrent run
+      // could race; the conflict clause makes the second writer a no-op.
+      await engine.executeRaw(
+        `INSERT INTO dream_cycle_promotions
+           (pattern_hash, cluster_id, target_slug, pattern_text, recurrence, score)
+         VALUES ($1, $2, $3, $4, $5, $6)
+         ON CONFLICT (pattern_hash) DO NOTHING`,
+        [hash, candidate.cluster_id, targetSlug, candidate.pattern, candidate.recurrence, candidate.score],
+      );
+
       promoted.push({ ...candidate, reason: `promoted to ${targetSlug}` });
       applied++;
     } catch (e) {
@@ -611,16 +661,21 @@ export async function applyPromotions(
 
 /**
  * Run the full dream cycle. Returns a structured report.
+ *
+ * @param onProgress  Optional callback invoked with (phase, done, total) for
+ *                    bulk operations. The runCycle phase wrapper uses this
+ *                    to feed the standard progress reporter.
  */
 export async function runDreamCycle(
   engine: BrainEngine,
   config: Partial<PromotionConfig> = {},
   dryRun: boolean = true,
+  onProgress?: (phase: 'pages' | 'embed', done: number, total: number) => void,
 ): Promise<PromotionReport> {
   const fullConfig = { ...DEFAULT_CONFIG, ...config };
   const runAt = new Date().toISOString();
 
-  const clusters = await collectEvidence(engine, fullConfig);
+  const clusters = await collectEvidence(engine, fullConfig, onProgress);
   const candidates = rankCandidates(clusters, fullConfig);
 
   const promotable = candidates.filter(c => c.reason === 'promotable');
