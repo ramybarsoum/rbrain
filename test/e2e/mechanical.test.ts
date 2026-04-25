@@ -1124,9 +1124,16 @@ describeE2E('E2E: RLS Verification', () => {
       expect(result.exitCode).toBe(0);
       expect(stderr + stdout).not.toMatch(/42P01|does not exist.*budget/i);
 
-      // Version must have advanced to 24.
+      // Version must have advanced past 24. Originally this asserted exactly
+      // '24' because that was the latest version when the test was written.
+      // After the dream-cycle remediation added v25/v26/v27, re-rolling to 23
+      // and re-running runs ALL pending migrations, so the version lands at
+      // the current LATEST_VERSION. The intent of the test is "v24 didn't
+      // crash with 42P01" — assert v24 successfully ran, not that v24 is the
+      // last migration that exists.
       const afterRows = await conn.unsafe(`SELECT value FROM config WHERE key = 'version'`);
-      expect((afterRows[0] as any).value).toBe('24');
+      const versionAfter = parseInt((afterRows[0] as any).value, 10);
+      expect(versionAfter).toBeGreaterThanOrEqual(24);
 
       // The tables stayed dropped (v12 didn't re-run because current=23 > 12
       // was already true before this test ran). That's intentional — we're
