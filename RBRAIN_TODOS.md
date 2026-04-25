@@ -4,38 +4,11 @@ Fork-specific decisions still pending. Keep this file in the fork only ... not f
 
 ---
 
-## 1. Supabase Edge Functions — `supabase/functions/rbrain-mcp/` (9 files, ~1140L total)
+## ~~1. Supabase Edge Functions~~ — RESOLVED 2026-04-25
 
-### What each file does
+**Deleted.** Replaced by `gbrain serve --http` (Bun/Node HTTP MCP server using the existing codebase directly). Deploy via `fly deploy` using `Dockerfile` + `fly.toml` in the repo root. Tokens managed via `gbrain auth create/list/revoke`. MCP endpoint: `https://rbrain-mcp.fly.dev/mcp` with `Authorization: Bearer <token>`.
 
-| File | Lines | Purpose |
-|---|---|---|
-| `index.ts` | 82 | Hono + Streamable HTTP MCP transport entry point. The actual server. |
-| `engine.ts` | 508 | Deno port of `src/core/postgres-engine.ts`. Exact SQL template literals preserved. |
-| `tools.ts` | 208 | Registers 28 RBrain operations as MCP tools on the server. |
-| `auth.ts` | 106 | Bearer token auth against `access_tokens` table. |
-| `chunker.ts` | 106 | Recursive delimiter-aware chunker. Port of `src/core/chunkers/recursive.ts`. |
-| `utils.ts` | 73 | Deno port of `src/core/utils.ts`. Web Crypto instead of node:crypto. |
-| `embedding.ts` | 33 | OpenAI embedding wrapper for query-side. |
-| `db.ts` | 23 | Postgres connection singleton (npm:postgres for SQL parity with CLI). |
-| `deno.json` | 19 | Deno runtime config. |
-
-### What it actually IS
-
-A **complete rewrite of gbrain's MCP server in Deno (Supabase Edge runtime)**. Exposes RBrain's brain via HTTPS to remote agents (Hermes, cole-macbook agents, future agents) using bearer-token auth. Lets remote agents query the brain WITHOUT direct DB credentials.
-
-### Why it exists
-
-The local stdio MCP pattern (`scripts/rbrain-mcp-stdio.sh`) requires DB credentials on every machine that wants brain access. Cole-macbook running Hermes wants brain access too, but you don't want to ship Supabase pooler credentials to that machine. The edge function is a hosted MCP server that any agent can call over HTTPS with a token.
-
-### Recommendation: KEEP
-
-These 9 files together make ONE cohesive product (the hosted MCP server). They're a port, not a fork ... they intentionally mirror `src/core/postgres-engine.ts` and `src/core/operations.ts`. Dropping them means:
-- Cole-macbook loses MCP integration
-- Hermes can't run remote brain queries
-- You'd have to re-implement either direct stdio MCP (with cred sharing) or some other transport
-
-**Optional follow-up (per the rescue-2026-04-24 audit): relocate to a separate `rbrain-edge` repo.** They're an integration, not fork platform code. Out of `RBrain/` makes the fork smaller; into a separate repo makes deploys clearer. **Decision pending. Defer until upstream sync work settles.**
+**Why removed:** 1,140L of duplicated Deno code (engine, tools, chunker, embedding) vs 108L of new code with zero duplication. Supabase Edge (Deno runtime) blocked direct imports of the Node-based codebase; Fly.io + Bun has no such constraint.
 
 ---
 
