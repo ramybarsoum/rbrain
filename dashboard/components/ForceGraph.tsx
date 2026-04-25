@@ -23,18 +23,30 @@ interface Props {
   links: Link[];
 }
 
+// Colors matching the design token type palette
 const TYPE_COLORS: Record<string, string> = {
-  person: '#60a5fa',
-  company: '#34d399',
-  concept: '#a78bfa',
-  decision: '#fbbf24',
-  note: '#94a3b8',
-  guide: '#22d3ee',
-  analysis: '#f87171',
+  person:                '#14b8a6',  // teal
+  company:               '#f97316',  // orange
+  meeting:               '#a855f7',  // purple
+  meeting_note:          '#a855f7',
+  decision:              '#eab308',  // yellow
+  thought_decision:      '#eab308',
+  idea:                  '#ec4899',  // pink
+  thought_idea:          '#ec4899',
+  thought_feature_request: '#ec4899',
+  feature_request:       '#ec4899',
+  concept:               '#8b5cf6',  // violet
+  topic:                 '#8b5cf6',
+  learning:              '#3bce76',  // green
+  thought_learning:      '#3bce76',
+  thought:               '#60a5fa',  // blue
+  thought_follow_up:     '#60a5fa',
+  project_update:        '#64748b',  // slate
+  person_note:           '#9aa0a6',
 };
 
 function nodeColor(type: string) {
-  return TYPE_COLORS[type] ?? '#52525b';
+  return TYPE_COLORS[type] ?? '#4a4e54';
 }
 
 export default function ForceGraph({ nodes, links }: Props) {
@@ -65,7 +77,7 @@ export default function ForceGraph({ nodes, links }: Props) {
   };
 
   return (
-    <div ref={containerRef} className="w-full h-full bg-zinc-950">
+    <div ref={containerRef} style={{ width: '100%', height: '100%', background: '#0a0b0d' }}>
       <ForceGraph2D
         width={dimensions.width}
         height={dimensions.height}
@@ -74,18 +86,18 @@ export default function ForceGraph({ nodes, links }: Props) {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         nodeColor={(n: any) => nodeColor(n.type)}
         nodeRelSize={4}
-        linkColor={() => '#3f3f46'}
+        linkColor={() => '#23262c'}
         linkWidth={0.8}
-        backgroundColor="#09090b"
+        backgroundColor="#0a0b0d"
         nodeCanvasObjectMode={() => 'after'}
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         nodeCanvasObject={(node: any, ctx: CanvasRenderingContext2D, globalScale: number) => {
           if (globalScale < 1.5) return;
           const label = node.label ?? '';
           ctx.font = `${10 / globalScale}px monospace`;
-          ctx.fillStyle = '#a1a1aa';
+          ctx.fillStyle = '#6b7177';
           ctx.textAlign = 'center';
-          ctx.fillText(label.slice(0, 24), node.x ?? 0, (node.y ?? 0) + 8 / globalScale);
+          ctx.fillText(label.slice(0, 28), node.x ?? 0, (node.y ?? 0) + 8 / globalScale);
         }}
       />
     </div>

@@ -4,7 +4,8 @@ import ForceGraph from '@/components/ForceGraph';
 
 export const dynamic = 'force-dynamic';
 
-const TYPE_FILTERS = ['all', 'person', 'company', 'concept', 'decision', 'note'];
+// Types worth filtering on in the graph
+const TYPE_FILTERS = ['all', 'person', 'company', 'meeting', 'decision', 'concept', 'thought', 'learning'];
 
 export default async function GraphPage({
   searchParams,
@@ -18,28 +19,29 @@ export default async function GraphPage({
   });
 
   return (
-    <div className="flex flex-col h-full">
-      <div className="flex items-center gap-3 px-4 py-2 border-b border-zinc-800 shrink-0">
-        <span className="text-xs text-zinc-500">
-          {data.nodes.length} nodes · {data.links.length} edges
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', margin: 'calc(-1 * var(--s-6)) calc(-1 * var(--s-8))', overflow: 'hidden' }}>
+      {/* Toolbar */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--s-3)', padding: '8px var(--s-5)', borderBottom: '1px solid var(--border)', flexShrink: 0, background: 'var(--bg-secondary)' }}>
+        <span style={{ fontSize: 12, color: 'var(--fg-subtle)' }}>
+          <span style={{ color: 'var(--fg-strong)', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>{data.nodes.length}</span> nodes ·{' '}
+          <span style={{ color: 'var(--fg-strong)', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>{data.links.length}</span> edges
         </span>
-        <div className="flex gap-1.5 ml-4">
+        <div style={{ display: 'flex', gap: 'var(--s-2)', flexWrap: 'wrap' }}>
           {TYPE_FILTERS.map(t => (
             <Link
               key={t}
               href={t === 'all' ? '/graph' : `/graph?type=${t}`}
-              className={`px-2 py-0.5 rounded text-xs border ${
-                (t === 'all' && !type) || type === t
-                  ? 'border-zinc-400 text-zinc-100'
-                  : 'border-zinc-700 text-zinc-500 hover:border-zinc-500'
-              }`}
+              className={`feed-chip${(t === 'all' && !type) || type === t ? ' active' : ''}`}
+              style={{ fontSize: 11, padding: '3px 8px' }}
             >
               {t}
             </Link>
           ))}
         </div>
       </div>
-      <div className="flex-1 min-h-0">
+
+      {/* Graph canvas */}
+      <div style={{ flex: 1, minHeight: 0 }}>
         <ForceGraph nodes={data.nodes} links={data.links} />
       </div>
     </div>
