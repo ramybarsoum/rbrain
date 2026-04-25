@@ -83,6 +83,7 @@ If you are about to **add or modify a row in this file, create a new fat file un
 | "Validate skills", skill health check | `skills/testing/SKILL.md` |
 | Webhook setup, external event processing | `skills/webhook-transforms/SKILL.md` |
 | Continuous learning, knowledge extraction | `skills/claudeception/SKILL.md` |
+| "nightly learnings", "collect today's learnings", "what did I learn today", "extract daily insights" | `skills/nightly-learnings-collector/SKILL.md` (autonomous nightly counterpart to claudeception) |
 | "Context rescue", "save this session", long conversation cleanup | `skills/context-rescue/SKILL.md` |
 | "Spawn agent", "background task", "parallel tasks", "steer agent", "pause/resume agent", "gbrain jobs submit", "submit a gbrain job", "submit a shell job", "shell job" | `skills/minion-orchestrator/SKILL.md` |
 
@@ -92,6 +93,7 @@ If you are about to **add or modify a row in this file, create a new fat file un
 |---------|-------|
 | "Expert panel", "score this", "rate these variants", "quality check", "panel review", "evaluate this copy" | `skills/content-ops/SKILL.md` |
 | "Write an X post", "long-form tweet", "X thread", "thought leadership post" | `skills/x-longform-post/SKILL.md` |
+| "what should I post about", "I don't know what to write", "help me find content", "content from my week", "personal brand content", "weekly content review" | `skills/content-mine/SKILL.md` |
 | "YouTube analysis", "competitive analysis YouTube", "viral video patterns", "outlier videos" | `skills/yt-competitive-analysis/SKILL.md` |
 | "Create a deck", "generate slides", "pitch deck", "presentation" | `skills/deck-generator/SKILL.md` |
 | "Optimize this page", "run autoresearch", "A/B test this copy", "score variants" | `skills/autoresearch/SKILL.md` |
