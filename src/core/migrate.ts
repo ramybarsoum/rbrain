@@ -845,6 +845,73 @@ export const MIGRATIONS: Migration[] = [
         ON timeline_summary_embeddings USING ivfflat (embedding vector_cosine_ops);
     `,
   },
+  {
+    version: 26,
+    name: 'dream_cycle_promotions',
+    // PR #3 of dream-cycle remediation (sequenced after PR #4's clustering).
+    // Backs hash-based idempotency for episodic-to-semantic promotions.
+    //
+    // Without this: running the dream cycle N times appends the same semantic
+    // note N times to the target page's compiled_truth (re-promotion bug).
+    // With this: every (cluster_id, target_slug) tuple is hashed and stored
+    // on first promotion; subsequent runs check the table and skip with
+    // reason 'already promoted on <date>'.
+    //
+    // Hash key uses cluster_id (the stable identifier produced by the
+    // embedding-clustering layer in PR #4), not raw normalized pattern text.
+    // This means a re-clustering of the same brain content produces the
+    // same hash (cluster_id is sha256-based on canonical text), so
+    // idempotency survives algorithm tweaks as long as the cluster
+    // representative stays the same.
+    sql: `
+      CREATE TABLE IF NOT EXISTS dream_cycle_promotions (
+        pattern_hash TEXT PRIMARY KEY,
+        cluster_id TEXT NOT NULL,
+        target_slug TEXT NOT NULL,
+        pattern_text TEXT NOT NULL,
+        recurrence INTEGER NOT NULL,
+        score REAL NOT NULL,
+        promoted_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+      );
+      CREATE INDEX IF NOT EXISTS idx_dream_cycle_promotions_target
+        ON dream_cycle_promotions(target_slug);
+      CREATE INDEX IF NOT EXISTS idx_dream_cycle_promotions_cluster
+        ON dream_cycle_promotions(cluster_id);
+      CREATE INDEX IF NOT EXISTS idx_dream_cycle_promotions_promoted_at
+        ON dream_cycle_promotions(promoted_at DESC);
+    `,
+  },
+  {
+    version: 27,
+    name: 'rls_for_dream_cycle_tables',
+    // PR #3 of dream-cycle remediation. The two tables added in v25 and v26
+    // (timeline_summary_embeddings, dream_cycle_promotions) shipped without
+    // Row Level Security enabled. Supabase exposes the public schema via
+    // PostgREST, so tables without RLS are readable by the anon key.
+    //
+    // These two tables hold internal cycle state (embeddings of timeline
+    // summaries, audit of past promotions) ... they should never be
+    // accessible to anon. Enabling RLS without policies blocks all
+    // non-BYPASSRLS roles, which is the secure default for these tables.
+    //
+    // Same gating pattern as v24: only fires if the table actually exists
+    // (defensive against partial migration rollbacks). ALTER TABLE ENABLE
+    // ROW LEVEL SECURITY is idempotent in Postgres ... safe to re-run.
+    sql: `
+      DO $$
+      BEGIN
+        IF EXISTS (SELECT 1 FROM information_schema.tables
+                    WHERE table_schema = 'public' AND table_name = 'timeline_summary_embeddings') THEN
+          ALTER TABLE timeline_summary_embeddings ENABLE ROW LEVEL SECURITY;
+        END IF;
+        IF EXISTS (SELECT 1 FROM information_schema.tables
+                    WHERE table_schema = 'public' AND table_name = 'dream_cycle_promotions') THEN
+          ALTER TABLE dream_cycle_promotions ENABLE ROW LEVEL SECURITY;
+        END IF;
+        RAISE NOTICE 'v27: RLS enabled on dream-cycle internal tables';
+      END $$;
+    `,
+  },
 ];
 
 export const LATEST_VERSION = MIGRATIONS.length > 0
