@@ -4,18 +4,18 @@ import { listPages } from '@/lib/operations';
 export const dynamic = 'force-dynamic';
 
 const TYPE_COLORS: Record<string, string> = {
-  person: 'text-blue-400',
-  company: 'text-emerald-400',
-  concept: 'text-purple-400',
-  decision: 'text-amber-400',
-  note: 'text-zinc-400',
-  guide: 'text-cyan-400',
-  analysis: 'text-rose-400',
+  person:   'var(--type-person)',
+  company:  'var(--type-company)',
+  concept:  'var(--type-meeting)',
+  decision: 'var(--type-decision)',
+  note:     'var(--type-note)',
+  guide:    'var(--accent)',
+  analysis: 'var(--type-idea)',
+  meeting:  'var(--type-meeting)',
+  todo:     'var(--info)',
 };
 
-function typeColor(type: string) {
-  return TYPE_COLORS[type] ?? 'text-zinc-500';
-}
+const TYPES = ['person', 'company', 'meeting', 'concept', 'decision', 'note', 'guide', 'analysis'];
 
 export default async function PagesPage({
   searchParams,
@@ -25,57 +25,54 @@ export default async function PagesPage({
   const { type, tag } = await searchParams;
   const pages = await listPages({ type, tag, limit: 200 });
 
-  const types = ['person', 'company', 'concept', 'decision', 'note', 'guide', 'analysis'];
-
   return (
-    <div className="p-8">
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-lg font-semibold text-zinc-100">Pages</h1>
-        <span className="text-xs text-zinc-500">{pages.length} shown</span>
+    <>
+      <div className="page-head">
+        <div>
+          <h1 className="page-title">Pages</h1>
+          <p className="page-sub">{pages.length} shown{type ? ` · type: ${type}` : ''}{tag ? ` · tag: ${tag}` : ''}</p>
+        </div>
       </div>
 
-      {/* Type filter */}
-      <div className="flex gap-2 mb-6 flex-wrap">
-        <Link
-          href="/pages"
-          className={`px-2 py-0.5 rounded text-xs border ${!type ? 'border-zinc-400 text-zinc-100' : 'border-zinc-700 text-zinc-500 hover:border-zinc-500'}`}
-        >
-          all
-        </Link>
-        {types.map(t => (
-          <Link
-            key={t}
-            href={`/pages?type=${t}`}
-            className={`px-2 py-0.5 rounded text-xs border ${type === t ? 'border-zinc-400 text-zinc-100' : 'border-zinc-700 text-zinc-500 hover:border-zinc-500'}`}
-          >
+      {/* Type filter chips */}
+      <div style={{ display: 'flex', gap: 'var(--s-2)', marginBottom: 'var(--s-5)', flexWrap: 'wrap' }}>
+        <Link href="/pages" className={`feed-chip${!type ? ' active' : ''}`}>All</Link>
+        {TYPES.map(t => (
+          <Link key={t} href={`/pages?type=${t}`} className={`feed-chip${type === t ? ' active' : ''}`}>
+            <span className={`type-pill t-${t}`} style={{ padding: 0, border: 'none', background: 'transparent' }}>
+              <span className="swatch"></span>
+            </span>
             {t}
           </Link>
         ))}
       </div>
 
       {/* Table */}
-      <div className="border border-zinc-800 rounded-lg overflow-hidden">
-        <table className="w-full text-sm">
+      <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 'var(--r-xl)', overflow: 'hidden' }}>
+        <table className="rb-table">
           <thead>
-            <tr className="border-b border-zinc-800 text-xs text-zinc-500">
-              <th className="text-left px-4 py-2 font-medium w-24">Type</th>
-              <th className="text-left px-4 py-2 font-medium">Title</th>
-              <th className="text-left px-4 py-2 font-medium hidden md:table-cell">Slug</th>
-              <th className="text-right px-4 py-2 font-medium hidden lg:table-cell w-32">Updated</th>
+            <tr>
+              <th style={{ width: 100 }}>Type</th>
+              <th>Title</th>
+              <th style={{ width: 240 }}>Slug</th>
+              <th style={{ width: 110, textAlign: 'right' }}>Updated</th>
             </tr>
           </thead>
           <tbody>
-            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             {(pages as any[]).map((p) => (
-              <tr key={p.slug} className="border-b border-zinc-900 hover:bg-zinc-900/50">
-                <td className={`px-4 py-2 text-xs ${typeColor(p.type)}`}>{p.type}</td>
-                <td className="px-4 py-2 text-zinc-200 max-w-xs truncate">
-                  {p.title || <span className="text-zinc-600 italic">untitled</span>}
+              <tr key={p.slug}>
+                <td>
+                  <span className={`type-pill t-${p.type}`} style={{ color: TYPE_COLORS[p.type] ?? 'var(--fg-muted)' }}>
+                    <span className="swatch"></span>{p.type}
+                  </span>
                 </td>
-                <td className="px-4 py-2 text-zinc-600 text-xs hidden md:table-cell max-w-xs truncate">
+                <td style={{ color: 'var(--fg-strong)', fontWeight: 500 }}>
+                  {p.title || <span style={{ color: 'var(--fg-disabled)', fontStyle: 'italic' }}>untitled</span>}
+                </td>
+                <td className="mono" style={{ fontSize: 11, color: 'var(--fg-subtle)', maxWidth: 240, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                   {p.slug}
                 </td>
-                <td className="px-4 py-2 text-zinc-600 text-xs text-right hidden lg:table-cell whitespace-nowrap">
+                <td className="mono" style={{ fontSize: 11, color: 'var(--fg-subtle)', textAlign: 'right', whiteSpace: 'nowrap' }}>
                   {new Date(p.updated_at).toLocaleDateString()}
                 </td>
               </tr>
@@ -83,9 +80,11 @@ export default async function PagesPage({
           </tbody>
         </table>
         {pages.length === 0 && (
-          <div className="px-4 py-8 text-center text-zinc-600 text-sm">No pages found.</div>
+          <div style={{ padding: 'var(--s-8)', textAlign: 'center', fontSize: 13, color: 'var(--fg-subtle)' }}>
+            No pages found.
+          </div>
         )}
       </div>
-    </div>
+    </>
   );
 }

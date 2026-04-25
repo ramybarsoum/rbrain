@@ -2,36 +2,40 @@ import { getMeetings, getMeetingAttendees } from '@/lib/operations';
 
 export const dynamic = 'force-dynamic';
 
-async function MeetingBrief({ slug }: { slug: string }) {
+async function AttendeeList({ slug }: { slug: string }) {
   const attendees = await getMeetingAttendees(slug);
-
   if (!(attendees as any[]).length) {
-    return <p className="text-sm text-zinc-600 mt-4">No linked attendees found in brain.</p>;
+    return (
+      <p style={{ fontSize: 13, color: 'var(--fg-subtle)', marginTop: 'var(--s-4)' }}>
+        No linked attendees found in brain.
+      </p>
+    );
   }
-
   return (
-    <div className="mt-4 space-y-3">
-      <div className="text-xs text-zinc-500 uppercase tracking-widest mb-2">Attendees</div>
-      {(attendees as any[]).map((a: any) => {
-        const fm = a.frontmatter ?? {};
-        return (
-          <div key={a.slug} className="border border-zinc-800 rounded-lg p-3">
-            <div className="flex items-center gap-2 mb-1">
-              <span className="text-sm font-medium text-zinc-100">{a.title || a.slug}</span>
-              {fm.v0_company && (
-                <span className="text-xs text-zinc-500">· {fm.v0_company}</span>
+    <div style={{ marginTop: 'var(--s-4)' }}>
+      <div style={{ fontSize: 11, fontWeight: 500, color: 'var(--fg-subtle)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 'var(--s-3)' }}>
+        Attendees · {(attendees as any[]).length}
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--s-2)' }}>
+        {(attendees as any[]).map((a: any) => {
+          const fm = a.frontmatter ?? {};
+          return (
+            <div key={a.slug} style={{ background: 'var(--surface-2)', border: '1px solid var(--border)', borderRadius: 'var(--r-md)', padding: 'var(--s-3)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--s-2)', marginBottom: 2 }}>
+                <span className={`type-pill t-person`}><span className="swatch"></span>person</span>
+                <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--fg-strong)' }}>{a.title || a.slug}</span>
+                {fm.v0_company && (
+                  <span style={{ fontSize: 12, color: 'var(--fg-subtle)' }}>· {fm.v0_company}</span>
+                )}
+                <span className="mono" style={{ marginLeft: 'auto', fontSize: 11, color: 'var(--fg-disabled)' }}>{a.link_type}</span>
+              </div>
+              {fm.email && (
+                <div className="mono" style={{ fontSize: 11, color: 'var(--fg-subtle)', marginTop: 2 }}>{fm.email}</div>
               )}
-              <span className="ml-auto text-xs text-zinc-700">{a.link_type}</span>
             </div>
-            {fm.title && fm.title !== a.title && (
-              <div className="text-xs text-zinc-500">{fm.title}</div>
-            )}
-            {fm.email && (
-              <div className="text-xs text-zinc-600 mt-0.5">{fm.email}</div>
-            )}
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }
@@ -45,14 +49,21 @@ export default async function MeetingsPage({
   const meetings = await getMeetings({ limit: 100 });
 
   return (
-    <div className="flex h-full">
+    <div style={{ display: 'flex', height: '100%', margin: 'calc(-1 * var(--s-6)) calc(-1 * var(--s-8))', overflow: 'hidden' }}>
       {/* Meeting list */}
-      <div className="w-64 shrink-0 border-r border-zinc-800 overflow-y-auto py-2">
-        <div className="px-4 py-2 text-xs text-zinc-500 uppercase tracking-widest mb-1">
+      <aside style={{
+        width: 260, flexShrink: 0,
+        borderRight: '1px solid var(--border)',
+        overflowY: 'auto', paddingTop: 'var(--s-2)',
+        background: 'var(--bg-secondary)',
+      }}>
+        <div style={{ padding: '4px var(--s-4) 8px', fontSize: 11, fontWeight: 500, color: 'var(--fg-subtle)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
           {(meetings as any[]).length} meetings
         </div>
         {(meetings as any[]).length === 0 && (
-          <div className="px-4 py-4 text-xs text-zinc-600">No meeting pages in brain yet.</div>
+          <div style={{ padding: 'var(--s-4)', fontSize: 12, color: 'var(--fg-disabled)' }}>
+            No meeting pages in brain yet.
+          </div>
         )}
         {(meetings as any[]).map((m: any) => {
           const date = m.frontmatter?.date ?? m.updated_at?.slice(0, 10);
@@ -61,48 +72,58 @@ export default async function MeetingsPage({
             <a
               key={m.slug}
               href={`/meetings?slug=${encodeURIComponent(m.slug)}`}
-              className={`block px-4 py-2 hover:bg-zinc-800 transition-colors ${isActive ? 'bg-zinc-800' : ''}`}
+              style={{
+                display: 'block', padding: '8px var(--s-4)',
+                textDecoration: 'none',
+                background: isActive ? 'var(--accent-soft)' : 'transparent',
+                borderLeft: isActive ? '2px solid var(--accent)' : '2px solid transparent',
+              }}
             >
-              <div className="text-sm text-zinc-200 truncate">{m.title || m.slug}</div>
-              {date && <div className="text-xs text-zinc-600 mt-0.5">{date}</div>}
+              <div style={{ fontSize: 13, color: isActive ? 'var(--accent)' : 'var(--fg)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                {m.title || m.slug}
+              </div>
+              {date && (
+                <div className="mono" style={{ fontSize: 11, color: 'var(--fg-subtle)', marginTop: 2 }}>{date}</div>
+              )}
             </a>
           );
         })}
-      </div>
+      </aside>
 
-      {/* Meeting brief panel */}
-      <div className="flex-1 overflow-y-auto p-8">
+      {/* Brief panel */}
+      <div style={{ flex: 1, overflowY: 'auto', padding: 'var(--s-8)' }}>
         {!activeSlug ? (
-          <div className="text-sm text-zinc-600">
-            Select a meeting on the left to see the pre-meeting brief.
+          <div style={{ color: 'var(--fg-subtle)', fontSize: 13, paddingTop: 'var(--s-4)' }}>
+            <i className="ph ph-arrow-left" style={{ marginRight: 8 }}></i>
+            Select a meeting to see the pre-meeting brief.
           </div>
-        ) : (
-          (() => {
-            const meeting = (meetings as any[]).find(m => m.slug === activeSlug);
-            if (!meeting) return <div className="text-sm text-zinc-600">Meeting not found.</div>;
-            const fm = meeting.frontmatter ?? {};
-            return (
-              <div className="max-w-2xl">
-                <div className="text-xs text-zinc-500 uppercase tracking-widest mb-1">Pre-Meeting Brief</div>
-                <h1 className="text-xl font-semibold text-zinc-100 mb-1">
-                  {meeting.title || meeting.slug}
-                </h1>
-                <div className="flex gap-4 text-xs text-zinc-500 mb-6">
-                  {fm.date && <span>{fm.date}</span>}
-                  {fm.time && <span>{fm.time}</span>}
-                  {fm.location && <span>{fm.location}</span>}
-                </div>
-                {fm.agenda && (
-                  <div className="mb-6">
-                    <div className="text-xs text-zinc-500 uppercase tracking-widest mb-2">Agenda</div>
-                    <p className="text-sm text-zinc-300 whitespace-pre-line">{fm.agenda}</p>
-                  </div>
-                )}
-                <MeetingBrief slug={activeSlug} />
+        ) : (() => {
+          const meeting = (meetings as any[]).find(m => m.slug === activeSlug);
+          if (!meeting) return <div style={{ fontSize: 13, color: 'var(--fg-subtle)' }}>Meeting not found.</div>;
+          const fm = meeting.frontmatter ?? {};
+          return (
+            <div style={{ maxWidth: 640 }}>
+              <div style={{ fontSize: 11, fontWeight: 500, color: 'var(--fg-subtle)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 'var(--s-2)' }}>
+                Pre-Meeting Brief
               </div>
-            );
-          })()
-        )}
+              <h1 style={{ fontSize: 22, fontWeight: 600, color: 'var(--fg-strong)', letterSpacing: '-0.01em', margin: '0 0 var(--s-2)' }}>
+                {meeting.title || meeting.slug}
+              </h1>
+              <div style={{ display: 'flex', gap: 'var(--s-4)', marginBottom: 'var(--s-6)' }}>
+                {fm.date && <span className="pill">{fm.date}</span>}
+                {fm.time && <span className="pill">{fm.time}</span>}
+                {fm.location && <span className="pill"><i className="ph ph-map-pin"></i>{fm.location}</span>}
+              </div>
+              {fm.agenda && (
+                <div style={{ marginBottom: 'var(--s-6)' }}>
+                  <div style={{ fontSize: 11, fontWeight: 500, color: 'var(--fg-subtle)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 'var(--s-2)' }}>Agenda</div>
+                  <p style={{ fontSize: 13, color: 'var(--fg-muted)', lineHeight: 1.6, margin: 0, whiteSpace: 'pre-line' }}>{fm.agenda}</p>
+                </div>
+              )}
+              <AttendeeList slug={activeSlug} />
+            </div>
+          );
+        })()}
       </div>
     </div>
   );
