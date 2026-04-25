@@ -30,3 +30,4 @@ digests/
 .tmp/
 .tmp_*
 *.tmp.md
+.context/
