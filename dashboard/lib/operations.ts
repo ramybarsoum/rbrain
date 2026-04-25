@@ -12,6 +12,39 @@ export async function getPage(slug: string) {
   return rows[0] ?? null;
 }
 
+export async function getPersonDetail(slug: string) {
+  const db = sql();
+  const [pages, outLinks, inLinks, timeline] = await Promise.all([
+    db`SELECT id, slug, title, frontmatter, compiled_truth, updated_at FROM pages WHERE slug = ${slug} LIMIT 1`,
+    // outgoing links (who this person is connected to)
+    db`
+      SELECT tp.slug AS target_slug, tp.title AS target_title, tp.type AS target_type, l.link_type
+      FROM links l
+      JOIN pages p  ON p.id  = l.from_page_id
+      JOIN pages tp ON tp.id = l.to_page_id
+      WHERE p.slug = ${slug}
+      ORDER BY l.link_type, tp.title LIMIT 20
+    `,
+    // incoming links (who mentions this person)
+    db`
+      SELECT p.slug AS source_slug, p.title AS source_title, p.type AS source_type, l.link_type
+      FROM links l
+      JOIN pages p  ON p.id  = l.from_page_id
+      JOIN pages tp ON tp.id = l.to_page_id
+      WHERE tp.slug = ${slug}
+      ORDER BY l.link_type, p.title LIMIT 20
+    `,
+    // recent timeline entries
+    db`
+      SELECT t.date, t.summary, t.source FROM timeline_entries t
+      JOIN pages p ON p.id = t.page_id
+      WHERE p.slug = ${slug}
+      ORDER BY t.date DESC LIMIT 10
+    `,
+  ]);
+  return { page: pages[0] ?? null, outLinks, inLinks, timeline };
+}
+
 export async function listPages(opts: { type?: string; tag?: string; limit?: number; days?: number }) {
   const limit = Math.min(opts.limit ?? 50, 200);
   const db = sql();
