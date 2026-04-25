@@ -38,22 +38,3 @@ Before creating a new brain page, check notability:
 - **Concepts:** Reusable mental model? Worth referencing again?
 
 When in doubt, DON'T create. A 400-follower person who tweeted once is not notable.
-
-## Destinations and Fences, Not Driving Directions
-
-When writing or revising a skill:
-- describe what good looks like
-- describe the boundaries that must not be crossed
-- give the model a clear destination and a clear fence
-
-Prefer this:
-- success criteria
-- heuristics at decision forks
-- constraints and approval boundaries
-
-Avoid this when possible:
-- brittle numbered micromanagement
-- shell-by-shell instructions for routine reasoning work
-- procedural clutter that will go stale faster than the model
-
-Audit question: is this line telling the agent **how** to move, or telling it **what good looks like**? If it is a "how," it usually belongs in tooling or examples, not the core skill.

@@ -39,8 +39,13 @@ This skill guarantees:
 - Tiered enrichment: Tier 1 (full), Tier 2 (medium), Tier 3 (minimal) based on notability
 - No stubs: every new page has meaningful content from web search or existing brain context
 
-> **Filing rule:** see [skills/_brain-filing-rules.md](../_brain-filing-rules.md) — read before creating any new page.
-> **Convention:** see [skills/conventions/quality.md](../conventions/quality.md) — Iron Law back-linking applies to every entity mention.
+> **Filing rule:** Read `skills/_brain-filing-rules.md` before creating any new page.
+
+> **Convention:** See `skills/conventions/quality.md` for Iron Law back-linking.
+
+Every mention of a person or company with a brain page MUST create a back-link
+FROM that entity's page TO the page mentioning them. An unlinked mention is a
+broken brain. See `skills/_brain-filing-rules.md` for format.
 
 ## Philosophy
 
@@ -97,8 +102,6 @@ Scale enrichment to importance. Don't waste API calls on low-value entities.
 Extract people, companies, concepts from the incoming signal.
 
 ### Step 2: Check brain state
-
-> **Filing rule:** see [skills/_brain-filing-rules.md](../_brain-filing-rules.md) — the notability gate referenced below is defined there.
 
 For each entity:
 - `gbrain search "name"` -- does a page already exist?
@@ -172,10 +175,8 @@ the raw data shows exactly what the API returned.
 
 #### CREATE path
 
-> **Filing rule:** see [skills/_brain-filing-rules.md](../_brain-filing-rules.md) — notability gate + filing decisions are defined there, not here.
-
-1. Check notability gate per the rule above.
-2. Check where this entity goes (filing rules in the same file).
+1. Check notability gate (see `skills/_brain-filing-rules.md`)
+2. Check filing rules -- where does this entity go?
 3. Create page with the appropriate template (below)
 4. Fill compiled truth with citations
 5. Add first timeline entry
