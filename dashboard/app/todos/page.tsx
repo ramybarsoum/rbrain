@@ -3,10 +3,10 @@ import { createTodo, toggleTodo, removeTodo } from './actions';
 
 export const dynamic = 'force-dynamic';
 
-const PRIORITY_BADGE: Record<string, string> = {
-  p1: 'text-red-400 border-red-900',
-  p2: 'text-amber-400 border-amber-900',
-  p3: 'text-zinc-500 border-zinc-800',
+const P_COLOR: Record<string, string> = {
+  p1: 'var(--danger)',
+  p2: 'var(--warning)',
+  p3: 'var(--fg-subtle)',
 };
 
 function TodoRow({ t }: { t: any }) {
@@ -18,44 +18,54 @@ function TodoRow({ t }: { t: any }) {
   const overdue = !done && dueDate && dueDate < today;
 
   return (
-    <div className={`flex items-center gap-3 py-2 border-b border-zinc-900 group ${done ? 'opacity-50' : ''}`}>
-      {/* Toggle done */}
+    <div style={{
+      display: 'flex', alignItems: 'center', gap: 'var(--s-3)',
+      padding: '9px 0', borderBottom: '1px solid var(--separator)',
+      opacity: done ? 0.45 : 1,
+    }}>
       <form action={toggleTodo.bind(null, t.slug, !done, t.title, priority, dueDate)}>
-        <button
-          type="submit"
-          className={`w-4 h-4 rounded border shrink-0 flex items-center justify-center transition-colors
-            ${done ? 'bg-zinc-700 border-zinc-600' : 'border-zinc-600 hover:border-zinc-400'}`}
-          title={done ? 'Mark open' : 'Mark done'}
-        >
-          {done && <span className="text-zinc-400 text-xs leading-none">✓</span>}
+        <button type="submit" style={{
+          width: 16, height: 16, borderRadius: 'var(--r-xs)',
+          border: `1.5px solid ${done ? 'var(--accent)' : 'var(--border-strong)'}`,
+          background: done ? 'var(--accent-soft)' : 'transparent',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          flexShrink: 0, cursor: 'pointer', padding: 0,
+        }} title={done ? 'Mark open' : 'Mark done'}>
+          {done && <i className="ph ph-check" style={{ fontSize: 10, color: 'var(--accent)' }}></i>}
         </button>
       </form>
 
-      {/* Priority */}
-      <span className={`text-xs border rounded px-1 shrink-0 ${PRIORITY_BADGE[priority] ?? PRIORITY_BADGE.p3}`}>
-        {priority}
-      </span>
+      <span style={{
+        fontSize: 11, fontWeight: 500,
+        color: P_COLOR[priority] ?? P_COLOR.p3,
+        border: `1px solid ${P_COLOR[priority] ?? P_COLOR.p3}`,
+        borderRadius: 'var(--r-xs)',
+        padding: '1px 6px',
+        opacity: 0.8,
+        flexShrink: 0,
+        fontFamily: 'var(--font-mono)',
+      }}>{priority}</span>
 
-      {/* Title */}
-      <span className={`flex-1 text-sm ${done ? 'line-through text-zinc-600' : overdue ? 'text-red-300' : 'text-zinc-200'}`}>
-        {t.title}
-      </span>
+      <span style={{
+        flex: 1, fontSize: 13,
+        color: done ? 'var(--fg-disabled)' : overdue ? 'var(--danger)' : 'var(--fg-strong)',
+        textDecoration: done ? 'line-through' : 'none',
+        overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+      }}>{t.title}</span>
 
-      {/* Due date */}
       {dueDate && (
-        <span className={`text-xs shrink-0 ${overdue ? 'text-red-500' : 'text-zinc-600'}`}>
-          {dueDate}
-        </span>
+        <span className="mono" style={{
+          fontSize: 11, flexShrink: 0,
+          color: overdue ? 'var(--danger)' : 'var(--fg-subtle)',
+        }}>{dueDate}</span>
       )}
 
-      {/* Delete */}
       <form action={removeTodo.bind(null, t.slug)}>
-        <button
-          type="submit"
-          className="text-zinc-700 hover:text-red-500 text-xs opacity-0 group-hover:opacity-100 transition-opacity shrink-0"
-          title="Delete"
-        >
-          ✕
+        <button type="submit" style={{
+          background: 'transparent', border: 'none', padding: '2px 4px',
+          color: 'var(--fg-disabled)', cursor: 'pointer', fontSize: 12, flexShrink: 0,
+        }} title="Delete">
+          <i className="ph ph-x"></i>
         </button>
       </form>
     </div>
@@ -68,64 +78,76 @@ export default async function TodosPage() {
   const done = (todos as any[]).filter(t => t.frontmatter?.done === true);
 
   return (
-    <div className="p-8 max-w-2xl">
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-lg font-semibold text-zinc-100">To-Do</h1>
-        <span className="text-xs text-zinc-500">{open.length} open · {done.length} done</span>
+    <>
+      <div className="page-head">
+        <div>
+          <h1 className="page-title">To-Do</h1>
+          <p className="page-sub">{open.length} open · {done.length} completed · stored in your brain</p>
+        </div>
       </div>
 
-      {/* Add form */}
-      <form action={createTodo} className="flex gap-2 mb-8">
-        <input
-          type="text"
-          name="title"
-          required
-          placeholder="New task…"
-          className="flex-1 bg-zinc-900 border border-zinc-700 rounded px-3 py-1.5 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500"
-        />
-        <select
-          name="priority"
-          defaultValue="p2"
-          className="bg-zinc-900 border border-zinc-700 rounded px-2 py-1.5 text-sm text-zinc-400 focus:outline-none"
-        >
-          <option value="p1">p1</option>
-          <option value="p2">p2</option>
-          <option value="p3">p3</option>
-        </select>
-        <input
-          type="date"
-          name="due_date"
-          className="bg-zinc-900 border border-zinc-700 rounded px-2 py-1.5 text-sm text-zinc-400 focus:outline-none"
-        />
-        <button
-          type="submit"
-          className="bg-zinc-700 hover:bg-zinc-600 text-zinc-100 text-sm px-3 py-1.5 rounded transition-colors"
-        >
-          Add
-        </button>
-      </form>
+      <div style={{ maxWidth: 680 }}>
+        {/* Add form */}
+        <form action={createTodo} style={{ display: 'flex', gap: 'var(--s-2)', marginBottom: 'var(--s-8)' }}>
+          <input
+            type="text" name="title" required placeholder="New task…"
+            style={{
+              flex: 1, background: 'var(--surface)', border: '1px solid var(--border-strong)',
+              borderRadius: 'var(--r-md)', padding: '8px var(--s-4)',
+              fontSize: 13, color: 'var(--fg-strong)', fontFamily: 'var(--font-sans)',
+              outline: 'none',
+            }}
+          />
+          <select name="priority" defaultValue="p2" style={{
+            background: 'var(--surface)', border: '1px solid var(--border)',
+            borderRadius: 'var(--r-md)', padding: '8px 10px',
+            fontSize: 13, color: 'var(--fg-muted)', fontFamily: 'var(--font-mono)',
+            cursor: 'pointer',
+          }}>
+            <option value="p1">p1 — urgent</option>
+            <option value="p2">p2 — normal</option>
+            <option value="p3">p3 — low</option>
+          </select>
+          <input type="date" name="due_date" style={{
+            background: 'var(--surface)', border: '1px solid var(--border)',
+            borderRadius: 'var(--r-md)', padding: '8px 10px',
+            fontSize: 13, color: 'var(--fg-muted)', fontFamily: 'var(--font-mono)',
+          }} />
+          <button type="submit" className="btn btn-primary">
+            <i className="ph ph-plus"></i>Add
+          </button>
+        </form>
 
-      {/* Open todos */}
-      {open.length > 0 ? (
-        <div className="mb-8">
-          {open.map((t: any) => <TodoRow key={t.slug} t={t} />)}
-        </div>
-      ) : (
-        <p className="text-sm text-zinc-600 mb-8">No open tasks. Add one above.</p>
-      )}
-
-      {/* Completed */}
-      {done.length > 0 && (
-        <details className="group">
-          <summary className="text-xs text-zinc-500 uppercase tracking-widest cursor-pointer hover:text-zinc-400 mb-3 list-none flex items-center gap-2">
-            <span className="group-open:rotate-90 transition-transform inline-block">▶</span>
-            Completed ({done.length})
-          </summary>
-          <div className="mt-2">
-            {done.map((t: any) => <TodoRow key={t.slug} t={t} />)}
+        {/* Open */}
+        <div className="card" style={{ marginBottom: 'var(--s-5)' }}>
+          <div className="card-head">
+            <div className="card-title">Open</div>
+            <div className="card-sub">{open.length} tasks</div>
           </div>
-        </details>
-      )}
-    </div>
+          {open.length > 0
+            ? open.map((t: any) => <TodoRow key={t.slug} t={t} />)
+            : <p style={{ fontSize: 13, color: 'var(--fg-subtle)', margin: 0 }}>No open tasks. Add one above.</p>
+          }
+        </div>
+
+        {/* Completed */}
+        {done.length > 0 && (
+          <details>
+            <summary style={{
+              fontSize: 11, fontWeight: 500, color: 'var(--fg-subtle)',
+              textTransform: 'uppercase', letterSpacing: '0.06em',
+              cursor: 'pointer', padding: '4px 0', marginBottom: 'var(--s-3)',
+              listStyle: 'none', display: 'flex', alignItems: 'center', gap: 8,
+            }}>
+              <i className="ph ph-caret-right"></i>
+              Completed ({done.length})
+            </summary>
+            <div className="card">
+              {done.map((t: any) => <TodoRow key={t.slug} t={t} />)}
+            </div>
+          </details>
+        )}
+      </div>
+    </>
   );
 }
