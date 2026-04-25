@@ -7,7 +7,7 @@ const sql = () => getDb();
 export async function getPage(slug: string) {
   const rows = await sql()`
     SELECT id, slug, type, title, compiled_truth, timeline, frontmatter, content_hash, created_at, updated_at
-    FROM pages WHERE slug = ${slug}
+    FROM pages WHERE slug = ${slug} LIMIT 1
   `;
   return rows[0] ?? null;
 }
@@ -37,16 +37,24 @@ export async function listPages(opts: { type?: string; tag?: string; limit?: num
   return db`SELECT id, slug, type, title, updated_at FROM pages ORDER BY updated_at DESC LIMIT ${limit}`;
 }
 
+export async function getPageTypes() {
+  const rows = await sql()`
+    SELECT type, count(*)::int AS count FROM pages
+    GROUP BY type ORDER BY count DESC
+  `;
+  return rows as unknown as { type: string; count: number }[];
+}
+
 export async function putPage(slug: string, p: {
   type: string; title: string; compiled_truth: string;
   timeline?: string; frontmatter?: Record<string, unknown>;
 }) {
   const db = sql();
   const rows = await db`
-    INSERT INTO pages (slug, type, title, compiled_truth, timeline, frontmatter, updated_at)
-    VALUES (${slug}, ${p.type}, ${p.title}, ${p.compiled_truth},
+    INSERT INTO pages (source_id, slug, type, title, compiled_truth, timeline, frontmatter, updated_at)
+    VALUES ('dashboard', ${slug}, ${p.type}, ${p.title}, ${p.compiled_truth},
             ${p.timeline ?? ''}, ${JSON.stringify(p.frontmatter ?? {})}::jsonb, now())
-    ON CONFLICT (slug) DO UPDATE SET
+    ON CONFLICT (source_id, slug) DO UPDATE SET
       type = EXCLUDED.type, title = EXCLUDED.title,
       compiled_truth = EXCLUDED.compiled_truth, timeline = EXCLUDED.timeline,
       frontmatter = EXCLUDED.frontmatter, updated_at = now()
@@ -56,7 +64,7 @@ export async function putPage(slug: string, p: {
 }
 
 export async function deletePage(slug: string) {
-  await sql()`DELETE FROM pages WHERE slug = ${slug}`;
+  await sql()`DELETE FROM pages WHERE slug = ${slug} AND source_id = 'dashboard'`;
   return { status: 'deleted', slug };
 }
 
@@ -117,8 +125,10 @@ export async function removeTag(slug: string, tag: string) {
 
 export async function getLinks(slug: string) {
   const rows = await sql()`
-    SELECT l.target_slug, l.link_type, l.created_at
-    FROM links l JOIN pages p ON p.id = l.source_page_id
+    SELECT tp.slug AS target_slug, l.link_type, l.created_at
+    FROM links l
+    JOIN pages p  ON p.id  = l.from_page_id
+    JOIN pages tp ON tp.id = l.to_page_id
     WHERE p.slug = ${slug}
   `;
   return rows;
@@ -128,8 +138,8 @@ export async function getBacklinks(slug: string) {
   const rows = await sql()`
     SELECT p.slug AS source_slug, l.link_type, l.created_at
     FROM links l
-    JOIN pages p ON p.id = l.source_page_id
-    JOIN pages tp ON tp.id = l.target_page_id
+    JOIN pages p  ON p.id  = l.from_page_id
+    JOIN pages tp ON tp.id = l.to_page_id
     WHERE tp.slug = ${slug}
   `;
   return rows;
@@ -137,12 +147,12 @@ export async function getBacklinks(slug: string) {
 
 export async function addLink(sourceSlug: string, targetSlug: string, linkType?: string) {
   const db = sql();
-  const [src] = await db`SELECT id FROM pages WHERE slug = ${sourceSlug}`;
-  const [tgt] = await db`SELECT id FROM pages WHERE slug = ${targetSlug}`;
+  const [src] = await db`SELECT id FROM pages WHERE slug = ${sourceSlug} LIMIT 1`;
+  const [tgt] = await db`SELECT id FROM pages WHERE slug = ${targetSlug} LIMIT 1`;
   if (!src || !tgt) throw new Error('One or both pages not found');
   await db`
-    INSERT INTO links (source_page_id, target_page_id, target_slug, link_type)
-    VALUES (${src.id}, ${tgt.id}, ${targetSlug}, ${linkType ?? 'mentions'})
+    INSERT INTO links (from_page_id, to_page_id, link_type, link_source)
+    VALUES (${src.id}, ${tgt.id}, ${linkType ?? 'mentions'}, 'manual')
     ON CONFLICT DO NOTHING
   `;
   return { source: sourceSlug, target: targetSlug, link_type: linkType ?? 'mentions' };
@@ -155,7 +165,7 @@ export async function getTodos(opts: { done?: boolean } = {}) {
   const rows = opts.done !== undefined
     ? await db`
         SELECT slug, title, frontmatter, created_at, updated_at FROM pages
-        WHERE type = 'todo'
+        WHERE type = 'todo' AND source_id = 'dashboard'
           AND (frontmatter->>'done')::boolean = ${opts.done}
         ORDER BY
           CASE frontmatter->>'priority' WHEN 'p1' THEN 1 WHEN 'p2' THEN 2 ELSE 3 END,
@@ -164,7 +174,7 @@ export async function getTodos(opts: { done?: boolean } = {}) {
       `
     : await db`
         SELECT slug, title, frontmatter, created_at, updated_at FROM pages
-        WHERE type = 'todo'
+        WHERE type = 'todo' AND source_id = 'dashboard'
         ORDER BY
           (frontmatter->>'done')::boolean ASC,
           CASE frontmatter->>'priority' WHEN 'p1' THEN 1 WHEN 'p2' THEN 2 ELSE 3 END,
@@ -183,9 +193,9 @@ export async function upsertTodo(slug: string, fields: {
   const db = sql();
   const fm = JSON.stringify({ done: fields.done, priority: fields.priority, due_date: fields.due_date ?? null });
   const rows = await db`
-    INSERT INTO pages (slug, type, title, compiled_truth, frontmatter, updated_at)
-    VALUES (${slug}, 'todo', ${fields.title}, ${fields.title}, ${fm}::jsonb, now())
-    ON CONFLICT (slug) DO UPDATE SET
+    INSERT INTO pages (source_id, slug, type, title, compiled_truth, frontmatter, updated_at)
+    VALUES ('dashboard', ${slug}, 'todo', ${fields.title}, ${fields.title}, ${fm}::jsonb, now())
+    ON CONFLICT (source_id, slug) DO UPDATE SET
       title = EXCLUDED.title,
       compiled_truth = EXCLUDED.compiled_truth,
       frontmatter = EXCLUDED.frontmatter,
@@ -197,23 +207,14 @@ export async function upsertTodo(slug: string, fields: {
 
 // ── Meetings ───────────────────────────────────────────────────────────────
 
-export async function getMeetings(opts: { days?: number; limit?: number } = {}) {
+export async function getMeetings(opts: { limit?: number } = {}) {
   const db = sql();
-  const limit = Math.min(opts.limit ?? 50, 200);
-  if (opts.days) {
-    const since = new Date(Date.now() - opts.days * 86400_000).toISOString().slice(0, 10);
-    return db`
-      SELECT slug, title, frontmatter, updated_at FROM pages
-      WHERE type = 'meeting'
-        AND (frontmatter->>'date' >= ${since} OR updated_at >= ${since + 'T00:00:00Z'})
-      ORDER BY frontmatter->>'date' DESC NULLS LAST, updated_at DESC
-      LIMIT ${limit}
-    `;
-  }
+  const limit = Math.min(opts.limit ?? 100, 200);
+  // v0_meeting_at is an ISO timestamp in frontmatter; sort newest first
   return db`
     SELECT slug, title, frontmatter, updated_at FROM pages
     WHERE type = 'meeting'
-    ORDER BY frontmatter->>'date' DESC NULLS LAST, updated_at DESC
+    ORDER BY (frontmatter->>'v0_meeting_at') DESC NULLS LAST, updated_at DESC
     LIMIT ${limit}
   `;
 }
@@ -223,8 +224,8 @@ export async function getMeetingAttendees(meetingSlug: string) {
   return db`
     SELECT p.slug, p.title, p.frontmatter, l.link_type
     FROM links l
-    JOIN pages p ON p.id = l.source_page_id
-    JOIN pages m ON m.id = l.target_page_id
+    JOIN pages p  ON p.id  = l.from_page_id
+    JOIN pages m  ON m.id  = l.to_page_id
     WHERE m.slug = ${meetingSlug}
       AND p.type = 'person'
     ORDER BY p.title
@@ -236,35 +237,41 @@ export async function getDailyBriefData() {
   const today = new Date().toISOString().slice(0, 10);
   const since24h = new Date(Date.now() - 86400_000).toISOString();
 
-  const [openTodos, recentPages, todayTimeline, todayMeetings] = await Promise.all([
+  const [openTodos, recentPages, todayTimeline, recentMeetings] = await Promise.all([
+    // Todos created in dashboard
     db`
       SELECT slug, title, frontmatter FROM pages
-      WHERE type = 'todo' AND (frontmatter->>'done')::boolean = false
+      WHERE type = 'todo' AND source_id = 'dashboard'
+        AND (frontmatter->>'done')::boolean = false
       ORDER BY
         CASE frontmatter->>'priority' WHEN 'p1' THEN 1 WHEN 'p2' THEN 2 ELSE 3 END,
         (frontmatter->>'due_date') ASC NULLS LAST
       LIMIT 20
     `,
+    // Pages updated in last 24h (not todos)
     db`
       SELECT slug, type, title, updated_at FROM pages
       WHERE type != 'todo' AND updated_at >= ${since24h}
       ORDER BY updated_at DESC LIMIT 10
     `,
+    // Timeline entries for today
     db`
-      SELECT t.summary, t.event_date, p.slug, p.title FROM timeline_entries t
+      SELECT t.summary, t.date, p.slug, p.title FROM timeline_entries t
       JOIN pages p ON p.id = t.page_id
-      WHERE t.event_date = ${today}
+      WHERE t.date = ${today}::date
       ORDER BY t.created_at DESC LIMIT 20
     `,
+    // Recent meetings (last 30 days — no live calendar)
     db`
       SELECT slug, title, frontmatter FROM pages
-      WHERE type = 'meeting' AND frontmatter->>'date' = ${today}
-      ORDER BY frontmatter->>'date' ASC
-      LIMIT 10
+      WHERE type = 'meeting'
+        AND (frontmatter->>'v0_meeting_at') >= ${today + 'T00:00:00.000Z'}
+      ORDER BY frontmatter->>'v0_meeting_at' ASC
+      LIMIT 5
     `,
   ]);
 
-  return { openTodos, recentPages, todayTimeline, todayMeetings, today };
+  return { openTodos, recentPages, todayTimeline, todayMeetings: recentMeetings, today };
 }
 
 // ── Timeline ───────────────────────────────────────────────────────────────
@@ -272,8 +279,17 @@ export async function getDailyBriefData() {
 export async function getTimeline(slug?: string, limit = 50) {
   const db = sql();
   const rows = slug
-    ? await db`SELECT t.*, p.slug FROM timeline_entries t JOIN pages p ON p.id = t.page_id WHERE p.slug = ${slug} ORDER BY t.event_date DESC LIMIT ${limit}`
-    : await db`SELECT t.*, p.slug FROM timeline_entries t JOIN pages p ON p.id = t.page_id ORDER BY t.event_date DESC LIMIT ${limit}`;
+    ? await db`
+        SELECT t.id, t.date, t.summary, t.source, p.slug FROM timeline_entries t
+        JOIN pages p ON p.id = t.page_id
+        WHERE p.slug = ${slug}
+        ORDER BY t.date DESC LIMIT ${limit}
+      `
+    : await db`
+        SELECT t.id, t.date, t.summary, t.source, p.slug FROM timeline_entries t
+        JOIN pages p ON p.id = t.page_id
+        ORDER BY t.date DESC LIMIT ${limit}
+      `;
   return rows;
 }
 
@@ -283,19 +299,20 @@ export async function getStats() {
   const db = sql();
   const [counts] = await db`
     SELECT
-      (SELECT count(*) FROM pages)            AS pages,
-      (SELECT count(*) FROM content_chunks)    AS chunks,
-      (SELECT count(*) FROM links)            AS links,
-      (SELECT count(*) FROM tags)             AS tags,
-      (SELECT count(*) FROM timeline_entries) AS timeline_entries,
+      (SELECT count(*) FROM pages)                                    AS pages,
+      (SELECT count(*) FROM content_chunks)                          AS chunks,
+      (SELECT count(*) FROM links)                                    AS links,
+      (SELECT count(*) FROM tags)                                     AS tags,
+      (SELECT count(*) FROM timeline_entries)                        AS timeline_entries,
       (SELECT count(*) FROM content_chunks WHERE embedding IS NOT NULL) AS embedded_chunks
   `;
   return counts;
 }
 
-// ── Graph data (dashboard-specific) ───────────────────────────────────────
+// ── Graph data ─────────────────────────────────────────────────────────────
 
 type GraphNode = { id: number; slug: string; type: string; title: string };
+// Aliased back to source_page_id/target_page_id so ForceGraph component is unchanged
 type GraphLink = { source_page_id: number; target_page_id: number; link_type: string };
 
 export async function getGraphData(opts: { type?: string; limit?: number }): Promise<{ nodes: GraphNode[]; links: GraphLink[] }> {
@@ -309,11 +326,12 @@ export async function getGraphData(opts: { type?: string; limit?: number }): Pro
   const pageIds = pages.map(p => p.id);
   if (!pageIds.length) return { nodes: [], links: [] };
 
+  // Alias to source_page_id/target_page_id — keeps ForceGraph component untouched
   const rawLinks = await db`
-    SELECT source_page_id, target_page_id, link_type
+    SELECT from_page_id AS source_page_id, to_page_id AS target_page_id, link_type
     FROM links
-    WHERE source_page_id = ANY(${pageIds}::int[])
-      AND target_page_id = ANY(${pageIds}::int[])
+    WHERE from_page_id = ANY(${pageIds}::int[])
+      AND to_page_id   = ANY(${pageIds}::int[])
   `;
 
   return { nodes: pages, links: rawLinks as unknown as GraphLink[] };
