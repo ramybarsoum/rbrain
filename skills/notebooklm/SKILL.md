@@ -15,7 +15,7 @@ triggers:
   - "cite podcast"
   - "notebooklm query"
 tools:
-  - terminal
+  - shell
   - browser
 mutating: true
 ---
