@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { headers } from 'next/headers';
 import { getStats } from '@/lib/operations';
+import ChatWidget from '@/components/ChatWidget';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -102,6 +103,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <div className="rb-content">{children}</div>
           </main>
         </div>
+        <ChatWidget />
       </body>
     </html>
   );
