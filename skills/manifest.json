@@ -200,6 +200,11 @@
       "description": "Agent-readable gbrain health report. Wraps doctor + apply-migrations --list into one JSON blob with exit codes. Cron-friendly for morning-briefing pipelines."
     },
     {
+      "name": "pre-ship-check",
+      "path": "pre-ship-check/SKILL.md",
+      "description": "Walk a diff through the 6 Shippable Standard quality gates (CONTRACT, IDEMPOTENCY, OBSERVABILITY, INTEGRATION, PROOF, SCOPE). Combines automated grep checks with agent judgment. Wired into /ship; blocks on any blocking-severity failure."
+    },
+    {
       "name": "notebooklm",
       "path": "notebooklm/SKILL.md",
       "description": "Turn expert podcasts into personalized cited protocols via Google NotebookLM. Load YouTube channels from terminal, run expert-informed Q&A, resolve citations."
