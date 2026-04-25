@@ -445,7 +445,7 @@ async function handleCliOnly(command: string, args: string[]) {
       }
       case 'serve': {
         const { runServe } = await import('./commands/serve.ts');
-        await runServe(engine);
+        await runServe(engine, args);
         return; // serve doesn't disconnect
       }
       case 'call': {
@@ -652,7 +652,7 @@ ADMIN
   autopilot [--repo] [--interval N]  Self-maintaining brain daemon
   dream-cycle [--dry-run] [--json]   Episodic-to-semantic promotion
   config [show|get|set] <key> [val]  Brain config
-  serve                              MCP server (stdio)
+  serve [--http] [--port N]          MCP server (stdio default, --http for HTTP)
   call <tool> '<json>'               Raw tool invocation
   version                            Version info
   --tools-json                       Tool discovery (JSON)
