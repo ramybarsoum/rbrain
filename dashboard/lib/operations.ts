@@ -288,7 +288,7 @@ export async function getStats() {
       (SELECT count(*) FROM links)            AS links,
       (SELECT count(*) FROM tags)             AS tags,
       (SELECT count(*) FROM timeline_entries) AS timeline_entries,
-      (SELECT count(*) FROM chunks WHERE embedding IS NOT NULL) AS embedded_chunks
+      (SELECT count(*) FROM content_chunks WHERE embedding IS NOT NULL) AS embedded_chunks
   `;
   return counts;
 }
