@@ -18,9 +18,6 @@ triggers:
   - "relationship between"
   - "connections"
   - "graph query"
-  - "background on"
-  - "have notes on"
-  - "any notes on"
 tools:
   - search
   - query

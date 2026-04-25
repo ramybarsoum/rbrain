@@ -3,14 +3,25 @@ import { join } from 'path';
 import { homedir } from 'os';
 import type { EngineConfig } from './types.ts';
 
-// Lazy-evaluated to avoid calling homedir() at module scope (breaks in serverless/bundled environments).
-// Primary: ~/.gbrain (upstream-aligned, documented path, matches autopilot/install code).
-// Legacy: ~/.rbrain (the fork's earlier branding). Read-only fallback for existing installs
-// so the half-migrated state from before 2026-04-18 doesn't surprise anyone. New writes
-// always go to ~/.gbrain.
+/**
+ * Where is the active DB URL coming from? Pure introspection, no connection
+ * attempt. Used by `gbrain doctor --fast` so the user gets a precise message
+ * instead of the misleading "No database configured" when GBRAIN_DATABASE_URL
+ * (or DATABASE_URL) is actually set.
+ *
+ * Precedence matches loadConfig(): env vars win over config-file URL. Returns
+ * null only when NO source provides a URL at all.
+ */
+export type DbUrlSource =
+  | 'env:GBRAIN_DATABASE_URL'
+  | 'env:DATABASE_URL'
+  | 'config-file'
+  | 'config-file-path' // PGLite: config file present, no URL but database_path set
+  | null;
+
+// Lazy-evaluated to avoid calling homedir() at module scope (breaks in serverless/bundled environments)
 function getConfigDir() { return join(homedir(), '.gbrain'); }
 function getConfigPath() { return join(getConfigDir(), 'config.json'); }
-function getLegacyConfigPath() { return join(homedir(), '.rbrain', 'config.json'); }
 
 export interface GBrainConfig {
   engine: 'postgres' | 'pglite';
@@ -36,16 +47,10 @@ export function loadConfig(): GBrainConfig | null {
   try {
     const raw = readFileSync(getConfigPath(), 'utf-8');
     fileConfig = JSON.parse(raw) as GBrainConfig;
-  } catch {
-    // No ~/.gbrain/config.json — try legacy ~/.rbrain/config.json once
-    try {
-      const raw = readFileSync(getLegacyConfigPath(), 'utf-8');
-      fileConfig = JSON.parse(raw) as GBrainConfig;
-    } catch { /* no config file at either location */ }
-  }
+  } catch { /* no config file */ }
 
   // Try env vars
-  const dbUrl = process.env.RBRAIN_DATABASE_URL || process.env.GBRAIN_DATABASE_URL || process.env.DATABASE_URL;
+  const dbUrl = process.env.GBRAIN_DATABASE_URL || process.env.DATABASE_URL;
 
   if (!fileConfig && !dbUrl) return null;
 
