@@ -29,6 +29,31 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
+# Auto-source .env.testing if it exists. This is the canonical place per
+# .env.testing.example for the local Tier 1 DATABASE_URL. Sourcing it here
+# means the user runs `bun run preship` once and Path 1 fires automatically
+# without having to remember the env var. The file is gitignored, so each
+# machine has its own copy.
+#
+# Explicit DATABASE_URL in the parent shell still wins (set -a is scoped to
+# this `if` block, so we don't override an already-exported value).
+if [[ -f .env.testing ]]; then
+  # shellcheck disable=SC1091  (file is .env-format, not bash; that's fine)
+  set -a
+  # Only export vars from .env.testing that aren't already set, so a parent
+  # shell's DATABASE_URL takes precedence.
+  while IFS='=' read -r key value; do
+    [[ -z "$key" || "$key" =~ ^# ]] && continue
+    # Strip surrounding quotes from value if present
+    value="${value#\"}"; value="${value%\"}"
+    value="${value#\'}"; value="${value%\'}"
+    if [[ -z "${!key:-}" ]]; then
+      export "$key=$value"
+    fi
+  done < .env.testing
+  set +a
+fi
+
 # Honor the explicit skip first.
 if [[ "${GBRAIN_PRESHIP_SKIP_E2E:-0}" == "1" ]]; then
   echo "[preship-e2e] SKIPPED via GBRAIN_PRESHIP_SKIP_E2E=1" >&2
