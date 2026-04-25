@@ -5,6 +5,27 @@
  * summaries, scores them, and returns promotable patterns.
  *
  * Phase 1 is deterministic. No LLM. No embeddings.
+ *
+ * INTEGRATION:
+ *   Composes into runCycle as `phase: 'promotion'`. Two callers reach the
+ *   engine function below: `runCycle` (autopilot, scheduled) and
+ *   `gbrain dream-cycle` CLI (manual one-off with custom config knobs).
+ *   Both share runDreamCycle so behavior stays identical.
+ *
+ * EDGE CASES (documented contract):
+ *   - Empty brain (zero pages): returns a clean PromotionReport with
+ *     candidates=[], promoted=[], skipped=[].
+ *   - Brain with > MAX_PAGES_TO_SCAN pages: scans the first MAX_PAGES_TO_SCAN
+ *     by listPages ordering. Older / less recently accessed pages may not
+ *     contribute evidence on a single run. This is a known limitation; full
+ *     coverage requires multi-run paging (not yet implemented).
+ *   - All candidates below threshold: PromotionReport.promoted=[],
+ *     PromotionReport.skipped=[every-candidate], status still 'ok'.
+ *   - Target page not found at apply time: skipped with reason
+ *     'target page <slug> not found', no exception.
+ *   - Target page modified between scoring and apply: last write wins
+ *     (no optimistic concurrency check). Acceptable because compiled_truth
+ *     is append-only here.
  */
 
 import type { BrainEngine } from './engine.ts';
@@ -45,12 +66,51 @@ export interface CandidatePattern {
 }
 
 export interface PromotionReport {
+  /** Stable schema marker. Bumped on breaking changes to this shape. */
+  schema_version: '1';
   candidates: CandidatePattern[];
   promoted: CandidatePattern[];
   skipped: CandidatePattern[];
   dryRun: boolean;
   runAt: string;
   evidenceWindowDays: number;
+}
+
+/**
+ * Maximum number of pages scanned for evidence in a single cycle.
+ * Documented as part of the phase contract — agents should know that
+ * brains exceeding this size won't be fully covered by a single run.
+ */
+export const MAX_PAGES_TO_SCAN = 500;
+
+/**
+ * Default minimum hours between consecutive promotion runs. Used by the
+ * stamp-file rate limiter in runPhasePromotion (src/core/cycle.ts).
+ */
+export const DEFAULT_PROMOTION_MIN_HOURS = 23;
+
+/**
+ * Returns true if the dream cycle is due to run based on the last-run timestamp.
+ * Rate-limits nightly promotion to roughly once per day even when the
+ * autopilot cycle fires every few minutes.
+ *
+ * @param lastRunMs  Epoch ms of the last successful run, or 0 if never
+ * @param nowMs      Current epoch ms
+ * @param minHours   Minimum gap between runs in hours (default 23)
+ *
+ * Edge cases:
+ *   - lastRunMs = 0 or non-finite → returns true (first run)
+ *   - lastRunMs > nowMs (clock skew) → returns true (defensive)
+ *   - lastRunMs negative → returns true (treat as first run)
+ */
+export function shouldRunDreamCycle(
+  lastRunMs: number,
+  nowMs: number,
+  minHours: number = DEFAULT_PROMOTION_MIN_HOURS,
+): boolean {
+  if (!Number.isFinite(lastRunMs) || lastRunMs <= 0) return true;
+  if (nowMs < lastRunMs) return true;
+  return (nowMs - lastRunMs) / 3600000 >= minHours;
 }
 
 // --- Normalization ---
@@ -116,6 +176,13 @@ export function scoreCandidate(
 /**
  * Collect timeline evidence from the last N days across all pages.
  * Returns entries grouped by normalized summary.
+ *
+ * Edge cases:
+ *   - Empty brain (zero pages): returns empty Map, no error.
+ *   - Brain with > MAX_PAGES_TO_SCAN pages: scans only the first slice as
+ *     ordered by listPages (recency-default per BrainEngine).
+ *   - Page with broken/malformed timeline: page is skipped (current behavior
+ *     swallows the error silently — flagged for fix in PR #3 OBSERVABILITY gate).
  */
 export async function collectEvidence(
   engine: BrainEngine,
@@ -124,8 +191,9 @@ export async function collectEvidence(
   const since = new Date(Date.now() - config.evidenceWindowDays * 86400000);
   const sinceStr = since.toISOString().slice(0, 10);
 
-  // Get all pages
-  const pages = await engine.listPages({ limit: 500 });
+  // Scan up to MAX_PAGES_TO_SCAN pages. Brains larger than this won't be
+  // fully covered in a single run — see PromotionReport edge cases at top of file.
+  const pages = await engine.listPages({ limit: MAX_PAGES_TO_SCAN });
 
   // Collect timeline entries per page
   const groups = new Map<string, { entries: { slug: string; entry: TimelineEntry }[] }>();
@@ -146,8 +214,12 @@ export async function collectEvidence(
         }
         groups.get(key)!.entries.push({ slug: page.slug, entry });
       }
-    } catch {
-      // Skip pages with broken timelines
+    } catch (e) {
+      console.warn(
+        '[promotion.collectEvidence] skipping page %s with broken timeline: %s',
+        page.slug,
+        e instanceof Error ? e.message : String(e),
+      );
     }
   }
 
@@ -303,6 +375,7 @@ export async function runDreamCycle(
   const { promoted, skipped } = await applyPromotions(engine, promotable, fullConfig, dryRun);
 
   return {
+    schema_version: '1',
     candidates,
     promoted,
     skipped: [...rejected, ...skipped],

@@ -7,6 +7,18 @@ ship; `warning` failures land but get tracked.
 **Enforcement:** `skills/pre-ship-check/SKILL.md` walks these gates against
 the diff. Wired into `/ship`'s pre-landing review phase.
 
+**Scope of checking:** gates run on lines ADDED in the current diff, not
+on whole files. Pre-existing patterns in modified files are not the fork's
+debt to fix in this PR ... they belong to whoever introduced them. Files
+byte-identical to `upstream/master` are fully exempted (the fork inherits
+upstream's quality, doesn't need to rewrite it). Override modes for
+audit-style scans:
+- `GBRAIN_SHIPPABLE_FULL_FILE=1` — flag every issue in changed files,
+  not just newly-added lines (use when cleaning up inherited debt).
+- `GBRAIN_NO_UPSTREAM_EXEMPT=1` — disable the upstream-byte-identical
+  exemption (use for upstream-bound PRs where you DO want to clean up
+  upstream patterns before submitting).
+
 **Scope:** This file is the project-specific instance of the global Quality
 Gate framework documented in `~/.claude/CLAUDE.md`. Gates here apply to
 RBrain code (TypeScript engine, skills, scripts). Gate the bar, not the
