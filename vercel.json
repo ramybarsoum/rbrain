@@ -1,4 +1,12 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "ignoreCommand": "exit 0"
+  "buildCommand": "cd dashboard && npm run build",
+  "outputDirectory": "dashboard/.next",
+  "installCommand": "cd dashboard && npm install",
+  "framework": "nextjs",
+  "functions": {
+    "dashboard/app/api/mcp/route.ts": {
+      "maxDuration": 30
+    }
+  }
 }

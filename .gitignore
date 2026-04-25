@@ -36,3 +36,9 @@ digests/
 .tmp_*
 *.tmp.md
 .context/
+
+# Dashboard (Next.js)
+dashboard/.next/
+dashboard/node_modules/
+dashboard/*.tsbuildinfo
+dashboard/.vercel/
