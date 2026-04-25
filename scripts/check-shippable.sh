@@ -20,6 +20,11 @@
 
 set -euo pipefail
 
+# Force C locale so awk can process arbitrary byte sequences in source files
+# (multibyte characters in comments, identifiers, etc.) without aborting.
+export LC_ALL=C
+export LANG=C
+
 BASE="master"
 MODE="diff"
 FILES=()
