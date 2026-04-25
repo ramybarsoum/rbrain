@@ -319,6 +319,46 @@ export async function getDailyBriefData() {
   return { openTodos, recentPages, todayTimeline, todayMeetings: recentMeetings, today };
 }
 
+// ── Feed (recent activity) ────────────────────────────────────────────────
+
+export async function getFeedData(opts: { days?: number; type?: string; limit?: number } = {}) {
+  const db = sql();
+  const limit = Math.min(opts.limit ?? 50, 200);
+  const since = new Date(Date.now() - (opts.days ?? 7) * 86400_000).toISOString();
+
+  const [recentPages, recentTimeline] = await Promise.all([
+    opts.type
+      ? db`SELECT id, slug, type, title, updated_at FROM pages WHERE type = ${opts.type} AND updated_at >= ${since} ORDER BY updated_at DESC LIMIT ${limit}`
+      : db`SELECT id, slug, type, title, updated_at FROM pages WHERE type != 'todo' AND updated_at >= ${since} ORDER BY updated_at DESC LIMIT ${limit}`,
+    db`
+      SELECT t.date, t.summary, t.source, p.slug, p.type, p.title AS page_title
+      FROM timeline_entries t JOIN pages p ON p.id = t.page_id
+      WHERE t.date >= ${since.slice(0, 10)}::date
+      ORDER BY t.date DESC, t.created_at DESC LIMIT ${limit}
+    `,
+  ]);
+  return { recentPages, recentTimeline };
+}
+
+// ── Jobs (Minions) ────────────────────────────────────────────────────────
+
+export async function getJobsData() {
+  const db = sql();
+  const [stats, jobs] = await Promise.all([
+    db`
+      SELECT status, count(*)::int AS count FROM minion_jobs
+      GROUP BY status
+    `,
+    db`
+      SELECT id, name, queue, status, priority, attempts_made, max_attempts,
+             tokens_input, tokens_output, created_at, updated_at
+      FROM minion_jobs
+      ORDER BY updated_at DESC LIMIT 50
+    `,
+  ]);
+  return { stats, jobs };
+}
+
 // ── Timeline ───────────────────────────────────────────────────────────────
 
 export async function getTimeline(slug?: string, limit = 50) {

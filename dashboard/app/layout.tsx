@@ -15,9 +15,12 @@ const nav = [
   { href: '/todos',    label: 'To-Do',        icon: 'ph-check-square' },
   { href: '/meetings', label: 'Meetings',     icon: 'ph-users' },
   { href: '/',         label: 'Brain Health', icon: 'ph-pulse' },
+  { href: '/search',   label: 'Search',       icon: 'ph-magnifying-glass' },
+  { href: '/feed',     label: 'Feed',         icon: 'ph-list-bullets' },
   { href: '/pages',    label: 'Pages',        icon: 'ph-files' },
   { href: '/graph',    label: 'Graph',        icon: 'ph-graph' },
   { href: '/people',   label: 'People',       icon: 'ph-address-book' },
+  { href: '/jobs',     label: 'Jobs',         icon: 'ph-stack' },
 ];
 
 async function SidebarStats() {
