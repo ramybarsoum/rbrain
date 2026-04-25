@@ -1,6 +1,14 @@
 ---
 name: claudeception
 description: "Continuous learning system that extracts reusable knowledge from work sessions. Triggers: (1) /claudeception command, (2) 'save this as a skill' or 'extract a skill from this', (3) 'what did we learn?', (4) after non-obvious debugging or trial-and-error discovery. Creates new skills when valuable reusable knowledge is identified. Integrates with RBrain to prevent duplicates."
+triggers:
+  - "/claudeception"
+  - "save this as a skill"
+  - "extract a skill from this"
+  - "what did we learn"
+  - "what did we learn?"
+  - "claudeception"
+  - "codify this learning"
 author: Jared Irish
 version: 2.0.0
 ---
