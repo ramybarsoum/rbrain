@@ -22,6 +22,7 @@ ACCESS_POLICY.md
 HEARTBEAT.md
 voice-agent/
 x-collector/
+digests/
 
 # Scratch / temp files. Agents sometimes drop these in the repo root by
 # accident (observed 2026-04-24 on cole-macbook with .tmp_circleback_mcp.md
