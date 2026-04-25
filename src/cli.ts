@@ -676,9 +676,7 @@ ADMIN
   autopilot [--repo] [--interval N]  Self-maintaining brain daemon
   dream-cycle [--dry-run] [--json]   Episodic-to-semantic promotion
   config [show|get|set] <key> [val]  Brain config
-  storage status [--repo <path>]     Storage tier status and health
-        [--json]                     (git-tracked vs supabase-only)
-  serve                              MCP server (stdio)
+  serve [--http] [--port N]          MCP server (stdio default, --http for HTTP)
   call <tool> '<json>'               Raw tool invocation
   version                            Version info
   --tools-json                       Tool discovery (JSON)

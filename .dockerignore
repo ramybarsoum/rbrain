@@ -1,0 +1,10 @@
+.env
+.env.*
+*.env
+.env.testing
+node_modules
+bin/
+*.db
+*.db-*
+~/.gbrain
+.git
