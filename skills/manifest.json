@@ -248,6 +248,16 @@
       "name": "yt-competitive-analysis",
       "path": "yt-competitive-analysis/SKILL.md",
       "description": "YouTube outlier detection and packaging pattern extraction across channels. 2x-view threshold against each channel's own average."
+    },
+    {
+      "name": "content-mine",
+      "path": "content-mine/SKILL.md",
+      "description": "Interactive interview that extracts content ideas (posts, newsletters, talks) from a professional's real work week via structured conversation."
+    },
+    {
+      "name": "nightly-learnings-collector",
+      "path": "nightly-learnings-collector/SKILL.md",
+      "description": "Autonomous nightly skill. Scans the day's Hermes + Claude Code sessions, extracts non-obvious learnings and workflow patterns, feeds them back into RBrain pages. Runs at 01:00 via cron."
     }
   ],
   "dependencies": {
