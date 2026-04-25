@@ -4,8 +4,33 @@ This is the project's canonical quality bar. Every shipping change is checked
 against these 6 gates before merge. Failures classified `blocking` halt the
 ship; `warning` failures land but get tracked.
 
-**Enforcement:** `skills/pre-ship-check/SKILL.md` walks these gates against
-the diff. Wired into `/ship`'s pre-landing review phase.
+**Enforcement:** `bun run preship` chains two stages:
+
+1. **Static gate scan** ... `scripts/check-shippable.sh` walks the 6 gates
+   against the diff. Fast, local, no DB. Catches contract drift, empty
+   catches, missing schema_version, raw SQL bypasses.
+2. **E2E** ... `scripts/preship-e2e.sh` runs Tier 1 mechanical tests when
+   feasible. Catches integration regressions (stale assertions, schema
+   drift, real-DB behavior) that the static scan can't. Order of attempts:
+     - DATABASE_URL set + reachable → run `bun run test:e2e` against it
+     - Docker available + responsive → spin test container, run, tear down
+     - Neither → SKIP loudly, exit 0 (CI is authoritative; do NOT merge red)
+
+The static gate alone is not enough ... PRs #17-19 demonstrated this:
+all three landed green-on-gate but red-on-E2E because the gate doesn't
+exercise the migration runner. `bun run preship` is now a single
+command that closes that loop locally when possible and surfaces the
+gap loudly when it can't.
+
+To run only the static gate (e.g., for a docs-only PR), use
+`bun run preship:gate-only`. To force-skip E2E (cosmetic PRs only),
+set `GBRAIN_PRESHIP_SKIP_E2E=1`. To turn the soft-skip into a hard
+fail (CI environments), set `GBRAIN_PRESHIP_REQUIRE_E2E=1`.
+
+The pre-ship skill (`skills/pre-ship-check/SKILL.md`) still walks the
+gates as agent judgment for the categories the static scan can't decide
+mechanically (PROOF, SCOPE, INTEGRATION-architectural). Wired into
+`/ship`'s pre-landing review phase.
 
 **Scope of checking:** gates run on lines ADDED in the current diff, not
 on whole files. Pre-existing patterns in modified files are not the fork's
