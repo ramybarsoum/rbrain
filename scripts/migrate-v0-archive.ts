@@ -57,6 +57,9 @@ function yamlValue(v: unknown): string {
   if (typeof v === 'number') return String(v);
   if (Array.isArray(v)) {
     if (v.length === 0) return '[]';
+    if (v.length > 0 && typeof v[0] === 'object' && v[0] !== null && !(v[0] instanceof Date)) {
+      return JSON.stringify(v);
+    }
     return '[' + v.map(item => JSON.stringify(String(item))).join(', ') + ']';
   }
   if (v instanceof Date) return v.toISOString();
@@ -101,9 +104,26 @@ function limitClause(): string {
 
 async function migratePeople() {
   console.log('→ people');
+
+  // Pre-load email aliases keyed by person_id
+  const aliasRows = await sql.unsafe(`
+    SELECT person_id::text, email, source, is_primary
+    FROM v0_archive.people_email_aliases
+    ORDER BY is_primary DESC, source
+  `);
+  const aliasMap = new Map<string, Array<{ email: string; source: string; is_primary: boolean }>>();
+  for (const a of aliasRows) {
+    if (!aliasMap.has(a.person_id as string)) aliasMap.set(a.person_id as string, []);
+    aliasMap.get(a.person_id as string)!.push({
+      email: a.email as string,
+      source: a.source as string,
+      is_primary: a.is_primary as boolean,
+    });
+  }
+
   const rows = await sql.unsafe(`
     SELECT
-      p.id, p.name, p.context, p.follow_ups, p.tags, p.aliases, p.email,
+      p.id, p.name, p.context, p.tags, p.aliases, p.email,
       p.company, p.role, p.phone, p.linkedin, p.priority, p.relationship_type,
       p.communication_style, p.key_topics, p.interaction_count,
       p.first_interaction, p.last_interaction, p.last_touched, p.created_at,
@@ -126,20 +146,20 @@ async function migratePeople() {
     const compiledTruth = (r.ct_summary as string | null) || (r.context as string | null) || '';
     const bodyParts: string[] = [];
     if (compiledTruth) bodyParts.push(compiledTruth);
-    if (r.follow_ups && (r.follow_ups as string).trim()) {
-      bodyParts.push(`\n## Follow-ups\n${r.follow_ups}`);
-    }
-    const factParts: string[] = [];
-    if (r.email) factParts.push(`- **Email:** ${r.email}`);
-    if (r.company) factParts.push(`- **Company:** ${r.company}`);
-    if (r.role) factParts.push(`- **Role:** ${r.role}`);
-    if (r.phone) factParts.push(`- **Phone:** ${r.phone}`);
-    if (r.linkedin) factParts.push(`- **LinkedIn:** ${r.linkedin}`);
-    if (r.relationship_type) factParts.push(`- **Relationship:** ${r.relationship_type}`);
-    if (r.communication_style) factParts.push(`- **Style:** ${r.communication_style}`);
-    if (factParts.length > 0) {
-      bodyParts.unshift(`## Facts\n${factParts.join('\n')}\n`);
-    }
+
+    // All contact info in body — these are CRM contacts, not patients. Full queryability intended.
+    const contactParts: string[] = [];
+    if (r.email)              contactParts.push(`- **Email:** ${r.email}`);
+    if (r.phone)              contactParts.push(`- **Phone:** ${r.phone}`);
+    if (r.linkedin)           contactParts.push(`- **LinkedIn:** ${r.linkedin}`);
+    if (r.company)            contactParts.push(`- **Company:** ${r.company}`);
+    if (r.role)               contactParts.push(`- **Role:** ${r.role}`);
+    if (r.relationship_type)  contactParts.push(`- **Relationship:** ${r.relationship_type}`);
+    if (r.communication_style) contactParts.push(`- **Style:** ${r.communication_style}`);
+    const emailAliases = aliasMap.get(r.id as string) ?? [];
+    if (emailAliases.length)  contactParts.push(`- **Aliases:** ${emailAliases.map(a => a.email).join(', ')}`);
+    if (contactParts.length > 0) bodyParts.unshift(`## Contact\n${contactParts.join('\n')}\n`);
+
     const body = bodyParts.join('\n').trim();
 
     writeMd('person', slugBase, {
@@ -150,6 +170,9 @@ async function migratePeople() {
       v0_table: 'people',
       v0_compiled_truth_id: r.ct_id,
       v0_email: r.email,
+      v0_phone: r.phone,
+      v0_linkedin: r.linkedin,
+      v0_email_aliases: emailAliases.length ? emailAliases : undefined,
       v0_company: r.company,
       v0_role: r.role,
       v0_priority: r.priority,
@@ -588,7 +611,8 @@ async function main() {
   await migrateMeetings();
   await migrateLearnings();
   await migrateDecisions();
-  await migrateFollowUps();
+  // follow_ups intentionally skipped — lifecycle never advanced (all 1536 rows status='pending',
+  // contact_id=NULL on every row). DROP per user decision 2026-04-25.
   await migrateFeatureRequests();
   await migrateIdeas();
   await migrateInteractions();
