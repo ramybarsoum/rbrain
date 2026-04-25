@@ -8,7 +8,6 @@ description: |
 triggers:
   - "watch this video"
   - "process this YouTube link"
-  - "ingest this PDF"
   - "save this podcast"
   - "process this book"
   - "what's in this screenshot"

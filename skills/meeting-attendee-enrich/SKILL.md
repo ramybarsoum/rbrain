@@ -26,7 +26,8 @@ mutating: true
 
 # Meeting Attendee Enrich Skill
 
-> **Filing rule:** Read `skills/_brain-filing-rules.md` before creating any new page.
+> **Filing rule:** see [skills/_brain-filing-rules.md](../_brain-filing-rules.md) — read before creating any new page.
+> **Convention:** see [skills/conventions/quality.md](../conventions/quality.md) — Iron Law no-silent-skip applies to every attendee.
 > **Delegates to:** `skills/enrich/SKILL.md` for actual page writes. This skill
 > is the decision layer (who to enrich, at what tier); enrich does the work.
 
@@ -42,9 +43,11 @@ This skill guarantees:
 
 ## Iron Law: No Silent Skips
 
-Every attendee must produce either a brain write (create/update) OR a logged
-skip decision with reason. A meeting attendee who vanishes without a trace is
-a broken pipeline. See Output Format below.
+> **Convention:** see [skills/conventions/quality.md](../conventions/quality.md) — the no-silent-skip rule applies to every per-row pipeline in this skill.
+
+Per the convention, every attendee must produce either a brain write
+(create/update) OR a logged skip decision with reason. See Output Format below
+for the structured shape.
 
 ## When to Run
 
@@ -82,6 +85,8 @@ Remove from the enrichment candidate set:
 Log filtered entries to the skip log with reason `filtered_pre_gate`.
 
 ### Phase 3: Notability gate (per candidate)
+
+> **Filing rule:** see [skills/_brain-filing-rules.md](../_brain-filing-rules.md) — the notability gate, tier criteria, and skip rules below are project-specific operationalizations of the convention defined there. The convention is the source of truth; this section is a per-skill cheat sheet for fast operation.
 
 For each remaining attendee, apply the notability gate. This is the critical
 decision — DO NOT create pages for people who don't meet the gate.

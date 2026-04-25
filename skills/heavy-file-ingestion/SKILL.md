@@ -1,6 +1,15 @@
 ---
 name: heavy-file-ingestion
 description: Use when a user asks to read, analyze, summarize, or extract from a heavyweight file such as PDF, DOCX, PPTX, XLSX, CSV, or TSV. Convert the file into markdown or CSV first, generate a lightweight index, and only spend model tokens on the compressed artifact. Trigger on requests like "read this PDF", "look through this spreadsheet", "summarize this deck", or any time raw file ingestion would waste tokens.
+triggers:
+  - "read this PDF"
+  - "look through this spreadsheet"
+  - "summarize this deck"
+  - "ingest this PDF"
+  - "analyze this DOCX"
+  - "extract from this XLSX"
+  - "convert this file"
+  - "heavy file ingestion"
 author: Nate B. Jones
 version: 1.0.0
 ---
