@@ -1,41 +1,47 @@
 import { NextResponse } from 'next/server';
-import { execFile } from 'child_process';
-import { promisify } from 'util';
-import path from 'path';
 
-const execFileAsync = promisify(execFile);
+const OWNER    = 'ramybarsoum';
+const REPO     = 'RBrain';
+const WORKFLOW = 'sync-upstream.yml';
+const REF      = 'master';
 
-// Only runs locally — Vercel deployments return instructions instead.
-export async function POST(req: Request) {
-  const { apply } = await req.json().catch(() => ({ apply: false }));
+export async function POST() {
+  const token = process.env.GITHUB_PAT;
 
-  // On Vercel, just return the commands to run locally
-  if (process.env.VERCEL) {
-    return NextResponse.json({
-      mode: 'instructions',
-      commands: [
-        'bash scripts/sync-upstream.sh          # preview',
-        'bash scripts/sync-upstream.sh --apply  # merge',
-      ],
-    });
-  }
-
-  // Local: find repo root relative to this file and run the script
-  // dashboard/app/api/sync-upstream/route.ts → ../../.. → dashboard → .. → repo root
-  const repoRoot = path.resolve(__dirname, '..', '..', '..', '..', '..', '..', '..');
-
-  try {
-    const scriptPath = path.join(repoRoot, 'scripts', 'sync-upstream.sh');
-    const args = apply ? ['--apply'] : [];
-    const { stdout, stderr } = await execFileAsync('bash', [scriptPath, ...args], {
-      cwd: repoRoot,
-      timeout: 60_000,
-    });
-    return NextResponse.json({ mode: 'ran', output: stdout + stderr, apply });
-  } catch (err: any) {
+  if (!token) {
     return NextResponse.json(
-      { mode: 'error', output: err.stdout + err.stderr, message: err.message },
+      { error: 'GITHUB_PAT env var not set. Add it in Vercel project settings.' },
       { status: 500 },
     );
   }
+
+  // Trigger workflow_dispatch via GitHub API
+  const triggerRes = await fetch(
+    `https://api.github.com/repos/${OWNER}/${REPO}/actions/workflows/${WORKFLOW}/dispatches`,
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: 'application/vnd.github+json',
+        'X-GitHub-Api-Version': '2022-11-28',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ ref: REF }),
+    },
+  );
+
+  // 204 = triggered successfully (GitHub returns no body)
+  if (triggerRes.status === 204) {
+    return NextResponse.json({
+      ok: true,
+      message: 'Workflow triggered.',
+      actions_url: `https://github.com/${OWNER}/${REPO}/actions/workflows/${WORKFLOW}`,
+    });
+  }
+
+  const body = await triggerRes.text();
+  return NextResponse.json(
+    { error: `GitHub API error ${triggerRes.status}`, detail: body },
+    { status: 502 },
+  );
 }
