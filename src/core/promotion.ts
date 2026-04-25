@@ -1,10 +1,17 @@
 /**
- * Dream cycle promotion — deterministic episodic-to-semantic promotion.
+ * Dream cycle promotion — episodic-to-semantic promotion of recurring
+ * timeline patterns.
  *
- * Collects recent timeline entries across all pages, groups recurring
- * summaries, scores them, and returns promotable patterns.
+ * v0.21 (PR #4): switched from exact-text grouping to embedding-based
+ * clustering via pgvector. Two summaries that mean the same thing
+ * ("ai concierge launch prep" vs "ai concierge ready to launch") now
+ * cluster together if their cosine similarity is above the threshold
+ * (default 0.85). The cluster's most-recent member text becomes the
+ * canonical pattern.
  *
- * Phase 1 is deterministic. No LLM. No embeddings.
+ * Phase 1 is still mostly deterministic. The only LLM-style call is the
+ * embedding generation, which is cached in `timeline_summary_embeddings`
+ * so re-runs hit the cache and cost nothing.
  *
  * INTEGRATION:
  *   Composes into runCycle as `phase: 'promotion'`. Two callers reach the
@@ -17,8 +24,8 @@
  *     candidates=[], promoted=[], skipped=[].
  *   - Brain with > MAX_PAGES_TO_SCAN pages: scans the first MAX_PAGES_TO_SCAN
  *     by listPages ordering. Older / less recently accessed pages may not
- *     contribute evidence on a single run. This is a known limitation; full
- *     coverage requires multi-run paging (not yet implemented).
+ *     contribute evidence on a single run. Known limitation; full coverage
+ *     requires multi-run paging (not yet implemented).
  *   - All candidates below threshold: PromotionReport.promoted=[],
  *     PromotionReport.skipped=[every-candidate], status still 'ok'.
  *   - Target page not found at apply time: skipped with reason
@@ -26,10 +33,15 @@
  *   - Target page modified between scoring and apply: last write wins
  *     (no optimistic concurrency check). Acceptable because compiled_truth
  *     is append-only here.
+ *   - Embedding API failure: falls back to exact-text grouping for that run
+ *     (single-cluster-per-unique-text). Logged, non-fatal.
+ *   - similarityThreshold < 0 or > 1: clamped to [0, 1] at clusterByEmbedding.
  */
 
+import { createHash } from 'crypto';
 import type { BrainEngine } from './engine.ts';
 import type { TimelineEntry } from './types.ts';
+import { embedBatch } from './embedding.ts';
 
 // --- Config ---
 
@@ -40,41 +52,23 @@ export interface PromotionConfig {
   minRecurrence: number;
   /** Max promotions per run. Default: 10 */
   maxPromotions: number;
+  /**
+   * Cosine similarity threshold for clustering timeline summaries.
+   * Two entries with sim >= threshold cluster together. Default: 0.85.
+   * Lower = more aggressive (more entries cluster, less precise canonical).
+   * Higher = more conservative (fewer clusters, closer to exact-match).
+   */
+  similarityThreshold: number;
 }
 
 export const DEFAULT_CONFIG: PromotionConfig = {
   evidenceWindowDays: 14,
   minRecurrence: 3,
   maxPromotions: 10,
+  similarityThreshold: 0.85,
 };
 
-// --- Types ---
-
-export interface CandidatePattern {
-  /** Normalized summary text (the pattern key) */
-  pattern: string;
-  /** How many distinct timeline entries mention this pattern */
-  recurrence: number;
-  /** Slugs where this pattern appeared */
-  slugs: string[];
-  /** Most recent date seen */
-  lastSeen: string;
-  /** Score (0-1, higher = more promotable) */
-  score: number;
-  /** Why it was accepted or rejected */
-  reason: string;
-}
-
-export interface PromotionReport {
-  /** Stable schema marker. Bumped on breaking changes to this shape. */
-  schema_version: '1';
-  candidates: CandidatePattern[];
-  promoted: CandidatePattern[];
-  skipped: CandidatePattern[];
-  dryRun: boolean;
-  runAt: string;
-  evidenceWindowDays: number;
-}
+// --- Constants ---
 
 /**
  * Maximum number of pages scanned for evidence in a single cycle.
@@ -91,12 +85,6 @@ export const DEFAULT_PROMOTION_MIN_HOURS = 23;
 
 /**
  * Returns true if the dream cycle is due to run based on the last-run timestamp.
- * Rate-limits nightly promotion to roughly once per day even when the
- * autopilot cycle fires every few minutes.
- *
- * @param lastRunMs  Epoch ms of the last successful run, or 0 if never
- * @param nowMs      Current epoch ms
- * @param minHours   Minimum gap between runs in hours (default 23)
  *
  * Edge cases:
  *   - lastRunMs = 0 or non-finite → returns true (first run)
@@ -113,11 +101,51 @@ export function shouldRunDreamCycle(
   return (nowMs - lastRunMs) / 3600000 >= minHours;
 }
 
+// --- Types ---
+
+export interface Cluster {
+  /** Stable hash of the canonical text. Used as cluster_id throughout. */
+  cluster_id: string;
+  /** Picked representative text (most-recent entry's summary). */
+  canonical: string;
+  /** All entries in this cluster, regardless of source page. */
+  entries: { slug: string; entry: TimelineEntry }[];
+}
+
+export interface CandidatePattern {
+  /** The cluster's canonical text. */
+  pattern: string;
+  /** Stable id for the cluster, derived from canonical. */
+  cluster_id: string;
+  /** How many distinct timeline entries are in the cluster. */
+  recurrence: number;
+  /** Distinct slugs where this pattern appeared. */
+  slugs: string[];
+  /** Most recent date seen across the cluster. */
+  lastSeen: string;
+  /** Score (0-1, higher = more promotable). */
+  score: number;
+  /** Why it was accepted or rejected. */
+  reason: string;
+}
+
+export interface PromotionReport {
+  /** Stable schema marker. Bumped on breaking changes to this shape. */
+  schema_version: '1';
+  candidates: CandidatePattern[];
+  promoted: CandidatePattern[];
+  skipped: CandidatePattern[];
+  dryRun: boolean;
+  runAt: string;
+  evidenceWindowDays: number;
+}
+
 // --- Normalization ---
 
 /**
- * Normalize a timeline summary for grouping.
+ * Normalize a timeline summary for hashing/embedding.
  * Lowercase, collapse whitespace, strip trailing punctuation.
+ * Two summaries with the same normalized text get one embedding cache row.
  */
 export function normalizeSummary(summary: string): string {
   return summary
@@ -127,9 +155,9 @@ export function normalizeSummary(summary: string): string {
     .trim();
 }
 
-// --- PHR detection (simplified) ---
+// --- Sensitive-content gate (best-effort regex filter, NOT a HIPAA control) ---
 
-const PHI_PATTERNS = [
+const SENSITIVE_PATTERNS = [
   /\b\d{3}[-.\s]?\d{3}[-.\s]?\d{4}\b/,           // phone numbers
   /\b\d{3}[-.\s]?\d{2}[-.\s]?\d{4}\b/,            // SSN-like
   /\b[A-Z]\d{3}[A-Z]{2}\d\b/i,                    // some ID patterns
@@ -137,8 +165,14 @@ const PHI_PATTERNS = [
   /\b\d{1,2}\/\d{1,2}\/\d{2,4}\b/,                // dates that could be DOB
 ];
 
+/**
+ * Best-effort regex filter for phone, SSN, and "patient X" patterns.
+ * NOT a real PHI/PII detector. Use as a defense-in-depth filter, not as
+ * the only gate against sensitive content. Real PHI handling needs a
+ * dedicated engine (Presidio, healthcare NLP service, etc).
+ */
 export function looksLikePhi(text: string): boolean {
-  return PHI_PATTERNS.some(p => p.test(text));
+  return SENSITIVE_PATTERNS.some(p => p.test(text));
 }
 
 // --- Scoring ---
@@ -171,48 +205,216 @@ export function scoreCandidate(
   return recFactor * 0.5 + recencyFactor * 0.3 + spreadFactor * 0.2;
 }
 
+// --- Embedding helpers ---
+
+function summaryHashOf(normalized: string): string {
+  return createHash('sha256').update(normalized).digest('hex');
+}
+
+/**
+ * Cosine similarity between two embedding vectors. Both inputs must have
+ * the same length.
+ *
+ * Edge cases:
+ *   - Either vector is the zero vector: returns 0 (no similarity).
+ *   - Vectors of different lengths: throws (programmer error).
+ */
+export function cosineSimilarity(a: Float32Array, b: Float32Array): number {
+  if (a.length !== b.length) {
+    throw new Error(`cosineSimilarity: length mismatch ${a.length} vs ${b.length}`);
+  }
+  let dot = 0, normA = 0, normB = 0;
+  for (let i = 0; i < a.length; i++) {
+    dot += a[i] * b[i];
+    normA += a[i] * a[i];
+    normB += b[i] * b[i];
+  }
+  if (normA === 0 || normB === 0) return 0;
+  return dot / (Math.sqrt(normA) * Math.sqrt(normB));
+}
+
+/**
+ * Look up cached embeddings for a list of normalized summaries; embed any
+ * cache misses; cache the new ones; return a Map<normalized, Float32Array>
+ * covering every input.
+ *
+ * Uses BrainEngine.executeRaw because timeline_summary_embeddings is a
+ * promotion-specific table, not part of the general BrainEngine contract.
+ *
+ * Edge cases:
+ *   - Empty input: returns empty Map, no DB or API calls.
+ *   - Embedding API failure: thrown, caller handles fallback.
+ *   - Some cached, some not: only cache misses get embedded.
+ */
+async function getOrComputeEmbeddings(
+  engine: BrainEngine,
+  normalizedTexts: string[],
+): Promise<Map<string, Float32Array>> {
+  const result = new Map<string, Float32Array>();
+  if (normalizedTexts.length === 0) return result;
+
+  const uniqueTexts = [...new Set(normalizedTexts)];
+  const hashOf = new Map(uniqueTexts.map(t => [t, summaryHashOf(t)]));
+
+  // Batch lookup
+  const hashes = Array.from(hashOf.values());
+  type CachedRow = { summary_hash: string; summary_text: string; embedding: string };
+  const cached = await engine.executeRaw<CachedRow>(
+    `SELECT summary_hash, summary_text, embedding::text AS embedding
+     FROM timeline_summary_embeddings
+     WHERE summary_hash = ANY($1::text[])`,
+    [hashes],
+  );
+
+  const cachedTexts = new Set<string>();
+  for (const row of cached) {
+    const arr = String(row.embedding).replace(/[\[\]]/g, '').split(',').map(parseFloat);
+    result.set(row.summary_text, new Float32Array(arr));
+    cachedTexts.add(row.summary_text);
+  }
+
+  const toEmbed = uniqueTexts.filter(t => !cachedTexts.has(t));
+  if (toEmbed.length === 0) return result;
+
+  const fresh = await embedBatch(toEmbed);
+
+  // Insert into cache (one round-trip per text — small N, acceptable).
+  // ON CONFLICT DO NOTHING handles concurrent runs racing on the same text.
+  for (let i = 0; i < toEmbed.length; i++) {
+    const text = toEmbed[i];
+    const emb = fresh[i];
+    const vecStr = '[' + Array.from(emb).join(',') + ']';
+    try {
+      await engine.executeRaw(
+        `INSERT INTO timeline_summary_embeddings (summary_hash, summary_text, embedding)
+         VALUES ($1, $2, $3::vector)
+         ON CONFLICT (summary_hash) DO NOTHING`,
+        [summaryHashOf(text), text, vecStr],
+      );
+    } catch (e) {
+      console.warn(
+        '[promotion] could not cache embedding for "%s": %s',
+        text.slice(0, 40),
+        e instanceof Error ? e.message : String(e),
+      );
+    }
+    result.set(text, emb);
+  }
+
+  return result;
+}
+
+// --- Clustering ---
+
+/**
+ * Cluster entries by cosine similarity using union-find. Two entries with
+ * embeddings >= threshold join the same cluster transitively (A~B and B~C
+ * means A, B, C are all one cluster). The cluster's canonical is the
+ * most-recent entry's original (un-normalized) summary text.
+ *
+ * Time complexity: O(n²) pairwise comparison. Acceptable for n up to a
+ * few thousand (a 14-day window on a 500-page brain typically yields
+ * 1000-3000 entries). For larger n, switch to ANN via pgvector ivfflat.
+ *
+ * Edge cases:
+ *   - threshold < 0 or > 1: clamped to [0, 1].
+ *   - Empty input: returns empty array.
+ *   - Single entry: returns one cluster of size 1.
+ *   - All identical embeddings: returns one cluster.
+ */
+export function clusterByEmbedding(
+  entries: { slug: string; entry: TimelineEntry; embedding: Float32Array }[],
+  threshold: number,
+): Cluster[] {
+  if (entries.length === 0) return [];
+  const t = Math.max(0, Math.min(1, threshold));
+
+  // Union-find with path compression
+  const parent = entries.map((_, i) => i);
+  const find = (i: number): number => {
+    let r = i;
+    while (parent[r] !== r) r = parent[r];
+    while (parent[i] !== r) {
+      const next = parent[i];
+      parent[i] = r;
+      i = next;
+    }
+    return r;
+  };
+  const union = (i: number, j: number) => {
+    const ri = find(i), rj = find(j);
+    if (ri !== rj) parent[ri] = rj;
+  };
+
+  for (let i = 0; i < entries.length; i++) {
+    for (let j = i + 1; j < entries.length; j++) {
+      if (cosineSimilarity(entries[i].embedding, entries[j].embedding) >= t) {
+        union(i, j);
+      }
+    }
+  }
+
+  // Group by root
+  const groups = new Map<number, typeof entries>();
+  for (let i = 0; i < entries.length; i++) {
+    const root = find(i);
+    if (!groups.has(root)) groups.set(root, []);
+    groups.get(root)!.push(entries[i]);
+  }
+
+  // Build clusters: canonical = most-recent member's original summary
+  const clusters: Cluster[] = [];
+  for (const members of groups.values()) {
+    const sorted = members.slice().sort((a, b) =>
+      String(b.entry.date).localeCompare(String(a.entry.date)),
+    );
+    const canonical = sorted[0].entry.summary;
+    const cluster_id = createHash('sha256').update(normalizeSummary(canonical)).digest('hex').slice(0, 16);
+    clusters.push({
+      cluster_id,
+      canonical,
+      entries: members.map(m => ({ slug: m.slug, entry: m.entry })),
+    });
+  }
+  return clusters;
+}
+
 // --- Core logic ---
 
 /**
- * Collect timeline evidence from the last N days across all pages.
- * Returns entries grouped by normalized summary.
+ * Collect timeline evidence from the last N days across all pages, embed
+ * each unique summary, cluster by cosine similarity, return clusters.
  *
  * Edge cases:
- *   - Empty brain (zero pages): returns empty Map, no error.
- *   - Brain with > MAX_PAGES_TO_SCAN pages: scans only the first slice as
- *     ordered by listPages (recency-default per BrainEngine).
- *   - Page with broken/malformed timeline: page is skipped (current behavior
- *     swallows the error silently — flagged for fix in PR #3 OBSERVABILITY gate).
+ *   - Empty brain (zero pages): returns empty array.
+ *   - Brain with > MAX_PAGES_TO_SCAN pages: scans only the first slice
+ *     as ordered by listPages.
+ *   - Page with broken/malformed timeline: page is skipped, error logged.
+ *   - Embedding API failure: caught at this level; falls back to exact-text
+ *     grouping (each unique normalized text becomes its own cluster).
  */
 export async function collectEvidence(
   engine: BrainEngine,
   config: PromotionConfig,
-): Promise<Map<string, { entries: { slug: string; entry: TimelineEntry }[] }>> {
+): Promise<Cluster[]> {
   const since = new Date(Date.now() - config.evidenceWindowDays * 86400000);
   const sinceStr = since.toISOString().slice(0, 10);
 
-  // Scan up to MAX_PAGES_TO_SCAN pages. Brains larger than this won't be
-  // fully covered in a single run — see PromotionReport edge cases at top of file.
   const pages = await engine.listPages({ limit: MAX_PAGES_TO_SCAN });
 
-  // Collect timeline entries per page
-  const groups = new Map<string, { entries: { slug: string; entry: TimelineEntry }[] }>();
-
+  // Collect raw entries from every page's timeline within the window.
+  const rawEntries: { slug: string; entry: TimelineEntry; normalized: string }[] = [];
   for (const page of pages) {
     try {
       const timeline = await engine.getTimeline(page.slug, {
         after: sinceStr,
         limit: 100,
       });
-
       for (const entry of timeline) {
-        const key = normalizeSummary(entry.summary);
-        if (!key) continue;
-
-        if (!groups.has(key)) {
-          groups.set(key, { entries: [] });
+        const normalized = normalizeSummary(entry.summary);
+        if (normalized) {
+          rawEntries.push({ slug: page.slug, entry, normalized });
         }
-        groups.get(key)!.entries.push({ slug: page.slug, entry });
       }
     } catch (e) {
       console.warn(
@@ -223,62 +425,110 @@ export async function collectEvidence(
     }
   }
 
-  return groups;
+  if (rawEntries.length === 0) return [];
+
+  // Embed unique normalized texts (cache-aware), then cluster.
+  let embeddings: Map<string, Float32Array>;
+  try {
+    embeddings = await getOrComputeEmbeddings(
+      engine,
+      rawEntries.map(r => r.normalized),
+    );
+  } catch (e) {
+    console.warn(
+      '[promotion.collectEvidence] embedding lookup failed; falling back to exact-text grouping: %s',
+      e instanceof Error ? e.message : String(e),
+    );
+    return fallbackExactTextClusters(rawEntries);
+  }
+
+  const withEmbeddings = rawEntries
+    .map(r => {
+      const emb = embeddings.get(r.normalized);
+      return emb ? { slug: r.slug, entry: r.entry, embedding: emb } : null;
+    })
+    .filter((r): r is NonNullable<typeof r> => r !== null);
+
+  if (withEmbeddings.length === 0) return fallbackExactTextClusters(rawEntries);
+
+  return clusterByEmbedding(withEmbeddings, config.similarityThreshold);
 }
 
 /**
- * Score collected evidence and return ranked candidates.
+ * Fallback when embeddings can't be computed: each unique normalized text
+ * becomes its own cluster (the v0.20 exact-text behavior).
+ */
+function fallbackExactTextClusters(
+  rawEntries: { slug: string; entry: TimelineEntry; normalized: string }[],
+): Cluster[] {
+  const groups = new Map<string, { canonical: string; entries: { slug: string; entry: TimelineEntry }[] }>();
+  for (const r of rawEntries) {
+    if (!groups.has(r.normalized)) {
+      groups.set(r.normalized, { canonical: r.entry.summary, entries: [] });
+    }
+    const group = groups.get(r.normalized)!;
+    group.entries.push({ slug: r.slug, entry: r.entry });
+    // Update canonical to the most recent member's summary
+    if (String(r.entry.date) > String(group.entries[0]?.entry.date ?? '')) {
+      group.canonical = r.entry.summary;
+    }
+  }
+  return Array.from(groups.entries()).map(([normalized, g]) => ({
+    cluster_id: createHash('sha256').update(normalized).digest('hex').slice(0, 16),
+    canonical: g.canonical,
+    entries: g.entries,
+  }));
+}
+
+/**
+ * Score clusters and return ranked candidates. One cluster → one candidate.
  */
 export function rankCandidates(
-  evidence: Map<string, { entries: { slug: string; entry: TimelineEntry }[] }>,
+  clusters: Cluster[],
   config: PromotionConfig,
 ): CandidatePattern[] {
   const candidates: CandidatePattern[] = [];
 
-  for (const [pattern, data] of evidence) {
-    const recurrence = data.entries.length;
-    const uniqueSlugs = [...new Set(data.entries.map(e => e.slug))];
-    const dates = data.entries.map(e => e.entry.date).sort();
+  for (const cluster of clusters) {
+    const recurrence = cluster.entries.length;
+    const uniqueSlugs = [...new Set(cluster.entries.map(e => e.slug))];
+    const dates = cluster.entries.map(e => String(e.entry.date)).sort();
     const lastSeen = dates[dates.length - 1];
 
-    // Reject: below threshold
+    const base = {
+      pattern: cluster.canonical,
+      cluster_id: cluster.cluster_id,
+      recurrence,
+      slugs: uniqueSlugs,
+      lastSeen,
+    };
+
     if (recurrence < config.minRecurrence) {
       candidates.push({
-        pattern,
-        recurrence,
-        slugs: uniqueSlugs,
-        lastSeen,
+        ...base,
         score: 0,
         reason: `below threshold (${recurrence} < ${config.minRecurrence})`,
       });
       continue;
     }
 
-    // Reject: PHI-like
-    if (looksLikePhi(pattern)) {
+    if (looksLikePhi(cluster.canonical)) {
       candidates.push({
-        pattern,
-        recurrence,
-        slugs: uniqueSlugs,
-        lastSeen,
+        ...base,
         score: 0,
-        reason: 'rejected: possible PHI content',
+        reason: 'rejected: possible sensitive content (regex filter)',
       });
       continue;
     }
 
     const score = scoreCandidate(recurrence, lastSeen, uniqueSlugs.length);
     candidates.push({
-      pattern,
-      recurrence,
-      slugs: uniqueSlugs,
-      lastSeen,
+      ...base,
       score,
       reason: score >= 0.4 ? 'promotable' : `low score (${score.toFixed(2)})`,
     });
   }
 
-  // Sort by score descending
   candidates.sort((a, b) => b.score - a.score);
   return candidates;
 }
@@ -286,6 +536,11 @@ export function rankCandidates(
 /**
  * Apply promotions. For each promotable candidate, append a semantic note
  * to the most relevant page's compiled_truth and add a timeline entry.
+ *
+ * Note on idempotency: this PR (#4) does NOT include the
+ * dream_cycle_promotions hash table. PR #3 lands that on top. Until then,
+ * a re-run with identical clusters re-appends notes. Mitigated in
+ * production by the runPhasePromotion 23h rate-limit.
  *
  * Returns the list of actually promoted candidates.
  */
@@ -305,7 +560,7 @@ export async function applyPromotions(
       continue;
     }
 
-    // Pick the first slug as the target (most recent entry's page)
+    // Pick the first slug as the target (most recent entry's page).
     const targetSlug = candidate.slugs[0];
 
     if (dryRun) {
@@ -321,8 +576,10 @@ export async function applyPromotions(
         continue;
       }
 
-      // Append semantic note to compiled_truth
-      const semanticNote = `\n\n---\n**Semantic note** (dream-cycle ${new Date().toISOString().slice(0, 10)}): Recurring pattern detected across ${candidate.recurrence} entries. ${candidate.pattern}`;
+      const today = new Date().toISOString().slice(0, 10);
+
+      // Append semantic note to compiled_truth.
+      const semanticNote = `\n\n---\n**Semantic note** (dream-cycle ${today}, cluster ${candidate.cluster_id}): Recurring pattern detected across ${candidate.recurrence} entries. ${candidate.pattern}`;
       const updatedTruth = page.compiled_truth + semanticNote;
 
       await engine.putPage(targetSlug, {
@@ -332,18 +589,20 @@ export async function applyPromotions(
         frontmatter: page.frontmatter,
       });
 
-      // Add timeline entry documenting the promotion
       await engine.addTimelineEntry(targetSlug, {
-        date: new Date().toISOString().slice(0, 10),
+        date: today,
         source: 'dream-cycle',
         summary: `Promoted recurring pattern (${candidate.recurrence} occurrences) to semantic memory`,
-        detail: `Pattern: "${candidate.pattern}". Score: ${candidate.score.toFixed(2)}. Spread across: ${candidate.slugs.join(', ')}`,
+        detail: `Pattern: "${candidate.pattern}". Cluster: ${candidate.cluster_id}. Score: ${candidate.score.toFixed(2)}. Spread across: ${candidate.slugs.join(', ')}`,
       });
 
       promoted.push({ ...candidate, reason: `promoted to ${targetSlug}` });
       applied++;
     } catch (e) {
-      skipped.push({ ...candidate, reason: `error: ${e instanceof Error ? e.message : String(e)}` });
+      skipped.push({
+        ...candidate,
+        reason: `error: ${e instanceof Error ? e.message : String(e)}`,
+      });
     }
   }
 
@@ -361,17 +620,12 @@ export async function runDreamCycle(
   const fullConfig = { ...DEFAULT_CONFIG, ...config };
   const runAt = new Date().toISOString();
 
-  // 1. Collect evidence
-  const evidence = await collectEvidence(engine, fullConfig);
+  const clusters = await collectEvidence(engine, fullConfig);
+  const candidates = rankCandidates(clusters, fullConfig);
 
-  // 2. Rank candidates
-  const candidates = rankCandidates(evidence, fullConfig);
-
-  // 3. Split into promotable and rejected
   const promotable = candidates.filter(c => c.reason === 'promotable');
   const rejected = candidates.filter(c => c.reason !== 'promotable');
 
-  // 4. Apply promotions
   const { promoted, skipped } = await applyPromotions(engine, promotable, fullConfig, dryRun);
 
   return {

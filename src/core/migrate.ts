@@ -812,6 +812,39 @@ export const MIGRATIONS: Migration[] = [
       END $$;
     `,
   },
+  {
+    version: 25,
+    name: 'timeline_summary_embeddings',
+    // PR #4 of dream-cycle remediation. The promotion algorithm needs to
+    // cluster timeline summaries by semantic similarity, not exact text.
+    // This table caches embeddings of normalized summaries so we don't
+    // re-embed the same text on every cycle (a 1500-summary brain at
+    // text-embedding-3-large would otherwise cost ~$0.04 per cycle and
+    // burn an OpenAI API quota slot every night).
+    //
+    // Key design choices:
+    //   - PRIMARY KEY on summary_hash (sha256 of NORMALIZED text). Same
+    //     normalized text everywhere produces one row regardless of how
+    //     many pages reference it.
+    //   - VECTOR(1536) matches text-embedding-3-large (the project default
+    //     in src/core/embedding.ts).
+    //   - ivfflat with vector_cosine_ops because clustering uses cosine
+    //     similarity. lists=100 is the postgres-engine default for similar
+    //     pgvector indexes; tune later if cluster latency becomes an issue.
+    //
+    // Engine-agnostic SQL — pgvector's CREATE EXTENSION runs in
+    // schema.sql; PGLite uses the WASM pgvector extension at startup.
+    sql: `
+      CREATE TABLE IF NOT EXISTS timeline_summary_embeddings (
+        summary_hash TEXT PRIMARY KEY,
+        summary_text TEXT NOT NULL,
+        embedding VECTOR(1536) NOT NULL,
+        embedded_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+      );
+      CREATE INDEX IF NOT EXISTS idx_timeline_summary_embeddings_cosine
+        ON timeline_summary_embeddings USING ivfflat (embedding vector_cosine_ops);
+    `,
+  },
 ];
 
 export const LATEST_VERSION = MIGRATIONS.length > 0
