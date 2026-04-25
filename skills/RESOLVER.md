@@ -11,10 +11,6 @@ Before any task, read these files in order:
 
 Never guess about people, companies, skills, or MCPs. The resolver has the answer.
 
-## Before mutating anything in this repo (NON-NEGOTIABLE)
-
-If you are about to **add or modify a row in this file, create a new fat file under `mcps/` or `tools/`, or add a new skill**, read `skills/conventions/router-pattern.md` first. It defines the "earn the file" test, the thin-row vs fat-file split, and the cross-linking rules. Any agent touching RBrain structure without applying that convention will break the organization the rest of this repo depends on.
-
 ## Always-on (every message)
 
 | Trigger | Skill |
