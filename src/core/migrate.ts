@@ -912,6 +912,47 @@ export const MIGRATIONS: Migration[] = [
       END $$;
     `,
   },
+  {
+    version: 28,
+    name: 'content_chunks_code_fts_columns',
+    // v0.20/v0.22 search paths rank against content_chunks.search_vector and
+    // putPage writes code metadata columns. Existing brains created before
+    // those schema additions need an explicit additive migration because
+    // CREATE TABLE IF NOT EXISTS never adds columns to an existing table.
+    sql: `
+      ALTER TABLE content_chunks ADD COLUMN IF NOT EXISTS parent_symbol_path TEXT[];
+      ALTER TABLE content_chunks ADD COLUMN IF NOT EXISTS doc_comment TEXT;
+      ALTER TABLE content_chunks ADD COLUMN IF NOT EXISTS symbol_name_qualified TEXT;
+      ALTER TABLE content_chunks ADD COLUMN IF NOT EXISTS search_vector TSVECTOR;
+
+      CREATE INDEX IF NOT EXISTS idx_chunks_search_vector ON content_chunks USING GIN(search_vector);
+      CREATE INDEX IF NOT EXISTS idx_chunks_symbol_qualified
+        ON content_chunks(symbol_name_qualified) WHERE symbol_name_qualified IS NOT NULL;
+
+      CREATE OR REPLACE FUNCTION update_chunk_search_vector() RETURNS TRIGGER AS $fn$
+      BEGIN
+        NEW.search_vector :=
+          setweight(to_tsvector('english', COALESCE(NEW.doc_comment, '')), 'A') ||
+          setweight(to_tsvector('english', COALESCE(NEW.symbol_name_qualified, '')), 'A') ||
+          setweight(to_tsvector('english', COALESCE(NEW.chunk_text, '')), 'B');
+        RETURN NEW;
+      END;
+      $fn$ LANGUAGE plpgsql;
+
+      DROP TRIGGER IF EXISTS chunk_search_vector_trigger ON content_chunks;
+      CREATE TRIGGER chunk_search_vector_trigger
+        BEFORE INSERT OR UPDATE OF chunk_text, doc_comment, symbol_name_qualified
+        ON content_chunks
+        FOR EACH ROW EXECUTE FUNCTION update_chunk_search_vector();
+
+      UPDATE content_chunks
+      SET search_vector =
+        setweight(to_tsvector('english', COALESCE(doc_comment, '')), 'A') ||
+        setweight(to_tsvector('english', COALESCE(symbol_name_qualified, '')), 'A') ||
+        setweight(to_tsvector('english', COALESCE(chunk_text, '')), 'B')
+      WHERE search_vector IS NULL;
+    `,
+  },
 ];
 
 export const LATEST_VERSION = MIGRATIONS.length > 0
