@@ -2,60 +2,172 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 
-interface Message {
-  role: 'user' | 'assistant';
-  content: string;
+interface Message { role: 'user' | 'assistant'; content: string; time: string; }
+
+interface ScopeMeta {
+  scope: string;
+  label: string;
+  greet: string;
+  suggestions: { icon: string; text: string }[];
+}
+
+const SCOPE_META: Record<string, ScopeMeta> = {
+  '/':         { scope: 'brain.health',  label: '/health',
+    greet: "Hey — I'm Max, the Hermes Agent. I'm watching Brain Health right now. What do you want to know about your brain?",
+    suggestions: [
+      { icon: 'ph-stethoscope',    text: 'Why did the score change this week?' },
+      { icon: 'ph-link-break',     text: 'Walk me through the dead links' },
+      { icon: 'ph-warning',        text: 'Which orphan pages should I merge?' },
+    ]},
+  '/search':   { scope: 'brain.search',  label: '/search',
+    greet: "I can search across your brain, summarize clusters, or find duplicate ideas. What are you looking for?",
+    suggestions: [
+      { icon: 'ph-list',    text: 'Summarize my recent search results' },
+      { icon: 'ph-copy',    text: 'Find near-duplicate ideas to merge' },
+      { icon: 'ph-quotes',  text: 'What are my strongest recurring themes?' },
+    ]},
+  '/graph':    { scope: 'brain.graph',   label: '/graph',
+    greet: "Looking at your knowledge graph. I can find clusters, trace paths, or suggest missing links. What do you need?",
+    suggestions: [
+      { icon: 'ph-graph',  text: 'Find the most connected people' },
+      { icon: 'ph-path',   text: 'Trace a path between two concepts' },
+      { icon: 'ph-link',   text: 'Suggest missing edges in the graph' },
+    ]},
+  '/feed':     { scope: 'brain.feed',    label: '/feed',
+    greet: "Caught up on your brain activity. I can give you a digest, surface themes, or flag anything to action. What do you want?",
+    suggestions: [
+      { icon: 'ph-newspaper', text: 'Give me a daily digest' },
+      { icon: 'ph-funnel',    text: 'Show only decisions this week' },
+      { icon: 'ph-bell',      text: 'Anything I should action by Friday?' },
+    ]},
+  '/jobs':     { scope: 'brain.jobs',    label: '/jobs',
+    greet: "Watching the Minions queue. I can diagnose failures, retry jobs, or explain what's stuck. What do you want?",
+    suggestions: [
+      { icon: 'ph-arrow-clockwise', text: 'Retry all rate-limited failures' },
+      { icon: 'ph-bug',             text: 'Diagnose the latest failures' },
+      { icon: 'ph-gauge',           text: 'Why is the queue backing up?' },
+    ]},
+  '/meetings': { scope: 'brain.meetings', label: '/meetings',
+    greet: "I can brief you on any meeting — attendees, prior interactions, decisions made. Which meeting?",
+    suggestions: [
+      { icon: 'ph-users',     text: 'Brief me on my next meeting' },
+      { icon: 'ph-calendar',  text: "Summarize last week's meetings" },
+      { icon: 'ph-list-star', text: 'What action items are still open?' },
+    ]},
+  '/people':   { scope: 'brain.people',  label: '/people',
+    greet: "I know your 373 people. I can look up anyone, surface their timeline, or find connections. Who do you want to know about?",
+    suggestions: [
+      { icon: 'ph-user-circle',    text: 'Who have I interacted with most?' },
+      { icon: 'ph-buildings',      text: 'Who works at a specific company?' },
+      { icon: 'ph-clock-counter-clockwise', text: "Who haven't I talked to in 30+ days?" },
+    ]},
+  '/daily':    { scope: 'brain.daily',   label: '/daily',
+    greet: "I see your daily brief. I can expand on any item, help you prioritize, or prep you for today's meetings.",
+    suggestions: [
+      { icon: 'ph-list-checks', text: 'Help me prioritize today' },
+      { icon: 'ph-calendar',    text: 'Prep me for my first meeting' },
+      { icon: 'ph-trend-up',    text: "What's the most urgent thing?" },
+    ]},
+  '/todos':    { scope: 'brain.todos',   label: '/todos',
+    greet: "I see your task list. I can help prioritize, break down a task, or find related brain content.",
+    suggestions: [
+      { icon: 'ph-check-square', text: 'What should I work on first?' },
+      { icon: 'ph-link',         text: 'Find brain pages related to a task' },
+      { icon: 'ph-clock',        text: "What's overdue right now?" },
+    ]},
+  '/pages':    { scope: 'brain.pages',   label: '/pages',
+    greet: "You have 15,000+ pages in your brain. I can search, summarize, or find connections between them.",
+    suggestions: [
+      { icon: 'ph-magnifying-glass', text: 'Find pages about a topic' },
+      { icon: 'ph-trash',            text: 'What pages should I clean up?' },
+      { icon: 'ph-tag',              text: 'What tags do I use most?' },
+    ]},
+};
+
+function nowTime() {
+  return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+}
+
+function scopeFor(pathname: string): ScopeMeta {
+  return SCOPE_META[pathname] ?? SCOPE_META['/'];
 }
 
 export default function ChatWidget() {
   const [open, setOpen]         = useState(false);
+  const [pathname, setPathname] = useState('/');
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput]       = useState('');
   const [streaming, setStreaming] = useState(false);
+  const [scopeOn, setScopeOn]   = useState(true);
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef  = useRef<HTMLTextAreaElement>(null);
 
+  // Track current page for scope
   useEffect(() => {
-    if (open) inputRef.current?.focus();
+    setPathname(window.location.pathname);
+    const handler = () => setPathname(window.location.pathname);
+    window.addEventListener('popstate', handler);
+    return () => window.removeEventListener('popstate', handler);
+  }, []);
+
+  // Greeting on first open or scope change — only if no messages
+  useEffect(() => {
+    if (open && messages.length === 0) {
+      const meta = scopeFor(pathname);
+      setMessages([{ role: 'assistant', content: meta.greet, time: nowTime() }]);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open, pathname]);
+
+  useEffect(() => {
+    if (open) setTimeout(() => inputRef.current?.focus(), 220);
   }, [open]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, streaming]);
+  }, [messages]);
+
+  // ⌘J shortcut
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'j') { e.preventDefault(); setOpen(o => !o); }
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, []);
 
   const send = useCallback(async () => {
     const text = input.trim();
     if (!text || streaming) return;
     setInput('');
 
-    const next: Message[] = [...messages, { role: 'user', content: text }];
-    setMessages(next);
+    const userMsg: Message = { role: 'user', content: text, time: nowTime() };
+    const history = [...messages, userMsg];
+    setMessages(history);
     setStreaming(true);
 
-    // Append empty assistant message to stream into
-    setMessages(m => [...m, { role: 'assistant', content: '' }]);
+    const assistantMsg: Message = { role: 'assistant', content: '', time: nowTime() };
+    setMessages(m => [...m, assistantMsg]);
 
     try {
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ messages: next }),
+        body: JSON.stringify({
+          messages: history.map(m => ({ role: m.role, content: m.content })),
+          scope: scopeOn ? scopeFor(pathname).scope : undefined,
+        }),
       });
 
       if (!res.ok || !res.body) {
-        const err = await res.json().catch(() => ({ error: 'Unknown error' }));
-        setMessages(m => {
-          const copy = [...m];
-          copy[copy.length - 1] = { role: 'assistant', content: `Error: ${err.error ?? 'Failed to connect'}` };
-          return copy;
-        });
+        const err = await res.json().catch(() => ({ error: 'Request failed' }));
+        setMessages(m => { const c = [...m]; c[c.length-1] = { role: 'assistant', content: `Error: ${err.error ?? 'Failed'}`, time: nowTime() }; return c; });
         return;
       }
 
       const reader = res.body.getReader();
       const dec = new TextDecoder();
       let buf = '';
-
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
@@ -67,167 +179,130 @@ export default function ChatWidget() {
           const data = line.slice(6).trim();
           if (data === '[DONE]') continue;
           try {
-            const { text } = JSON.parse(data);
-            if (text) {
-              setMessages(m => {
-                const copy = [...m];
-                copy[copy.length - 1] = {
-                  role: 'assistant',
-                  content: copy[copy.length - 1].content + text,
-                };
-                return copy;
-              });
-            }
+            const { text: chunk } = JSON.parse(data);
+            if (chunk) setMessages(m => { const c = [...m]; c[c.length-1] = { ...c[c.length-1], content: c[c.length-1].content + chunk }; return c; });
           } catch { /* skip */ }
         }
       }
     } finally {
       setStreaming(false);
     }
-  }, [input, messages, streaming]);
+  }, [input, messages, streaming, pathname, scopeOn]);
 
   const onKey = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
   };
 
+  const meta = scopeFor(pathname);
+  const showSuggestions = messages.length <= 1;
+
   return (
     <>
-      {/* Floating button */}
+      {/* Toggle button — fixed in topbar area */}
       <button
+        className={`chat-toggle${open ? ' active' : ''}`}
         onClick={() => setOpen(o => !o)}
-        title="Chat with Max"
-        style={{
-          position: 'fixed', bottom: 24, right: 24, zIndex: 100,
-          width: 44, height: 44, borderRadius: '50%',
-          background: open ? 'var(--surface-3)' : 'var(--accent)',
-          border: '1px solid var(--accent)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          cursor: 'pointer',
-          boxShadow: '0 4px 16px rgba(0,0,0,0.4)',
-          transition: 'all 150ms ease',
-        }}
+        style={{ position: 'fixed', top: 11, right: 120, zIndex: 60 }}
+        title="Chat with Max (⌘J)"
       >
-        <i className={`ph ${open ? 'ph-x' : 'ph-chat-circle-dots'}`}
-           style={{ fontSize: 20, color: open ? 'var(--fg-muted)' : '#001a10' }}></i>
+        <i className="ph ph-chat-circle-dots"></i>
+        <span>Max</span>
+        <div className="chat-pulse"></div>
+        <span className="chat-kbd">⌘J</span>
       </button>
 
       {/* Chat panel */}
-      {open && (
-        <div style={{
-          position: 'fixed', bottom: 80, right: 24, zIndex: 100,
-          width: 380, height: 520,
-          background: 'var(--surface)',
-          border: '1px solid var(--border-strong)',
-          borderRadius: 'var(--r-xl)',
-          display: 'flex', flexDirection: 'column',
-          boxShadow: 'var(--shadow-lg)',
-          overflow: 'hidden',
-        }}>
-          {/* Header */}
-          <div style={{
-            padding: '12px var(--s-4)',
-            borderBottom: '1px solid var(--border)',
-            display: 'flex', alignItems: 'center', gap: 'var(--s-2)',
-            background: 'var(--bg-secondary)',
-            flexShrink: 0,
-          }}>
-            <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--success)', boxShadow: '0 0 0 3px var(--success-soft)' }}></div>
-            <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--fg-strong)' }}>Max</span>
-            <span style={{ fontSize: 11, color: 'var(--fg-subtle)', marginLeft: 2 }}>· brain-aware</span>
-            {messages.length > 0 && (
-              <button
-                onClick={() => setMessages([])}
-                style={{ marginLeft: 'auto', background: 'none', border: 'none', color: 'var(--fg-subtle)', cursor: 'pointer', fontSize: 11 }}
-              >
-                Clear
+      <aside className={`chat-panel${open ? ' open' : ''}`} aria-hidden={!open}>
+        {/* Header */}
+        <div className="chat-head">
+          <div className="chat-avatar">M</div>
+          <div style={{ minWidth: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <div className="chat-name">Max</div>
+              <span className="pill pill-success" style={{ fontSize: 10, padding: '1px 6px' }}>
+                <span className="pill-dot"></span>online
+              </span>
+            </div>
+            <div className="chat-sub">
+              Hermes Agent · scope <span className="scope-tag">{meta.label}</span>
+            </div>
+          </div>
+          <div className="chat-head-actions">
+            <button className="chat-head-btn" title="New thread" onClick={() => setMessages([])}>
+              <i className="ph ph-plus"></i>
+            </button>
+            <button className="chat-head-btn" title="Close" onClick={() => setOpen(false)}>
+              <i className="ph ph-x"></i>
+            </button>
+          </div>
+        </div>
+
+        {/* Context bar */}
+        <div className="chat-context">
+          <i className="ph ph-target"></i>
+          <span>Scoped to <span className="scope">{meta.scope}</span></span>
+          <span className="ctx-count">{meta.label}</span>
+        </div>
+
+        {/* Messages */}
+        <div className="chat-messages">
+          {messages.map((m, i) => (
+            <div key={i}>
+              <div className={`msg ${m.role}`}>
+                {m.role === 'assistant' && <div className="msg-avatar">M</div>}
+                <div>
+                  <div className="msg-bubble">
+                    {m.content || (streaming && i === messages.length - 1
+                      ? <span className="thinking-dots"><span></span><span></span><span></span></span>
+                      : null)}
+                  </div>
+                  <div className="msg-time">{m.time}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+          <div ref={bottomRef} />
+        </div>
+
+        {/* Suggestions */}
+        {showSuggestions && (
+          <div className="chat-suggestions">
+            {meta.suggestions.map((s, i) => (
+              <button key={i} className="suggest-chip" onClick={() => { setInput(s.text); setTimeout(() => inputRef.current?.focus(), 50); }}>
+                <i className={`ph ${s.icon}`}></i>
+                {s.text}
               </button>
-            )}
-          </div>
-
-          {/* Messages */}
-          <div style={{ flex: 1, overflowY: 'auto', padding: 'var(--s-4)', display: 'flex', flexDirection: 'column', gap: 'var(--s-3)' }}>
-            {messages.length === 0 && (
-              <div style={{ color: 'var(--fg-subtle)', fontSize: 12, lineHeight: 1.6, textAlign: 'center', marginTop: 'var(--s-8)' }}>
-                <div style={{ fontSize: 24, marginBottom: 'var(--s-3)' }}>
-                  <i className="ph ph-brain" style={{ color: 'var(--accent)' }}></i>
-                </div>
-                Ask Max anything about your brain — people, decisions, meetings, ideas.
-              </div>
-            )}
-            {messages.map((m, i) => (
-              <div key={i} style={{
-                alignSelf: m.role === 'user' ? 'flex-end' : 'flex-start',
-                maxWidth: '88%',
-              }}>
-                <div style={{
-                  padding: '8px 12px',
-                  borderRadius: m.role === 'user' ? 'var(--r-lg) var(--r-lg) var(--r-xs) var(--r-lg)' : 'var(--r-lg) var(--r-lg) var(--r-lg) var(--r-xs)',
-                  background: m.role === 'user' ? 'var(--accent)' : 'var(--surface-2)',
-                  color: m.role === 'user' ? '#001a10' : 'var(--fg)',
-                  fontSize: 13,
-                  lineHeight: 1.5,
-                  border: m.role === 'user' ? 'none' : '1px solid var(--border)',
-                  whiteSpace: 'pre-wrap',
-                  wordBreak: 'break-word',
-                }}>
-                  {m.content || (streaming && i === messages.length - 1
-                    ? <span style={{ opacity: 0.5 }}>▋</span>
-                    : null
-                  )}
-                </div>
-              </div>
             ))}
-            <div ref={bottomRef} />
           </div>
+        )}
 
-          {/* Input */}
-          <div style={{
-            padding: 'var(--s-3)',
-            borderTop: '1px solid var(--border)',
-            flexShrink: 0,
-            display: 'flex', gap: 'var(--s-2)',
-            background: 'var(--bg-secondary)',
-          }}>
+        {/* Composer */}
+        <div className="chat-composer">
+          <div className="composer-row">
             <textarea
               ref={inputRef}
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={onKey}
-              placeholder="Ask about your brain…"
+              placeholder="Ask Max about this view…"
               rows={1}
-              style={{
-                flex: 1, background: 'var(--surface)',
-                border: '1px solid var(--border-strong)',
-                borderRadius: 'var(--r-md)',
-                padding: '8px 10px',
-                fontSize: 13, color: 'var(--fg)',
-                fontFamily: 'var(--font-sans)',
-                resize: 'none', outline: 'none',
-                lineHeight: 1.4,
-              }}
             />
-            <button
-              onClick={send}
-              disabled={streaming || !input.trim()}
-              style={{
-                width: 36, height: 36,
-                borderRadius: 'var(--r-md)',
-                background: streaming || !input.trim() ? 'var(--surface-2)' : 'var(--accent)',
-                border: 'none', cursor: streaming || !input.trim() ? 'default' : 'pointer',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                flexShrink: 0,
-              }}
-            >
-              <i className={`ph ${streaming ? 'ph-circle-notch' : 'ph-paper-plane-tilt'}`}
-                 style={{
-                   fontSize: 16,
-                   color: streaming || !input.trim() ? 'var(--fg-disabled)' : '#001a10',
-                   animation: streaming ? 'spin 1s linear infinite' : 'none',
-                 }}></i>
+            <button className="composer-send" onClick={send} disabled={streaming || !input.trim()} title="Send">
+              <i className={`ph ${streaming ? 'ph-circle-notch' : 'ph-arrow-up'}`}
+                 style={streaming ? { animation: 'spin 1s linear infinite' } : undefined}></i>
             </button>
           </div>
+          <div className="composer-tools">
+            <button className={`composer-tool${scopeOn ? ' on' : ''}`} onClick={() => setScopeOn(s => !s)} title="Include view context">
+              <i className="ph ph-target"></i>Scope
+            </button>
+            <button className="composer-tool" title="Search the brain" onClick={() => { setInput('Search my brain for: '); inputRef.current?.focus(); }}>
+              <i className="ph ph-magnifying-glass"></i>Search
+            </button>
+            <span className="composer-hint">⏎ send · ⇧⏎ newline</span>
+          </div>
         </div>
-      )}
+      </aside>
     </>
   );
 }
