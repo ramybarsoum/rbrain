@@ -111,6 +111,19 @@ CREATE TABLE IF NOT EXISTS content_chunks (
   search_vector         TSVECTOR
 );
 
+-- Existing brains may have created content_chunks before code metadata and
+-- chunk-grain FTS columns existed. CREATE TABLE IF NOT EXISTS is not enough
+-- for those installs, so keep these additive ALTERs before indexes/triggers.
+ALTER TABLE content_chunks ADD COLUMN IF NOT EXISTS language TEXT;
+ALTER TABLE content_chunks ADD COLUMN IF NOT EXISTS symbol_name TEXT;
+ALTER TABLE content_chunks ADD COLUMN IF NOT EXISTS symbol_type TEXT;
+ALTER TABLE content_chunks ADD COLUMN IF NOT EXISTS start_line INTEGER;
+ALTER TABLE content_chunks ADD COLUMN IF NOT EXISTS end_line INTEGER;
+ALTER TABLE content_chunks ADD COLUMN IF NOT EXISTS parent_symbol_path TEXT[];
+ALTER TABLE content_chunks ADD COLUMN IF NOT EXISTS doc_comment TEXT;
+ALTER TABLE content_chunks ADD COLUMN IF NOT EXISTS symbol_name_qualified TEXT;
+ALTER TABLE content_chunks ADD COLUMN IF NOT EXISTS search_vector TSVECTOR;
+
 CREATE UNIQUE INDEX IF NOT EXISTS idx_chunks_page_index ON content_chunks(page_id, chunk_index);
 CREATE INDEX IF NOT EXISTS idx_chunks_page ON content_chunks(page_id);
 CREATE INDEX IF NOT EXISTS idx_chunks_embedding ON content_chunks USING hnsw (embedding vector_cosine_ops);

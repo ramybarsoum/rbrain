@@ -33,14 +33,18 @@ export async function findCodeDef(
 ): Promise<CodeDefResult[]> {
   const limit = opts.limit ?? 20;
   const DEF_TYPES = ['function', 'class', 'interface', 'type', 'enum', 'struct', 'trait', 'module', 'contract'];
-  const params: unknown[] = [symbol, limit];
+  const params: unknown[] = [symbol, `%${symbol}%`];
   let whereLang = '';
   if (opts.language) {
-    params.splice(1, 0, opts.language);
-    whereLang = 'AND cc.language = $2';
+    params.push(opts.language);
+    whereLang = `AND cc.language = $${params.length}`;
   }
-  // Deterministic ordering: exact type matches first (functions before
-  // export_statement wrappers), then page slug, then line number.
+  params.push(limit);
+  // Deterministic ordering: exact structured symbol metadata first, then
+  // module/fallback chunks whose text contains the requested symbol. The
+  // fallback keeps code-def useful when tree-sitter falls back to a module
+  // chunk (for example after grammar/runtime load failures) instead of
+  // returning zero definitions for obviously present class names.
   const rows = await engine.executeRaw<{
     slug: string; file: string | null; language: string | null;
     symbol_type: string | null; start_line: number | null; end_line: number | null;
@@ -50,14 +54,18 @@ export async function findCodeDef(
             cc.start_line, cc.end_line, cc.chunk_text
      FROM content_chunks cc
      JOIN pages p ON p.id = cc.page_id
-     WHERE cc.symbol_name = $1
+     WHERE p.page_kind = 'code'
        ${whereLang}
-       AND p.page_kind = 'code'
-       AND cc.symbol_type IN ('${DEF_TYPES.join("','")}', 'export statement')
+       AND (
+         (cc.symbol_name = $1 AND cc.symbol_type IN ('${DEF_TYPES.join("','")}', 'export statement'))
+         OR (cc.symbol_name IS NULL AND cc.chunk_text ILIKE $2)
+       )
      ORDER BY
+       CASE WHEN cc.symbol_name = $1 THEN 0 ELSE 1 END,
        CASE cc.symbol_type
          WHEN 'function' THEN 1 WHEN 'class' THEN 2 WHEN 'interface' THEN 3
          WHEN 'type' THEN 4 WHEN 'enum' THEN 5 WHEN 'struct' THEN 6
+         WHEN 'module' THEN 8
          ELSE 7
        END,
        p.slug, cc.start_line
