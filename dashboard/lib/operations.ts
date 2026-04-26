@@ -1,4 +1,5 @@
 import { getDb } from './db';
+import { getTodoState, pickOneThingNow, scoreDecisionEvidence, summarizeLoopReason, type BrainTodo } from './cockpit';
 
 const sql = () => getDb();
 
@@ -274,35 +275,36 @@ export async function getMeetingAttendees(meetingSlug: string) {
 }
 
 export async function getDailyBriefData() {
+  return getCommandCenterData();
+}
+
+export async function getCommandCenterData() {
   const db = sql();
   const today = new Date().toISOString().slice(0, 10);
   const since24h = new Date(Date.now() - 86400_000).toISOString();
+  const since14d = new Date(Date.now() - 14 * 86400_000).toISOString();
 
-  const [openTodos, recentPages, todayTimeline, recentMeetings] = await Promise.all([
-    // Todos created in dashboard
+  const [openTodos, recentPages, todayTimeline, todayMeetings, hotPeople, candidateDecisions, failedJobs, recentMeetings] = await Promise.all([
     db`
-      SELECT slug, title, frontmatter FROM pages
+      SELECT slug, title, frontmatter, created_at, updated_at FROM pages
       WHERE type = 'todo' AND source_id = 'dashboard'
         AND (frontmatter->>'done')::boolean = false
       ORDER BY
         CASE frontmatter->>'priority' WHEN 'p1' THEN 1 WHEN 'p2' THEN 2 ELSE 3 END,
         (frontmatter->>'due_date') ASC NULLS LAST
-      LIMIT 20
+      LIMIT 50
     `,
-    // Pages updated in last 24h (not todos)
     db`
       SELECT slug, type, title, updated_at FROM pages
       WHERE type != 'todo' AND updated_at >= ${since24h}
-      ORDER BY updated_at DESC LIMIT 10
+      ORDER BY updated_at DESC LIMIT 12
     `,
-    // Timeline entries for today
     db`
       SELECT t.summary, t.date, p.slug, p.title FROM timeline_entries t
       JOIN pages p ON p.id = t.page_id
       WHERE t.date = ${today}::date
       ORDER BY t.created_at DESC LIMIT 20
     `,
-    // Today's meetings — Circleback uses 'date', old Granola used 'v0_meeting_at'
     db`
       SELECT slug, title, frontmatter FROM pages
       WHERE type = 'meeting'
@@ -311,12 +313,214 @@ export async function getDailyBriefData() {
           OR (frontmatter->>'v0_meeting_at')::date::text = ${today}
         )
       ORDER BY
-        COALESCE(frontmatter->>'date', (frontmatter->>'v0_meeting_at')::date::text) ASC
+        COALESCE(frontmatter->>'date', (frontmatter->>'v0_meeting_at')::date::text) ASC,
+        updated_at DESC
+      LIMIT 6
+    `,
+    db`
+      SELECT p.slug, p.title, p.frontmatter, p.updated_at, count(l.*)::int AS touch_count
+      FROM pages p
+      LEFT JOIN links l ON l.from_page_id = p.id OR l.to_page_id = p.id
+      WHERE p.type = 'person' AND p.updated_at >= ${since14d}
+      GROUP BY p.id
+      ORDER BY p.updated_at DESC, touch_count DESC
+      LIMIT 8
+    `,
+    db`
+      SELECT slug, type, title, frontmatter, updated_at FROM pages
+      WHERE type ILIKE '%decision%'
+         OR title ILIKE '%decision%'
+         OR compiled_truth ILIKE '%decide%'
+         OR compiled_truth ILIKE '%approved%'
+         OR compiled_truth ILIKE '%pending decision%'
+      ORDER BY updated_at DESC
+      LIMIT 8
+    `,
+    db`
+      SELECT id, name, status, updated_at FROM minion_jobs
+      WHERE status IN ('failed', 'needs_review')
+      ORDER BY updated_at DESC
       LIMIT 5
+    `.catch(() => []),
+    db`
+      SELECT slug, title, frontmatter, updated_at FROM pages
+      WHERE type = 'meeting'
+      ORDER BY updated_at DESC
+      LIMIT 6
     `,
   ]);
 
-  return { openTodos, recentPages, todayTimeline, todayMeetings: recentMeetings, today };
+  const todoState = getTodoState(openTodos as unknown as BrainTodo[], today);
+  const oneThingNow = pickOneThingNow({
+    overdueTodos: todoState.overdue,
+    dueToday: todoState.dueToday,
+    todayMeetings: todayMeetings as unknown as Array<{ slug: string; title?: string | null; frontmatter?: Record<string, unknown> | null }>,
+    failedJobs: failedJobs as unknown as Array<{ id: number | string; name?: string | null; status?: string | null }>,
+  });
+
+  return {
+    today,
+    openTodos,
+    recentPages,
+    todayTimeline,
+    todayMeetings,
+    recentMeetings,
+    hotPeople,
+    candidateDecisions,
+    failedJobs,
+    todoState,
+    oneThingNow,
+  };
+}
+
+type LoopRow = Record<string, unknown> & {
+  slug: string;
+  title?: string | null;
+  loop_type: string;
+  updated_at?: string;
+  frontmatter?: Record<string, unknown> | null;
+};
+
+type DecisionRow = Record<string, unknown> & {
+  slug: string;
+  title?: string | null;
+  frontmatter?: Record<string, unknown> | null;
+  backlinks?: number | string | null;
+  timeline_entries?: number | string | null;
+  chunks?: number | string | null;
+};
+
+export async function getOpenLoopsData() {
+  const db = sql();
+  const today = new Date().toISOString().slice(0, 10);
+  const staleBefore = new Date(Date.now() - 7 * 86400_000).toISOString();
+  const draftBefore = new Date(Date.now() - 14 * 86400_000).toISOString();
+  const recentBefore = new Date(Date.now() - 30 * 86400_000).toISOString();
+
+  const [todos, meetingActions, promises, drafts] = await Promise.all([
+    db`
+      SELECT slug, title, frontmatter, updated_at, 'task' AS loop_type
+      FROM pages
+      WHERE type = 'todo' AND source_id = 'dashboard'
+        AND (frontmatter->>'done')::boolean = false
+        AND ((frontmatter->>'due_date') < ${today} OR updated_at < ${staleBefore})
+      ORDER BY
+        CASE frontmatter->>'priority' WHEN 'p1' THEN 1 WHEN 'p2' THEN 2 ELSE 3 END,
+        updated_at ASC
+      LIMIT 25
+    `,
+    db`
+      SELECT slug, title, frontmatter, updated_at, 'meeting action' AS loop_type
+      FROM pages
+      WHERE type = 'meeting' AND updated_at >= ${recentBefore}
+        AND (
+          compiled_truth ILIKE '%action%'
+          OR compiled_truth ILIKE '%follow up%'
+          OR compiled_truth ILIKE '%owner%'
+          OR compiled_truth ILIKE '%pending%'
+          OR compiled_truth ILIKE '%blocked%'
+        )
+      ORDER BY updated_at ASC
+      LIMIT 20
+    `,
+    db`
+      SELECT slug, type, title, frontmatter, updated_at, 'promise' AS loop_type
+      FROM pages
+      WHERE updated_at >= ${recentBefore}
+        AND (
+          compiled_truth ILIKE '%I will%'
+          OR compiled_truth ILIKE '%we will%'
+          OR compiled_truth ILIKE '%promise%'
+          OR compiled_truth ILIKE '%send %'
+          OR compiled_truth ILIKE '%follow up%'
+        )
+      ORDER BY updated_at ASC
+      LIMIT 20
+    `,
+    db`
+      SELECT slug, type, title, frontmatter, updated_at, 'abandoned draft' AS loop_type
+      FROM pages
+      WHERE updated_at < ${draftBefore}
+        AND (type ILIKE '%draft%' OR title ILIKE '%draft%' OR slug ILIKE '%draft%')
+      ORDER BY updated_at ASC
+      LIMIT 20
+    `,
+  ]);
+
+  const annotate = (rows: LoopRow[]) => rows.map(row => ({
+    ...row,
+    reason: summarizeLoopReason({
+      due_date: row.frontmatter?.due_date,
+      updated_at: row.updated_at,
+    }, today),
+    suggested_action: row.loop_type === 'task'
+      ? 'Do, defer, delegate, or delete.'
+      : 'Ask Max to extract owner + next action from the source.',
+  }));
+
+  return {
+    today,
+    todos: annotate(todos as unknown as LoopRow[]),
+    meetingActions: annotate(meetingActions as unknown as LoopRow[]),
+    promises: annotate(promises as unknown as LoopRow[]),
+    drafts: annotate(drafts as unknown as LoopRow[]),
+  };
+}
+
+export async function getDecisionLedgerData() {
+  const db = sql();
+  const [made, pending] = await Promise.all([
+    db`
+      SELECT p.id, p.slug, p.type, p.title, p.frontmatter, p.updated_at,
+             count(DISTINCT l.from_page_id)::int AS backlinks,
+             count(DISTINCT t.id)::int AS timeline_entries,
+             count(DISTINCT c.id)::int AS chunks
+      FROM pages p
+      LEFT JOIN links l ON l.to_page_id = p.id
+      LEFT JOIN timeline_entries t ON t.page_id = p.id
+      LEFT JOIN content_chunks c ON c.page_id = p.id
+      WHERE p.type ILIKE '%decision%'
+         OR p.title ILIKE '%decision%'
+         OR p.compiled_truth ILIKE '%decided%'
+         OR p.compiled_truth ILIKE '%approved%'
+      GROUP BY p.id
+      ORDER BY p.updated_at DESC
+      LIMIT 40
+    `,
+    db`
+      SELECT p.id, p.slug, p.type, p.title, p.frontmatter, p.updated_at,
+             count(DISTINCT l.from_page_id)::int AS backlinks,
+             count(DISTINCT t.id)::int AS timeline_entries,
+             count(DISTINCT c.id)::int AS chunks
+      FROM pages p
+      LEFT JOIN links l ON l.to_page_id = p.id
+      LEFT JOIN timeline_entries t ON t.page_id = p.id
+      LEFT JOIN content_chunks c ON c.page_id = p.id
+      WHERE p.compiled_truth ILIKE '%decide%'
+         OR p.compiled_truth ILIKE '%decision pending%'
+         OR p.compiled_truth ILIKE '%blocked on%'
+         OR p.compiled_truth ILIKE '%choose%'
+         OR p.compiled_truth ILIKE '%approve%'
+      GROUP BY p.id
+      ORDER BY p.updated_at DESC
+      LIMIT 40
+    `,
+  ]);
+
+  const enrich = (rows: DecisionRow[]) => rows.map(row => ({
+    ...row,
+    evidence: scoreDecisionEvidence({
+      backlinks: Number(row.backlinks ?? 0),
+      timelineEntries: Number(row.timeline_entries ?? 0),
+      chunks: Number(row.chunks ?? 0),
+    }),
+    owner: row.frontmatter?.owner ?? row.frontmatter?.assignee ?? 'unknown',
+    deadline: row.frontmatter?.deadline ?? row.frontmatter?.due_date ?? null,
+    reversibility: row.frontmatter?.reversibility ?? 'unknown',
+    why: row.frontmatter?.why ?? row.frontmatter?.rationale ?? 'No explicit rationale captured yet.',
+  }));
+
+  return { made: enrich(made as unknown as DecisionRow[]), pending: enrich(pending as unknown as DecisionRow[]) };
 }
 
 // ── Feed (recent activity) ────────────────────────────────────────────────

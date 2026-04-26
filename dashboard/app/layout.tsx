@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { headers } from 'next/headers';
 import { getStats } from '@/lib/operations';
 import ChatWidget from '@/components/ChatWidget';
 import './globals.css';
@@ -11,43 +10,45 @@ export const metadata: Metadata = {
 };
 
 const nav = [
-  { href: '/daily',    label: 'Daily Brief',  icon: 'ph-sun-horizon' },
-  { href: '/todos',    label: 'To-Do',        icon: 'ph-check-square' },
-  { href: '/meetings', label: 'Meetings',     icon: 'ph-users' },
-  { href: '/',         label: 'Brain Health', icon: 'ph-pulse' },
-  { href: '/search',   label: 'Search',       icon: 'ph-magnifying-glass' },
-  { href: '/feed',     label: 'Feed',         icon: 'ph-list-bullets' },
-  { href: '/pages',    label: 'Pages',        icon: 'ph-files' },
-  { href: '/graph',    label: 'Graph',        icon: 'ph-graph' },
-  { href: '/people',   label: 'People',       icon: 'ph-address-book' },
-  { href: '/jobs',     label: 'Jobs',         icon: 'ph-stack' },
+  { href: '/daily',      label: 'Today',          icon: 'ph-sun-horizon' },
+  { href: '/open-loops', label: 'Open Loops',     icon: 'ph-radar' },
+  { href: '/decisions',  label: 'Decisions',      icon: 'ph-scales' },
+  { href: '/todos',      label: 'To-Do',          icon: 'ph-check-square' },
+  { href: '/meetings',   label: 'Meetings',       icon: 'ph-users' },
+  { href: '/',           label: 'Brain Health',   icon: 'ph-pulse' },
+  { href: '/search',     label: 'Search',         icon: 'ph-magnifying-glass' },
+  { href: '/feed',       label: 'Feed',           icon: 'ph-list-bullets' },
+  { href: '/pages',      label: 'Pages',          icon: 'ph-files' },
+  { href: '/graph',      label: 'Graph',          icon: 'ph-graph' },
+  { href: '/people',     label: 'People',         icon: 'ph-address-book' },
+  { href: '/jobs',       label: 'Agents',         icon: 'ph-stack' },
 ];
 
 async function SidebarStats() {
+  let stats: Awaited<ReturnType<typeof getStats>>;
   try {
-    const s = await getStats();
-    const pages = Number(s.pages);
-    const links = Number(s.links);
-    const chunks = Number(s.chunks);
-    const embedded = Number(s.embedded_chunks);
-    const embPct = chunks > 0 ? ((embedded / chunks) * 100).toFixed(1) : '0';
-    return (
-      <div className="rb-section">
-        <div className="rb-label">Brain</div>
-        <div className="rb-stat"><span className="rb-stat-k">Pages</span><span className="rb-stat-v">{pages.toLocaleString()}</span></div>
-        <div className="rb-stat"><span className="rb-stat-k">Links</span><span className="rb-stat-v">{links.toLocaleString()}</span></div>
-        <div className="rb-stat"><span className="rb-stat-k">Embedded</span><span className="rb-stat-v">{embPct}%</span></div>
-      </div>
-    );
+    stats = await getStats();
   } catch {
     return null;
   }
+
+  const pages = Number(stats.pages);
+  const links = Number(stats.links);
+  const chunks = Number(stats.chunks);
+  const embedded = Number(stats.embedded_chunks);
+  const embPct = chunks > 0 ? ((embedded / chunks) * 100).toFixed(1) : '0';
+
+  return (
+    <div className="rb-section">
+      <div className="rb-label">Brain</div>
+      <div className="rb-stat"><span className="rb-stat-k">Pages</span><span className="rb-stat-v">{pages.toLocaleString()}</span></div>
+      <div className="rb-stat"><span className="rb-stat-k">Links</span><span className="rb-stat-v">{links.toLocaleString()}</span></div>
+      <div className="rb-stat"><span className="rb-stat-k">Embedded</span><span className="rb-stat-v">{embPct}%</span></div>
+    </div>
+  );
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const hdrs = await headers();
-  const pathname = hdrs.get('x-pathname') ?? '/';
-
   return (
     <html lang="en">
       <head>

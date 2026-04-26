@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
+import { usePathname } from 'next/navigation';
 
 interface Message { role: 'user' | 'assistant'; content: string; time: string; }
 
@@ -82,6 +83,20 @@ const SCOPE_META: Record<string, ScopeMeta> = {
       { icon: 'ph-trash',            text: 'What pages should I clean up?' },
       { icon: 'ph-tag',              text: 'What tags do I use most?' },
     ]},
+  '/open-loops': { scope: 'brain.open_loops', label: '/open-loops',
+    greet: "I'm watching stale tasks, promises, unresolved meeting actions, and abandoned drafts. Which loop should we close first?",
+    suggestions: [
+      { icon: 'ph-radar', text: 'What am I avoiding?' },
+      { icon: 'ph-clock', text: 'Which stale loop is most expensive?' },
+      { icon: 'ph-check', text: 'Help me close the top open loop' },
+    ]},
+  '/decisions': { scope: 'brain.decisions', label: '/decisions',
+    greet: "Decision ledger is open. I can pressure-test pending decisions, explain evidence quality, or run CEO mode.",
+    suggestions: [
+      { icon: 'ph-scales', text: 'Show me the 5 decisions that matter this week' },
+      { icon: 'ph-question', text: 'Generate board-level hard questions' },
+      { icon: 'ph-arrows-clockwise', text: 'Which decisions are reversible?' },
+    ]},
 };
 
 function nowTime() {
@@ -93,31 +108,16 @@ function scopeFor(pathname: string): ScopeMeta {
 }
 
 export default function ChatWidget() {
-  const [open, setOpen]         = useState(false);
-  const [pathname, setPathname] = useState('/');
-  const [messages, setMessages] = useState<Message[]>([]);
+  const pathname = usePathname() || '/';
+  const [open, setOpen]         = useState(true);
+  const [messages, setMessages] = useState<Message[]>(() => {
+    return [{ role: 'assistant', content: scopeFor(pathname).greet, time: '' }];
+  });
   const [input, setInput]       = useState('');
   const [streaming, setStreaming] = useState(false);
   const [scopeOn, setScopeOn]   = useState(true);
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef  = useRef<HTMLTextAreaElement>(null);
-
-  // Track current page for scope
-  useEffect(() => {
-    setPathname(window.location.pathname);
-    const handler = () => setPathname(window.location.pathname);
-    window.addEventListener('popstate', handler);
-    return () => window.removeEventListener('popstate', handler);
-  }, []);
-
-  // Greeting on first open or scope change — only if no messages
-  useEffect(() => {
-    if (open && messages.length === 0) {
-      const meta = scopeFor(pathname);
-      setMessages([{ role: 'assistant', content: meta.greet, time: nowTime() }]);
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [open, pathname]);
 
   useEffect(() => {
     if (open) setTimeout(() => inputRef.current?.focus(), 220);
@@ -127,10 +127,14 @@ export default function ChatWidget() {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  // ⌘J shortcut
+  // ⌘J shortcut focuses the always-on command surface
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'j') { e.preventDefault(); setOpen(o => !o); }
+      if ((e.metaKey || e.ctrlKey) && e.key === 'j') {
+        e.preventDefault();
+        setOpen(true);
+        setTimeout(() => inputRef.current?.focus(), 50);
+      }
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
@@ -198,19 +202,7 @@ export default function ChatWidget() {
 
   return (
     <>
-      {/* Toggle button — fixed in topbar area */}
-      <button
-        className={`chat-toggle${open ? ' active' : ''}`}
-        onClick={() => setOpen(o => !o)}
-        style={{ position: 'fixed', top: 11, right: 120, zIndex: 60 }}
-        title="Chat with Max (⌘J)"
-      >
-        <i className="ph ph-chat-circle-dots"></i>
-        <span>Max</span>
-        <div className="chat-pulse"></div>
-        <span className="chat-kbd">⌘J</span>
-      </button>
-
+      {/* Max is always-on in AI-native mode. */}
       {/* Chat panel */}
       <aside className={`chat-panel${open ? ' open' : ''}`} aria-hidden={!open}>
         {/* Header */}
@@ -230,9 +222,6 @@ export default function ChatWidget() {
           <div className="chat-head-actions">
             <button className="chat-head-btn" title="New thread" onClick={() => setMessages([])}>
               <i className="ph ph-plus"></i>
-            </button>
-            <button className="chat-head-btn" title="Close" onClick={() => setOpen(false)}>
-              <i className="ph ph-x"></i>
             </button>
           </div>
         </div>
