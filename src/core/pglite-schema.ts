@@ -108,6 +108,46 @@ CREATE INDEX IF NOT EXISTS idx_chunks_symbol_name ON content_chunks(symbol_name)
 CREATE INDEX IF NOT EXISTS idx_chunks_language ON content_chunks(language) WHERE language IS NOT NULL;
 
 -- ============================================================
+-- code_edges_chunk + code_edges_symbol: v0.20.0 Cathedral II structural edges
+-- ============================================================
+CREATE TABLE IF NOT EXISTS code_edges_chunk (
+  id                    SERIAL PRIMARY KEY,
+  from_chunk_id         INTEGER NOT NULL REFERENCES content_chunks(id) ON DELETE CASCADE,
+  to_chunk_id           INTEGER NOT NULL REFERENCES content_chunks(id) ON DELETE CASCADE,
+  from_symbol_qualified TEXT NOT NULL,
+  to_symbol_qualified   TEXT NOT NULL,
+  edge_type             TEXT NOT NULL,
+  edge_metadata         JSONB NOT NULL DEFAULT '{}',
+  source_id             TEXT REFERENCES sources(id) ON DELETE CASCADE,
+  created_at            TIMESTAMPTZ NOT NULL DEFAULT now(),
+  CONSTRAINT code_edges_chunk_unique UNIQUE (from_chunk_id, to_chunk_id, edge_type)
+);
+
+CREATE INDEX IF NOT EXISTS idx_code_edges_chunk_from
+  ON code_edges_chunk(from_chunk_id, edge_type);
+CREATE INDEX IF NOT EXISTS idx_code_edges_chunk_to
+  ON code_edges_chunk(to_chunk_id, edge_type);
+CREATE INDEX IF NOT EXISTS idx_code_edges_chunk_to_symbol
+  ON code_edges_chunk(to_symbol_qualified, edge_type);
+
+CREATE TABLE IF NOT EXISTS code_edges_symbol (
+  id                    SERIAL PRIMARY KEY,
+  from_chunk_id         INTEGER NOT NULL REFERENCES content_chunks(id) ON DELETE CASCADE,
+  from_symbol_qualified TEXT NOT NULL,
+  to_symbol_qualified   TEXT NOT NULL,
+  edge_type             TEXT NOT NULL,
+  edge_metadata         JSONB NOT NULL DEFAULT '{}',
+  source_id             TEXT REFERENCES sources(id) ON DELETE CASCADE,
+  created_at            TIMESTAMPTZ NOT NULL DEFAULT now(),
+  CONSTRAINT code_edges_symbol_unique UNIQUE (from_chunk_id, to_symbol_qualified, edge_type)
+);
+
+CREATE INDEX IF NOT EXISTS idx_code_edges_symbol_from
+  ON code_edges_symbol(from_chunk_id, edge_type);
+CREATE INDEX IF NOT EXISTS idx_code_edges_symbol_to
+  ON code_edges_symbol(to_symbol_qualified, edge_type);
+
+-- ============================================================
 -- links: cross-references between pages
 -- ============================================================
 -- See src/schema.sql for full design notes on link_source + origin_page_id.

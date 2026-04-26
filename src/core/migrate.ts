@@ -1212,6 +1212,23 @@ export const MIGRATIONS: Migration[] = [
         setweight(to_tsvector('english', COALESCE(symbol_name_qualified, '')), 'A') ||
         setweight(to_tsvector('english', COALESCE(chunk_text, '')), 'B')
       WHERE search_vector IS NULL;
+
+      DO $$
+      DECLARE
+        has_bypass BOOLEAN;
+      BEGIN
+        SELECT rolbypassrls INTO has_bypass FROM pg_roles WHERE rolname = current_user;
+        IF has_bypass THEN
+          IF EXISTS (SELECT 1 FROM information_schema.tables
+                      WHERE table_schema = 'public' AND table_name = 'code_edges_chunk') THEN
+            ALTER TABLE code_edges_chunk ENABLE ROW LEVEL SECURITY;
+          END IF;
+          IF EXISTS (SELECT 1 FROM information_schema.tables
+                      WHERE table_schema = 'public' AND table_name = 'code_edges_symbol') THEN
+            ALTER TABLE code_edges_symbol ENABLE ROW LEVEL SECURITY;
+          END IF;
+        END IF;
+      END $$;
     `,
   },
 ];
