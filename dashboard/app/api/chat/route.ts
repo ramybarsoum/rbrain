@@ -27,6 +27,7 @@ async function getBrainContext(query: string): Promise<string> {
 
 export async function POST(req: Request) {
   const hermesUrl = process.env.HERMES_URL;
+  const hermesKey = process.env.HERMES_API_KEY;
   const anthropicKey = process.env.ANTHROPIC_API_KEY;
 
   if (!hermesUrl && !anthropicKey) {
@@ -59,9 +60,12 @@ export async function POST(req: Request) {
   if (hermesUrl) {
     const hermesRes = await fetch(`${hermesUrl}/v1/chat/completions`, {
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
+      headers: {
+        'content-type': 'application/json',
+        ...(hermesKey ? { authorization: `Bearer ${hermesKey}` } : {}),
+      },
       body: JSON.stringify({
-        model: 'hermes',          // Hermes picks the model internally
+        model: 'hermes-agent',
         stream: true,
         messages: [
           { role: 'system', content: systemPrompt },
