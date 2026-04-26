@@ -86,21 +86,32 @@ export class PGLiteEngine implements BrainEngine {
   }
 
   async initSchema(): Promise<void> {
-    // Pre-schema bootstrap: add forward-referenced state the embedded schema
-    // blob requires but that older brains don't have yet. Without this, a
-    // pre-v0.18 brain hits `CREATE INDEX idx_pages_source_id ON pages(source_id)`
-    // (issues #366/#375/#378/#396) or a pre-v0.13 brain hits
-    // `CREATE INDEX idx_links_source ON links(link_source)` (#266/#357), and
-    // initSchema crashes before runMigrations gets a chance to apply the
-    // missing column. Bootstrap is structurally idempotent and a no-op on
-    // fresh installs and modern brains.
-    await this.applyForwardReferenceBootstrap();
+    // Fresh-install vs upgrade detection. See PostgresEngine.initSchema for
+    // the full rationale; the short version is that PGLITE_SCHEMA_SQL is the
+    // v(LATEST) target snapshot and on a pre-LATEST brain it forward-
+    // references columns added by pending migrations. Running migrations
+    // first brings the schema to LATEST shape; the snapshot then runs as an
+    // idempotent confirmation pass.
+    const probe = await this.db.query<{ rel: string | null }>(
+      `SELECT to_regclass('public.config') AS rel`
+    );
+    const isExistingBrain = probe.rows[0]?.rel !== null;
 
-    await this.db.exec(PGLITE_SCHEMA_SQL);
-
-    const { applied } = await runMigrations(this);
-    if (applied > 0) {
-      console.log(`  ${applied} migration(s) applied`);
+    if (isExistingBrain) {
+      const { applied } = await runMigrations(this);
+      if (applied > 0) {
+        console.log(`  ${applied} migration(s) applied`);
+      }
+      await this.db.exec(PGLITE_SCHEMA_SQL);
+    } else {
+      // Fresh install: PGLITE_SCHEMA_SQL creates everything at v(LATEST)
+      // shape, then runMigrations records version + runs any handler-only
+      // side effects (SQL parts no-op via IF NOT EXISTS).
+      await this.db.exec(PGLITE_SCHEMA_SQL);
+      const { applied } = await runMigrations(this);
+      if (applied > 0) {
+        console.log(`  ${applied} migration(s) applied`);
+      }
     }
   }
 
