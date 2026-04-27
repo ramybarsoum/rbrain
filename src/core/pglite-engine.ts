@@ -275,7 +275,7 @@ export class PGLiteEngine implements BrainEngine {
   }
 
   async listPages(filters?: PageFilters): Promise<Page[]> {
-    const limit = filters?.limit || 100;
+    const limit = filters?.limit && filters.limit > 0 ? Math.floor(filters.limit) : undefined;
     const offset = filters?.offset || 0;
 
     const where: string[] = [];
@@ -303,8 +303,14 @@ export class PGLiteEngine implements BrainEngine {
     }
 
     const whereSql = where.length > 0 ? `WHERE ${where.join(' AND ')}` : '';
-    params.push(limit, offset);
-    const limitSql = `LIMIT $${params.length - 1} OFFSET $${params.length}`;
+    let limitSql = '';
+    if (limit === undefined) {
+      params.push(offset);
+      limitSql = `OFFSET $${params.length}`;
+    } else {
+      params.push(limit, offset);
+      limitSql = `LIMIT $${params.length - 1} OFFSET $${params.length}`;
+    }
 
     const { rows } = await this.db.query(
       `SELECT p.* FROM pages p ${tagJoin} ${whereSql}

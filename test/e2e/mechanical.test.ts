@@ -616,16 +616,16 @@ describeE2E('E2E: Files', () => {
 });
 
 // ─────────────────────────────────────────────────────────────────
-// Security: Query Bounds
+// Regression: unbounded file listing
 // ─────────────────────────────────────────────────────────────────
 
-describeE2E('E2E: file_list LIMIT enforcement', () => {
+describeE2E('E2E: file_list unbounded listing', () => {
   beforeAll(async () => {
     await setupDB();
   });
   afterAll(teardownDB);
 
-  test('file_list with slug filter respects LIMIT 100', async () => {
+  test('file_list with slug filter returns all files', async () => {
     const sql = getConn();
     const testSlug = 'test-limit-slug';
 
@@ -649,16 +649,21 @@ describeE2E('E2E: file_list LIMIT enforcement', () => {
     const count = await sql`SELECT count(*) as cnt FROM files WHERE page_slug = ${testSlug}`;
     expect(Number(count[0].cnt)).toBe(150);
 
-    // Call file_list with slug — should return at most 100
+    // Call file_list with slug — should return all 150 rows, not the legacy 100 cap.
     const files = await callOp('file_list', { slug: testSlug }) as any[];
-    expect(files.length).toBeLessThanOrEqual(100);
-    expect(files.length).toBe(100);
+    expect(files.length).toBe(150);
   });
 
-  test('file_list without slug also respects LIMIT 100', async () => {
+  test('file_list without slug is not capped at 100', async () => {
     // The 150 rows from the previous test are still in the DB
     const files = await callOp('file_list', {}) as any[];
-    expect(files.length).toBeLessThanOrEqual(100);
+    expect(files.length).toBeGreaterThanOrEqual(150);
+  });
+
+  test('remote file_list keeps the 100-row safety cap', async () => {
+    const op = operationsByName.file_list;
+    const files = await op.handler(makeCtx({ remote: true }), { slug: 'test-limit-slug' }) as any[];
+    expect(files.length).toBe(100);
   });
 });
 

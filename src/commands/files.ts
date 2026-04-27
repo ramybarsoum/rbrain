@@ -104,9 +104,9 @@ async function listFiles(slug?: string) {
   const sql = db.getConnection();
   let rows;
   if (slug) {
-    rows = await sql`SELECT * FROM files WHERE page_slug = ${slug} ORDER BY filename LIMIT 100`;
+    rows = await sql`SELECT * FROM files WHERE page_slug = ${slug} ORDER BY filename`;
   } else {
-    rows = await sql`SELECT * FROM files ORDER BY page_slug, filename LIMIT 100`;
+    rows = await sql`SELECT * FROM files ORDER BY page_slug, filename`;
   }
 
   if (rows.length === 0) {
@@ -116,7 +116,8 @@ async function listFiles(slug?: string) {
 
   console.log(`${rows.length} file(s):`);
   for (const row of rows) {
-    const size = row.size_bytes ? `${Math.round(row.size_bytes / 1024)}KB` : '?';
+    const sizeBytes = typeof row.size_bytes === 'bigint' ? Number(row.size_bytes) : Number(row.size_bytes);
+    const size = Number.isFinite(sizeBytes) && sizeBytes > 0 ? `${Math.round(sizeBytes / 1024)}KB` : '?';
     console.log(`  ${row.page_slug || '(unlinked)'} / ${row.filename}  [${size}, ${row.mime_type || '?'}]`);
   }
 }

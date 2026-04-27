@@ -321,7 +321,7 @@ export class PostgresEngine implements BrainEngine {
 
   async listPages(filters?: PageFilters): Promise<Page[]> {
     const sql = this.sql;
-    const limit = filters?.limit || 100;
+    const limit = filters?.limit && filters.limit > 0 ? Math.floor(filters.limit) : undefined;
     const offset = filters?.offset || 0;
     const updatedAfter = filters?.updated_after;
 
@@ -341,12 +341,19 @@ export class PostgresEngine implements BrainEngine {
       ? sql`AND p.slug LIKE ${slugPrefix.replace(/[\\%_]/g, (c) => '\\' + c) + '%'} ESCAPE '\\'`
       : sql``;
 
-    const rows = await sql`
-      SELECT p.* FROM pages p
-      ${tagJoin}
-      WHERE 1=1 ${typeCondition} ${tagCondition} ${updatedCondition} ${slugCondition}
-      ORDER BY p.updated_at DESC LIMIT ${limit} OFFSET ${offset}
-    `;
+    const rows = limit === undefined
+      ? await sql`
+          SELECT p.* FROM pages p
+          ${tagJoin}
+          WHERE 1=1 ${typeCondition} ${tagCondition} ${updatedCondition}
+          ORDER BY p.updated_at DESC OFFSET ${offset}
+        `
+      : await sql`
+          SELECT p.* FROM pages p
+          ${tagJoin}
+          WHERE 1=1 ${typeCondition} ${tagCondition} ${updatedCondition}
+          ORDER BY p.updated_at DESC LIMIT ${limit} OFFSET ${offset}
+        `;
 
     return rows.map(rowToPage);
   }

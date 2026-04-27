@@ -534,13 +534,17 @@ const list_pages: Operation = {
   params: {
     type: { type: 'string', description: 'Filter by page type' },
     tag: { type: 'string', description: 'Filter by tag' },
-    limit: { type: 'number', description: 'Max results (default 50)' },
+    limit: { type: 'number', description: 'Max results (default: unlimited)' },
   },
   handler: async (ctx, p) => {
+    const rawLimit = p.limit as number | undefined;
+    const limit = ctx.remote
+      ? clampSearchLimit(rawLimit, 50, 100)
+      : (rawLimit === undefined ? undefined : Math.max(1, Math.floor(rawLimit)));
     const pages = await ctx.engine.listPages({
       type: p.type as any,
       tag: p.tag as string,
-      limit: clampSearchLimit(p.limit as number | undefined, 50, 100),
+      limit,
     });
     return pages.map(pg => ({
       slug: pg.slug,
@@ -974,24 +978,30 @@ const get_ingest_log: Operation = {
 
 // --- File Operations ---
 
-// Both branches need a LIMIT. Without one, the slug-filtered branch materializes
-// every file for that slug — an MCP caller can force unbounded memory consumption
-// by targeting a page with many attachments.
-const FILE_LIST_LIMIT = 100;
-
 const file_list: Operation = {
   name: 'file_list',
   description: 'List stored files',
   params: {
     slug: { type: 'string', description: 'Filter by page slug' },
+    limit: { type: 'number', description: 'Max results for remote/MCP callers (default 100); trusted local calls are unlimited by default' },
   },
-  handler: async (_ctx, p) => {
+  handler: async (ctx, p) => {
     const sql = db.getConnection();
     const slug = p.slug as string | undefined;
+    const rawLimit = p.limit as number | undefined;
+    const limit = ctx.remote
+      ? clampSearchLimit(rawLimit, 100, 100)
+      : (rawLimit === undefined ? undefined : Math.max(1, Math.floor(rawLimit)));
     if (slug) {
-      return sql`SELECT id, page_slug, filename, storage_path, mime_type, size_bytes, content_hash, created_at FROM files WHERE page_slug = ${slug} ORDER BY filename LIMIT ${FILE_LIST_LIMIT}`;
+      if (limit !== undefined) {
+        return sql`SELECT id, page_slug, filename, storage_path, mime_type, size_bytes, content_hash, created_at FROM files WHERE page_slug = ${slug} ORDER BY filename LIMIT ${limit}`;
+      }
+      return sql`SELECT id, page_slug, filename, storage_path, mime_type, size_bytes, content_hash, created_at FROM files WHERE page_slug = ${slug} ORDER BY filename`;
     }
-    return sql`SELECT id, page_slug, filename, storage_path, mime_type, size_bytes, content_hash, created_at FROM files ORDER BY page_slug, filename LIMIT ${FILE_LIST_LIMIT}`;
+    if (limit !== undefined) {
+      return sql`SELECT id, page_slug, filename, storage_path, mime_type, size_bytes, content_hash, created_at FROM files ORDER BY page_slug, filename LIMIT ${limit}`;
+    }
+    return sql`SELECT id, page_slug, filename, storage_path, mime_type, size_bytes, content_hash, created_at FROM files ORDER BY page_slug, filename`;
   },
 };
 
