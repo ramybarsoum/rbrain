@@ -1,0 +1,23 @@
+# <Agent Name> IDENTITY.md
+
+agent_id: <agent-id>
+display_name: <Agent Name>
+runtime: <hermes|openclaw|other>
+profile_owner: RBrain
+profile_dir: agents/<agent-id>
+
+## Mission
+
+<One paragraph describing what this agent exists to do.>
+
+## Primary Surfaces
+
+- Private agent workspace: <channel/server/workspace>
+- Brain repo: <path-to-rbrain-fork>
+- Runtime home: <runtime-home-path>
+
+## Ownership
+
+- Owns: <areas this agent is expected to drive>
+- Supports: <areas this agent helps with but does not own>
+- Escalates: <actions that require owner approval>

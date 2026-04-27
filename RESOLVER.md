@@ -9,6 +9,7 @@ For full filing rules and decision protocol, see `skills/_brain-filing-rules.md`
 
 ```
 ~/RBrain/
+├── agents/                  ← forkable agent profile templates + local private profiles
 ├── skills/                  ← skill definitions (read on demand, never pre-loaded)
 │   ├── RESOLVER.md          ← skill routing tree
 │   ├── _brain-filing-rules.md
@@ -18,7 +19,7 @@ For full filing rules and decision protocol, see `skills/_brain-filing-rules.md`
 ├── src/                     ← CLI + MCP server (Supabase-backed)
 ├── templates/               ← page templates (Person, Company, Meeting, etc.)
 ├── docs/                    ← guides and reference docs
-├── SOUL.md                  ← canonical user profile (slug: soul-ramy-barsoum)
+├── SOUL.md                  ← local shared operating profile (gitignored)
 └── RESOLVER.md              ← THIS FILE (brain schema)
 ```
 
