@@ -22,6 +22,7 @@ const nav = [
   { href: '/graph',      label: 'Graph',          icon: 'ph-graph' },
   { href: '/people',     label: 'People',         icon: 'ph-address-book' },
   { href: '/jobs',       label: 'Agents',         icon: 'ph-stack' },
+  { href: '/codex',      label: 'Codex Telemetry', icon: 'ph-terminal-window' },
 ];
 
 async function SidebarStats() {
