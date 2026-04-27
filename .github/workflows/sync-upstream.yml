@@ -44,13 +44,18 @@ jobs:
         if: steps.check.outputs.behind != '0'
         run: |
           BRANCH="upstream/sync-$(date +%Y-%m-%d)"
-          git checkout -b "$BRANCH"
+          REMOTE_SHA=$(git ls-remote --heads origin "$BRANCH" | awk '{print $1}')
+          git checkout -B "$BRANCH"
           UPSTREAM_SHA=$(git rev-parse --short upstream/master)
           git merge upstream/master \
             -X ours \
             --no-edit \
             -m "merge: upstream gbrain $UPSTREAM_SHA"
-          git push origin "$BRANCH"
+          if [ -n "$REMOTE_SHA" ]; then
+            git push --force-with-lease="refs/heads/$BRANCH:$REMOTE_SHA" origin "$BRANCH"
+          else
+            git push origin "$BRANCH"
+          fi
           echo "SYNC_BRANCH=$BRANCH" >> "$GITHUB_ENV"
 
       - name: Open pull request
