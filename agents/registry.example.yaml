@@ -1,0 +1,31 @@
+# Copy to agents/registry.yaml and customize locally.
+# This file is intentionally generic so forks can reuse the pattern.
+
+workspace:
+  brain_repo: "~/RBrain"
+  private_agent_server: "agent-hq-example"
+  approval_channel: "#approvals"
+  handoff_channel: "#agent-handoffs"
+
+agents:
+  max:
+    display_name: "Max"
+    runtime: "hermes"
+    profile_dir: "agents/max"
+    role: "chief-of-staff, memory, maintenance, review, self-healing"
+    owns:
+      - "workspace hygiene"
+      - "verification"
+      - "agent handoffs"
+      - "cron and maintenance"
+
+  cole:
+    display_name: "Cole"
+    runtime: "openclaw"
+    profile_dir: "agents/cole"
+    role: "proactive operator, creative thinking, live voice, fast scouting"
+    owns:
+      - "live calls"
+      - "idea expansion"
+      - "fast triage"
+      - "drafting and exploration"

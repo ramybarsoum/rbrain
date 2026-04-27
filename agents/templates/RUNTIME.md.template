@@ -1,0 +1,21 @@
+# <Agent Name> RUNTIME.md
+
+## Local Runtime
+
+- Runtime: <hermes|openclaw|other>
+- Runtime home: <path>
+- RBrain profile: <path>
+- Main config: <path>
+- Logs: <path>
+
+## Service Notes
+
+- Start: <command or service>
+- Stop: <command or service>
+- Health check: <command or URL>
+
+## Handoff Notes
+
+- Use the handoff channel for cross-agent transfers.
+- Keep handoffs compact and evidence-backed.
+- Never include secrets in handoffs.

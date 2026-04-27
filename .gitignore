@@ -23,6 +23,21 @@ HEARTBEAT.md
 voice-agent/
 x-collector/
 digests/
+.hermes/
+.openclaw/
+IDENTITY.md
+TOOLS.md
+
+# Local agent profiles. Forkers copy agents/templates into these paths, but
+# each machine's real agent identity/config stays private.
+agents/registry.yaml
+agents/*.env
+agents/*.env.local
+agents/*/SOUL.md
+agents/*/IDENTITY.md
+agents/*/RUNTIME.md
+agents/*/SECRETS.md
+agents/*/*.local.md
 
 # Scratch / temp files. Agents sometimes drop these in the repo root by
 # accident (observed 2026-04-24 on cole-macbook with .tmp_circleback_mcp.md
