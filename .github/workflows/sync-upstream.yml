@@ -58,10 +58,23 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BEHIND_COUNT: ${{ steps.check.outputs.behind }}
+          REPOSITORY_OWNER: ${{ github.repository_owner }}
         run: |
-          gh pr create \
+          EXISTING_PR=$(gh pr list \
             --base master \
             --head "$SYNC_BRANCH" \
+            --state open \
+            --json url \
+            --jq '.[0].url // empty')
+
+          if [ -n "$EXISTING_PR" ]; then
+            echo "Sync PR already exists: $EXISTING_PR"
+            exit 0
+          fi
+
+          gh pr create \
+            --base master \
+            --head "$REPOSITORY_OWNER:$SYNC_BRANCH" \
             --title "chore: sync upstream gbrain ($BEHIND_COUNT new commits)" \
             --body "Automated weekly sync from garrytan/gbrain.
 
