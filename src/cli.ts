@@ -308,6 +308,11 @@ async function handleCliOnly(command: string, args: string[]) {
     await runBacklinks(args);
     return;
   }
+  if (command === 'frontmatter') {
+    const { runFrontmatter } = await import('./commands/frontmatter.ts');
+    await runFrontmatter(args);
+    return;
+  }
   if (command === 'lint') {
     const { runLint } = await import('./commands/lint.ts');
     await runLint(args);
@@ -584,7 +589,10 @@ async function connectEngine(): Promise<BrainEngine> {
   }
   const { createEngine } = await import('./core/engine-factory.ts');
   const engine = await createEngine(toEngineConfig(config));
-  await engine.connect(toEngineConfig(config));
+  const noRetry = process.argv.includes('--no-retry-connect') ||
+                  process.env.GBRAIN_NO_RETRY_CONNECT === '1';
+  const { connectWithRetry } = await import('./core/db.ts');
+  await connectWithRetry(engine, toEngineConfig(config), { noRetry });
   return engine;
 }
 

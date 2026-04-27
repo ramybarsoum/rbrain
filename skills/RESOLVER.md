@@ -22,7 +22,7 @@ Never guess about people, companies, skills, or MCPs. The resolver has the answe
 
 | Trigger | Skill |
 |---------|-------|
-| "What do we know about", "tell me about", "search for" | `skills/query/SKILL.md` |
+| "What do we know about", "tell me about", "search for", "who is", "background on", "notes on" | `skills/query/SKILL.md` |
 | "Who knows who", "relationship between", "connections", "graph query" | `skills/query/SKILL.md` (use graph-query) |
 | "who is" | `skills/query/SKILL.md` (natural-language lookups) |
 | Creating/enriching a person or company page | `skills/enrich/SKILL.md` |
