@@ -1,0 +1,39 @@
+name: Guard upstream PR merges
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Compute commit range
+        id: range
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            echo "range=${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}" >> "$GITHUB_OUTPUT"
+          else
+            BEFORE="${{ github.event.before }}"
+            if [[ "$BEFORE" =~ ^0+$ ]]; then
+              BEFORE="${{ github.event.repository.default_branch }}~1"
+            fi
+            echo "range=$BEFORE..${{ github.sha }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Require Garry-merged upstream PRs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REQUIRED_UPSTREAM_MERGER: garrytan
+          UPSTREAM_REPO: garrytan/gbrain
+        run: bash scripts/check-upstream-pr-merges.sh '${{ steps.range.outputs.range }}'
