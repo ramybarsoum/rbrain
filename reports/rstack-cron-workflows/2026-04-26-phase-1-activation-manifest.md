@@ -1,7 +1,7 @@
 # RStack Cron Workflows — Phase 1 Activation Manifest
 
 Date: 2026-04-26
-Status: proposed / not yet registered with scheduler
+Status: Ramy approved execution direction on 2026-04-27 / not yet registered with scheduler
 Source basis: RBrain `HEARTBEAT.md`, GBrain cron docs, Max execution plan, Cole usefulness review.
 
 ## Rules
@@ -57,4 +57,21 @@ Source basis: RBrain `HEARTBEAT.md`, GBrain cron docs, Max execution plan, Cole 
 
 ## Current blocker
 
-Do not register actual scheduler entries until Max completes the authoritative inventory/cut table and confirms scheduler target/dependencies. This prevents cron spam and duplicate wiring.
+Ramy approved applying the Phase 1 direction on 2026-04-27. Max completed the authoritative scheduler inventory/cut table and confirmed Hermes cron as the scheduler target. The RLS blocker was fixed after Ramy approval: `gbrain doctor --json` now reports `status: "warnings"`, `health_score: 80`, and `rls: ok — RLS enabled on 27/27 public tables`.
+
+Actual Phase 1 registration should still wait until these remaining blockers are cleared:
+
+1. Existing scheduler entries must be consolidated/updated, not duplicated. In particular, the morning briefing must replace the existing 8 AM cluster.
+2. The existing `rbrain-dream-cycle` must be repaired rather than re-created; it currently has an invalid inline shell command in its `script` field.
+3. Supabase session pool pressure should be reduced by staggering/consolidating DB-heavy jobs.
+
+See `reports/rstack-cron-workflows/2026-04-27-phase-1-scheduler-inventory-cut-table.md` and `reports/weekly-review/2026-04-27-gbrain-doctor-after-rls.json`.
+
+## Applied artifacts
+
+- `reports/rstack-cron-workflows/2026-04-27-phase-1-scheduler-inventory-cut-table.md`
+- `reports/weekly-review/2026-04-27-gbrain-doctor-after-rls.json`
+- `reports/weekly-review/2026-04-27-applied-opportunity-scan.md`
+- `reports/weekly-review/2026-04-27-meeting-ingestion-dry-run-template.md`
+- `drafts/content/2026-04-27-contact-data-is-ops-truth.md`
+- `drafts/content/2026-04-27-a-queue-is-not-an-owner.md`
