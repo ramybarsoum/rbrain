@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync, mkdirSync, chmodSync, existsSync } from 'fs';
-import { join } from 'path';
+import { join, isAbsolute, sep } from 'path';
 import { homedir } from 'os';
 import type { EngineConfig } from './types.ts';
 
@@ -20,7 +20,19 @@ export type DbUrlSource =
   | null;
 
 // Lazy-evaluated to avoid calling homedir() at module scope (breaks in serverless/bundled environments)
-function getConfigDir() { return join(homedir(), '.gbrain'); }
+function resolveGbrainHomeParent(): string {
+  const override = process.env.GBRAIN_HOME;
+  if (!override) return homedir();
+  if (!isAbsolute(override)) {
+    throw new Error('GBRAIN_HOME must be an absolute path');
+  }
+  if (override.split(sep).includes('..')) {
+    throw new Error("GBRAIN_HOME must not contain '..' segments");
+  }
+  return override;
+}
+
+function getConfigDir() { return join(resolveGbrainHomeParent(), '.gbrain'); }
 function getConfigPath() { return join(getConfigDir(), 'config.json'); }
 
 export interface GBrainConfig {
@@ -87,7 +99,7 @@ export function toEngineConfig(config: GBrainConfig): EngineConfig {
 }
 
 export function configDir(): string {
-  return join(homedir(), '.gbrain');
+  return getConfigDir();
 }
 
 export function configPath(): string {

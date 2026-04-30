@@ -27,7 +27,7 @@ mock.module('../../src/core/embedding.ts', () => ({
   },
 }));
 
-const { runCycle } = await import('../../src/core/cycle.ts');
+const { runCycle, ALL_PHASES } = await import('../../src/core/cycle.ts');
 
 const skip = !hasDatabase();
 const describeE2E = skip ? describe.skip : describe;
@@ -98,10 +98,8 @@ describeE2E('E2E: runCycle against real Postgres', () => {
 
     expect(report.schema_version).toBe('1');
     // Cycle ran all phases (or skipped the ones that don't support dry-run).
-    // Originally hardcoded 6; bumped to >= 6 after PR #16 added 'promotion'
-    // as phase 7 (and any future phase the fork or upstream adds will pass
-    // this assertion without requiring another test edit).
-    expect(report.phases.length).toBeGreaterThanOrEqual(6);
+    // Keep this resilient to fork/upstream phase additions.
+    expect(report.phases.length).toBeGreaterThanOrEqual(ALL_PHASES.length - 1);
 
     // Nothing got written.
     const afterPages = await conn.unsafe(`SELECT count(*)::int AS n FROM pages`);

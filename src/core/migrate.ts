@@ -1030,6 +1030,36 @@ export const MIGRATIONS: Migration[] = [
     // append-only in steady state; the UPDATE takes a row lock per chunk
     // briefly while computing the tsvector.
     sql: `
+      -- Defensive for downstream forks that already consumed version 27 for a
+      -- local migration before upstream Cathedral II landed. If v27 was skipped
+      -- by version-number collision, v28 must create the columns it backfills.
+      ALTER TABLE content_chunks
+        ADD COLUMN IF NOT EXISTS parent_symbol_path TEXT[],
+        ADD COLUMN IF NOT EXISTS doc_comment TEXT,
+        ADD COLUMN IF NOT EXISTS symbol_name_qualified TEXT,
+        ADD COLUMN IF NOT EXISTS search_vector TSVECTOR;
+
+      CREATE INDEX IF NOT EXISTS idx_chunks_search_vector
+        ON content_chunks USING GIN(search_vector);
+      CREATE INDEX IF NOT EXISTS idx_chunks_symbol_qualified
+        ON content_chunks(symbol_name_qualified) WHERE symbol_name_qualified IS NOT NULL;
+
+      CREATE OR REPLACE FUNCTION update_chunk_search_vector() RETURNS TRIGGER AS $fn$
+      BEGIN
+        NEW.search_vector :=
+          setweight(to_tsvector('english', COALESCE(NEW.doc_comment, '')), 'A') ||
+          setweight(to_tsvector('english', COALESCE(NEW.symbol_name_qualified, '')), 'A') ||
+          setweight(to_tsvector('english', COALESCE(NEW.chunk_text, '')), 'B');
+        RETURN NEW;
+      END;
+      $fn$ LANGUAGE plpgsql;
+
+      DROP TRIGGER IF EXISTS chunk_search_vector_trigger ON content_chunks;
+      CREATE TRIGGER chunk_search_vector_trigger
+        BEFORE INSERT OR UPDATE OF chunk_text, doc_comment, symbol_name_qualified
+        ON content_chunks
+        FOR EACH ROW EXECUTE FUNCTION update_chunk_search_vector();
+
       UPDATE content_chunks
       SET search_vector =
         setweight(to_tsvector('english', COALESCE(doc_comment, '')), 'A') ||
@@ -1063,8 +1093,17 @@ export const MIGRATIONS: Migration[] = [
             RAISE EXCEPTION 'v29 cathedral_ii_code_edges_rls: role % does not have BYPASSRLS privilege — cannot enable RLS safely. Re-run as postgres (or another BYPASSRLS role). The migration will retry automatically on the next initSchema call.', current_user;
           END IF;
 
-          ALTER TABLE code_edges_chunk ENABLE ROW LEVEL SECURITY;
-          ALTER TABLE code_edges_symbol ENABLE ROW LEVEL SECURITY;
+          -- Defensive for RBrain/downstream version collisions: code edge
+          -- tables may not exist yet if upstream v27 was skipped because a
+          -- local migration had already advanced the single schema version.
+          IF EXISTS (SELECT 1 FROM information_schema.tables
+                      WHERE table_schema = 'public' AND table_name = 'code_edges_chunk') THEN
+            ALTER TABLE code_edges_chunk ENABLE ROW LEVEL SECURITY;
+          END IF;
+          IF EXISTS (SELECT 1 FROM information_schema.tables
+                      WHERE table_schema = 'public' AND table_name = 'code_edges_symbol') THEN
+            ALTER TABLE code_edges_symbol ENABLE ROW LEVEL SECURITY;
+          END IF;
 
           RAISE NOTICE 'v29: code_edges RLS enabled (role % has BYPASSRLS)', current_user;
         END $$;
@@ -1074,121 +1113,109 @@ export const MIGRATIONS: Migration[] = [
     sql: '',
   },
   {
-    version: 25,
-    name: 'timeline_summary_embeddings',
-    // PR #4 of dream-cycle remediation. The promotion algorithm needs to
-    // cluster timeline summaries by semantic similarity, not exact text.
-    // This table caches embeddings of normalized summaries so we don't
-    // re-embed the same text on every cycle (a 1500-summary brain at
-    // text-embedding-3-large would otherwise cost ~$0.04 per cycle and
-    // burn an OpenAI API quota slot every night).
-    //
-    // Key design choices:
-    //   - PRIMARY KEY on summary_hash (sha256 of NORMALIZED text). Same
-    //     normalized text everywhere produces one row regardless of how
-    //     many pages reference it.
-    //   - VECTOR(1536) matches text-embedding-3-large (the project default
-    //     in src/core/embedding.ts).
-    //   - ivfflat with vector_cosine_ops because clustering uses cosine
-    //     similarity. lists=100 is the postgres-engine default for similar
-    //     pgvector indexes; tune later if cluster latency becomes an issue.
-    //
-    // Engine-agnostic SQL — pgvector's CREATE EXTENSION runs in
-    // schema.sql; PGLite uses the WASM pgvector extension at startup.
+    version: 30,
+    name: 'dream_verdicts_table',
+    // v0.23 synthesize phase: cache for "is this transcript worth processing?"
+    // verdict from the cheap Haiku judge. Distinct from raw_data (page-scoped);
+    // transcripts aren't pages. Keyed by (file_path, content_hash) so edited
+    // transcripts re-judge automatically. Backfill re-runs hit cache instead
+    // of paying for Haiku 100x.
     sql: `
-      CREATE TABLE IF NOT EXISTS timeline_summary_embeddings (
-        summary_hash TEXT PRIMARY KEY,
-        summary_text TEXT NOT NULL,
-        embedding VECTOR(1536) NOT NULL,
-        embedded_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+      CREATE TABLE IF NOT EXISTS dream_verdicts (
+        file_path        TEXT        NOT NULL,
+        content_hash     TEXT        NOT NULL,
+        worth_processing BOOLEAN     NOT NULL,
+        reasons          JSONB,
+        judged_at        TIMESTAMPTZ NOT NULL DEFAULT now(),
+        PRIMARY KEY (file_path, content_hash)
       );
-      CREATE INDEX IF NOT EXISTS idx_timeline_summary_embeddings_cosine
-        ON timeline_summary_embeddings USING ivfflat (embedding vector_cosine_ops);
-    `,
-  },
-  {
-    version: 26,
-    name: 'dream_cycle_promotions',
-    // PR #3 of dream-cycle remediation (sequenced after PR #4's clustering).
-    // Backs hash-based idempotency for episodic-to-semantic promotions.
-    //
-    // Without this: running the dream cycle N times appends the same semantic
-    // note N times to the target page's compiled_truth (re-promotion bug).
-    // With this: every (cluster_id, target_slug) tuple is hashed and stored
-    // on first promotion; subsequent runs check the table and skip with
-    // reason 'already promoted on <date>'.
-    //
-    // Hash key uses cluster_id (the stable identifier produced by the
-    // embedding-clustering layer in PR #4), not raw normalized pattern text.
-    // This means a re-clustering of the same brain content produces the
-    // same hash (cluster_id is sha256-based on canonical text), so
-    // idempotency survives algorithm tweaks as long as the cluster
-    // representative stays the same.
-    sql: `
-      CREATE TABLE IF NOT EXISTS dream_cycle_promotions (
-        pattern_hash TEXT PRIMARY KEY,
-        cluster_id TEXT NOT NULL,
-        target_slug TEXT NOT NULL,
-        pattern_text TEXT NOT NULL,
-        recurrence INTEGER NOT NULL,
-        score REAL NOT NULL,
-        promoted_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-      );
-      CREATE INDEX IF NOT EXISTS idx_dream_cycle_promotions_target
-        ON dream_cycle_promotions(target_slug);
-      CREATE INDEX IF NOT EXISTS idx_dream_cycle_promotions_cluster
-        ON dream_cycle_promotions(cluster_id);
-      CREATE INDEX IF NOT EXISTS idx_dream_cycle_promotions_promoted_at
-        ON dream_cycle_promotions(promoted_at DESC);
-    `,
-  },
-  {
-    version: 27,
-    name: 'rls_for_dream_cycle_tables',
-    // PR #3 of dream-cycle remediation. The two tables added in v25 and v26
-    // (timeline_summary_embeddings, dream_cycle_promotions) shipped without
-    // Row Level Security enabled. Supabase exposes the public schema via
-    // PostgREST, so tables without RLS are readable by the anon key.
-    //
-    // These two tables hold internal cycle state (embeddings of timeline
-    // summaries, audit of past promotions) ... they should never be
-    // accessible to anon. Enabling RLS without policies blocks all
-    // non-BYPASSRLS roles, which is the secure default for these tables.
-    //
-    // Same gating pattern as v24: only fires if the table actually exists
-    // (defensive against partial migration rollbacks). ALTER TABLE ENABLE
-    // ROW LEVEL SECURITY is idempotent in Postgres ... safe to re-run.
-    sql: `
+
       DO $$
+      DECLARE
+        has_bypass BOOLEAN;
       BEGIN
-        IF EXISTS (SELECT 1 FROM information_schema.tables
-                    WHERE table_schema = 'public' AND table_name = 'timeline_summary_embeddings') THEN
-          ALTER TABLE timeline_summary_embeddings ENABLE ROW LEVEL SECURITY;
+        SELECT rolbypassrls INTO has_bypass FROM pg_roles WHERE rolname = current_user;
+        IF has_bypass THEN
+          ALTER TABLE dream_verdicts ENABLE ROW LEVEL SECURITY;
         END IF;
-        IF EXISTS (SELECT 1 FROM information_schema.tables
-                    WHERE table_schema = 'public' AND table_name = 'dream_cycle_promotions') THEN
-          ALTER TABLE dream_cycle_promotions ENABLE ROW LEVEL SECURITY;
-        END IF;
-        RAISE NOTICE 'v27: RLS enabled on dream-cycle internal tables';
       END $$;
     `,
   },
   {
-    version: 28,
-    name: 'content_chunks_code_fts_columns',
-    // v0.20/v0.22 search paths rank against content_chunks.search_vector and
-    // putPage writes code metadata columns. Existing brains created before
-    // those schema additions need an explicit additive migration because
-    // CREATE TABLE IF NOT EXISTS never adds columns to an existing table.
+    version: 31,
+    name: 'rbrain_upstream_collision_repair_and_promotion_tables',
+    // RBrain carried local dream-promotion migrations as v25-v28 before
+    // upstream v0.19-v0.23 also claimed v25-v30. Because the migration runner
+    // stores a single numeric schema version, existing RBrain databases could
+    // otherwise skip upstream v25-v28 after merging upstream. This repair is
+    // intentionally idempotent: it reapplies the upstream additive DDL that may
+    // have been skipped, and installs the RBrain promotion tables under a new
+    // non-conflicting version.
     sql: `
-      ALTER TABLE content_chunks ADD COLUMN IF NOT EXISTS parent_symbol_path TEXT[];
-      ALTER TABLE content_chunks ADD COLUMN IF NOT EXISTS doc_comment TEXT;
-      ALTER TABLE content_chunks ADD COLUMN IF NOT EXISTS symbol_name_qualified TEXT;
-      ALTER TABLE content_chunks ADD COLUMN IF NOT EXISTS search_vector TSVECTOR;
+      -- Upstream v25/v26 repair.
+      ALTER TABLE pages
+        ADD COLUMN IF NOT EXISTS page_kind TEXT NOT NULL DEFAULT 'markdown';
 
-      CREATE INDEX IF NOT EXISTS idx_chunks_search_vector ON content_chunks USING GIN(search_vector);
+      ALTER TABLE content_chunks
+        ADD COLUMN IF NOT EXISTS language TEXT,
+        ADD COLUMN IF NOT EXISTS symbol_name TEXT,
+        ADD COLUMN IF NOT EXISTS symbol_type TEXT,
+        ADD COLUMN IF NOT EXISTS start_line INTEGER,
+        ADD COLUMN IF NOT EXISTS end_line INTEGER,
+        ADD COLUMN IF NOT EXISTS parent_symbol_path TEXT[],
+        ADD COLUMN IF NOT EXISTS doc_comment TEXT,
+        ADD COLUMN IF NOT EXISTS symbol_name_qualified TEXT,
+        ADD COLUMN IF NOT EXISTS search_vector TSVECTOR;
+
+      CREATE INDEX IF NOT EXISTS idx_chunks_symbol_name
+        ON content_chunks(symbol_name) WHERE symbol_name IS NOT NULL;
+      CREATE INDEX IF NOT EXISTS idx_chunks_language
+        ON content_chunks(language) WHERE language IS NOT NULL;
+      CREATE INDEX IF NOT EXISTS idx_chunks_search_vector
+        ON content_chunks USING GIN(search_vector);
       CREATE INDEX IF NOT EXISTS idx_chunks_symbol_qualified
         ON content_chunks(symbol_name_qualified) WHERE symbol_name_qualified IS NOT NULL;
+
+      ALTER TABLE sources
+        ADD COLUMN IF NOT EXISTS chunker_version TEXT;
+
+      -- Upstream v27-v29 repair.
+      CREATE TABLE IF NOT EXISTS code_edges_chunk (
+        id                    SERIAL PRIMARY KEY,
+        from_chunk_id         INTEGER NOT NULL REFERENCES content_chunks(id) ON DELETE CASCADE,
+        to_chunk_id           INTEGER NOT NULL REFERENCES content_chunks(id) ON DELETE CASCADE,
+        from_symbol_qualified TEXT NOT NULL,
+        to_symbol_qualified   TEXT NOT NULL,
+        edge_type             TEXT NOT NULL,
+        edge_metadata         JSONB NOT NULL DEFAULT '{}',
+        source_id             TEXT REFERENCES sources(id) ON DELETE CASCADE,
+        created_at            TIMESTAMPTZ NOT NULL DEFAULT now(),
+        CONSTRAINT code_edges_chunk_unique UNIQUE (from_chunk_id, to_chunk_id, edge_type)
+      );
+
+      CREATE INDEX IF NOT EXISTS idx_code_edges_chunk_from
+        ON code_edges_chunk(from_chunk_id, edge_type);
+      CREATE INDEX IF NOT EXISTS idx_code_edges_chunk_to
+        ON code_edges_chunk(to_chunk_id, edge_type);
+      CREATE INDEX IF NOT EXISTS idx_code_edges_chunk_to_symbol
+        ON code_edges_chunk(to_symbol_qualified, edge_type);
+
+      CREATE TABLE IF NOT EXISTS code_edges_symbol (
+        id                    SERIAL PRIMARY KEY,
+        from_chunk_id         INTEGER NOT NULL REFERENCES content_chunks(id) ON DELETE CASCADE,
+        from_symbol_qualified TEXT NOT NULL,
+        to_symbol_qualified   TEXT NOT NULL,
+        edge_type             TEXT NOT NULL,
+        edge_metadata         JSONB NOT NULL DEFAULT '{}',
+        source_id             TEXT REFERENCES sources(id) ON DELETE CASCADE,
+        created_at            TIMESTAMPTZ NOT NULL DEFAULT now(),
+        CONSTRAINT code_edges_symbol_unique UNIQUE (from_chunk_id, to_symbol_qualified, edge_type)
+      );
+
+      CREATE INDEX IF NOT EXISTS idx_code_edges_symbol_from
+        ON code_edges_symbol(from_chunk_id, edge_type);
+      CREATE INDEX IF NOT EXISTS idx_code_edges_symbol_to
+        ON code_edges_symbol(to_symbol_qualified, edge_type);
 
       CREATE OR REPLACE FUNCTION update_chunk_search_vector() RETURNS TRIGGER AS $fn$
       BEGIN
@@ -1213,24 +1240,47 @@ export const MIGRATIONS: Migration[] = [
         setweight(to_tsvector('english', COALESCE(chunk_text, '')), 'B')
       WHERE search_vector IS NULL;
 
+      -- RBrain promotion tables, renumbered out of upstream's range.
+      CREATE TABLE IF NOT EXISTS timeline_summary_embeddings (
+        summary_hash TEXT PRIMARY KEY,
+        summary_text TEXT NOT NULL,
+        embedding VECTOR(1536) NOT NULL,
+        embedded_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+      );
+      CREATE INDEX IF NOT EXISTS idx_timeline_summary_embeddings_cosine
+        ON timeline_summary_embeddings USING ivfflat (embedding vector_cosine_ops);
+
+      CREATE TABLE IF NOT EXISTS dream_cycle_promotions (
+        pattern_hash TEXT PRIMARY KEY,
+        cluster_id TEXT NOT NULL,
+        target_slug TEXT NOT NULL,
+        pattern_text TEXT NOT NULL,
+        recurrence INTEGER NOT NULL,
+        score REAL NOT NULL,
+        promoted_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+      );
+      CREATE INDEX IF NOT EXISTS idx_dream_cycle_promotions_target
+        ON dream_cycle_promotions(target_slug);
+      CREATE INDEX IF NOT EXISTS idx_dream_cycle_promotions_cluster
+        ON dream_cycle_promotions(cluster_id);
+      CREATE INDEX IF NOT EXISTS idx_dream_cycle_promotions_promoted_at
+        ON dream_cycle_promotions(promoted_at DESC);
+
       DO $$
       DECLARE
         has_bypass BOOLEAN;
       BEGIN
         SELECT rolbypassrls INTO has_bypass FROM pg_roles WHERE rolname = current_user;
         IF has_bypass THEN
-          IF EXISTS (SELECT 1 FROM information_schema.tables
-                      WHERE table_schema = 'public' AND table_name = 'code_edges_chunk') THEN
-            ALTER TABLE code_edges_chunk ENABLE ROW LEVEL SECURITY;
-          END IF;
-          IF EXISTS (SELECT 1 FROM information_schema.tables
-                      WHERE table_schema = 'public' AND table_name = 'code_edges_symbol') THEN
-            ALTER TABLE code_edges_symbol ENABLE ROW LEVEL SECURITY;
-          END IF;
+          ALTER TABLE code_edges_chunk ENABLE ROW LEVEL SECURITY;
+          ALTER TABLE code_edges_symbol ENABLE ROW LEVEL SECURITY;
+          ALTER TABLE timeline_summary_embeddings ENABLE ROW LEVEL SECURITY;
+          ALTER TABLE dream_cycle_promotions ENABLE ROW LEVEL SECURITY;
         END IF;
       END $$;
     `,
   },
+
 ];
 
 export const LATEST_VERSION = MIGRATIONS.length > 0

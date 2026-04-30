@@ -142,16 +142,22 @@ describe('check-resolvable — unit: resolveSkillsDir', () => {
     // Temporarily chdir to a guaranteed-empty tmpdir. findRepoRoot will walk
     // up and fail to find skills/RESOLVER.md.
     const empty = mkdtempSync(join(tmpdir(), 'empty-for-resolve-'));
+    const home = mkdtempSync(join(tmpdir(), 'empty-home-for-resolve-'));
     const original = process.cwd();
+    const originalHome = process.env.HOME;
     try {
       process.chdir(empty);
+      process.env.HOME = home;
       const r = resolveSkillsDir({ help: false, json: false, fix: false, dryRun: false, verbose: false, strict: false, skillsDir: null });
       expect(r.error).toBe('no_skills_dir');
       expect(r.dir).toBeNull();
       expect(typeof r.message).toBe('string');
     } finally {
       process.chdir(original);
+      if (originalHome === undefined) delete process.env.HOME;
+      else process.env.HOME = originalHome;
       rmSync(empty, { recursive: true, force: true });
+      rmSync(home, { recursive: true, force: true });
     }
   });
 

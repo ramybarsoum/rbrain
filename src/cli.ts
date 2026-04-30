@@ -19,7 +19,14 @@ for (const op of operations) {
 }
 
 // CLI-only commands that bypass the operation layer
-const CLI_ONLY = new Set(['init', 'upgrade', 'post-upgrade', 'check-update', 'integrations', 'publish', 'check-backlinks', 'lint', 'report', 'import', 'export', 'files', 'embed', 'serve', 'call', 'config', 'doctor', 'migrate', 'eval', 'sync', 'extract', 'features', 'autopilot', 'dream-cycle']);
+const CLI_ONLY = new Set([
+  'init', 'upgrade', 'post-upgrade', 'check-update', 'integrations', 'auth', 'resolvers',
+  'integrity', 'publish', 'check-backlinks', 'frontmatter', 'lint', 'check-resolvable',
+  'routing-eval', 'skillify', 'skillpack', 'friction', 'claw-test', 'report',
+  'apply-migrations', 'repair-jsonb', 'skillpack-check', 'import', 'export', 'files',
+  'embed', 'serve', 'call', 'config', 'doctor', 'migrate', 'eval', 'sync', 'extract',
+  'features', 'autopilot', 'dream-cycle',
+]);
 
 async function main() {
   // Parse global flags (--quiet / --progress-json / --progress-interval)

@@ -2,7 +2,7 @@ import { PGlite } from '@electric-sql/pglite';
 import { vector } from '@electric-sql/pglite/vector';
 import { pg_trgm } from '@electric-sql/pglite/contrib/pg_trgm';
 import type { Transaction } from '@electric-sql/pglite';
-import type { BrainEngine, LinkBatchInput, TimelineBatchInput, ReservedConnection } from './engine.ts';
+import type { BrainEngine, LinkBatchInput, TimelineBatchInput, ReservedConnection, DreamVerdict, DreamVerdictInput } from './engine.ts';
 import { MAX_SEARCH_LIMIT, clampSearchLimit } from './engine.ts';
 import { runMigrations } from './migrate.ts';
 import { PGLITE_SCHEMA_SQL } from './pglite-schema.ts';
@@ -1182,6 +1182,39 @@ export class PGLiteEngine implements BrainEngine {
       );
     }
     return result.rows as unknown as RawData[];
+  }
+
+  // Dream-cycle significance verdict cache (v0.23).
+  async getDreamVerdict(filePath: string, contentHash: string): Promise<DreamVerdict | null> {
+    const result = await this.db.query<{
+      worth_processing: boolean;
+      reasons: string[] | null;
+      judged_at: Date | string;
+    }>(
+      `SELECT worth_processing, reasons, judged_at
+       FROM dream_verdicts
+       WHERE file_path = $1 AND content_hash = $2`,
+      [filePath, contentHash]
+    );
+    if (result.rows.length === 0) return null;
+    const r = result.rows[0];
+    return {
+      worth_processing: r.worth_processing,
+      reasons: r.reasons ?? [],
+      judged_at: r.judged_at instanceof Date ? r.judged_at.toISOString() : String(r.judged_at),
+    };
+  }
+
+  async putDreamVerdict(filePath: string, contentHash: string, verdict: DreamVerdictInput): Promise<void> {
+    await this.db.query(
+      `INSERT INTO dream_verdicts (file_path, content_hash, worth_processing, reasons)
+       VALUES ($1, $2, $3, $4::jsonb)
+       ON CONFLICT (file_path, content_hash) DO UPDATE SET
+         worth_processing = EXCLUDED.worth_processing,
+         reasons = EXCLUDED.reasons,
+         judged_at = now()`,
+      [filePath, contentHash, verdict.worth_processing, JSON.stringify(verdict.reasons)]
+    );
   }
 
   // Versions

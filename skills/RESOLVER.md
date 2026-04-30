@@ -28,6 +28,7 @@ Never guess about people, companies, skills, or MCPs. The resolver has the answe
 | Creating/enriching a person or company page | `skills/enrich/SKILL.md` |
 | Where does a new file go? Filing rules | `skills/repo-architecture/SKILL.md` |
 | "fix citations", "citation audit" | `skills/citation-fixer/SKILL.md` |
+| "validate frontmatter", "check frontmatter", "fix frontmatter", "frontmatter audit", "brain lint" | `skills/frontmatter-guard/SKILL.md` |
 | "Research", "track", "extract from email", "investor updates", "donations" | `skills/data-research/SKILL.md` |
 | Share a brain page as a link | `skills/publish/SKILL.md` |
 | "Weekly signal diff", "what changed this week" | `skills/weekly-signal-diff/SKILL.md` |
@@ -41,6 +42,7 @@ Never guess about people, companies, skills, or MCPs. The resolver has the answe
 | User shares an article with learning intent ("what can I learn", "extract learnings") | `skills/article-learning/SKILL.md` (review only, can chain after idea-ingest) |
 | User approves numbered article changes ("1, 3, 5", "all except 2", "apply them") | `skills/article-apply-changes/SKILL.md` |
 | Video, audio, PDF, book, YouTube, screenshot | `skills/media-ingest/SKILL.md` |
+| "notebooklm", "load channel", "expert interview", "notebooklm ask", "health protocol", "cite podcast", "notebooklm query" | `skills/notebooklm/SKILL.md` |
 | Meeting transcript received | `skills/meeting-ingestion/SKILL.md` |
 | "enrich attendees", "meeting follow-up enrichment", "build people pages from meeting" | `skills/meeting-attendee-enrich/SKILL.md` |
 | Generic "ingest this" (auto-routes to above) | `skills/ingest/SKILL.md` |
@@ -119,6 +121,7 @@ Never guess about people, companies, skills, or MCPs. The resolver has the answe
 | "Migrate from Obsidian/Notion/Logseq" | `skills/migrate/SKILL.md` |
 | Brain health check, maintenance run | `skills/maintain/SKILL.md` |
 | "Extract links", "build link graph", "populate timeline" | `skills/maintain/SKILL.md` (extraction sections) |
+| "Run dream", "process today's session", "synthesize my conversations", "consolidate yesterday's conversations", "what patterns did you see", "did the dream cycle run" | `skills/maintain/SKILL.md` (dream cycle section) |
 | "Brain health", "what features am I missing", "brain score" | Run `gbrain features --json` |
 | "Set up autopilot", "run brain maintenance", "keep brain updated" | Run `gbrain autopilot --install --repo ~/brain` |
 | Agent identity, "who am I", customize agent | `skills/soul-audit/SKILL.md` |

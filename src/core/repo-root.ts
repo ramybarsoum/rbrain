@@ -78,8 +78,8 @@ function resolveWorkspaceSkillsDir(
 /**
  * Auto-detect the skills directory. Priority (D-CX-4, post-codex-review):
  *   1. $OPENCLAW_WORKSPACE when explicitly set (env > repo-root walk)
- *   2. ~/.openclaw/workspace/ (user's default OpenClaw deployment)
- *   3. findRepoRoot() walk from cwd (gbrain's own repo)
+ *   2. findRepoRoot() walk from cwd (gbrain's own repo)
+ *   3. ~/.openclaw/workspace/ (user's default OpenClaw deployment)
  *   4. ./skills fallback (dev scratch, fixtures)
  *
  * The prior order put `findRepoRoot` first, which meant
@@ -107,7 +107,15 @@ export function autoDetectSkillsDir(
     if (resolved) return resolved;
   }
 
-  // 2. ~/.openclaw/workspace as the default user-level OpenClaw deployment.
+  // 2. gbrain repo walk from cwd. This wins over the implicit ~/.openclaw
+  // deployment so repo-local developer/test runs are not shadowed by the
+  // user's default OpenClaw workspace.
+  const repoRoot = findRepoRoot(startDir);
+  if (repoRoot && isGbrainRepoRoot(repoRoot)) {
+    return { dir: join(repoRoot, 'skills'), source: 'repo_root' };
+  }
+
+  // 3. ~/.openclaw/workspace as the default user-level OpenClaw deployment.
   if (env.HOME) {
     const workspace = join(env.HOME, '.openclaw', 'workspace');
     const resolved = resolveWorkspaceSkillsDir(
@@ -116,12 +124,6 @@ export function autoDetectSkillsDir(
       'openclaw_workspace_home_root',
     );
     if (resolved) return resolved;
-  }
-
-  // 3. gbrain repo walk from cwd.
-  const repoRoot = findRepoRoot(startDir);
-  if (repoRoot && isGbrainRepoRoot(repoRoot)) {
-    return { dir: join(repoRoot, 'skills'), source: 'repo_root' };
   }
 
   // 4. ./skills fallback.
@@ -148,7 +150,7 @@ function isGbrainRepoRoot(dir: string): boolean {
 export const AUTO_DETECT_HINT = [
   `  1. --skills-dir flag`,
   `  2. $OPENCLAW_WORKSPACE/{skills/,}{${RESOLVER_FILENAMES.join(',')}}`,
-  `  3. ~/.openclaw/workspace/{skills/,}{${RESOLVER_FILENAMES.join(',')}}`,
-  `  4. repo root with skills/${RESOLVER_FILENAMES.join(' or skills/')}`,
+  `  3. repo root with skills/${RESOLVER_FILENAMES.join(' or skills/')}`,
+  `  4. ~/.openclaw/workspace/{skills/,}{${RESOLVER_FILENAMES.join(',')}}`,
   `  5. ./skills/${RESOLVER_FILENAMES.join(' or ./skills/')}`,
 ].join('\n');
