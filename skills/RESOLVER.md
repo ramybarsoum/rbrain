@@ -11,6 +11,18 @@ Before any task, read these files in order:
 
 Never guess about people, companies, skills, or MCPs. The resolver has the answer.
 
+## Skill source of truth
+
+Use **`~/RBrain/.agents/skills/`** as the single canonical shared skill root for Cole, Max, Hermes, OpenClaw, Claude Code, Codex, Cursor, Gemini CLI, and other agents.
+
+Lookup order:
+
+1. **RBrain-native operating skills:** `~/RBrain/skills/<skill>/SKILL.md` — skills that are part of this fork's durable operating system, brain workflows, and repo playbooks.
+2. **Shared installed/cross-agent skills:** `~/RBrain/.agents/skills/<skill>/SKILL.md` or `~/RBrain/.agents/skills/<category>/<skill>/SKILL.md` — external/shared skills usable by any agent.
+3. **Legacy Hermes path:** `~/.hermes/skills` must be treated as a compatibility symlink/shim to `~/RBrain/.agents/skills/`, not as an independent source of truth.
+
+When adding or migrating shared skills, install/copy them into `~/RBrain/.agents/skills/`. Do not create a second divergent skill copy under `~/.hermes/skills`.
+
 ## Always-on (every message)
 
 | Trigger | Skill |
@@ -26,6 +38,7 @@ Never guess about people, companies, skills, or MCPs. The resolver has the answe
 | "Who knows who", "relationship between", "connections", "graph query" | `skills/query/SKILL.md` (use graph-query) |
 | "who is" | `skills/query/SKILL.md` (natural-language lookups) |
 | Creating/enriching a person or company page | `skills/enrich/SKILL.md` |
+| "validate frontmatter", "fix frontmatter", "frontmatter audit" | `skills/frontmatter-guard/SKILL.md` |
 | Where does a new file go? Filing rules | `skills/repo-architecture/SKILL.md` |
 | "fix citations", "citation audit" | `skills/citation-fixer/SKILL.md` |
 | "validate frontmatter", "check frontmatter", "fix frontmatter", "frontmatter audit", "brain lint" | `skills/frontmatter-guard/SKILL.md` |
@@ -48,20 +61,33 @@ Never guess about people, companies, skills, or MCPs. The resolver has the answe
 | Generic "ingest this" (auto-routes to above) | `skills/ingest/SKILL.md` |
 | Large file (>10MB), bulk document ingestion | `skills/heavy-file-ingestion/SKILL.md` |
 
-## Thinking skills (from GStack)
+## Thinking skills (from GStack + shared skills)
 
 | Trigger | Skill |
 |---------|-------|
 | "Brainstorm", "I have an idea", "office hours" | GStack: office-hours |
 | "Review this plan", "CEO review", "poke holes" | GStack: ceo-review |
-| "Grill me", "stress test this plan", "challenge this design" | `skills/grill-me/SKILL.md` |
-| "Write a PRD", "create a PRD", "plan a new feature" | `skills/write-a-prd/SKILL.md` |
-| "Break PRD into issues", "PRD to tickets", "create issues from PRD" | `skills/prd-to-issues/SKILL.md` |
-| "Debug", "fix", "broken", "investigate" | GStack: investigate |
+| "Grill me", "stress test this plan", "challenge this design" | Prefer `skills/grill-me/SKILL.md`; fallback/alternate: `.agents/skills/grill-me/SKILL.md` |
+| "Grill this with docs", "stress test against docs/domain language", "challenge against CONTEXT/ADRs" | `.agents/skills/grill-with-docs/SKILL.md` |
+| "Write a PRD", "create a PRD", "plan a new feature" | Prefer `skills/write-a-prd/SKILL.md`; for issue-tracker PRD publishing use `.agents/skills/to-prd/SKILL.md` |
+| "Break PRD into issues", "PRD to tickets", "create issues from PRD" | Prefer `skills/prd-to-issues/SKILL.md`; for issue-tracker vertical slices use `.agents/skills/to-issues/SKILL.md` |
+| "Debug", "fix", "broken", "investigate" | Prefer `.agents/skills/diagnose/SKILL.md`; fallback GStack: investigate |
 | "Retro", "what shipped", "retrospective" | GStack: retro |
+| "Zoom out", "give broader context", "how does this code fit together" | `.agents/skills/zoom-out/SKILL.md` |
+| "Explain simply", "caveman mode", "make this brutally clear" | `.agents/skills/caveman/SKILL.md` |
 
-> These skills come from GStack. If GStack is installed, the agent reads them directly.
-> If not, brain-only mode still works (brain skills function without thinking skills).
+> GStack skills are read directly when installed. Shared installed skills live under `~/RBrain/.agents/skills/`.
+> If both a native RBrain skill and a shared skill match, prefer the native RBrain skill unless the user explicitly asks for Matt Pocock's workflow or issue-tracker publishing.
+
+## Engineering workflow skills (Matt Pocock shared skills)
+
+| Trigger | Skill |
+|---------|-------|
+| First use of Matt Pocock engineering skills; skills lack repo context; need issue tracker / triage label / domain-doc setup | `.agents/skills/setup-matt-pocock-skills/SKILL.md` |
+| "Use TDD", "red-green-refactor", "test-first", "write integration tests first" | `.agents/skills/tdd/SKILL.md` |
+| "Improve architecture", "refactor opportunities", "make this codebase more testable", "AI-navigable architecture" | `.agents/skills/improve-codebase-architecture/SKILL.md` |
+| "Triage issues", "review incoming bugs/features", "prepare issues for AFK agent", "issue workflow" | `.agents/skills/triage/SKILL.md` |
+| "Create/write/build a skill" and the requested output is a portable agent skill | `.agents/skills/write-a-skill/SKILL.md` |
 
 ## Operational
 
@@ -82,6 +108,7 @@ Never guess about people, companies, skills, or MCPs. The resolver has the answe
 | Webhook setup, external event processing | `skills/webhook-transforms/SKILL.md` |
 | Continuous learning, knowledge extraction | `skills/claudeception/SKILL.md` |
 | "nightly learnings", "collect today's learnings", "what did I learn today", "extract daily insights" | `skills/nightly-learnings-collector/SKILL.md` (autonomous nightly counterpart to claudeception) |
+| "NotebookLM", "expert podcast protocol", "personalized cited protocol" | `skills/notebooklm/SKILL.md` |
 | "Context rescue", "save this session", long conversation cleanup | `skills/context-rescue/SKILL.md` |
 | "Spawn agent", "background task", "parallel tasks", "steer agent", "pause/resume agent", "gbrain jobs submit", "submit a gbrain job", "submit a shell job", "shell job" | `skills/minion-orchestrator/SKILL.md` |
 

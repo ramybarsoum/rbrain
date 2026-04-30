@@ -67,3 +67,7 @@ apps/*/.env.*
 media/x/
 media/articles/
 meetings/transcripts/
+# Python local caches
+__pycache__/
+*.pyc
+

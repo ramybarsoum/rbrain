@@ -54,6 +54,12 @@ The runtime then links to the RBrain-owned profile:
 
 Keep the harness thin and the skills fat. Agent profiles should define identity, boundaries, and routing. Durable methods belong in `skills/`, docs, recipes, cron jobs, or the brain itself.
 
+## Handoff Delivery
+
+In shared handoff channels, task assignment must start with the receiving agent's literal tag/mention. For example, a Cole-to-Max handoff in `#agent-handoffs` should begin with Max's tag before the context and next action.
+
+An untagged handoff is not considered delivered. If the receiving agent cannot see the tagged message, route the task through the owner or the receiving agent's direct channel instead of assuming progress will start.
+
 ## Secrets
 
 Use 1Password for shared secrets when possible. Keep plaintext `.env` files local and gitignored, or replace them with secret-reference env files that `op run` resolves at runtime.

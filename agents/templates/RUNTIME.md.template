@@ -17,5 +17,7 @@
 ## Handoff Notes
 
 - Use the handoff channel for cross-agent transfers.
+- When assigning work to another agent in the handoff channel, start the message with that agent's literal tag/mention so the runtime routes it.
+- If you cannot tag the receiving agent, do not assume the handoff succeeded; ask the owner to route it manually or use the receiving agent's direct channel.
 - Keep handoffs compact and evidence-backed.
 - Never include secrets in handoffs.
