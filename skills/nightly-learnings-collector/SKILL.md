@@ -195,6 +195,8 @@ The final response is the Discord digest from Phase 5. Keep it scannable. Mornin
 
 ## Anti-Patterns
 
+> **Filing rule:** `skills/_brain-filing-rules.md` remains the source of truth for the notability gate; these are operational reminders only.
+
 - Extracting routine operations as "learnings" (noise pollution)
 - Creating junk pages that fail the notability gate
 - Duplicating insights already captured by dream-cycle or daily-digest

@@ -4,7 +4,7 @@ version: 1.0.0
 description: |
   Follow-up to meeting-ingestion. Given a freshly ingested meeting page,
   enrich every attendee without an existing people page. Applies notability
-  gate per attendee, creates Tier 1/2 pages via the enrich skill, skips
+  filtering per attendee, creates Tier 1/2 pages via the enrich skill, skips
   non-notable with an explicit log. Guarantees no attendee is left as an
   unresolved name string.
 triggers:
@@ -26,7 +26,7 @@ mutating: true
 
 # Meeting Attendee Enrich Skill
 
-> **Filing rule:** see [skills/_brain-filing-rules.md](../_brain-filing-rules.md) — read before creating any new page.
+> **Filing rule:** see `skills/_brain-filing-rules.md` — read before creating any new page.
 > **Convention:** see [skills/conventions/quality.md](../conventions/quality.md) — Iron Law no-silent-skip applies to every attendee.
 > **Delegates to:** `skills/enrich/SKILL.md` for actual page writes. This skill
 > is the decision layer (who to enrich, at what tier); enrich does the work.
@@ -84,11 +84,11 @@ Remove from the enrichment candidate set:
 
 Log filtered entries to the skip log with reason `filtered_pre_gate`.
 
-### Phase 3: Notability gate (per candidate)
+### Phase 3: Notability filtering (per candidate)
 
-> **Filing rule:** see [skills/_brain-filing-rules.md](../_brain-filing-rules.md) — the notability gate, tier criteria, and skip rules below are project-specific operationalizations of the convention defined there. The convention is the source of truth; this section is a per-skill cheat sheet for fast operation.
+> **Filing rule:** see `skills/_brain-filing-rules.md` — the notability filtering rules, tier criteria, and skip rules below are project-specific operationalizations of the convention defined there. The convention is the source of truth; this section is a per-skill cheat sheet for fast operation.
 
-For each remaining attendee, apply the notability gate. This is the critical
+For each remaining attendee, apply notability filtering. This is the critical
 decision — DO NOT create pages for people who don't meet the gate.
 
 | Tier | Criteria | Examples |
@@ -162,7 +162,7 @@ reports/enrichment/YYYY-MM-DD-meeting-{meeting-slug}.md
 Contents: attendee count, tier distribution, created vs updated counts,
 skipped count with reasons, ambiguous flags, rate-limit overflow.
 
-## Notability Gate: Decision Examples
+## Notability Decision Examples
 
 These are the judgment calls this skill is for. When in doubt, bias TOWARD
 skip and log the reason — an unenriched attendee is recoverable, an over-enriched
@@ -212,7 +212,7 @@ Human summary: "Enriched N/M attendees. Created K new people pages (T1: a, T2: b
 
 - Creating Tier 1 pages for every attendee (cost blowup, noise in search)
 - Creating stub pages for non-notable attendees just to "cover" them
-- Skipping the notability gate because the meeting feels important ("everyone here must be notable" → no, the coordinator isn't)
+- Skipping notability filtering because the meeting feels important ("everyone here must be notable" → no, the coordinator isn't)
 - Running enrichment before the meeting page is written (no attendee context)
 - Writing new pages without back-linking the source meeting
 - Silently dropping ambiguous names instead of flagging for human review

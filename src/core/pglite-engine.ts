@@ -98,6 +98,7 @@ export class PGLiteEngine implements BrainEngine {
     const isExistingBrain = probe.rows[0]?.rel !== null;
 
     if (isExistingBrain) {
+      await this.applyForwardReferenceBootstrap();
       const { applied } = await runMigrations(this);
       if (applied > 0) {
         console.log(`  ${applied} migration(s) applied`);
