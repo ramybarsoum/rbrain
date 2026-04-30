@@ -53,3 +53,17 @@ dashboard/node_modules/
 dashboard/*.tsbuildinfo
 dashboard/.vercel/
 .next/
+
+# Nested apps (Remotion/Next/etc.) — commit source + lockfiles, never deps/build outputs
+apps/*/node_modules/
+apps/*/out/
+apps/*/dist/
+apps/*/build/
+apps/*/.env
+apps/*/.env.*
+!apps/*/.env.*.example
+
+# Auto-managed by gbrain (db_only directories)
+media/x/
+media/articles/
+meetings/transcripts/

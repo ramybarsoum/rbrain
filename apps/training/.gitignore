@@ -1,0 +1,8 @@
+node_modules
+build
+dist
+.DS_Store
+.env
+
+# Ignore rendered videos / generated bundles, but not source assets under src/.
+out
