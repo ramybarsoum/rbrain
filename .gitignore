@@ -71,3 +71,13 @@ meetings/transcripts/
 __pycache__/
 *.pyc
 
+# Local Book Mirror raw/generated artifacts (private/copyrighted/heavy)
+drafts/book-mirror/source-files/
+drafts/book-mirror/notebooklm/
+drafts/book-mirror/generated/
+drafts/book-mirror/*.pdf
+drafts/book-mirror/*.mp3
+drafts/book-mirror/*.pptx
+
+# Local runtime memory/cache; durable memory belongs in docs/reports/pages
+memory/
