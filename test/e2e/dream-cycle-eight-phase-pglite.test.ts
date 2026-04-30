@@ -1,13 +1,14 @@
 /**
- * E2E full 8-phase cycle on PGLite, no API key required.
+ * E2E full RBrain cycle on PGLite, no API key required.
  *
  * Verifies that the v0.23 phase order — lint → backlinks → sync →
- * synthesize → extract → patterns → embed → orphans — is honored
- * end-to-end through runCycle when no API key is present (synthesize
- * + patterns skip cleanly, the other six phases run unchanged).
+ * synthesize → extract → patterns → embed → orphans — plus RBrain's
+ * local promotion phase is honored end-to-end through runCycle when no
+ * API key is present (synthesize + patterns skip cleanly, the other
+ * phases run unchanged).
  *
  * Two regression-relevant invariants:
- *   1. CycleReport.phases preserves the 8-phase order — no future
+ *   1. CycleReport.phases preserves the RBrain phase order — no future
  *      reorder regresses without breaking this test.
  *   2. CycleReport.totals carries the new v0.23 fields:
  *      transcripts_processed, synth_pages_written, patterns_written.
@@ -80,21 +81,24 @@ async function withoutAnthropicKey<T>(body: () => Promise<T>): Promise<T> {
   }
 }
 
-describe('E2E v0.23 8-phase cycle', () => {
-  test('ALL_PHASES is the 8-phase order in the documented sequence', () => {
-    expect(ALL_PHASES).toEqual([
-      'lint',
-      'backlinks',
-      'sync',
-      'synthesize',
-      'extract',
-      'patterns',
-      'embed',
-      'orphans',
-    ]);
+const EXPECTED_RBRAIN_PHASES = [
+  'lint',
+  'backlinks',
+  'sync',
+  'synthesize',
+  'extract',
+  'patterns',
+  'embed',
+  'orphans',
+  'promotion',
+];
+
+describe('E2E v0.23 RBrain cycle', () => {
+  test('ALL_PHASES preserves upstream v0.23 order plus RBrain promotion', () => {
+    expect(ALL_PHASES).toEqual(EXPECTED_RBRAIN_PHASES);
   });
 
-  test('full cycle on dry-run returns CycleReport.phases in v0.23 order with new totals fields', async () => {
+  test('full cycle on dry-run returns CycleReport.phases in RBrain order with new totals fields', async () => {
     const rig = await setupRig();
     try {
       await withoutAnthropicKey(async () => {
@@ -104,16 +108,7 @@ describe('E2E v0.23 8-phase cycle', () => {
         });
         // Phase ordering preserved
         const phaseNames = report.phases.map(p => p.phase);
-        expect(phaseNames).toEqual([
-          'lint',
-          'backlinks',
-          'sync',
-          'synthesize',
-          'extract',
-          'patterns',
-          'embed',
-          'orphans',
-        ]);
+        expect(phaseNames).toEqual(EXPECTED_RBRAIN_PHASES);
         // New totals fields exist (v0.23 additive growth)
         expect(report.totals).toMatchObject({
           transcripts_processed: 0,
