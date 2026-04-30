@@ -12,6 +12,8 @@ import { loadConfig, saveConfig, toEngineConfig, gbrainPath, type GBrainConfig }
 import type { BrainEngine } from '../core/engine.ts';
 import type { EngineConfig } from '../core/types.ts';
 import { writeFileSync, readFileSync, existsSync, unlinkSync } from 'fs';
+import { join } from 'path';
+import { homedir } from 'os';
 import { createProgress } from '../core/progress.ts';
 import { getCliOptions, cliOptsToProgressOptions } from '../core/cli-options.ts';
 

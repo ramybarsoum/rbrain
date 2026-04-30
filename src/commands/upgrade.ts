@@ -178,41 +178,6 @@ export async function runPostUpgrade(args: string[] = []): Promise<void> {
     console.log('Idempotent — safe to re-run any time.');
     return;
   }
-  // Cosmetic: print feature pitches for migrations newer than the prior binary.
-  try {
-    const statePath = join(process.env.HOME || '', '.rbrain', 'upgrade-state.json');
-    if (!existsSync(statePath)) return;
-    const state = JSON.parse(readFileSync(statePath, 'utf-8'));
-    const lastUpgrade = state.last_upgrade;
-    if (!lastUpgrade?.from || !lastUpgrade?.to) return;
-
-    // Find migration files in version range
-    const migrationsDir = findMigrationsDir();
-    if (!migrationsDir) return;
-
-    const files = readdirSync(migrationsDir)
-      .filter(f => f.match(/^v\d+\.\d+\.\d+\.md$/))
-      .sort();
-
-    for (const file of files) {
-      const version = file.replace(/^v/, '').replace(/\.md$/, '');
-      if (isNewerThan(version, lastUpgrade.from)) {
-        const content = readFileSync(join(migrationsDir, file), 'utf-8');
-        const pitch = extractFeaturePitch(content);
-        if (pitch) {
-          console.log('');
-          console.log(`NEW: ${pitch.headline}`);
-          if (pitch.description) console.log(pitch.description);
-          if (pitch.recipe) {
-            console.log(`Run \`gbrain integrations show ${pitch.recipe}\` to set it up.`);
-          }
-        }
-      }
-    }
-  } catch {
-    // Pitch printing is cosmetic — don't gate migrations on it.
-  }
-
   // Mechanical: run every outstanding migration. Idempotent; exits 0 quickly
   // when nothing is pending. Stays inside the same process so a long Phase F
   // (autopilot install) doesn't hit a subprocess boundary.

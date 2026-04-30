@@ -191,14 +191,6 @@ async function initPostgres(opts: { databaseUrl: string; jsonOutput: boolean; ap
       // Non-fatal
     }
 
-  const config: GBrainConfig = {
-    engine: 'postgres',
-    database_url: databaseUrl,
-    ...(opts.apiKey ? { openai_api_key: opts.apiKey } : {}),
-  };
-  saveConfig(config);
-  console.log('Config saved to ~/.gbrain/config.json');
-
     const config: GBrainConfig = {
       engine: 'postgres',
       database_url: databaseUrl,
