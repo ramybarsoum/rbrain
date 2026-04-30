@@ -25,6 +25,7 @@ import { join } from 'path';
 import { execSync } from 'child_process';
 import { tmpdir } from 'os';
 import { PGLiteEngine } from '../../src/core/pglite-engine.ts';
+import type { CyclePhase } from '../../src/core/cycle.ts';
 
 mock.module('../../src/core/embedding.ts', () => ({
   embed: async () => new Float32Array(1536),
@@ -81,7 +82,7 @@ async function withoutAnthropicKey<T>(body: () => Promise<T>): Promise<T> {
   }
 }
 
-const EXPECTED_RBRAIN_PHASES = [
+const EXPECTED_RBRAIN_PHASES: CyclePhase[] = [
   'lint',
   'backlinks',
   'sync',
