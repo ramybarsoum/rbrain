@@ -377,8 +377,8 @@ describe('runCycle — yieldBetweenPhases hook', () => {
         hookCalls++;
       },
     });
-    // 6 phases → 6 yield calls (one after each).
-    expect(hookCalls).toBe(6);
+    // RBrain's fork cycle has 7 phases (adds promotion after orphans) → 7 yield calls (one after each).
+    expect(hookCalls).toBe(7);
   });
 
   test('hook exceptions do not abort the cycle', async () => {
@@ -389,7 +389,8 @@ describe('runCycle — yieldBetweenPhases hook', () => {
       },
     });
     // Cycle still completed all phases.
-    expect(report.phases.length).toBe(6);
+    expect(report.phases.length).toBe(ALL_PHASES.length);
+    expect(report.phases.map(p => p.phase)).toEqual(ALL_PHASES);
   });
 });
 
