@@ -16,7 +16,7 @@ A cloud service that runs Chromium browsers on demand and exposes them over CDP 
 **When to reach for it (vs local Chrome attach):**
 
 - **Parallel sub-agents.** Each gets its own isolated browser via a distinct `BU_NAME`. No fighting over `/tmp/bu-default.sock`.
-- **Headless servers.** No local Chrome available (Hermes on cole-macbook if running in a remote VM, Wintermute, etc.).
+- **Headless servers.** No local Chrome available (OpenClaw reference deployment running in a remote VM, etc.).
 - **Clean-room automation.** No user cookies or open tabs to interfere with.
 - **Specific-country proxies.** `proxyCountryCode="de"` routes through a German exit for geo-locked sites.
 

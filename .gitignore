@@ -14,6 +14,14 @@ supabase/.temp/
 .claude/settings.local.json
 .obsidian/
 .idea
+eval/reports/
+eval/data/world-v1/world.html
+
+# BrainBench amara-life-v1 Opus cache (regenerate via eval:generate-amara-life)
+eval/data/amara-life-v1/_cache/
+
+# claw-test E2E build cache (shim + scratch outputs)
+test/.cache/
 
 # Personal / RBrain-specific (Ramy's fork) — keep on disk, never commit
 SOUL.md
@@ -81,3 +89,9 @@ drafts/book-mirror/*.pptx
 
 # Local runtime memory/cache; durable memory belongs in docs/reports/pages
 memory/
+.claude/
+export/
+
+# Tier 3 PGLite snapshot fixture (built on demand by build:pglite-snapshot)
+test/fixtures/pglite-snapshot.tar
+test/fixtures/pglite-snapshot.version
