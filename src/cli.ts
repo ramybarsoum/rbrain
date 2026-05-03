@@ -24,7 +24,7 @@ const CLI_ONLY = new Set([
   'integrity', 'publish', 'check-backlinks', 'frontmatter', 'lint', 'check-resolvable',
   'routing-eval', 'skillify', 'skillpack', 'friction', 'claw-test', 'report',
   'apply-migrations', 'repair-jsonb', 'skillpack-check', 'import', 'export', 'files',
-  'embed', 'serve', 'call', 'config', 'doctor', 'migrate', 'eval', 'sync', 'extract',
+  'embed', 'serve', 'call', 'config', 'doctor', 'migrate', 'eval', 'jobs', 'sync', 'extract',
   'features', 'autopilot', 'dream-cycle',
 ]);
 

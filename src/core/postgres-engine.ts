@@ -117,6 +117,8 @@ export class PostgresEngine implements BrainEngine {
       const probe = await conn`SELECT to_regclass('public.config') AS rel`;
       const isExistingBrain = probe[0]?.rel !== null;
 
+      await this.applyForwardReferenceBootstrap();
+
       if (isExistingBrain) {
         // Upgrade path: run pending MIGRATIONS first. SCHEMA_SQL is the
         // *target* snapshot of v(LATEST), and on a pre-LATEST brain it
@@ -375,13 +377,13 @@ export class PostgresEngine implements BrainEngine {
       ? await sql`
           SELECT p.* FROM pages p
           ${tagJoin}
-          WHERE 1=1 ${typeCondition} ${tagCondition} ${updatedCondition}
+          WHERE 1=1 ${typeCondition} ${tagCondition} ${updatedCondition} ${slugCondition}
           ORDER BY p.updated_at DESC OFFSET ${offset}
         `
       : await sql`
           SELECT p.* FROM pages p
           ${tagJoin}
-          WHERE 1=1 ${typeCondition} ${tagCondition} ${updatedCondition}
+          WHERE 1=1 ${typeCondition} ${tagCondition} ${updatedCondition} ${slugCondition}
           ORDER BY p.updated_at DESC LIMIT ${limit} OFFSET ${offset}
         `;
 

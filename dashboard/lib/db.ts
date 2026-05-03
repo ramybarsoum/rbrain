@@ -7,8 +7,10 @@ export function getDb(): ReturnType<typeof postgres> {
   const url = process.env.DATABASE_URL;
   if (!url) throw new Error('DATABASE_URL is not set');
   _sql = postgres(url, {
-    max: 3,
-    idle_timeout: 20,
+    // Vercel serverless can keep several warm function instances alive.
+    // One session per instance avoids exhausting small Supabase session pools.
+    max: 1,
+    idle_timeout: 5,
     connect_timeout: 10,
     prepare: false, // Supabase pgBouncer compatibility
   });

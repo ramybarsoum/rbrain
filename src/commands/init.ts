@@ -199,6 +199,8 @@ async function initPostgres(opts: { databaseUrl: string; jsonOutput: boolean; ap
     saveConfig(config);
     console.log('Config saved to ~/.gbrain/config.json');
 
+    await engine.initSchema();
+
     const stats = await engine.getStats();
 
     if (opts.jsonOutput) {

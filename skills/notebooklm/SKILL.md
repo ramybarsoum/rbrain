@@ -14,6 +14,8 @@ triggers:
   - "health protocol"
   - "cite podcast"
   - "notebooklm query"
+  - "expert podcast protocol"
+  - "personalized cited protocol"
 tools:
   - shell
   - browser

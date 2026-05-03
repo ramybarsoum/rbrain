@@ -5,6 +5,10 @@ description: >
   filler, articles, and pleasantries while keeping full technical accuracy.
   Use when user says "caveman mode", "talk like caveman", "use caveman",
   "less tokens", "be brief", or invokes /caveman.
+triggers:
+  - "Explain simply"
+  - "caveman mode"
+  - "make this brutally clear"
 ---
 
 Respond terse like smart caveman. All technical substance stay. Only fluff die.
